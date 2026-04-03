@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Portfolio Scroll</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f3eee6;
+            --text-dark: #1a1a1a;
+            --accent-red: #c61d23;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Generic Spacer Sections */
+        .spacer {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- HORIZONTAL SCROLL SECTION LOGIC --- */
+        
+        .horizontal-scroll-wrapper {
+            position: relative;
+            /* The 'height' here determines how long the scroll feels. 
+               300vh means you scroll 3 full screen heights to finish the animation */
+            height: 300vh; 
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .scroll-content {
+            display: flex;
+            padding: 0 10vw;
+            will-change: transform;
+            height: 80vh;
+            align-items: center;
+        }
+
+        /* --- STYLING THE CARDS --- */
+
+        .intro-slide {
+            min-width: 40vw;
+            padding-right: 5vw;
+        }
+
+        .intro-slide h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1;
+            font-weight: 400;
+        }
+
+        .museum-card {
+            min-width: 45vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 0 40px;
+            border-left: 1px solid rgba(0,0,0,0.2);
+        }
+
+        .card-header h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .card-info {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 300px;
+        }
+
+        .image-box {
+            width: 100%;
+            flex-grow: 1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .arrow-icon {
+            position: absolute;
+            bottom: 0;
+            left: -30px;
+            font-size: 1.5rem;
+            transform: rotate(-45deg);
+        }
+
+        /* Background Images */
+        .img-1 { background-image: url('https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=1000'); }
+        .img-2 { background-image: url('https://images.unsplash.com/photo-1518998053502-51908d17ca33?q=80&w=1000'); }
+        .img-3 { background-image: url('https://images.unsplash.com/photo-1544333323-c242b442017a?q=80&w=1000'); }
+
+    </style>
+</head>
+<body>
+
+    <section class="spacer">Scroll Down to View Portfolio</section>
+
+    <div class="horizontal-scroll-wrapper" id="scrollWrapper">
+        <div class="sticky-container">
+            
+            <div class="scroll-content" id="scrollContent">
+                
+                <div class="intro-slide">
+                    <h1>One museum<br>two locations</h1>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>The Met Fifth Avenue</h2>
+                        <div class="card-info">
+                            Sunday–Tuesday and Thursday: 10 am–5 pm<br>
+                            Friday and Saturday: 10 am–9 pm<br>
+                            Closed Wednesday
+                        </div>
+                    </div>
+                    <div class="image-box img-1">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>The Met Cloisters</h2>
+                        <div class="card-info">
+                            Thursday–Tuesday: 10 am–4:30 pm<br>
+                            Closed Wednesday
+                        </div>
+                    </div>
+                    <div class="image-box img-2">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>The Modern Wing</h2>
+                        <div class="card-info">
+                            Daily: 11 am–6 pm<br>
+                            Late Night Fridays
+                        </div>
+                    </div>
+                    <div class="image-box img-3">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="spacer">Normal Scroll Resumes</section>
+    <section class="spacer" style="background-color: #1a1a1a; color: white;">Footer / End Section</section>
+
+    <script>
+        const scrollWrapper = document.getElementById('scrollWrapper');
+        const scrollContent = document.getElementById('scrollContent');
+
+        window.addEventListener('scroll', () => {
+            // Get position of the wrapper relative to viewport
+            const wrapperRect = scrollWrapper.getBoundingClientRect();
+            const wrapperTop = wrapperRect.top;
+            const wrapperHeight = wrapperRect.height;
+            const viewportHeight = window.innerHeight;
+
+            // Calculate progress: 0 when wrapper starts entering, 1 when wrapper finishes
+            // We adjust it so it only tracks while the sticky container is "stuck"
+            let progress = -wrapperTop / (wrapperHeight - viewportHeight);
+            
+            // Clamp progress between 0 and 1
+            progress = Math.max(0, Math.min(1, progress));
+
+            // Calculate max horizontal travel
+            // (Total width of content minus the width of the screen)
+            const maxScroll = scrollContent.scrollWidth - window.innerWidth;
+
+            // Apply transform
+            scrollContent.style.transform = `translateX(${-progress * maxScroll}px)`;
+        });
+    </script>
+</body>
+</html>

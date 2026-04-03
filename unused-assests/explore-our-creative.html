@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Path | Therapy Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-muted: #555555;
+            --card-peach: #fff5ee;
+            --card-mint: #e6f9f5;
+            --btn-black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            padding: 60px 5%;
+            color: var(--text-dark);
+        }
+
+        /* Top Header Section */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+            gap: 40px;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .header-left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .header-left p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .header-right {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .header-right p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .book-btn {
+            background: var(--btn-black);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Service Cards Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-peach);
+            border-radius: 24px;
+            padding: 30px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-mint {
+            background: var(--card-mint);
+        }
+
+        /* Card Tags */
+        .tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .card-icon {
+            position: absolute;
+            top: 30px;
+            right: 25px;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .card .description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Card Image Section */
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-top: auto;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .read-more-btn {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .header-container { flex-direction: column; }
+            .header-left h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="header-left">
+            <h1>Your Path<br>to Wellness</h1>
+            <p>Explore your inner world and gain insights</p>
+        </div>
+        <div class="header-right">
+            <p>We believe in the transformative power of therapy. Our compassionate team of experienced therapists is here to guide you on your journey toward healing, growth, and self-discovery.</p>
+            <a href="#" class="book-btn">Book Appointment</a>
+        </div>
+    </header>
+
+    <section class="services-grid">
+        <div class="card card-mint">
+            <div class="tags">
+                <span class="tag">19-60</span>
+                <span class="tag">Family</span>
+            </div>
+            <div class="card-icon"></div>
+            <h3>Couples<br>Therapy</h3>
+            <p class="description">Strengthen your relationship and communication.</p>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400" alt="Couples Therapy">
+                <div class="read-more-btn">Read More <span>→</span></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tags">
+                <span class="tag">Person</span>
+                <span class="tag">Group</span>
+            </div>
+            <div class="card-icon"></div>
+            <h3>Anger<br>Management</h3>
+            <p class="description">Improve communication and deepen your connection.</p>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&q=80&w=400" alt="Anger Management">
+                <div class="read-more-btn">Read More <span>→</span></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tags">
+                <span class="tag">15-25</span>
+                <span class="tag">Teens</span>
+            </div>
+            <div class="card-icon"></div>
+            <h3>Teenage<br>Sessions</h3>
+            <p class="description">Support and guide you toward a brighter tomorrow.</p>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=400" alt="Teenage Sessions">
+                <div class="read-more-btn">Read More <span>→</span></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tags">
+                <span class="tag">18-80</span>
+                <span class="tag">Private</span>
+            </div>
+            <div class="card-icon"></div>
+            <h3>Addiction<br>Therapy</h3>
+            <p class="description">Confidential space for self-reflection and growth.</p>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80&w=400" alt="Addiction Therapy">
+                <div class="read-more-btn">Read More <span>→</span></div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

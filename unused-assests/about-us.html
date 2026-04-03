@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | 100% Width Editorial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text-main: #000000;
+            --text-gray: #888888;
+            --brand-gold: #c5a059;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* --- Global 100% Layout --- */
+        section {
+            width: 100%;
+            padding: 0 5%; /* Minimal edge padding for text safety */
+        }
+
+        /* --- Header Section --- */
+        .header-section {
+            padding-top: 80px;
+            padding-bottom: 60px;
+        }
+
+        .title-main {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -4px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eaeaea;
+            width: 100%;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .side-nav {
+            list-style: none;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .side-nav li {
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .main-description {
+            color: var(--text-gray);
+            font-size: 16px;
+            max-width: 900px; /* Limits line length for readability, not container width */
+        }
+
+        .main-description p {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: var(--brand-gold);
+        }
+
+        /* --- FULL WIDTH HERO IMAGE --- */
+        .full-width-image {
+            width: 100%;
+            padding: 0; /* Removing the 5% padding here */
+            margin: 40px 0;
+        }
+
+        .full-width-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* --- Quote Section --- */
+        .quote-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0; /* Touching columns */
+            align-items: center;
+            padding: 0; /* Edge to edge */
+        }
+
+        .quote-box {
+            padding: 10% 10% 10% 5%; /* Off-center padding for style */
+            position: relative;
+        }
+
+        .quote-box blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .quote-box p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .split-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Responsive Fixes --- */
+        @media (max-width: 900px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .quote-row {
+                grid-template-columns: 1fr;
+            }
+            .quote-box {
+                padding: 60px 5%;
+                order: 2;
+            }
+            .split-image {
+                order: 1;
+            }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="header-section reveal">
+        <h1 class="title-main">About us.</h1>
+        <div class="intro-grid">
+            <ul class="side-nav">
+                <li>About us.</li>
+                <li>Our team.</li>
+                <li>Press.</li>
+            </ul>
+            <div class="main-description">
+                <p>Studio Marani, communication agency based in Milan, has been created in 2011 from Maurizio Marani after his long term experience with the uberfamous McCann Erickson. Many of his clients, like L'Espresso Group and Radio Deejay, will follow him in this new adventure and many others such as Radio Capital.</p>
+                <p>After a fortunate encounter with the copywriter and content manager Anna Scardovelli, Studio Marani gains another fundamental member of his creative team. Anna was already collaborating with big international brands like <span class="highlight">Barilla, Volkswagen, Campari, Vodafone, Philips, Kraft, Intesa San Paolo and Fila</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="full-width-image reveal">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" alt="Full Width Workspace">
+    </div>
+
+    <section class="quote-row reveal">
+        <div class="quote-box">
+            <span style="font-size: 60px; font-family: serif; display: block; margin-bottom: -20px;">“</span>
+            <blockquote>Our work does make sense only if it is a faithful witness of his time.</blockquote>
+            <p>Jean-Philippe Nuel, Director</p>
+            <div style="text-align: right; margin-top: -20px;">
+                <span style="font-size: 60px; font-family: serif; display: inline-block; transform: rotate(180deg);">“</span>
+            </div>
+        </div>
+        <div class="split-image">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1500" alt="Team Meeting">
+        </div>
+    </section>
+
+    <div style="height: 100px;"></div>
+
+    <script>
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add("active");
+                }
+            });
+        }
+        window.addEventListener("scroll", revealOnScroll);
+        window.onload = revealOnScroll;
+    </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certified Excellence | Razor Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfaf8;
+            --text-dark: #2d1b18;
+            --accent-red: #c14d44;
+            --card-radius: 20px;
+            --arrow-yellow: #f4d03f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            padding: 80px 5%;
+            overflow-x: hidden;
+        }
+
+        /* --- Header Section --- */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            gap: 40px;
+        }
+
+        .header-left .sub-title {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .header-left h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 600;
+        }
+
+        .header-right {
+            max-width: 400px;
+        }
+
+        .header-right p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .links-group {
+            display: flex;
+            gap: 30px;
+        }
+
+        .cta-link {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .cta-link:hover {
+            opacity: 0.7;
+        }
+
+        /* --- Cards Section --- */
+        .cards-wrapper {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 40px;
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+        }
+
+        .cards-wrapper::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
+
+        .service-card {
+            min-width: 280px;
+            height: 380px;
+            border-radius: var(--card-radius);
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Dark Overlay */
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+
+        .card-label {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            max-width: 150px;
+            line-height: 1.3;
+        }
+
+        /* The Custom Cut-out Button */
+        .arrow-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 65px;
+            height: 65px;
+            background: var(--bg-color); /* Match body bg to create cut-out effect */
+            border-top-left-radius: 25px;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-inner {
+            width: 45px;
+            height: 45px;
+            background: var(--text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .service-card:first-child .arrow-inner {
+            background: var(--arrow-yellow);
+            color: var(--text-dark);
+        }
+
+        /* Progress Bar at bottom */
+        .scroll-bar-container {
+            width: 100%;
+            height: 2px;
+            background: #e0e0e0;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .scroll-progress {
+            position: absolute;
+            height: 100%;
+            width: 30%;
+            background: var(--text-dark);
+            left: 0;
+            transition: 0.1s;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .header-container { flex-direction: column; align-items: flex-start; }
+            .header-right { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="header-left">
+            <span class="sub-title">/ Services We Offer</span>
+            <h1>Certified<br>Excellence</h1>
+        </div>
+        <div class="header-right">
+            <p>From repairs and installations to preventative maintenance, we've got you covered. Choose reliability, choose Razor.</p>
+            <div class="links-group">
+                <a href="#" class="cta-link">View All Services <span>›</span></a>
+                <a href="#" class="cta-link">Call For Booking <span>›</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="cards-wrapper" id="cardSlider">
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?w=500')">
+            <span class="card-label" style="color: #f4d03f;">Furnaces</span>
+            <div class="arrow-btn">
+                <div class="arrow-inner">↗</div>
+            </div>
+        </div>
+
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500')">
+            <span class="card-label">Central Air Conditioning</span>
+            <div class="arrow-btn">
+                <div class="arrow-inner">↗</div>
+            </div>
+        </div>
+
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1585129049162-71fa2b335956?w=500')">
+            <span class="card-label">Tankless Water Heater</span>
+            <div class="arrow-btn">
+                <div class="arrow-inner">↗</div>
+            </div>
+        </div>
+
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500')">
+            <span class="card-label">Underfloor Heating System</span>
+            <div class="arrow-btn">
+                <div class="arrow-inner">↗</div>
+            </div>
+        </div>
+
+        <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1542013936693-884638332954?w=500')">
+            <span class="card-label">New House Plumbing</span>
+            <div class="arrow-btn">
+                <div class="arrow-inner">↗</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-bar-container">
+        <div class="scroll-progress" id="progressBar"></div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('cardSlider');
+        const progress = document.getElementById('progressBar');
+
+        slider.addEventListener('scroll', () => {
+            const scrollPercentage = (slider.scrollLeft / (slider.scrollWidth - slider.clientWidth)) * 100;
+            // Limit progress bar movement to 70% of the bar width so the handle doesn't vanish
+            progress.style.left = (scrollPercentage * 0.7) + '%';
+        });
+    </script>
+</body>
+</html>

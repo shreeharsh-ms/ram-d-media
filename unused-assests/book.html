@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation - Interactive Book</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,600|Tulpen+One&display=swap');
+
+        :root {
+            --body-bg: #FAFAFA;
+            --page-bg: #F5F5F5;
+            --dark-text: #2A2935;
+            --baseline: 12px;
+            --book-title: 'Tulpen One', sans-serif;
+            --title: 'Cormorant Garamond', serif;
+            --body: 'Cormorant Garamond', serif;
+            --base-size: calc(var(--baseline) * 1.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            gap: 40px;
+        }
+
+        /* ── Left side description panel ──────────────── */
+        .description-of-the-page {
+            width: 35%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background-color: #f8f8f8;
+            overflow-y: auto;
+            box-shadow: inset -2px 0 10px rgba(0,0,0,0.05);
+        }
+
+        .description-of-the-page img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .description-of-the-page h2 {
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 1.5);
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .description-of-the-page p {
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 0.9);
+            color: #666;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .cover {
+            width: calc(var(--baseline) * 60);
+            height: calc(var(--baseline) * 42.6);
+            box-shadow: 0 0 100px rgba(0, 0, 0, .3);
+        }
+
+        .book {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            perspective: 1200px;
+            position: relative;
+        }
+
+        /* ── Left static half ─────────────────────────── */
+        .book__left {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book__left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ── Right half (page container) ──────────────── */
+        .book__right {
+            width: 50%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* ── Each flippable page ──────────────────────── */
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+            cursor: pointer;
+        }
+
+        /* Stack pages: page-1 on top, page-5 on bottom */
+        .page[data-page="1"] { z-index: 50; }
+        .page[data-page="2"] { z-index: 40; }
+        .page[data-page="3"] { z-index: 30; }
+        .page[data-page="4"] { z-index: 20; }
+        .page[data-page="5"] { z-index: 10; }
+
+        /* Flipped state */
+        .page.flipped {
+            transform: rotateY(-180deg);
+        }
+
+        /* When flipped, raise z-index so it sits on top of left side */
+        .page.flipped[data-page="1"] { z-index: 51; }
+        .page.flipped[data-page="2"] { z-index: 52; }
+        .page.flipped[data-page="3"] { z-index: 53; }
+        .page.flipped[data-page="4"] { z-index: 54; }
+        .page.flipped[data-page="5"] { z-index: 55; }
+
+        /* ── Front & Back faces ───────────────────────── */
+        .page__front,
+        .page__back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            overflow: hidden;
+        }
+
+        .page__front {
+            background-color: var(--page-bg);
+            background-image: linear-gradient(90deg, rgba(227, 227, 227, 1) 0%, rgba(247, 247, 247, 0) 18%);
+        }
+
+        .page__back {
+            background-color: var(--page-bg);
+            background-image: linear-gradient(-90deg, rgba(227, 227, 227, 1) 0%, rgba(247, 247, 247, 0) 18%);
+            transform: rotateY(180deg);
+        }
+
+        /* ── Content styles ───────────────────────────── */
+        .page__content {
+            padding: calc(var(--baseline) * 1.8);
+            height: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        .page__content-book-title {
+            font-family: var(--book-title);
+            font-size: calc(var(--base-size) * 3);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--dark-text);
+            margin-top: calc(var(--baseline) * 5);
+            margin-bottom: calc(var(--baseline) * 2);
+        }
+
+        .page__content-author {
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 1.2);
+            font-weight: 100;
+            text-transform: uppercase;
+            color: var(--dark-text);
+            border-top: 1px solid var(--dark-text);
+            border-bottom: 1px solid var(--dark-text);
+            display: inline-block;
+            padding: calc(var(--baseline) / 2) calc(var(--baseline) / 5);
+            margin-bottom: calc(var(--baseline) * 6);
+        }
+
+        .page__content-credits {
+            font-family: var(--title);
+            text-transform: uppercase;
+            font-size: calc(var(--base-size) * 0.8);
+            margin-bottom: calc(var(--baseline) * 2);
+            letter-spacing: 1px;
+        }
+
+        .page__content-credits span {
+            display: block;
+            font-size: calc(var(--base-size) * 1.2);
+            letter-spacing: 0;
+        }
+
+        .page__content-copyright {
+            position: absolute;
+            width: calc(100% - (var(--baseline) * 3.6));
+            bottom: calc(var(--baseline) * 2);
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 0.8);
+            text-transform: uppercase;
+        }
+
+        .page__content-title {
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: calc(var(--baseline) * 3);
+            margin-bottom: calc(var(--baseline) * 2);
+        }
+
+        .page__content-table {
+            width: 100%;
+            margin-top: calc(var(--baseline) * 2);
+        }
+
+        .page__content-table td {
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 1);
+            padding-bottom: calc(var(--baseline) * 1.5);
+            text-transform: uppercase;
+        }
+
+        .page__content-blockquote {
+            margin-bottom: calc(var(--baseline) * 2);
+        }
+
+        .page__content-blockquote-text {
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 0.67);
+            font-style: italic;
+            text-align: justify;
+        }
+
+        .page__content-blockquote-reference {
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 0.7);
+            margin-top: calc(var(--baseline) * 0.3);
+            float: right;
+            text-transform: uppercase;
+        }
+
+        .page__content-text {
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 0.67);
+            text-align: justify;
+        }
+
+        .page__content-text p {
+            text-indent: var(--baseline);
+            margin-bottom: calc(var(--baseline) * 0.5);
+        }
+
+        .page__number {
+            position: absolute;
+            bottom: var(--baseline);
+            left: 0;
+            width: 100%;
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 0.67);
+            text-align: center;
+        }
+
+        /* ── Navigation hint ──────────────────────────── */
+        .nav-hint {
+            margin-top: calc(var(--baseline) * 1.5);
+            font-family: var(--title);
+            font-size: calc(var(--base-size) * 0.8);
+            color: #999;
+            text-align: center;
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Left side description panel -->
+    <div class="description-of-the-page" id="descPanel">
+        <img id="descImage" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/193203/1111.jpg" alt="Foundation">
+        <h2 id="descTitle">Foundation</h2>
+        <p id="descText">Click the right side of the book to start reading the story of Gaal Dornick and his meeting with the great mathematician Hari Seldon on the Imperial planet Trantor.</p>
+    </div>
+
+    <!-- Right side book container -->
+    <div class="cover">
+        <div class="book" id="book">
+
+            <!-- Left half: shows cover image initially -->
+            <div class="book__left">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/193203/1111.jpg" alt="Foundation Book Cover">
+            </div>
+
+            <!-- Right half: all flippable pages stacked here -->
+            <div class="book__right">
+
+                <!-- Page 1: Title Page (front) / Contents (back) -->
+                <div class="page" data-page="1">
+                    <div class="page__front">
+                        <div class="page__content">
+                            <h1 class="page__content-book-title">Foundation</h1>
+                            <h2 class="page__content-author">Isaac Asimov</h2>
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/193203/1111.jpg" alt="Foundation Book" style="width: 100%; max-width: 150px; height: auto; border-radius: 8px; margin: 20px 0;">
+                            <p class="page__content-credits">
+                                Introduction by
+                                <span>Paul Krugman</span>
+                            </p>
+                            <p class="page__content-credits">
+                                Illustrations by
+                                <span>Alex Wells</span>
+                            </p>
+                            <div class="page__content-copyright">
+                                <p>The Folio Society</p>
+                                <p>London - MMXII</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page__back">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1507842072343-583f20270319?w=250&h=150&fit=crop" alt="Contents" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <h1 class="page__content-title">Contents</h1>
+                            <table class="page__content-table">
+                                <tr>
+                                    <td align="left">Part I</td>
+                                    <td align="left">The Psycohistorians</td>
+                                    <td align="right">3</td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Part II</td>
+                                    <td align="left">The Encyclopedists</td>
+                                    <td align="right">43</td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Part III</td>
+                                    <td align="left">The Mayors</td>
+                                    <td align="right">87</td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Part IV</td>
+                                    <td align="left">The Traders</td>
+                                    <td align="right">147</td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Part V</td>
+                                    <td align="left">The Merchant Princes</td>
+                                    <td align="right">173</td>
+                                </tr>
+                            </table>
+                            <div class="page__number">2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 2: Chapter I (front) / Chapter I continued (back) -->
+                <div class="page" data-page="2">
+                    <div class="page__front">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=250&h=150&fit=crop" alt="Chapter I" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <h1 class="page__content-title">Chapter I</h1>
+                            <div class="page__content-blockquote">
+                                <p class="page__content-blockquote-text">"The further the spiritual evolution of mankind
+                                    advances, the more certain it seems to me that the path to genuine religiosity does
+                                    not lie through the fear of life, and the fear of death, and blind faith, but through
+                                    striving after rational knowledge."</p>
+                                <span class="page__content-blockquote-reference">— Albert Einstein</span>
+                            </div>
+                            <div class="page__content-text">
+                                <p>The auditorium was large, the audience scattered. He had spoken for twenty minutes and
+                                    his voice had not once risen above its normal conversational level. His words seemed
+                                    almost casual, yet everyone in the room had listened.</p>
+                                <p>Gaal Dornick had come to Trantor with a feeling of awe and a feeling of trepidation.
+                                    He had never seen the Imperial planet before.</p>
+                            </div>
+                            <div class="page__number">5</div>
+                        </div>
+                    </div>
+                    <div class="page__back">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1507842072343-583f20270319?w=250&h=150&fit=crop" alt="Knowledge" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <h1 class="page__content-title">Chapter I Continued</h1>
+                            <div class="page__content-text">
+                                <p>The foundation of all understanding is knowledge itself. As Gaal looked upon the
+                                    infinite structures of Trantor, he realized that his journey had only just begun. The
+                                    great mathematician Seldon had foreseen this moment, and now the weight of destiny
+                                    rested upon his shoulders.</p>
+                                <p>Years of study had prepared him for this, yet nothing could truly prepare one for the
+                                    reality of standing before greatness itself. The universe was vast, and his role in it
+                                    seemed impossibly small, yet somehow significant.</p>
+                            </div>
+                            <div class="page__number">6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 3: Chapter II (front) / Chapter II continued (back) -->
+                <div class="page" data-page="3">
+                    <div class="page__front">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=250&h=150&fit=crop" alt="Chapter II" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <h1 class="page__content-title">Chapter II</h1>
+                            <div class="page__content-blockquote">
+                                <p class="page__content-blockquote-text">"Science may be described as the art of
+                                    systematic over-simplification—the art of discerning what we may safely ignore."</p>
+                                <span class="page__content-blockquote-reference">— Karl Popper</span>
+                            </div>
+                            <div class="page__content-text">
+                                <p>The view from the upper levels of the city was frightening in its immensity. Trantor
+                                    was a world of metal and stone, the entire surface of the planet a single city. Every
+                                    square foot of ground had been used, and none was wasted.</p>
+                                <p>Gaal found himself overwhelmed by the sight. Nowhere on his home world was there
+                                    anything to compare to this.</p>
+                            </div>
+                            <div class="page__number">7</div>
+                        </div>
+                    </div>
+                    <div class="page__back">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1514306688772-ce0bcc11d9d5?w=250&h=150&fit=crop" alt="City" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <h1 class="page__content-title">Chapter II Continued</h1>
+                            <div class="page__content-text">
+                                <p>The complexity of the city was almost incomprehensible. Billions upon billions of
+                                    humans lived and worked within these structures, each one a small part of an
+                                    incomprehensibly large whole. Yet Seldon's science of psychohistory had shown that
+                                    this vast humanity could be understood through mathematics.</p>
+                                <p>It was this revelation that had drawn Gaal to Trantor. He wanted to understand, to
+                                    learn from the master himself, to become part of something greater than he could ever
+                                    achieve alone.</p>
+                            </div>
+                            <div class="page__number">8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 4: Chapter III (front) / Chapter III continued (back) -->
+                <div class="page" data-page="4">
+                    <div class="page__front">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=250&h=150&fit=crop" alt="Chapter III" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <h1 class="page__content-title">Chapter III</h1>
+                            <div class="page__content-blockquote">
+                                <p class="page__content-blockquote-text">"The cumulative effect of small things over long
+                                    periods is enormous."</p>
+                                <span class="page__content-blockquote-reference">— Darwin</span>
+                            </div>
+                            <div class="page__content-text">
+                                <p>Hari Seldon was a legend even before his death. The greatest mathematician of his
+                                    time, the founder of psychohistory—the science that could predict the future of masses
+                                    of human beings through mathematics. It seemed impossible.</p>
+                                <p>Yet the evidence was overwhelming. The Foundation had been created according to
+                                    Seldon's predictions. The very nature of their mission on Terminus had been outlined
+                                    four hundred years before their arrival.</p>
+                            </div>
+                            <div class="page__number">9</div>
+                        </div>
+                    </div>
+                    <div class="page__back">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1536431311894-8c1e8274f913?w=250&h=150&fit=crop" alt="Epilogue" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <h1 class="page__content-title">Epilogue</h1>
+                            <div class="page__content-text">
+                                <p>The power of prediction was the power to shape destiny. Seldon had understood this
+                                    fundamental truth and had used it to create the Foundation. Through centuries of
+                                    careful planning and mathematical precision, he had charted a course that would guide
+                                    humanity through its darkest hours.</p>
+                                <p>Gaal now understood his purpose. He would be part of this grand design, a small thread
+                                    in the vast tapestry of human civilization. And in that understanding came both
+                                    humility and determination.</p>
+                            </div>
+                            <div class="page__number">10</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 5: Final page / Thank You -->
+                <div class="page" data-page="5">
+                    <div class="page__front">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1462332420958-a05d1e7413413?w=250&h=150&fit=crop" alt="Foundation" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <div class="page__content-text" style="margin-top: calc(var(--baseline) * 2);">
+                                <p>The Foundation stood as a beacon of hope in the gathering darkness of the crumbling
+                                    Galactic Empire. Though countless challenges lay ahead, the vision of Hari Seldon
+                                    would guide them forward, through the centuries to come.</p>
+                            </div>
+                            <div class="page__number">11</div>
+                        </div>
+                    </div>
+                    <div class="page__back">
+                        <div class="page__content">
+                            <img src="https://images.unsplash.com/photo-1507842072343-583f20270319?w=250&h=150&fit=crop" alt="Thank You" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                            <h1 class="page__content-book-title" style="margin-top: calc(var(--baseline) * 4);">Thank You</h1>
+                            <p style="margin-top: 20px; font-size: calc(var(--base-size) * 0.9); line-height: 1.8; font-family: var(--title);">
+                                For reading this interactive digital book experience.
+                                <br><br>
+                                Created as a demonstration of CSS 3D transforms and interactive web design.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <p class="nav-hint" id="navHint">Click right side to flip forward · Click left side to flip back</p>
+
+    <script>
+        // Page descriptions data with various images
+        const pageDescriptions = [
+            {
+                title: "Foundation",
+                text: "Click the right side of the book to start reading the story of Gaal Dornick and his meeting with the great mathematician Hari Seldon on the Imperial planet Trantor.",
+                image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/193203/1111.jpg"
+            },
+            {
+                title: "Chapter I: The Psychohistorians",
+                text: "Gaal Dornick arrives at Trantor as a young, talented mathematician. He is summoned to meet Hari Seldon, the greatest mind of the age, who has developed the science of psychohistory—the ability to predict the future through mathematics.",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+            },
+            {
+                title: "Chapter II: The City Planet",
+                text: "Trantor is revealed as a world of staggering complexity—an entire planet covered in a single metropolis of metal and stone. Billions of humans work within its structures, and Gaal struggles to comprehend its immensity.",
+                image: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400&h=300&fit=crop"
+            },
+            {
+                title: "Chapter III: The Vision",
+                text: "Seldon explains his greatest discovery: the Galactic Empire is in decline and will collapse within four centuries. He has established the Foundation on a remote planet called Terminus to preserve human knowledge and guide civilization through the dark ages ahead.",
+                image: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&h=300&fit=crop"
+            },
+            {
+                title: "The Foundation Established",
+                text: "Gaal becomes part of something greater than himself. The Foundation stands as a beacon of hope, a carefully planted seed that will ensure humanity's survival. Through centuries to come, this vision will guide civilization through its darkest hours.",
+                image: "https://images.unsplash.com/photo-1536431311894-8c1e8274f913?w=400&h=300&fit=crop"
+            }
+        ];
+
+        (function () {
+            var pages = document.querySelectorAll('.page');
+            var currentPage = 0; // 0 = no pages flipped, 1 = first page flipped, etc.
+            var totalPages = pages.length;
+            var animating = false;
+
+            var book = document.getElementById('book');
+
+            // Function to update description panel
+            function updateDescriptionPanel() {
+                const descPanel = document.getElementById('descPanel');
+                if (currentPage < pageDescriptions.length) {
+                    const desc = pageDescriptions[currentPage];
+                    document.getElementById('descTitle').textContent = desc.title;
+                    document.getElementById('descText').textContent = desc.text;
+                    document.getElementById('descImage').src = desc.image;
+                }
+            }
+
+            // Single click handler on the entire book
+            // Use click X position to determine: left half = go back, right half = go forward
+            book.addEventListener('click', function (e) {
+                if (animating) return;
+
+                var rect = book.getBoundingClientRect();
+                var clickX = e.clientX - rect.left;
+                var midpoint = rect.width / 2;
+
+                if (clickX < midpoint) {
+                    // LEFT side clicked → flip backward
+                    if (currentPage <= 0) return;
+
+                    animating = true;
+                    currentPage--;
+                    var pageEl = pages[currentPage];
+                    pageEl.classList.remove('flipped');
+
+                    setTimeout(function () { animating = false; }, 950);
+                } else {
+                    // RIGHT side clicked → flip forward
+                    if (currentPage >= totalPages) return;
+
+                    animating = true;
+                    var pageEl = pages[currentPage];
+                    pageEl.classList.add('flipped');
+                    currentPage++;
+
+                    setTimeout(function () { animating = false; }, 950);
+                }
+
+                updateHint();
+                updateDescriptionPanel();
+            });
+
+            function updateHint() {
+                var hint = document.getElementById('navHint');
+                if (currentPage === 0) {
+                    hint.textContent = 'Click right side to start reading →';
+                } else if (currentPage >= totalPages) {
+                    hint.textContent = '← Click left side to go back';
+                } else {
+                    hint.textContent = '← Click left to go back · Click right to continue →';
+                }
+            }
+
+            updateHint();
+            updateDescriptionPanel();
+        })();
+    </script>
+</body>
+
+</html>

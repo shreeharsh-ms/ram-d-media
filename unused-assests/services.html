@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Awards Section</title>
+    <style>
+        :root {
+            --bg-color: #fdf6e3; /* Warm cream background */
+            --text-main: #1a1a1a;
+            --text-muted: #666;
+            --accent-gold: #c5a059;
+            --border-color: #d1ccc0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 50px 5px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        /* Award Row Styling */
+        .award-item {
+            border-top: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .award-item:last-child {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .award-header {
+            display: grid;
+            grid-template-columns: 180px 80px 1fr 50px;
+            align-items: center;
+            padding: 30px 0;
+            transition: all 0.3s ease;
+        }
+
+        .award-year-cat {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: capitalize;
+        }
+
+        .award-icon svg {
+            width: 40px;
+            fill: none;
+            stroke: var(--accent-gold);
+            stroke-width: 1.5;
+        }
+
+        .award-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--text-muted);
+        }
+
+        /* Dropdown Content */
+        .award-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            gap: 40px;
+        }
+
+        .award-item.active .award-content {
+            max-height: 300px; /* Adjust based on content */
+            padding-bottom: 30px;
+        }
+
+        .award-item.active .arrow {
+            transform: rotate(90deg);
+        }
+
+        .content-left {
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            padding-left: 260px; /* Aligns with the title */
+        }
+
+        .content-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .content-right img {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            background: #eee; /* Placeholder color */
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .award-header {
+                grid-template-columns: 1fr 50px;
+                gap: 10px;
+            }
+            .award-year-cat, .award-icon { display: none; }
+            .content-left { padding-left: 0; }
+            .award-content { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>What We Do For Our Clients</h2>
+        <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.6;">Every industry has different needs, and our work focuses on creating digital content and strategies that match each brand's identity.</p>
+
+        <div class="award-item">
+            <div class="award-header">
+                <div class="award-year-cat">Industry Expertise</div>
+                <div class="award-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/></svg>
+                </div>
+                <div class="award-title">Restaurants</div>
+                <div class="arrow">→</div>
+            </div>
+            <div class="award-content">
+                <div class="content-left">
+                    <p>Social media content, food photography, campaign ideas, and promotional marketing to attract more customers.</p>
+                </div>
+                <div class="content-right">
+                    <img src="https://via.placeholder.com/250x150" alt="Restaurants">
+                </div>
+            </div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-header">
+                <div class="award-year-cat">Industry Expertise</div>
+                <div class="award-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/></svg>
+                </div>
+                <div class="award-title">Furniture & Interior Brands</div>
+                <div class="arrow">→</div>
+            </div>
+            <div class="award-content">
+                <div class="content-left">
+                    <p>Creative product posts, photoshoots, and visual storytelling to showcase furniture designs and collections.</p>
+                </div>
+                <div class="content-right">
+                    <img src="https://via.placeholder.com/250x150" alt="Furniture">
+                </div>
+            </div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-header">
+                <div class="award-year-cat">Industry Expertise</div>
+                <div class="award-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                </div>
+                <div class="award-title">Schools & Educational Institutes</div>
+                <div class="arrow">→</div>
+            </div>
+            <div class="award-content">
+                <div class="content-left">
+                    <p>Informative posts, event coverage, and digital presence building for better communication and visibility.</p>
+                </div>
+                <div class="content-right">
+                    <img src="https://via.placeholder.com/250x150" alt="Education">
+                </div>
+            </div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-header">
+                <div class="award-year-cat">Industry Expertise</div>
+                <div class="award-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/></svg>
+                </div>
+                <div class="award-title">Salons & Beauty Businesses</div>
+                <div class="arrow">→</div>
+            </div>
+            <div class="award-content">
+                <div class="content-left">
+                    <p>Beauty-focused content, service promotions, and brand visuals designed to attract and engage customers.</p>
+                </div>
+                <div class="content-right">
+                    <img src="https://via.placeholder.com/250x150" alt="Beauty">
+                </div>
+            </div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-header">
+                <div class="award-year-cat">Industry Expertise</div>
+                <div class="award-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/></svg>
+                </div>
+                <div class="award-title">Gift & Retail Stores</div>
+                <div class="arrow">→</div>
+            </div>
+            <div class="award-content">
+                <div class="content-left">
+                    <p>Creative product presentation, festive campaigns, and engaging social media posts.</p>
+                </div>
+                <div class="content-right">
+                    <img src="https://via.placeholder.com/250x150" alt="Retail">
+                </div>
+            </div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-header">
+                <div class="award-year-cat">Industry Expertise</div>
+                <div class="award-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                </div>
+                <div class="award-title">Hospitals & Healthcare</div>
+                <div class="arrow">→</div>
+            </div>
+            <div class="award-content">
+                <div class="content-left">
+                    <p>Professional digital presence, informative content, and brand visibility strategies.</p>
+                </div>
+                <div class="content-right">
+                    <img src="https://via.placeholder.com/250x150" alt="Healthcare">
+                </div>
+            </div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-header">
+                <div class="award-year-cat">Industry Expertise</div>
+                <div class="award-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/></svg>
+                </div>
+                <div class="award-title">Real Estate</div>
+                <div class="arrow">→</div>
+            </div>
+            <div class="award-content">
+                <div class="content-left">
+                    <p>Property promotions, creative marketing ideas, and digital campaigns to showcase projects effectively.</p>
+                </div>
+                <div class="content-right">
+                    <img src="https://via.placeholder.com/250x150" alt="Real Estate">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.award-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items (Optional: remove this part if you want multiple open at once)
+                document.querySelectorAll('.award-item').forEach(el => el.classList.remove('active'));
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

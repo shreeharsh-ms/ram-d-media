@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Growth | Modern Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #f5f5f5;
+            --white: #ffffff;
+            --black: #0a0a0a;
+            --text-muted: #666666;
+            --radius-lg: 32px;
+            --radius-md: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            padding: 0;
+            color: var(--black);
+        }
+
+        .main-container {
+            max-width: 100%;
+            margin: 0;
+            background: var(--white);
+            border-radius: 0;
+            padding: 40px 5%;
+            box-shadow: none;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 60px;
+            line-height: 0.9;
+        }
+
+        /* --- Top Section --- */
+        .top-section {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .label {
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* List Column */
+        .services-list {
+            list-style: none;
+        }
+
+        .services-list li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .services-list li:hover, .services-list li.active {
+            color: var(--black);
+            padding-left: 5px;
+        }
+
+        .services-list li.active::before {
+            content: '• ';
+            color: var(--black);
+        }
+
+        /* Detail Column */
+        .service-detail h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .service-detail p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-outline {
+            padding: 12px 24px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        /* Black CTA Card */
+        .cta-card {
+            background: var(--black);
+            border-radius: var(--radius-md);
+            color: var(--white);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cta-card h2 {
+            font-size: 2.5rem;
+            z-index: 2;
+        }
+
+        .cta-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            margin: 20px 0;
+            z-index: 2;
+        }
+
+        .btn-white {
+            background: white;
+            color: black;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            width: fit-content;
+            cursor: pointer;
+        }
+
+        /* --- Bottom Section --- */
+        .bottom-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        .bottom-header h3 {
+            font-size: 2rem;
+        }
+
+        .cards-grid {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Footer Icons */
+        .card-footer {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .icon-circle {
+            width: 28px;
+            height: 28px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .top-section { grid-template-columns: 1fr; }
+            .cta-card { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <h1 class="section-title">Our Services</h1>
+        
+        <section class="top-section">
+            <div>
+                <span class="label">Expertise</span>
+                <ul class="services-list">
+                    <li>Strategy</li>
+                    <li>Content Creation</li>
+                    <li class="active">SEO</li>
+                    <li>Design</li>
+                    <li>Analytics</li>
+                    <li>Email Marketing</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <span class="label">Service</span>
+                <h2>Social Media Management</h2>
+                <p>Build and grow your brand online with our specialized strategy and content tailored for your audience.</p>
+                <button class="btn-outline">Explore Service</button>
+            </div>
+
+            <div class="cta-card">
+                <h2>Let's grow your Brand Together!</h2>
+                <p>Our team provides full-funnel digital marketing solutions to scale your business effectively.</p>
+                <button class="btn-white">Start Project</button>
+            </div>
+        </section>
+
+        <section class="bottom-section">
+            <div class="bottom-header">
+                <h3>Capabilities Together</h3>
+                <div style="display:flex; gap:10px">
+                    <span class="btn-outline" style="padding: 5px 15px; font-size: 0.7rem;">Digital</span>
+                    <span class="btn-outline" style="padding: 5px 15px; font-size: 0.7rem;">Strategy</span>
+                </div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Work">
+                    </div>
+                    <h4>Let's create something together!</h4>
+                    <p>Focusing on collaborative design and brand development.</p>
+                    <div class="card-footer">
+                        <div class="icon-circle">💼</div>
+                        <span style="font-size: 0.7rem; color: #999;">Newsletter</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" alt="Work">
+                    </div>
+                    <h4>Video Marketing strategy built.</h4>
+                    <p>Capturing attention through high-impact visual storytelling.</p>
+                    <div class="card-footer">
+                        <div class="icon-circle">🎥</div>
+                        <span style="font-size: 0.7rem; color: #999;">Production</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" alt="Work">
+                    </div>
+                    <h4>Ad Campaigns for modern startups.</h4>
+                    <p>Scaling reach through data-driven advertising channels.</p>
+                    <div class="card-footer">
+                        <div class="icon-circle">📈</div>
+                        <span style="font-size: 0.7rem; color: #999;">Growth</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400" alt="Work">
+                    </div>
+                    <h4>Community Building focus.</h4>
+                    <p>Fostering long-term engagement with your customer base.</p>
+                    <div class="card-footer">
+                        <div class="icon-circle">🤝</div>
+                        <span style="font-size: 0.7rem; color: #999;">Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

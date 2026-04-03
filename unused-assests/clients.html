@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion | Financial Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f1f18; /* Deeper forest green */
+            --accent-peach: #ffd9c0;
+            --text-white: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* Lock scroll for the 100% height look */
+            display: flex;
+        }
+
+        .main-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Left Side: Fixed Content */
+        .content-section {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 8% 0 10%;
+            z-index: 10;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--accent-peach);
+            color: #4a3325;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            width: fit-content;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        .watch-demo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Right Side: Double Vertical Carousel */
+        .carousel-section {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .carousel-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Upward Animation */
+        .col-up {
+            animation: scrollUp 20s linear infinite;
+        }
+
+        /* Downward Animation */
+        .col-down {
+            animation: scrollDown 20s linear infinite;
+        }
+
+        @keyframes scrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        @keyframes scrollDown {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--card-bg);
+            min-height: 280px;
+            border-radius: 24px;
+            width: 100%;
+            padding: 25px;
+            color: #111;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .img-card {
+            background-size: cover;
+            background-position: center;
+            min-height: 350px;
+        }
+
+        .stat-val { font-size: 2rem; font-weight: 700; }
+        .stat-label { color: #666; font-size: 0.9rem; }
+
+        /* Responsive Fix */
+        @media (max-width: 900px) {
+            body { overflow-y: auto; height: auto; }
+            .main-wrapper { flex-direction: column; }
+            .content-section { width: 100%; padding: 60px 5%; text-align: center; align-items: center; }
+            .carousel-section { width: 100%; height: 500px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <section class="content-section">
+            <div class="badge">🚀 Grow faster with Fusion</div>
+            <h1>Financial Tools <br> Built for Rapid Growth</h1>
+            <p class="description">
+                Automate accounting, streamline reporting, and scale operations with the world's most intuitive finance platform.
+            </p>
+            
+            <div class="cta-group">
+                <a href="#" class="btn-primary">Get Started Now</a>
+                <a href="#" class="watch-demo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="19.5" stroke="white" stroke-opacity="0.3"/>
+                        <path d="M26 20L17 25.1962L17 14.8038L26 20Z" fill="white"/>
+                    </svg>
+                    <span>Watch demo</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="carousel-section">
+            
+            <div class="carousel-col col-up" id="col1">
+                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400')"></div>
+                <div class="card">
+                    <span class="stat-label">Total Revenue</span>
+                    <span class="stat-val">$128,430</span>
+                    <div style="height:60px; background:#f0f0f0; border-radius:10px; margin-top:10px"></div>
+                </div>
+                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400')"></div>
+                <div class="card">
+                    <span class="stat-val">99.9%</span>
+                    <span class="stat-label">Uptime Reliability</span>
+                </div>
+            </div>
+
+            <div class="carousel-col col-down" id="col2">
+                <div class="card">
+                    <span class="stat-val">48% ↑</span>
+                    <span class="stat-label">Growth in Communication</span>
+                </div>
+                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400')"></div>
+                <div class="card">
+                    <span class="stat-label">Monthly Rate</span>
+                    <span class="stat-val">$12,432</span>
+                </div>
+                <div class="card img-card" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400')"></div>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        // Seamless Loop Logic: Duplicate the cards in each column
+        const setupCarousel = (id) => {
+            const col = document.getElementById(id);
+            const clone = col.innerHTML;
+            col.innerHTML = clone + clone; // Double the content for infinite effect
+        };
+
+        setupCarousel('col1');
+        setupCarousel('col2');
+    </script>
+</body>
+</html>

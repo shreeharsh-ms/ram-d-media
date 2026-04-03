@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Double Image Swap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #e5dfd3; /* Bone/Beige */
+            --text-black: #1a1a1a;
+            --border-color: #2c2c2c;
+            --transition-speed: 0.4s; /* Faster transition for responsive feel */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-black);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .services-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+            padding: 80px 40px;
+            gap: 40px;
+        }
+
+        /* 1. Vertical Sidebar Title */
+        .sidebar-title {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(80px, 12vw, 160px);
+            text-transform: uppercase;
+            line-height: 0.8;
+            letter-spacing: -2px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            user-select: none;
+        }
+
+        /* 2. Overlapping Image Composition */
+        .image-composition {
+            flex: 1;
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-img-wrapper {
+            width: 75%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+        }
+
+        .secondary-img-wrapper {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 280px;
+            height: 380px;
+            z-index: 2;
+            overflow: hidden;
+            border: 10px solid var(--bg-color);
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* Common class for swappable images */
+        .swap-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Smooth opacity fade */
+            transition: opacity var(--transition-speed) ease-in-out;
+            opacity: 1; /* Default visible */
+        }
+
+        /* 3. Interactive Service Menu */
+        .menu-section {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
+        }
+
+        .service-list {
+            list-style: none;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .service-item {
+            border-top: 1px solid var(--border-color);
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-item:last-child {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .service-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .plus-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover States for Menu Items */
+        .service-item:hover {
+            padding-left: 15px;
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        .service-item:hover .plus-icon {
+            transform: rotate(90deg);
+        }
+
+        /* 4. Footer Button */
+        .explore-btn {
+            align-self: flex-end;
+            padding: 18px 45px;
+            border: 1.5px solid var(--text-black);
+            background: transparent;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .explore-btn:hover {
+            background-color: var(--text-black);
+            color: var(--bg-color);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            .services-container { flex-direction: column; padding: 40px 20px; }
+            .sidebar-title { writing-mode: horizontal-tb; transform: none; font-size: 60px; margin-bottom: 40px; }
+            .image-composition { min-height: 400px; margin-bottom: 40px; }
+            .menu-section { padding-left: 0; }
+            .secondary-img-wrapper { width: 180px; height: 250px; }
+            .explore-btn { align-self: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="services-container">
+        <h1 class="sidebar-title">Services</h1>
+
+        <div class="image-composition">
+            <div class="main-img-wrapper">
+                <img id="featured-image" class="swap-image" src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=1000" alt="Service Showcase">
+            </div>
+            <div class="secondary-img-wrapper">
+                <img id="secondary-image" class="swap-image" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=600" alt="Professional Portrait">
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <ul class="service-list">
+                <li class="service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1579621909448-c98a1f4b9f2d?q=80&w=600">
+                    <span class="service-name">Social Media Management</span>
+                    <span class="plus-icon">+</span>
+                </li>
+                <li class="service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600">
+                    <span class="service-name">Social Media Strategy</span>
+                    <span class="plus-icon">+</span>
+                </li>
+                <li class="service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1493119508027-2b584f234d6c?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=600">
+                    <span class="service-name">Content Creation</span>
+                    <span class="plus-icon">+</span>
+                </li>
+                <li class="service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600">
+                    <span class="service-name">User-Generated Content</span>
+                    <span class="plus-icon">+</span>
+                </li>
+                <li class="service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600">
+                    <span class="service-name">1:1 Coaching Calls</span>
+                    <span class="plus-icon">+</span>
+                </li>
+            </ul>
+            
+            <button class="explore-btn">Explore Our Services</button>
+        </div>
+    </div>
+
+    <script>
+        // Select both image elements
+        const featuredImg = document.getElementById('featured-image');
+        const secondaryImg = document.getElementById('secondary-image');
+        
+        // Select all menu items
+        const serviceItems = document.querySelectorAll('.service-item');
+
+        // Helper function to handle smooth image swapping
+        function smoothSwap(imgElement, newSrc) {
+            // 1. Fade out (sets opacity to 0)
+            imgElement.style.opacity = '0';
+            
+            // 2. Wait for fade out to complete (matching transition time)
+            setTimeout(() => {
+                // 3. Swap the source while it is invisible
+                imgElement.src = newSrc;
+                // 4. Fade back in (sets opacity to 1)
+                imgElement.style.opacity = '1';
+            }, 200); // 200ms is half of the total transition speed (0.4s)
+        }
+
+        serviceItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Get both URLs from the data attributes
+                const newMainSrc = item.getAttribute('data-main-img');
+                const newSecSrc = item.getAttribute('data-sec-img');
+                
+                // Swap both images simultaneously
+                smoothSwap(featuredImg, newMainSrc);
+                smoothSwap(secondaryImg, newSecSrc);
+            });
+        });
+    </script>
+</body>
+</html>

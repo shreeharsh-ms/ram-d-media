@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Audit Popup</title>
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Container for the Decorative Flowers */
+        .popup-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+        }
+
+        /* Decorative Sunflowers */
+        .flower {
+            position: absolute;
+            z-index: 1;
+            width: 180px;
+            pointer-events: none;
+        }
+.flower-top {
+    top: 0;
+    right: 0;
+    transform: translate(30%, -20%);
+}
+.flower {
+    position: absolute;
+    z-index: 1;
+    width: 480px;
+    pointer-events: none;
+}
+        .flower-bottom {
+            bottom: 0;
+            left: 0;
+            transform: translate(-30%, 20%) rotate(-15deg);
+        }
+
+        /* Main Form Card */
+        .card {
+            position: relative;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            z-index: 2;
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 25px;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        input, .phone-input-container {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #f1a60d;
+        }
+
+        /* Mock Phone Input */
+        .phone-input-container {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+        .flag {
+            width: 20px;
+            margin-right: 8px;
+        }
+        .phone-input-container input {
+            border: none;
+            padding: 12px 0;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #f1a60d;
+            color: #1a1a1a;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        .submit-btn:hover {
+            background-color: #e09600;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: #888;
+            margin-top: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .row { flex-direction: column; }
+            .flower { width: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="popup-wrapper">
+        <img src="Gemini_Generated_Image_uatnsjuatnsjuatn-Photoroom.png" alt="Sunflower Top" class="flower flower-top">
+        <img src="Gemini_Generated_Image_wxxhc2wxxhc2wxxh-Photoroom.png" alt="Sunflower Bottom" class="flower flower-bottom">
+
+        <div class="card">
+            <button class="close-btn" onclick="closePopup()">✕</button>
+            
+            <h2>Get A Free SEO Audit 🌻</h2>
+            <p class="subtitle">Analyze Your Website Performance.<br>Boost Traffic & Rankings.</p>
+
+            <form id="auditForm">
+                <input type="email" placeholder="Business Email" required>
+                
+                <div class="row">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+
+                <div class="phone-input-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="IN" class="flag">
+                    <span>▼</span>
+                    <input type="tel" placeholder="Mobile Number (with +91)" style="margin-left:10px" required>
+                </div>
+
+                <input type="text" placeholder="Company Name" required>
+                <input type="url" placeholder="Website URL" required>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+
+            <p class="footer-text">* We respect your privacy. No spam. 100% Secure.</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('auditForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = form.querySelector('.submit-btn');
+            
+            // Visual feedback
+            btn.textContent = 'Sending...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert('Thank you! Your SEO audit request has been sent.');
+                btn.textContent = 'Submit';
+                btn.style.opacity = '1';
+                form.reset();
+            }, 1500);
+        });
+
+        function closePopup() {
+            document.querySelector('.popup-wrapper').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

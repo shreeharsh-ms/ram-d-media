@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with Us - Exact Replica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;600&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-yellow: #fdd85d;
+            --card-yellow: #ffec91;
+            --text-brown: #5d3a1a;
+            --input-bg: #ffe475;
+            --input-border: #e8c755;
+            --btn-gold: #cc9011;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-yellow);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-brown);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Adds the subtle grainy texture seen in the image background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.04;
+            pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1500px;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* Left Side */
+        .left-side {
+            flex: 1.2;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif; /* Matching the chunky serif */
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin-bottom: 40px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* The Form Card */
+        .contact-card {
+            background-color: var(--card-yellow);
+            border-radius: 12px;
+            padding: 35px;
+            border: 1px solid var(--input-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 100%;
+            width: 90%;
+        }
+
+        .contact-card h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background-color: var(--input-bg);
+            border: 1.5px solid var(--input-border);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-brown);
+            outline: none;
+        }
+
+        textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .submit-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .sunflower {
+            width: 45px;
+            height: 45px;
+        }
+
+        .submit-btn {
+            background-color: var(--btn-gold);
+            color: var(--text-brown);
+            border: none;
+            padding: 16px 50px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        /* Trusted By Section */
+        .trusted-container {
+            margin-top: 50px;
+        }
+
+        .trusted-text {
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .logo-row {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Right Side Image */
+        .right-side {
+            flex: 1;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+        }
+
+        /* Sparkle at bottom right */
+        .sparkle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .main-container { flex-direction: column; padding: 20px; }
+            h1 { font-size: 3rem; }
+            .hero-img { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="left-side">
+            <h1>Connect with Us</h1>
+            <p class="tagline">We'd love to hear from you. Drop us a message about your dream stay!</p>
+
+            <div class="contact-card">
+                <h2>Contact Us</h2>
+                <form id="exactForm">
+                    <div class="form-grid">
+                        <div>
+                            <label>Your Name</label>
+                            <input type="text" placeholder="">
+                        </div>
+                        <div>
+                            <label>Email Address</label>
+                            <input type="email" placeholder="">
+                        </div>
+                    </div>
+                    <div>
+                        <label>Message</label>
+                        <textarea></textarea>
+                    </div>
+
+                    <div class="submit-area">
+                        <img class="sunflower" src="https://cdn-icons-png.flaticon.com/512/1043/1043236.png" alt="sunflower">
+                        <button type="submit" class="submit-btn">Submit Message</button>
+                        <img class="sunflower" src="https://cdn-icons-png.flaticon.com/512/1043/1043236.png" alt="sunflower">
+                    </div>
+                </form>
+            </div>
+
+            <div class="trusted-container">
+                <p class="trusted-text">Trusted by</p>
+                <div class="logo-row">
+                    <span>Samsonite</span>
+                    <span>airbnb</span>
+                    <span style="font-family: serif; font-weight: 900;">Emirates</span>
+                    <span>Unitedtravel</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <video class="hero-img" autoplay muted loop playsinline>
+                <source src="Phone_Vibration_Loop_Animation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div class="sparkle">✦</div>
+
+    <script>
+        // Match video height to form height
+        function syncHeights() {
+            const contactCard = document.querySelector('.contact-card');
+            const heroImg = document.querySelector('.hero-img');
+            if (contactCard && heroImg) {
+                const formHeight = contactCard.offsetHeight;
+                heroImg.style.height = formHeight + 'px';
+            }
+        }
+
+        // Call on load
+        window.addEventListener('load', () => {
+            setTimeout(syncHeights, 100);
+        });
+
+        // Call on resize
+        window.addEventListener('resize', syncHeights);
+
+        // Use MutationObserver to watch for changes
+        const observer = new MutationObserver(syncHeights);
+        observer.observe(document.body, { 
+            subtree: true, 
+            childList: true, 
+            attributes: true 
+        });
+
+        // Initial call
+        setTimeout(syncHeights, 50);
+
+        document.getElementById('exactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Message Sent!');
+        });
+    </script>
+</body>
+</html>

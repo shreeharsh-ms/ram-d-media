@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painted Sunflower Layout</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --bg-white: #fdfdfd;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-white);
+            font-family: 'Georgia', serif;
+            /* Extra height so you can see the scroll effect */
+            height: 200vh; 
+        }
+
+        .container {
+            position: fixed; /* Keeps the layout visible while scrolling */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* The "Painted" Image Section */
+        .image-section {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 55%;
+            height: 100%;
+            background-image: url('Gemini_Generated_Image_9rrwc79rrwc79rrw.png');
+            background-size: cover;
+            background-position: center;
+
+            /* Masking to create the painted/torn edge effect */
+            -webkit-mask-image: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(0,0,0,0.2) 10%, 
+                rgba(0,0,0,1) 30%);
+            mask-image: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(0,0,0,0.2) 10%, 
+                rgba(0,0,0,1) 30%);
+            
+            /* To make it look more like paint, we add a subtle filter */
+            filter: saturate(1.1);
+        }
+
+        /* The Content Area */
+        .content {
+            position: relative;
+            z-index: 10;
+            width: 45%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 5%;
+            background: transparent;
+        }
+
+        h1 { font-size: 4rem; margin: 0; color: #443a24; }
+        p { font-size: 1.2rem; color: #777; max-width: 600px; line-height: 1.8; }
+
+        /* The Scrolling/Tilting Sunflower */
+        .sunflower-wrapper {
+            position: absolute;
+            bottom: -20px;
+            left: 30%;
+            z-index: 20;
+            width: 350px;
+            pointer-events: none;
+        }
+
+        #tilting-flower {
+            width: 100%;
+            transform-origin: center center;
+            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.15));
+            will-change: transform;
+        }
+
+        /* Additional Scrolling Sunflowers */
+        .sunflower-corner {
+            position: absolute;
+            z-index: 15;
+            pointer-events: none;
+            filter: drop-shadow(8px 8px 15px rgba(0,0,0,0.2));
+            will-change: transform;
+        }
+
+        #sunflower-top-right {
+    top: 50px;
+    right: 60px;
+    width: 250px;
+    opacity: 0.9;
+}
+
+        #sunflower-top-left {
+            top: -50px;
+            left: -80px;
+            width: 120px;
+            opacity: 0.7;
+            transform: rotate(195deg);
+        }
+
+#sunflower-bottom-right {
+    bottom: 100px;
+    right: -120px;
+    width: 480px;
+    opacity: 0.9;
+}
+        /* Decorative scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 10%;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ccc;
+        }
+
+        /* ============================================
+           MEDIA QUERIES - RESPONSIVE DESIGN
+           ============================================ */
+
+        /* Tablets (iPad, Android Tablets) - 768px and below */
+        @media (max-width: 768px) {
+            .image-section {
+                width: 100%;
+                height: 40%;
+                -webkit-mask-image: linear-gradient(to bottom, 
+                    transparent 0%, 
+                    rgba(0,0,0,0.2) 10%, 
+                    rgba(0,0,0,1) 30%);
+                mask-image: linear-gradient(to bottom, 
+                    transparent 0%, 
+                    rgba(0,0,0,0.2) 10%, 
+                    rgba(0,0,0,1) 30%);
+            }
+
+            .content {
+                width: 100%;
+                height: 60%;
+                padding-left: 5%;
+                padding-right: 5%;
+                justify-content: flex-start;
+                padding-top: 20px;
+            }
+
+            h1 { font-size: 2.5rem; }
+            p { font-size: 1rem; max-width: 100%; }
+
+            .sunflower-wrapper {
+                width: 200px;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            #sunflower-top-right {
+                top: 30px;
+                right: 20px;
+                width: 100px;
+                opacity: 0.6;
+            }
+
+            #sunflower-top-left {
+                top: -40px;
+                left: -60px;
+                width: 80px;
+                opacity: 0.5;
+            }
+
+            #sunflower-bottom-right {
+                bottom: 30px;
+                right: -100px;
+                width: 300px;
+                opacity: 0.7;
+            }
+
+            body, html {
+                height: 300vh;
+            }
+        }
+
+        /* Mobile Phones (Android, iPhone) - 480px and below */
+        @media (max-width: 480px) {
+            body, html {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                height: 400vh;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .image-section {
+                display: none;
+            }
+
+            .content {
+                width: 100%;
+                height: 100%;
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-top: 30px;
+                justify-content: flex-start;
+            }
+
+            h1 { 
+                font-size: 1.8rem; 
+                margin-bottom: 10px;
+            }
+
+            p { 
+                font-size: 0.9rem; 
+                max-width: 100%; 
+                line-height: 1.6;
+                color: #888;
+            }
+
+            .sunflower-wrapper {
+                width: 120px;
+                bottom: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            #tilting-flower {
+                width: 100%;
+            }
+
+            #sunflower-top-right {
+                top: 15px;
+                right: 10px;
+                width: 70px;
+                opacity: 0.5;
+            }
+
+            #sunflower-top-left {
+                top: -35px;
+                left: -50px;
+                width: 60px;
+                opacity: 0.4;
+            }
+
+            #sunflower-bottom-right {
+                bottom: 15px;
+                right: -90px;
+                width: 250px;
+                opacity: 0.6;
+            }
+
+            .scroll-hint {
+                bottom: 10px;
+                left: 5%;
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+            }
+        }
+
+        /* Small Mobile Phones (Galaxy S21, iPhone SE) - 360px and below */
+        @media (max-width: 360px) {
+            .image-section {
+                height: 30%;
+            }
+
+            .content {
+                height: 70%;
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            h1 { 
+                font-size: 1.5rem; 
+                margin-bottom: 8px;
+            }
+
+            p { 
+                font-size: 0.85rem;
+                line-height: 1.5;
+                max-width: 100%;
+            }
+
+            .sunflower-wrapper {
+                width: 100px;
+                bottom: 0px;
+            }
+
+            #sunflower-top-right {
+                width: 60px;
+                top: 10px;
+                right: 5px;
+            }
+
+            #sunflower-top-left {
+                width: 50px;
+                top: -30px;
+                left: -45px;
+            }
+
+            #sunflower-bottom-right {
+                width: 200px;
+                bottom: 10px;
+                right: -80px;
+            }
+        }
+
+        /* Extra Large Mobile (Landscape or Foldable) - 600px width */
+        @media (max-width: 900px) and (min-width: 481px) {
+            .image-section {
+                width: 50%;
+                height: 100%;
+            }
+
+            .content {
+                width: 50%;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            h1 { font-size: 2.2rem; }
+            p { font-size: 0.95rem; max-width: 100%; }
+
+            body, html {
+                height: 250vh;
+            }
+        }
+
+        /* Landscape Mode - Mobile Devices */
+        @media (max-height: 500px) {
+            .container {
+                height: 100vh;
+            }
+
+            h1 { font-size: 1.5rem; }
+            p { font-size: 0.85rem; }
+
+            .sunflower-wrapper {
+                width: 150px;
+            }
+
+            #sunflower-top-right {
+                width: 80px;
+            }
+
+            #sunflower-top-left {
+                width: 70px;
+            }
+
+            #sunflower-bottom-right {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="image-section"></div>
+
+        <!-- Additional Sunflowers -->
+        <img id="sunflower-top-right" class="sunflower-corner" src="Gemini_Generated_Image_nvors3nvors3nvor-Photoroom.png" alt="Sunflower">
+        <img id="sunflower-bottom-right" class="sunflower-corner" src="Gemini_Generated_Image_74b7y874b7y874b7-Photoroom.png" alt="Sunflower">
+
+        <div class="content">
+            <h1>Our Brand Manifesto</h1>
+            <p>We believe brands are not just businesses. They are ideas, dreams, and stories waiting to be seen. In a world where everyone is online, simply being present is not enough. Brands need creativity, courage, and the right digital voice to truly stand out.
+<br><br>
+At RAM Digital Media, we believe in bringing fresh perspectives to the digital space. We believe in thinking differently, creating with purpose, and building strategies that help brands grow with confidence.
+<br><br>
+We believe great marketing is not about noise — it's about meaningful connections, strong ideas, and authentic storytelling.
+<br><br>
+Every brand has the potential to grow, evolve, and reach people who truly connect with it. With the right creativity and strategy, that growth becomes limitless.
+<br><br>
+At RAM Digital Media, our mission is simple: to help brands move forward with clarity, creativity, and impact in the digital world.
+<br><br>
+Because when ideas meet passion and strategy, brands don't just exist — they grow, inspire, and leave a lasting impression.</p>
+        </div>
+
+        <div class="scroll-hint">Scroll Down ↓</div>
+    </div>
+
+    <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        const flower = document.getElementById('tilting-flower');
+        const sunflowerTopRight = document.getElementById('sunflower-top-right');
+        const sunflowerTopLeft = document.getElementById('sunflower-top-left');
+        const sunflowerBottomRight = document.getElementById('sunflower-bottom-right');
+        const paragraphText = document.querySelector('.content p');
+
+        // Split text into words and wrap them in spans for reveal animation
+        const originalText = paragraphText.innerHTML;
+        const words = originalText.split(/(<br><br>)/); // Keep br tags
+        let wrappedHTML = '';
+        
+        words.forEach(word => {
+            if (word === '<br><br>') {
+                wrappedHTML += word;
+            } else {
+                const wordArray = word.split(' ');
+                wordArray.forEach(w => {
+                    wrappedHTML += `<span class="word" style="opacity: 0;">${w} </span>`;
+                });
+            }
+        });
+        
+        paragraphText.innerHTML = wrappedHTML;
+        const wordSpans = document.querySelectorAll('.word');
+
+        // Animate text reveal on scroll
+        gsap.to(wordSpans, {
+            opacity: 1,
+            duration: 0.3,
+            stagger: 0.05,
+            scrollTrigger: {
+                trigger: '.content p',
+                start: 'top 80%',
+                end: 'bottom 50%',
+                scrub: 1,
+                markers: false
+            }
+        });
+
+        // Smooth sunflower animations using GSAP
+        window.addEventListener('scroll', () => {
+            const scrollPercent = window.scrollY / (document.body.offsetHeight - window.innerHeight);
+            
+            // Main sunflower: Smooth tilt
+            gsap.to(flower, {
+                rotation: (scrollPercent * 30) - 15,
+                scale: 1 + (scrollPercent * 0.1),
+                duration: 0.5,
+                overwrite: 'auto'
+            });
+
+            // Top Right Sunflower: Smooth rotation and float
+            gsap.to(sunflowerTopRight, {
+                rotation: (scrollPercent * 45) - 22.5,
+                scale: 0.9 + (scrollPercent * 0.2),
+                y: scrollPercent * -80,
+                duration: 0.6,
+                overwrite: 'auto'
+            });
+
+            // Top Left Sunflower: Smooth rotation and movement (slower)
+            gsap.to(sunflowerTopLeft, {
+                rotation: (scrollPercent * -40) + 20,
+                scale: 0.85 + (scrollPercent * 0.25),
+                y: scrollPercent * 60,
+                duration: 0.7,
+                overwrite: 'auto'
+            });
+
+            // Bottom Right Sunflower: Smooth spin (slower rotation) - very minimal movement
+            gsap.to(sunflowerBottomRight, {
+                rotation: scrollPercent * 45,
+                scale: 1 + (scrollPercent * 0.02),
+                y: scrollPercent * -8,
+                duration: 1.2,
+                overwrite: 'auto'
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflower Design Concept</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #4a2c1d;
+            --accent-yellow: #ffb800;
+            --bg-cream: #f9f3e6;
+            --text-muted: #7a6b5d;
+            --primary-orange: #ff7a00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-cream);
+            /* Background image with overlay to match the hazy vibe */
+            background: linear-gradient(rgba(249, 243, 230, 0.496), rgba(249, 243, 230, 0.787)), 
+                        url('Gemini_Generated_Image_m665tsm665tsm665.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--primary-brown);
+            min-height: 100vh;
+            padding: 80px 10%;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar Icons */
+        .sidebar {
+            position: fixed; 
+            right: 20px;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .icon-box {
+            background: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-box:hover {
+            transform: translateX(-30px);
+            background: #fff;
+        }
+
+        .sunflower-hover {
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            right: -30px;
+        }
+
+        .icon-box:hover .sunflower-hover {
+            opacity: 1;
+        }
+
+        /* Top Layout Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .step-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 15px;
+            border-radius: 4px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .step-item:hover {
+            background: rgba(74, 44, 29, 0.05);
+            transform: translateX(10px);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-sunflower {
+            font-size: 2.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-item:hover .step-sunflower {
+            opacity: 1;
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .step-item.active {
+            background: rgba(255, 122, 0, 0.1);
+            border-left: 3px solid var(--primary-orange);
+            padding-left: 12px;
+        }
+
+        .step-item span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .step-item h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 4rem;
+            line-height: 1;
+        }
+
+        .sunflower-mini {
+            width: 35px;
+            height: 35px;
+        }
+
+        /* Image Display Area */
+        .main-image-container {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .main-image-container img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-overlay-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 40px 30px;
+            color: white;
+            z-index: 10;
+        }
+
+        .image-overlay-text h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .image-overlay-text p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 90%;
+        }
+
+        /* Bottom Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .feature-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .view-more {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--primary-brown);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-yellow);
+            border-radius: 50%;
+        }
+
+        /* Floating Scroll Button */
+        .scroll-up {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: #b86548;
+            color: white;
+            width: 50px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero-section, .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="icon-box menu-item" data-id="strategy">
+            🎯
+            <span class="sunflower-hover">�</span>
+        </div>
+        <div class="icon-box menu-item" data-id="shopping">
+            🛒
+            <span class="sunflower-hover">🌻</span>
+        </div>
+    </div>
+
+    <section class="hero-section">
+        <div class="steps">
+            <div class="step-item" data-step="concept">
+                <div class="step-content">
+                    <span>Strategy</span>
+                    <h1>Concept</h1>
+                </div>
+                <span class="step-sunflower" style="font-size: 50px ;">🌻</span>
+            </div>
+            <div class="step-item" data-step="research">
+                <div class="step-content">
+                    <span>Analysis</span>
+                    <h1>Research</h1>
+                </div>
+                <span class="step-sunflower" style="font-size: 50px ;">🌻</span>
+            </div>
+            <div class="step-item active" data-step="design">
+                <div class="step-content">
+                    <span>Development</span>
+                    <div style="display:flex; align-items:center; gap:10px">
+                        <img src="https://cdn-icons-png.flaticon.com/512/590/590483.png" class="sunflower-mini" alt="flower">
+                        <h1>Design</h1>
+                    </div>
+                </div>
+                <span class="step-sunflower" style="font-size: 50px ;">🌻</span>
+            </div>
+        </div>
+
+        <div class="main-image-container">
+            <img id="mainImage" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1000" alt="Phone Mockup">
+            <div class="image-overlay-text">
+                <h2 id="imageTitle">Premium Design</h2>
+                <p id="imageDescription">Innovative solutions for modern brands and digital experiences</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Visual Identity</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing spendisse iperdiet. Malesuada sempe run sed quis imus tiam ultrices.</p>
+            <a href="#" class="view-more">View More <span class="dot"></span></a>
+        </div>
+        <div class="feature-card">
+            <h3>UI/UX Designing</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing spendisse iperdiet. Malesuada sempe run sed quis imus tiam ultrices.</p>
+            <a href="#" class="view-more">View More <span class="dot"></span></a>
+        </div>
+        <div class="feature-card">
+            <h3>Cloud Computing</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing spendisse iperdiet. Malesuada sempe run sed quis imus tiam ultrices.</p>
+            <a href="#" class="view-more">View More <span class="dot"></span></a>
+        </div>
+    </section>
+
+    <a href="#" class="scroll-up">↑</a>
+
+    <script>
+        // Data for different menu items
+        const menuData = {
+            strategy: {
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000',
+                title: 'Strategic Planning',
+                description: 'Comprehensive strategy and market analysis for your brand growth',
+                features: [
+                    {
+                        title: 'Market Research',
+                        text: 'In-depth analysis of market trends, competitor landscapes, and customer behavior patterns.'
+                    },
+                    {
+                        title: 'Brand Strategy',
+                        text: 'Develop a strong brand identity that resonates with your target audience.'
+                    },
+                    {
+                        title: 'Growth Planning',
+                        text: 'Create actionable roadmaps for sustainable business growth and expansion.'
+                    }
+                ]
+            },
+            shopping: {
+                image: 'https://images.unsplash.com/photo-1522869635100-ce306e08f5fd?auto=format&fit=crop&q=80&w=1000',
+                title: 'E-Commerce Solutions',
+                description: 'Seamless shopping experiences that convert visitors into loyal customers',
+                features: [
+                    {
+                        title: 'User Experience',
+                        text: 'Intuitive navigation and checkout processes that maximize conversion rates.'
+                    },
+                    {
+                        title: 'Payment Systems',
+                        text: 'Secure and flexible payment options for a smooth customer journey.'
+                    },
+                    {
+                        title: 'Analytics & Insights',
+                        text: 'Real-time data tracking and analytics to optimize your sales performance.'
+                    }
+                ]
+            },
+            concept: {
+                image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1000',
+                title: 'Strategic Concept',
+                description: 'Developing powerful ideas and strategic direction for your brand',
+                features: [
+                    {
+                        title: 'Ideation Workshop',
+                        text: 'Collaborative sessions to brainstorm and develop innovative concepts for your project.'
+                    },
+                    {
+                        title: 'Conceptual Design',
+                        text: 'Transform ideas into visual concepts and prototypes that tell your brand story.'
+                    },
+                    {
+                        title: 'Strategic Direction',
+                        text: 'Define clear direction and positioning that resonates with your target audience.'
+                    }
+                ]
+            },
+            research: {
+                image: 'https://images.unsplash.com/photo-1516321318423-f06f70d504f0?auto=format&fit=crop&q=80&w=1000',
+                title: 'Deep Research & Analysis',
+                description: 'Comprehensive insights through data-driven analysis and market research',
+                features: [
+                    {
+                        title: 'Market Analysis',
+                        text: 'Thorough examination of market trends, competitor activities, and industry benchmarks.'
+                    },
+                    {
+                        title: 'User Research',
+                        text: 'In-depth studies of user behavior, preferences, and pain points for better solutions.'
+                    },
+                    {
+                        title: 'Data Insights',
+                        text: 'Transform raw data into actionable insights that drive strategic decision-making.'
+                    }
+                ]
+            },
+            design: {
+                image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1000',
+                title: 'Creative Design',
+                description: 'Beautiful and functional design solutions that bring your vision to life',
+                features: [
+                    {
+                        title: 'Visual Design',
+                        text: 'Stunning visual aesthetics that captivate your audience and build brand recognition.'
+                    },
+                    {
+                        title: 'User Interface',
+                        text: 'Intuitive and elegant UI design that makes interactions seamless and enjoyable.'
+                    },
+                    {
+                        title: 'Design Systems',
+                        text: 'Scalable design frameworks that ensure consistency across all brand touchpoints.'
+                    }
+                ]
+            }
+        };
+
+        // Function to update content
+        function updateContent(key) {
+            const data = menuData[key];
+            if (data) {
+                // Update main image
+                document.getElementById('mainImage').src = data.image;
+                
+                // Update image text
+                document.getElementById('imageTitle').textContent = data.title;
+                document.getElementById('imageDescription').textContent = data.description;
+
+                // Update feature cards
+                const featureCards = document.querySelectorAll('.feature-card');
+                featureCards.forEach((card, index) => {
+                    if (index < data.features.length) {
+                        card.querySelector('h3').textContent = data.features[index].title;
+                        card.querySelector('p').textContent = data.features[index].text;
+                    }
+                });
+            }
+        }
+
+        // Handle side menu item clicks
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                updateContent(id);
+
+                // Visual feedback
+                document.querySelectorAll('.menu-item').forEach(m => {
+                    m.style.background = '#fff';
+                    m.style.color = 'inherit';
+                });
+                this.style.background = '#e91e63';
+                this.style.color = 'white';
+            });
+        });
+
+        // Handle step item clicks
+        document.querySelectorAll('.step-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const step = this.getAttribute('data-step');
+                updateContent(step);
+
+                // Visual feedback - remove active from all
+                document.querySelectorAll('.step-item').forEach(s => {
+                    s.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Set initial active state
+        document.querySelector('[data-id="strategy"]').click();
+
+        // Simple scroll effect for the main image
+        window.addEventListener('scroll', () => {
+            const img = document.querySelector('.main-image-container img');
+            let scrollValue = window.scrollY;
+            img.style.transform = `scale(${1 + scrollValue * 0.0002})`;
+        });
+
+        // Add a soft fade-in animation for cards
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            card.style.transition = "all 0.8s ease-out";
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

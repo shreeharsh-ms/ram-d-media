@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Partner Section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #051616;
+            --text-white: #ffffff;
+            --text-gray: #a0a8a8;
+            --card-radius: 24px;
+            --primary-orange: #ff7a00;
+            --cream: #FDF5E6;
+            --sunflower-yellow: #FCC419;
+            
+            /* Sunflower Color Theme */
+            --color-primary-yellow: #FCC419;      /* Sunflower Yellow - Use Very Sparingly */
+            --color-golden-yellow: #FCC419;       /* Sunflower Yellow - Minimal Use */
+            --color-pale-yellow: #FAF8E2;         /* Soft Lemon Yellow Background */
+            --color-deep-yellow: #5B8C2A;         /* Deep Moss Green */
+            --color-sunny-cream: #FAF8E2;         /* Soft Lemon Cream */
+            --color-burnt-orange: #5B8C2A;        /* Deep Moss Green */
+            --color-rich-brown: #5F3C28;          /* Deep Brown - Headings */
+            --color-warm-beige: #FAF8E2;          /* Soft Lemon Beige */
+            --color-light-cream: #FFFFF0;         /* Light Cream */
+            --color-dark-charcoal: #3C444B;       /* Dark Charcoal Grey - Text */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            color: var(--text-white);
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Navigation --- */
+        .top-edge {
+            background: #0a0a0a;
+            height: 0;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0;
+            z-index: 1000;
+            background: var(--color-sunny-cream);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(95, 60, 40, 0.1);
+        }
+
+        header.scrolled {
+            background: var(--color-sunny-cream);
+            box-shadow: 0 4px 20px rgba(95, 60, 40, 0.15);
+        }
+
+        header.scrolled .nav-link {
+            color: var(--color-rich-brown);
+        }
+
+        header.scrolled .nav-link:hover {
+            color: var(--color-burnt-orange);
+        }
+
+        header.scrolled .nav-link.active {
+            color: var(--color-burnt-orange);
+        }
+
+        header.scrolled .logo-main,
+        header.scrolled .logo-sub {
+            color: var(--color-rich-brown);
+        }
+
+        header.scrolled .cart-icon-wrapper {
+            color: var(--color-rich-brown);
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-group {
+            display: flex;
+            list-style: none;
+            gap: 60px;
+            flex: 1;
+        }
+
+        .nav-group.left { 
+            justify-content: flex-end; 
+            padding-right: 50px; 
+        }
+        
+        .nav-group.right { 
+            justify-content: flex-start; 
+            padding-left: 50px; 
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-rich-brown);
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:visited {
+            color: var(--color-rich-brown);
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+            stroke: var(--color-primary-yellow);
+        }
+
+        .nav-link:hover svg {
+            transform: rotate(20deg) scale(1.1);
+        }
+
+        .nav-link:hover {
+            color: var(--color-burnt-orange);
+        }
+
+        .nav-link.active {
+            color: var(--color-primary-yellow);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-primary-yellow);
+        }
+
+        .logo-area {
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .logo-main {
+            color: var(--color-rich-brown);
+            font-size: 42px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            color: var(--color-rich-brown);
+            font-family: 'Great Vibes', cursive;
+            font-size: 38px;
+            margin-top: -5px;
+            display: block;
+        }
+
+        .cart-section {
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+        }
+
+        .cart-icon-wrapper {
+            position: relative;
+            color: var(--color-primary-yellow);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .sunflower-icon-wrapper {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .sunflower-icon-wrapper:hover {
+            transform: scale(1.15) rotate(20deg);
+        }
+
+        .sunflower-icon-wrapper svg {
+            filter: drop-shadow(0 0 2px rgba(252, 196, 25, 0.6));
+        }
+
+        .sunflower-icon-wrapper:hover svg {
+            filter: drop-shadow(0 0 8px rgba(252, 196, 25, 1));
+        }
+
+        .cart-badge {
+            background: var(--color-primary-yellow);
+            color: var(--color-rich-brown);
+            font-size: 11px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -8px;
+            right: -10px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: fixed;
+            top: 55px;
+            left: 25px;
+            z-index: 1001;
+            gap: 6px;
+        }
+
+        .hamburger svg {
+            stroke: white;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(250, 248, 226, 0.98) 0%, rgba(252, 196, 25, 0.95) 100%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 120px;
+            padding-left: 40px;
+            transition: 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .mobile-overlay.active {
+            right: 0;
+        }
+
+        .mobile-overlay a {
+            color: var(--color-rich-brown);
+            font-size: 1.3rem;
+            text-decoration: none;
+            margin: 20px 0;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .mobile-overlay a:hover {
+            color: var(--color-burnt-orange);
+        }
+
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-group {
+                display: none;
+            }
+        }
+
+        /* Full Width Section */
+        .partner-section {
+            width: 100%;
+            padding: 100px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 80px;
+            background-color: var(--color-sunny-cream);
+            color: var(--color-rich-brown);
+        }
+
+        /* Header Area */
+        .header-content {
+            max-width: 800px;
+            margin-bottom: 60px;
+        }
+
+        .header-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            color: var(--color-rich-brown);
+        }
+
+        .header-content p {
+            font-size: 16px;
+            color: var(--color-rich-brown);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            background-color: #1a2a2a;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 4px solid var(--color-burnt-orange);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .image-grid {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .partner-section {
+                padding: 60px 20px;
+            }
+
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- About Section Styles --- */
+        .header-section {
+            width: 100%;
+            padding: 100px 5%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title-main {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -4px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--color-burnt-orange);
+            width: 100%;
+            color: var(--color-rich-brown);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .side-nav {
+            list-style: none;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--color-rich-brown);
+        }
+
+        .side-nav li {
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .side-nav li:hover {
+            color: var(--color-primary-yellow);
+        }
+
+        .main-description {
+            color: var(--color-rich-brown);
+            font-size: 16px;
+            max-width: 900px;
+            line-height: 1.6;
+        }
+
+        .main-description p {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: var(--color-primary-yellow);
+        }
+
+        /* --- FULL WIDTH HERO IMAGE --- */
+        .full-width-image {
+            width: 100%;
+            padding: 0 5%;
+            margin: 0;
+        }
+
+        .full-width-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* --- Quote Section --- */
+        .quote-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: center;
+            padding: 100px 5%;
+            margin: 0;
+            width: 100%;
+        }
+
+        .quote-box {
+            padding: 60px;
+            position: relative;
+            background: var(--color-pale-yellow);
+            border-radius: 12px;
+        }
+
+        .quote-box blockquote {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--color-rich-brown);
+        }
+
+        .quote-box p {
+            font-size: 14px;
+            color: var(--color-rich-brown);
+        }
+
+        .split-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Why Choose Us Section --- */
+        .why-choose-us-section {
+            width: 100%;
+            padding: 100px 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-us-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .why-us-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            color: var(--color-rich-brown);
+            margin-bottom: 30px;
+        }
+
+        .why-us-subtitle {
+            font-size: 16px;
+            color: var(--color-rich-brown);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .why-us-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .why-us-icon {
+            font-size: 32px;
+            color: var(--color-primary-yellow);
+            min-width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .why-us-item-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-rich-brown);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .why-us-item-content p {
+            font-size: 14px;
+            color: var(--color-rich-brown);
+            line-height: 1.6;
+        }
+
+        .why-us-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .why-us-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Footer Styles --- */
+        .footer {
+            width: 100%;
+            background-color: var(--color-sunny-cream);
+            color: var(--color-rich-brown);
+            padding: 100px 5% 40px 5%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vh;
+            height: 80vh;
+            background-color: var(--color-pale-yellow);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-top {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .footer-top p {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--color-rich-brown);
+        }
+
+        .main-heading {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -5px;
+            line-height: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-rich-brown);
+        }
+
+        .dot-circle {
+            display: inline-block;
+            width: 0.8em;
+            height: 0.8em;
+            background-color: var(--color-burnt-orange);
+            border-radius: 50%;
+            margin: 0 -0.05em;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-top: 2px solid var(--color-burnt-orange);
+            padding-top: 40px;
+            gap: 40px;
+        }
+
+        .grid-column h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            color: var(--color-rich-brown);
+            background: var(--color-pale-yellow);
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .grid-column ul {
+            list-style: none;
+        }
+
+        .grid-column ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--color-rich-brown);
+        }
+
+        .grid-column ul li:hover {
+            color: var(--color-primary-yellow);
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 5%;
+        }
+
+        .brand h2 {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+            color: var(--color-rich-brown);
+        }
+
+        .brand span {
+            font-size: 28px;
+            display: block;
+            color: var(--color-rich-brown);
+        }
+
+        .local-time {
+            text-align: right;
+        }
+
+        .local-time h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: var(--color-rich-brown);
+        }
+
+        .local-time p {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-rich-brown);
+        }
+
+        .decorative-prop {
+            position: absolute;
+            z-index: 1;
+            border-radius: 24px;
+            filter: none;
+            transition: none;
+            overflow: hidden;
+        }
+
+        .fab-container {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fab {
+            width: 45px;
+            height: 45px;
+            background: var(--color-primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--color-rich-brown);
+            border: 2px solid var(--color-burnt-orange);
+        }
+
+        .fab:hover {
+            background: var(--color-burnt-orange);
+            color: white;
+        }
+
+        /* --- Story Section Styles --- */
+        .story-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 80px 10%;
+            overflow: hidden;
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right, 
+                rgba(0,0,0,0.7) 0%, 
+                rgba(0,0,0,0.2) 50%, 
+                rgba(0,0,0,0.8) 100%
+            ), 
+            url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2000') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            transform: translateY(0px);
+        }
+
+        .decorative-line {
+            position: absolute;
+            top: 0;
+            right: 15%;
+            width: 2px;
+            height: 100px;
+            background: var(--color-primary-yellow);
+        }
+
+        .story-section .content-box {
+            max-width: 600px;
+            text-align: left;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .story-section .content-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-section h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+        }
+
+        .story-section .highlight {
+            color: var(--color-primary-yellow);
+            font-weight: 600;
+        }
+
+        /* --- Responsive Fixes --- */
+        @media (max-width: 900px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .quote-row {
+                grid-template-columns: 1fr;
+                padding: 60px 5%;
+            }
+            .quote-box {
+                padding: 40px;
+                order: 2;
+                margin-bottom: 30px;
+            }
+            .split-image {
+                order: 1;
+                border-radius: 12px;
+            }
+            .why-choose-us-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 60px 5%;
+            }
+            .why-us-image {
+                min-height: 400px;
+                order: -1;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 40px;
+            }
+            .main-heading {
+                letter-spacing: -2px;
+            }
+            .story-section {
+                justify-content: center;
+                padding: 60px 5%;
+            }
+            .story-section .content-box {
+                text-align: center;
+            }
+            .decorative-line {
+                right: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-edge"></div>
+
+    <header>
+        <div class="header-container">
+            <ul class="nav-group left">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#our-services" class="nav-link">Our Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            </ul>
+
+            <div class="logo-area">
+                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo" style="height: 70px; width: auto; object-fit: contain;">
+            </div>
+
+            <ul class="nav-group right">
+                <li><a href="#how-we-work" class="nav-link">How We Work</a></li>
+                <li><a href="about-us-hero.html" class="nav-link active">About Us</a></li>
+                <li><a href="index.html#contact-us" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="hamburger" id="hamburger">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </div>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="#our-services">Our Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="#how-we-work">How We Work</a>
+        <a href="about-us-hero.html">About Us</a>
+        <a href="index.html#contact-us">Contact Us</a>
+    </div>
+
+    <section class="partner-section">
+        <div class="header-content reveal">
+            <h1>The Story Behind<br>RAM Digital Media</h1>
+            <p>The journey of how experience, creativity, and a passion for digital marketing came together to shape the vision behind RAM Digital Media.</p>
+        </div>
+
+        <!-- Decorative prop images -->
+        <div class="decorative-prop" id="prop-partner-1" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        <div class="decorative-prop" id="prop-partner-2" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-3.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+
+        <div class="image-grid">
+            <div class="card reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop" alt="Strategy Leader">
+            </div>
+
+            <div class="card reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1000&auto=format&fit=crop" alt="Team Discussion">
+            </div>
+
+            <div class="card reveal" style="transition-delay: 0.3s;">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Operational Specialist">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="header-section reveal">
+        <h1 class="title-main">About us.</h1>
+        
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-about-1" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-3.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        <div class="decorative-prop" id="prop-about-2" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom (3).png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        
+        <div class="intro-grid">
+            <ul class="side-nav">
+                <li>About us.</li>
+                <li>Our team.</li>
+                <li>Press.</li>
+            </ul>
+            <div class="main-description">
+                <p><span class="highlight">Hello, I'm Samruddhi Meher</span>, the founder of RAM Digital Media.</p>
+                
+                <p>In today's fast-moving digital world, simply having a brand online is not enough. People scroll through hundreds of posts every day, and only a few brands truly stand out. That's where the right creativity, strategy, and fresh ideas make all the difference.</p>
+                
+                <p>At RAM Digital Media, our goal is to help brands grow by bringing new-generation thinking, creative storytelling, and smart digital strategies. We focus on building a strong and meaningful online presence so your brand can connect with the right audience in the right way.</p>
+                
+                <p>We believe marketing should never feel boring or forced. It should feel engaging, exciting, and memorable. With the right mix of creativity and strategy, your brand can reach more people, create stronger connections, and build lasting recognition in the digital space.</p>
+                
+                <p>Our approach is simple — understand your brand, think creatively, and execute with dedication so your brand can grow confidently in the digital world.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="full-width-image reveal" style="padding-bottom: 40px;">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" alt="Full Width Workspace">
+    </div>
+
+
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="decorative-line"></div>
+        
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-story-1" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        <div class="decorative-prop" id="prop-story-2" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-3.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        
+        <div class="content-box" id="scrollContent">
+            <h1>Why the Name <span class="highlight">RAM Digital Media?</span></h1>
+            
+            <div class="story-text">
+                <p>RAM Digital Media is more than just a business name — it carries a personal story and meaning.</p>
+                
+                <p>I am the only child of my father, <span class="highlight">Rajendra Amarchand Meher</span>, and taking his name forward has always been something very close to my heart. The name RAM comes from his initials, and choosing this name was my way of honoring his identity while building something meaningful for the future.</p>
+                
+                <p>By combining RAM with Digital Media, I wanted to create something that represents both generations — the values and legacy of the past, along with the innovation and creativity of the new digital generation.</p>
+                
+                <p>For me, RAM Digital Media is not just a company. It is a journey of combining legacy, passion, and creativity to build something meaningful in today's digital world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us-section reveal">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-why-1" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-3.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        <div class="decorative-prop" id="prop-why-2" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        
+        <div class="why-us-content">
+            <h2 class="why-us-title">Why<br>Choose<br>Us?</h2>
+            <p class="why-us-subtitle">There are many digital marketing companies today, but at EDEN Digital Media, we believe in working with brands in a more personal and dedicated way.</p>
+            
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="why-us-item-content">
+                        <h3>Personal & Dedicated Approach</h3>
+                        <p>We don't just see brands as projects — we treat every brand with care, creativity, and genuine commitment. Our focus is on understanding what makes your brand unique and building strategies that help communicate that identity clearly.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="why-us-item-content">
+                        <h3>Fresh Ideas & Strong Strategy</h3>
+                        <p>From planning to execution, we focus on bringing fresh ideas, thoughtful strategies, and creative content that can help brands connect with modern audiences. We especially understand the importance of connecting with today's digital-first generation, where creativity, authenticity, and consistency matter the most.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-hourglass-end"></i>
+                    </div>
+                    <div class="why-us-item-content">
+                        <h3>Long-term Growth</h3>
+                        <p>Support long-term brand growth through dedicated strategies and consistent execution. We're committed to building sustainable success that grows with your business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="why-us-image reveal">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=1500" alt="Why Choose Us">
+        </div>
+    </section>
+
+    <div style="height: 100px;"></div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-footer-1" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        <div class="decorative-prop" id="prop-footer-2" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom (6).png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+        </div>
+        
+        <div class="footer-content">
+            
+            <div class="footer-top">
+                <p>Got a project? Need an unfair advantage?</p>
+                <h1 class="main-heading">
+                    GET IN T<span class="dot-circle"></span>UCH
+                </h1>
+            </div>
+
+            <div class="footer-grid">
+                <div class="grid-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="back.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="services.html" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="how-we-work.html" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="whyChooseUs.html" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
+                    </ul>
+                </div>
+                <div class="grid-column">
+                    <h4>Socials</h4>
+                    <ul>
+                        <li>LinkedIn</li>
+                        <li>YouTube</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                        <li>Facebook</li>
+                    </ul>
+                </div>
+                <div class="grid-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li>Portfolio</li>
+                        <li>Case Studies</li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="brand">
+                    <span>© 2024</span>
+                    <h2>EDEN Digital Media</h2>
+                </div>
+                
+                <div class="local-time">
+                    <h4>Local Time</h4>
+                    <p id="time-display">00:00 PM GMT+11</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="fab-container">
+            <div class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script>
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // ===== DECORATIVE PROP FIXED POSITIONS - MANUALLY DEFINED =====
+        
+        // Partner Section Props
+        const propPartner1 = document.getElementById('prop-partner-1');
+        if (propPartner1) {
+            propPartner1.style.top = '60px';
+            propPartner1.style.left = '1%';
+            propPartner1.style.width = '420px';
+            propPartner1.dataset.rotation = 0;
+        }
+
+        const propPartner2 = document.getElementById('prop-partner-2');
+        if (propPartner2) {
+            propPartner2.style.bottom = '120px';
+            propPartner2.style.right = '1%';
+            propPartner2.style.width = '400px';
+            propPartner2.dataset.rotation = 0;
+        }
+
+        // About Section Props
+        const propAbout1 = document.getElementById('prop-about-1');
+        if (propAbout1) {
+            propAbout1.style.left = '0.5%';
+            propAbout1.style.bottom = '20px';
+            propAbout1.style.width = '340px';
+            propAbout1.dataset.rotation = 0;
+        }
+
+        const propAbout2 = document.getElementById('prop-about-2');
+        if (propAbout2) {
+            propAbout2.style.right = '2%';
+            propAbout2.style.bottom = '30px';
+            propAbout2.style.width = '360px';
+            propAbout2.dataset.rotation = 0;
+            propAbout2.dataset.noRotate = true; // Flag to prevent rotation
+        }
+
+        // Story Section Props
+        const propStory1 = document.getElementById('prop-story-1');
+        if (propStory1) {
+            propStory1.style.top = '100px';
+            propStory1.style.left = '3%';
+            propStory1.style.width = '350px';
+            propStory1.dataset.rotation = 0;
+        }
+
+        const propStory2 = document.getElementById('prop-story-2');
+        if (propStory2) {
+            propStory2.style.display = 'none';
+        }
+
+        // Why Choose Us Section Props
+        const propWhy1 = document.getElementById('prop-why-1');
+        if (propWhy1) {
+            propWhy1.style.top = '-150px';
+            propWhy1.style.right = '2%';
+            propWhy1.style.width = '480px';
+            propWhy1.dataset.rotation = 0;
+        }
+
+        const propWhy2 = document.getElementById('prop-why-2');
+        if (propWhy2) {
+            propWhy2.style.bottom = '-80px';
+            propWhy2.style.left = '1%';
+            propWhy2.style.width = '330px';
+            propWhy2.dataset.rotation = 0;
+        }
+
+        // Footer Section Props
+        const propFooter1 = document.getElementById('prop-footer-1');
+        if (propFooter1) {
+            propFooter1.style.display = 'none';
+        }
+
+        const propFooter2 = document.getElementById('prop-footer-2');
+        if (propFooter2) {
+            propFooter2.style.bottom = '-100px';
+            propFooter2.style.right = '-1.9%';
+            propFooter2.style.width = '480px';
+            propFooter2.dataset.rotation = 87.93;
+            propFooter2.style.transform = 'rotate(-167.93deg)';
+        }
+
+        // ===== SCROLL ROTATION EFFECT =====
+        let lastScrollY = window.pageYOffset;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.pageYOffset;
+            const scrollDelta = currentScrollY - lastScrollY;
+
+            // Partner Props - Medium and Fast speeds
+            if (propPartner1) {
+                let rotation = parseFloat(propPartner1.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.25; // Fast speed
+                propPartner1.dataset.rotation = rotation;
+                propPartner1.style.transform = `rotate(${rotation}deg)`;
+            }
+
+            if (propPartner2) {
+                let rotation = parseFloat(propPartner2.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.08; // Slow speed
+                propPartner2.dataset.rotation = rotation;
+                propPartner2.style.transform = `rotate(${rotation}deg)`;
+            }
+
+            // About Props - Slow and Medium speeds
+            if (propAbout1) {
+                let rotation = parseFloat(propAbout1.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.12; // Medium speed
+                propAbout1.dataset.rotation = rotation;
+                propAbout1.style.transform = `rotate(${rotation}deg)`;
+            }
+
+            if (propAbout2) {
+                // propAbout2 does NOT rotate - keep it static
+                propAbout2.style.transform = `rotate(0deg)`;
+            }
+
+            // Story Props - Fast and Slow speeds
+            if (propStory1) {
+                let rotation = parseFloat(propStory1.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.20; // Fast speed
+                propStory1.dataset.rotation = rotation;
+                propStory1.style.transform = `rotate(${rotation}deg)`;
+            }
+
+            if (propStory2) {
+                let rotation = parseFloat(propStory2.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.06; // Very slow speed
+                propStory2.dataset.rotation = rotation;
+                propStory2.style.transform = `rotate(${rotation}deg)`;
+            }
+
+            // Why Choose Us Props - Medium and Very Fast speeds
+            if (propWhy1) {
+                let rotation = parseFloat(propWhy1.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.30; // Very fast speed
+                propWhy1.dataset.rotation = rotation;
+                propWhy1.style.transform = `rotate(${rotation}deg)`;
+            }
+
+            if (propWhy2) {
+                let rotation = parseFloat(propWhy2.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.11; // Medium-Slow speed
+                propWhy2.dataset.rotation = rotation;
+                propWhy2.style.transform = `rotate(${rotation}deg)`;
+            }
+
+            // Footer Props - Slow and Medium speeds
+            if (propFooter1) {
+                let rotation = parseFloat(propFooter1.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.09; // Slow speed
+                propFooter1.dataset.rotation = rotation;
+                propFooter1.style.transform = `rotate(${rotation}deg) translateX(-50%)`;
+            }
+
+            if (propFooter2) {
+                // propFooter2 rotates only when footer section is visible
+                const footer = document.querySelector('.footer');
+                const footerRect = footer.getBoundingClientRect();
+                const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+                
+                if (isFooterInView) {
+                    // propFooter2 rotates down when scrolling up (opposite direction)
+                    let rotation = parseFloat(propFooter2.dataset.rotation) || -167.93;
+                    rotation += scrollDelta * 0.05; // Much slower rotation speed
+                    propFooter2.dataset.rotation = rotation;
+                    propFooter2.style.transform = `rotate(${rotation}deg)`;
+                }
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        // ===== SMOOTH SCROLL ANIMATION FOR ANCHOR LINKS =====
+        // Handle all anchor links with butter-smooth GSAP scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only handle anchor links (skip empty anchors)
+                if (href === '#' || href === '#!') return;
+                
+                e.preventDefault();
+                
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // Butter-smooth scroll using GSAP ScrollToPlugin
+                    gsap.to(window, {
+                        scrollTo: {
+                            y: targetElement,
+                            autoKill: true,
+                            offsetY: 100 // Add offset to account for fixed header
+                        },
+                        duration: 1.2, // Smooth 1.2 second animation
+                        ease: "power2.inOut" // Butter-smooth easing
+                    });
+                }
+            });
+        });
+
+        // Navbar Scroll Effect
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset;
+            
+            // Add scrolled class when user scrolls down
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Navbar Logic
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mobile-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Reveal animation on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Footer time update
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                hour12: true,
+                timeZone: 'Australia/Sydney'
+            };
+            const timeString = now.toLocaleTimeString('en-US', options);
+            const timeDisplay = document.getElementById('time-display');
+            if (timeDisplay) {
+                timeDisplay.innerText = `${timeString} GMT+11`;
+            }
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Enhanced Parallax Effect for Story Section
+        const storySection = document.querySelector('.story-section');
+        
+        window.addEventListener('scroll', () => {
+            if (storySection) {
+                const scrollPosition = window.pageYOffset;
+                const parallaxStrength = 0.5; // Adjust this value for stronger/weaker effect (0-1)
+                storySection.style.backgroundPosition = `center ${scrollPosition * parallaxStrength}px`;
+            }
+        });
+
+        // Intersection Observer to trigger the fade-in effect on scroll for story content
+        const storyObserverOptions = {
+            threshold: 0.2
+        };
+
+        const storyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, storyObserverOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const storyContent = document.getElementById('scrollContent');
+            if (storyContent) {
+                storyObserver.observe(storyContent);
+            }
+        });
+    </script>
+
+</body>
+</html>

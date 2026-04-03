@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | EDEN Digital Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f3eee6;
+            --text-dark: #1a1a1a;
+            --accent-red: #c61d23;
+            
+            /* Sunflower Color Theme - Matching index.html */
+            --color-primary-yellow: #FCC419;      /* Sunflower Yellow - Use Very Sparingly */
+            --color-golden-yellow: #FCC419;       /* Sunflower Yellow - Minimal Use */
+            --color-pale-yellow: #FAF8E2;         /* Soft Lemon Yellow Background */
+            --color-burnt-orange: #5B8C2A;        /* Deep Moss Green */
+            --color-rich-brown: #5F3C28;          /* Deep Brown - Headings */
+            --color-warm-beige: #FAF8E2;          /* Soft Lemon Beige */
+            --color-sunny-cream: #FAF8E2;         /* Soft Lemon Cream */
+            --color-white: #FFFFFF;               /* White */
+            
+            /* Legacy variables for compatibility */
+            --sunflower-yellow: #FCC419;
+            --burnt-orange: #5B8C2A;
+            --rich-brown: #5F3C28;
+            --warm-beige: #FAF8E2;
+            --sunny-cream: #FAF8E2;
+            --golden-yellow: #FCC419;
+            --pale-sunflower: #FAF8E2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Generic Spacer Sections */
+        .spacer {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- HORIZONTAL SCROLL SECTION LOGIC --- */
+        
+        .horizontal-scroll-wrapper {
+            position: relative;
+            /* The 'height' here determines how long the scroll feels. 
+               1200vh means you scroll 12 full screen heights to finish the animation - VERY SLOW & SMOOTH */
+            height: 1200vh; 
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .scroll-content {
+            display: flex;
+            padding: 0 10vw;
+            will-change: transform;
+            height: 60vh;
+            align-items: center;
+            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* --- STYLING THE CARDS --- */
+
+        .intro-slide {
+            min-width: 40vw;
+            padding-right: 5vw;
+        }
+
+        .intro-slide h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1;
+            font-weight: 400;
+        }
+
+        .museum-card {
+            min-width: 45vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 0 40px;
+            border-left: 1px solid rgba(0,0,0,0.2);
+        }
+
+        .card-header h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .card-info {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 300px;
+        }
+
+        .image-box {
+            width: 100%;
+            flex-grow: 1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .arrow-icon {
+            position: absolute;
+            bottom: 0;
+            left: -30px;
+            font-size: 1.5rem;
+            transform: rotate(-45deg);
+        }
+
+        /* Background Images */
+        .img-1 { background-image: url('https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=1000'); }
+        .img-2 { background-image: url('https://images.unsplash.com/photo-1518998053502-51908d17ca33?q=80&w=1000'); }
+        .img-3 { background-image: url('https://images.unsplash.com/photo-1544333323-c242b442017a?q=80&w=1000'); }
+        .img-4 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000'); }
+        .img-5 { background-image: url('https://images.unsplash.com/photo-1460925895917-adf4198c838d?q=80&w=1000'); }
+        .img-6 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000'); }
+        .img-7 { background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000'); }
+        .img-8 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000'); }
+
+        /* --- Decorative Props --- */
+        .decorative-prop {
+            position: absolute;
+            z-index: 1;
+            border-radius: 24px;
+            filter: none;
+            transition: none;
+            overflow: hidden;
+        }
+
+    </style>
+   
+    <style>
+        :root {
+            --bg-color: #FFFFF0;
+            --text-dark: #5F3C28;
+            --text-gray: #3C444B;
+            --accent-green: #5B8C2A;
+            --white: #FAF8E2;
+            --primary-orange: #5B8C2A;
+            --cream: #FAF8E2;
+            --sunflower-yellow: #FCC419;
+            --golden-yellow: #FCC419;
+            --pale-sunflower: #FAF8E2;
+            --deep-sunflower: #5B8C2A;
+            --sunny-cream: #FAF8E2;
+            --rich-brown: #5F3C28;
+            --warm-beige: #FAF8E2;
+            --burnt-orange: #5B8C2A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body, html {
+            width: 100%;
+            background-color: var(--bg-color);
+        }
+
+        /* --- Header & Navigation --- */
+        .top-edge {
+            background: #0a0a0a;
+            height: 0;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0;
+            z-index: 1000;
+            background: transparent;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            background: var(--sunny-cream);
+            box-shadow: 0 4px 20px rgba(252, 196, 25, 0.2);
+        }
+
+        header.scrolled .nav-link {
+            color: var(--rich-brown);
+        }
+
+        header.scrolled .nav-link:hover {
+            color: var(--burnt-orange);
+        }
+
+        header.scrolled .nav-link.active {
+            color: var(--burnt-orange);
+        }
+
+        header.scrolled .logo-main,
+        header.scrolled .logo-sub {
+            color: var(--rich-brown);
+        }
+
+        header.scrolled .cart-icon-wrapper {
+            color: var(--rich-brown);
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-group {
+            display: flex;
+            list-style: none;
+            gap: 60px;
+            flex: 1;
+        }
+
+        .nav-group.left { 
+            justify-content: flex-end; 
+            padding-right: 50px; 
+        }
+        
+        .nav-group.right { 
+            justify-content: flex-start; 
+            padding-left: 50px; 
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--rich-brown);
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover svg {
+            transform: rotate(20deg) scale(1.1);
+        }
+
+        .nav-link:hover {
+            color: var(--sunflower-yellow);
+        }
+
+        .nav-link.active {
+            color: var(--sunflower-yellow);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--sunflower-yellow);
+        }
+
+        .logo-area {
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .logo-main {
+            color: var(--rich-brown);
+            font-size: 42px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            color: var(--rich-brown);
+            font-family: 'Great Vibes', cursive;
+            font-size: 38px;
+            margin-top: -5px;
+            display: block;
+        }
+
+        .cart-section {
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+        }
+
+        .cart-icon-wrapper {
+            position: relative;
+            color: var(--sunny-cream);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .sunflower-icon-wrapper {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .sunflower-icon-wrapper:hover {
+            transform: scale(1.15) rotate(20deg);
+        }
+
+        .sunflower-icon-wrapper svg {
+            filter: drop-shadow(0 0 2px rgba(252, 196, 25, 0.6));
+        }
+
+        .sunflower-icon-wrapper:hover svg {
+            filter: drop-shadow(0 0 8px rgba(252, 196, 25, 1));
+        }
+
+        .cart-badge {
+            background: var(--sunflower-yellow);
+            color: var(--rich-brown);
+            font-size: 11px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -8px;
+            right: -10px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: fixed;
+            top: 55px;
+            left: 25px;
+            z-index: 1001;
+            gap: 6px;
+        }
+
+        .hamburger svg {
+            stroke: white;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(30, 15, 5, 0.95) 100%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 120px;
+            padding-left: 40px;
+            transition: 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .mobile-overlay.active {
+            right: 0;
+        }
+
+        .mobile-overlay a {
+            color: white;
+            font-size: 1.3rem;
+            text-decoration: none;
+            margin: 20px 0;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .mobile-overlay a:hover {
+            color: var(--primary-orange);
+        }
+
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-group {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            padding: 0 8%;
+            gap: 20px;
+            padding-top: 150px;
+            background: var(--white);
+        }
+
+        /* Left Column */
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-content h4 {
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--deep-sunflower);
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            color: var(--sunflower-yellow);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .line-divider {
+            width: 50px;
+            height: 1.5px;
+            background-color: var(--sunflower-yellow);
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            color: var(--rich-brown);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            max-width: 380px;
+        }
+
+        .btn-appointment {
+            background-color: var(--sunflower-yellow);
+            color: var(--rich-brown);
+            padding: 18px 35px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-appointment:hover {
+            background-color: var(--burnt-orange);
+            color: white;
+            box-shadow: 0 10px 20px rgba(252, 196, 25, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Center Column - Image */
+        .hero-image-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .oval-mask {
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 0.75 / 1;
+            background: url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1000&auto=format&fit=crop') center/cover;
+            border-radius: 200px; /* Modern pill/oval shape */
+            box-shadow: 0 30px 60px rgba(252,196,25,0.15);
+        }
+
+        /* Right Column - Stats */
+        .hero-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .stat-box {
+            background: rgba(252, 196, 25, 0.15);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--sunflower-yellow);
+            width: 240px;
+            padding: 30px;
+            border-radius: 60px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .stat-box:hover {
+            background: var(--sunny-cream);
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(252, 196, 25, 0.2);
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--sunflower-yellow);
+        }
+
+        .stat-txt {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--rich-brown);
+            margin-top: 8px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1100px) {
+            .hero {
+                grid-template-columns: 1fr 1fr;
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+            .hero-stats {
+                grid-column: span 2;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content, .hero-stats {
+                align-items: center;
+                justify-content: center;
+            }
+            .hero-content p {
+                max-width: 100%;
+            }
+            .line-divider {
+                margin: 0 auto 25px auto;
+            }
+            .hero-stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-edge"></div>
+
+    <header>
+        <div class="header-container">
+            <ul class="nav-group left">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="index.html#our-services" class="nav-link">Our Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            </ul>
+
+            <div class="logo-area">
+                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo" style="height: 70px; width: auto; object-fit: contain;">
+            </div>
+
+            <ul class="nav-group right">
+                <li><a href="index.html#how-we-work" class="nav-link">How We Work</a></li>
+                <li><a href="about-us-hero.html" class="nav-link">About Us</a></li>
+                <li><a href="index.html#contact-us" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="hamburger" id="hamburger">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </div>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#our-services">Our Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="index.html#how-we-work">How We Work</a>
+        <a href="about-us-hero.html">About Us</a>
+        <a href="index.html#contact-us">Contact Us</a>
+    </div>
+
+    <main class="hero">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-hero-1">
+            <img src="image-Photoroom-2.png" alt="prop">
+        </div>
+        <div class="decorative-prop" id="prop-hero-2">
+            <img src="image-Photoroom-3.png" alt="prop">
+        </div>
+
+        <section class="hero-content">
+            <h4>Portfolio</h4>
+            <h1>Our Creative Journey</h1>
+            <div class="line-divider"></div>
+            <p>Every project, idea, and collaboration helps shape the creative journey of RAM Digital Media. This portfolio reflects the experience, skills, and creative work that continue to grow with every brand we work with.</p>
+            <button class="btn-appointment" onclick="bookingAction()">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                EXPLORE WORK
+            </button>
+        </section>
+
+        <section class="hero-image-wrap">
+            <div class="oval-mask"></div>
+        </section>
+
+        <section class="hero-stats">
+            <div class="stat-box">
+                <span class="stat-num">48+</span>
+                <span class="stat-txt">Professional Staff</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-num">24</span>
+                <span class="stat-txt">Years of Experience</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-num">3,578</span>
+                <span class="stat-txt">Satisfied Clients</span>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Navbar Scroll Effect
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset;
+            
+            // Add scrolled class when user scrolls down
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Navbar Logic
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mobile-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        function bookingAction() {
+            console.log("Appointment system initiated...");
+            alert("Taking you to the booking calendar!");
+        }
+
+        // Simple Fade-in Animation
+        window.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.hero-content, .oval-mask, .stat-box');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `all 0.6s ease-out ${index * 0.2}s`;
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+
+
+    <div class="horizontal-scroll-wrapper" id="scrollWrapper">
+        <div class="sticky-container">
+            <!-- Decorative prop -->
+            <div class="decorative-prop" id="prop-scroll-1" data-rotation="0" data-speed="0.15" style="position: absolute;z-index: 1;bottom: -1000px;left: -12px;transform: rotate(0deg);width: 300px;">
+                <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 320px; ">
+            </div>
+            
+            <div class="scroll-content" id="scrollContent">
+                
+                <div class="intro-slide">
+                    <h1>IT Company<br>UI Designer & Social Media Manager<br><em style="font-size: 0.6em; font-weight: 400;">(3.5 Years)</em></h1>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Experience Overview</h2>
+                        <div class="card-info">
+                            <strong>UI Designer & Social Media Manager</strong><br>
+                            <em>3.5 Years</em><br><br>
+                            Before starting RAM Digital Media, valuable experience was gained while working in an IT company where the focus was on digital creativity, brand communication, and social media growth.
+                        </div>
+                    </div>
+                    <div class="image-box img-1">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Social Media Content</h2>
+                        <div class="card-info">
+                            <strong>Managing and Planning</strong><br>
+                            Developing comprehensive social media strategies and content calendars across multiple platforms to ensure consistent brand messaging and audience engagement.
+                        </div>
+                    </div>
+                    <div class="image-box img-2">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Creative Design</h2>
+                        <div class="card-info">
+                            <strong>Visual Graphics & Posts</strong><br>
+                            Designing eye-catching social media posts and visual graphics that align with brand identity and effectively communicate key messages to target audiences.
+                        </div>
+                    </div>
+                    <div class="image-box img-3">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>UI/UX Concepts</h2>
+                        <div class="card-info">
+                            <strong>Website Design</strong><br>
+                            Developing innovative UI concepts for websites and user experiences that enhance usability and create compelling digital interactions.
+                        </div>
+                    </div>
+                    <div class="image-box img-4">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Website Development</h2>
+                        <div class="card-info">
+                            <strong>Layout & Design Support</strong><br>
+                            Supporting website designing and implementing layout improvements to optimize performance and enhance overall user experience.
+                        </div>
+                    </div>
+                    <div class="image-box img-5">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Content Creation</h2>
+                        <div class="card-info">
+                            <strong>Digital Content</strong><br>
+                            Creating engaging and diverse digital content for different platforms including videos, graphics, and written content that drives audience engagement.
+                        </div>
+                    </div>
+                    <div class="image-box img-6">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Brand Promotions</h2>
+                        <div class="card-info">
+                            <strong>Creative Planning</strong><br>
+                            Planning and executing creative promotional ideas that drive brand awareness, engagement, and customer acquisition across all marketing channels.
+                        </div>
+                    </div>
+                    <div class="image-box img-7">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Analytics & Reporting</h2>
+                        <div class="card-info">
+                            <strong>Performance Metrics</strong><br>
+                            Preparing comprehensive monthly performance reports and analytics to track campaign success and identify opportunities for optimization and growth.
+                        </div>
+                    </div>
+                    <div class="image-box img-8">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const scrollWrapper = document.getElementById('scrollWrapper');
+        const scrollContent = document.getElementById('scrollContent');
+        let targetTranslate = 0;
+        let currentTranslate = 0;
+
+        window.addEventListener('scroll', () => {
+            // Get position of the wrapper relative to viewport
+            const wrapperRect = scrollWrapper.getBoundingClientRect();
+            const wrapperTop = wrapperRect.top;
+            const wrapperHeight = wrapperRect.height;
+            const viewportHeight = window.innerHeight;
+
+            // Calculate progress: 0 when wrapper starts entering, 1 when wrapper finishes
+            let progress = -wrapperTop / (wrapperHeight - viewportHeight);
+            
+            // Clamp progress between 0 and 1
+            progress = Math.max(0, Math.min(1, progress));
+
+            // Calculate max horizontal travel
+            const maxScroll = scrollContent.scrollWidth - window.innerWidth;
+
+            // Set target translate value
+            targetTranslate = -progress * maxScroll;
+        });
+
+        // Smooth animation loop with easing
+        function animateScroll() {
+            // Smooth easing function - ease-out-cubic for very smooth motion
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+            const diff = targetTranslate - currentTranslate;
+            const smoothness = 0.12; // Lower value = smoother (range: 0.01 to 0.3)
+            
+            currentTranslate += diff * smoothness;
+            scrollContent.style.transform = `translateX(${currentTranslate}px)`;
+            
+            requestAnimationFrame(animateScroll);
+        }
+
+        animateScroll();
+    </script>
+
+    <!-- Clients Section - Work Done By Us -->
+    <section class="clients-section">
+
+        <div class="clients-left">
+            <div class="clients-badge">✨ Our Portfolio</div>
+            <h1 class="clients-title">Work Done<br>By Us</h1>
+            <p class="clients-description">
+                After gaining professional experience in the digital industry, RAM Digital Media was created with a vision to help brands grow creatively in the digital space. Since then, we have worked with multiple businesses to support their marketing, branding, and content creation needs.
+            </p>
+            
+            <div class="clients-cta" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+                <div style="color: white; font-size: 0.95rem; line-height: 1.8;">
+                    <strong style="display: block; margin-bottom: 10px;">Our Services:</strong>
+                    • Social media management<br>
+                    • Content creation<br>
+                    • Photography & videography<br>
+                    • Creative marketing ideas<br>
+                    • SEO support<br>
+                    • Digital branding support
+                </div>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Each project is approached with creativity, attention to detail, and a focus on helping brands stand out.</p>
+            </div>
+        </div>
+
+        <div class="clients-carousel">
+            <div class="carousel-col carousel-up" id="clientsCol1">
+                <div class="carousel-card carousel-img" style="background-image: url('https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400')"></div>
+                <div class="carousel-card">
+                    <div class="card-header">
+                        <span class="carousel-label">Sirimirii</span>
+                        <span class="card-badge">Premium</span>
+                    </div>
+                    <span class="carousel-value">Services Done</span>
+                    <div class="card-services">
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Social Media Management
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Content Creation
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Brand Strategy
+                        </span>
+                    </div>
+                    <button class="card-btn">View Case Study →</button>
+                </div>
+                <div class="carousel-card carousel-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400')"></div>
+                <div class="carousel-card">
+                    <div class="card-header">
+                        <span class="carousel-label">Easy Living</span>
+                        <span class="card-badge">Standard</span>
+                    </div>
+                    <span class="carousel-value">Services Done</span>
+                    <div class="card-services">
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Photography & Videography
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Content Creation
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Digital Branding
+                        </span>
+                    </div>
+                    <button class="card-btn">View Case Study →</button>
+                </div>
+                <div class="carousel-card carousel-img" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400')"></div>
+                <div class="carousel-card">
+                    <div class="card-header">
+                        <span class="carousel-label">Sakarya Creations</span>
+                        <span class="card-badge">Standard</span>
+                    </div>
+                    <span class="carousel-value">Services Done</span>
+                    <div class="card-services">
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> SEO Support
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Social Media Management
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Content Strategy
+                        </span>
+                    </div>
+                    <button class="card-btn">View Case Study →</button>
+                </div>
+            </div>
+
+            <div class="carousel-col carousel-down" id="clientsCol2">
+                <div class="carousel-card">
+                    <div class="card-header">
+                        <span class="carousel-label">Rekha's Beauty Parlour</span>
+                        <span class="card-badge">Professional</span>
+                    </div>
+                    <span class="carousel-value">Services Done</span>
+                    <div class="card-services">
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Photography
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Social Media Management
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Marketing Ideas
+                        </span>
+                    </div>
+                    <button class="card-btn">View Case Study →</button>
+                </div>
+                <div class="carousel-card carousel-img" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400')"></div>
+                <div class="carousel-card">
+                    <div class="card-header">
+                        <span class="carousel-label">Brand Client</span>
+                        <span class="card-badge">Premium</span>
+                    </div>
+                    <span class="carousel-value">Services Done</span>
+                    <div class="card-services">
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Video Production
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Content Creation
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Brand Consultation
+                        </span>
+                    </div>
+                    <button class="card-btn">View Case Study →</button>
+                </div>
+                <div class="carousel-card carousel-img" style="background-image: url('https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400')"></div>
+                <div class="carousel-card">
+                    <div class="card-header">
+                        <span class="carousel-label">Creative Partner</span>
+                        <span class="card-badge">Premium</span>
+                    </div>
+                    <span class="carousel-value">Services Done</span>
+                    <div class="card-services">
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Full Digital Strategy
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> SEO & SEM
+                        </span>
+                        <span class="service-item">
+                            <i class="fas fa-circle-dot"></i> Content Management
+                        </span>
+                    </div>
+                    <button class="card-btn">View Case Study →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* --- Clients Section Styles --- */
+
+.clients-section {
+    display: flex;
+    width: 100%;
+    min-height: 50vh;
+    max-height: 90vh;
+    background: linear-gradient(135deg, var(--rich-brown) 0%, #2B2B2B 100%);
+    color: white;
+    padding: 60px 0;
+    gap: 0;
+}
+
+        .clients-left {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 8% 60px 10%;
+            z-index: 10;
+        }
+
+        .clients-badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--burnt-orange);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            width: fit-content;
+        }
+
+        .clients-title {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--sunny-cream);
+        }
+
+        .clients-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .clients-cta {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .clients-btn {
+            background: var(--sunflower-yellow);
+            color: var(--rich-brown);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .clients-btn:hover {
+            background: var(--burnt-orange);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .clients-demo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .clients-demo:hover {
+            opacity: 0.8;
+        }
+
+        .clients-carousel {
+            width: 50%;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            overflow: hidden;
+            background: rgba(252, 196, 25, 0.1);
+        }
+
+        .carousel-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .carousel-up {
+            animation: carouselScrollUp 12s linear infinite;
+        }
+
+        .carousel-down {
+            animation: carouselScrollDown 12s linear infinite;
+        }
+
+        @keyframes carouselScrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        @keyframes carouselScrollDown {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+
+        .carousel-card {
+            background: linear-gradient(135deg, var(--sunny-cream) 0%, rgba(255, 250, 205, 0.8) 100%);
+            min-height: 340px;
+            border-radius: 18px;
+            width: 100%;
+            padding: 22px 20px;
+            color: var(--rich-brown);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 12px 32px rgba(252, 196, 25, 0.15), 0 0 0 1px rgba(252, 196, 25, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+        }
+
+        .carousel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--burnt-orange), var(--sunflower-yellow), var(--burnt-orange));
+            background-size: 200% 100%;
+        }
+
+        .carousel-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 100% 0%, rgba(255, 140, 0, 0.05), transparent 50%);
+            pointer-events: none;
+        }
+
+        .carousel-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 18px 42px rgba(252, 196, 25, 0.22), 0 0 0 1px rgba(252, 196, 25, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 140, 0, 0.15);
+        }
+
+        .carousel-label {
+            color: var(--rich-brown);
+            font-size: 1rem;
+            font-weight: 700;
+            flex: 1;
+            letter-spacing: 0.3px;
+        }
+
+        .card-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--burnt-orange), #FF7A00);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 22px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.25);
+        }
+
+        .carousel-value {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--burnt-orange);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 4px 0;
+            border-bottom: 2px solid var(--sunflower-yellow);
+        }
+
+        .card-services {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 0.8rem;
+            color: var(--rich-brown);
+            font-weight: 500;
+            line-height: 1.4;
+            padding: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .service-item i {
+            color: var(--burnt-orange);
+            font-size: 0.5rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .service-item:hover {
+            padding-left: 3px;
+            color: var(--burnt-orange);
+        }
+
+        .card-btn {
+            background: linear-gradient(135deg, var(--sunflower-yellow) 0%, var(--golden-yellow) 100%);
+            color: var(--rich-brown);
+            border: none;
+            padding: 11px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            box-shadow: 0 6px 16px rgba(252, 196, 25, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card-btn:hover {
+            background: linear-gradient(135deg, var(--burnt-orange), #FF7A00);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(255, 140, 0, 0.3);
+        }
+
+        .card-btn:hover::before {
+            left: 100%;
+        }
+
+        .card-btn:active {
+            transform: translateY(0px);
+        }
+
+        .carousel-img {
+            background-size: cover;
+            background-position: center;
+            min-height: 350px;
+            padding: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .clients-section {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .clients-left {
+                width: 100%;
+                padding: 60px 5%;
+                text-align: center;
+                align-items: center;
+            }
+            .clients-carousel {
+                width: 100%;
+                height: 500px;
+            }
+            .clients-cta {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .clients-left {
+                padding: 40px 5%;
+            }
+            .clients-description {
+                max-width: 100%;
+            }
+        }
+
+        /* --- EXPLORE OUR CREATIVE SECTION --- */
+        .explore-section {
+            padding: 100px 5%;
+            background: var(--white);
+            position: relative;
+        }
+
+        .explore-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+            gap: 40px;
+        }
+
+        .explore-header-left {
+            flex: 1;
+        }
+
+        .explore-header-left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--sunflower-yellow);
+        }
+
+        .explore-header-left p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--rich-brown);
+        }
+
+        .explore-header-right {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .explore-header-right p {
+            color: var(--rich-brown);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .explore-book-btn {
+            background: var(--sunflower-yellow);
+            color: var(--rich-brown);
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .explore-book-btn:hover {
+            background: var(--burnt-orange);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Service Cards Grid */
+        .explore-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .explore-card {
+            background: var(--sunny-cream);
+            border-radius: 24px;
+            padding: 30px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sunflower-yellow);
+        }
+
+        .explore-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(252, 196, 25, 0.2);
+        }
+
+        .explore-card-mint {
+            background: var(--pale-sunflower);
+        }
+
+        /* Card Tags */
+        .explore-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .explore-tag {
+            background: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--rich-brown);
+        }
+
+        .explore-card-icon {
+            position: absolute;
+            top: 30px;
+            right: 25px;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--sunflower-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .explore-card-icon::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--sunflower-yellow);
+            border-radius: 50%;
+        }
+
+        .explore-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            color: var(--sunflower-yellow);
+        }
+
+        .explore-card .explore-description {
+            font-size: 0.9rem;
+            color: var(--rich-brown);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Card Image Section */
+        .explore-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-top: auto;
+        }
+
+        .explore-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .explore-card:hover .explore-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .explore-read-more-btn {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(252,196,25,0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(252,196,25,0.5);
+            color: var(--rich-brown);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .explore-read-more-btn:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 1100px) {
+            .explore-header-container {
+                flex-direction: column;
+            }
+            .explore-header-left h1 {
+                font-size: 3rem;
+            }
+            .explore-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .explore-section {
+                padding: 60px 5%;
+            }
+            .explore-header-left h1 {
+                font-size: 2rem;
+            }
+            .explore-services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Setup carousel infinite loop
+        const setupClientsCarousel = (id) => {
+            const col = document.getElementById(id);
+            const clone = col.innerHTML;
+            col.innerHTML = clone + clone;
+        };
+
+        setupClientsCarousel('clientsCol1');
+        setupClientsCarousel('clientsCol2');
+    </script>
+
+    <!-- Our Work Section -->
+    <section class="our-work-section" id="our-services">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-work-1" data-rotation="0" data-speed="0" style="position: absolute;z-index: 1;top: -80px;right: -80px;transform: rotate(0deg);width: 320px;overflow: hidden;">
+            <img src="image-Photoroom (3).png" alt="prop" style="width: 320px;">
+        </div>
+        <div class="decorative-prop" id="prop-work-2" data-rotation="0" data-speed="0" style="position: absolute;z-index: 1;bottom: -70px;left: -20px;transform: rotate(0deg);width: 340px;overflow: hidden;">
+            <img src="Gemini_Generated_Image_n28oi3n28oi3n28o-Photoroom.png" alt="prop" style="width: 340px;">
+        </div>
+
+        <div class="work-sidebar">
+            <h1 class="work-title">Work</h1>
+        </div>
+
+        <div class="work-images">
+            <div class="main-img-wrapper">
+                <img id="featured-work-image" class="work-swap-image" src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000" alt="Service Showcase">
+            </div>
+            <div class="secondary-img-wrapper">
+                <img id="secondary-work-image" class="work-swap-image" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600" alt="Professional Portrait">
+            </div>
+        </div>
+
+        <div class="work-menu">
+            <div class="work-header">
+                <h2 class="work-header-title">What We Do For Our Clients</h2>
+                <p class="work-header-desc">Every industry has different needs, and our work focuses on creating digital content and strategies that match each brand's identity.</p>
+            </div>
+            
+            <ul class="work-service-list">
+                <li class="work-service-item active" 
+                    data-main-img="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Restaurants</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc show">Social media content, food photography, campaign ideas, and promotional marketing</span>
+                </li>
+                <li class="work-service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1565183938294-7563c6a8352d?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Furniture & Interior Brands</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Creative product posts, photoshoots, and visual storytelling to showcase designs</span>
+                </li>
+                <li class="work-service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Schools & Educational Institutes</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Informative posts, event coverage, and digital presence building</span>
+                </li>
+                <li class="work-service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1576091160550-112173f7f869?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1552882688-d0d40e92b019?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Salons & Beauty Businesses</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Beauty-focused content, service promotions, and brand visuals</span>
+                </li>
+                <li class="work-service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1520763185298-1b434c919abe?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Gift & Retail Stores</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Creative product presentation, festive campaigns, and engaging posts</span>
+                </li>
+                <li class="work-service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1576091160511-112902676fc5?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Hospitals & Healthcare</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Professional digital presence, informative content, and brand visibility</span>
+                </li>
+                <li class="work-service-item" 
+                    data-main-img="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Real Estate</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Property promotions, creative marketing ideas, and digital campaigns</span>
+                </li>
+            </ul>
+            
+            <button class="work-explore-btn">Explore Our Industries</button>
+        </div>
+    </section>
+
+    <style>
+        /* --- Our Work Section Styles --- */
+        .our-work-section {
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--warm-beige);
+            color: var(--rich-brown);
+            padding: 80px 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-sidebar {
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .work-title {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(80px, 12vw, 160px);
+            text-transform: uppercase;
+            line-height: 0.8;
+            letter-spacing: -2px;
+            user-select: none;
+            color: var(--rich-brown);
+        }
+
+        .work-images {
+            flex: 1;
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-img-wrapper {
+            width: 75%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: 20px 20px 60px rgba(252,196,25,0.1);
+        }
+
+        .secondary-img-wrapper {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            height: 380px;
+            z-index: 2;
+            overflow: hidden;
+            border: 10px solid var(--warm-beige);
+            box-shadow: 10px 10px 30px rgba(252,196,25,0.1);
+        }
+
+        .work-swap-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.4s ease-in-out;
+            opacity: 1;
+        }
+
+        .work-menu {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
+        }
+
+        .work-header {
+            margin-bottom: 40px;
+        }
+
+        .work-header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--sunflower-yellow);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .work-header-desc {
+            color: var(--rich-brown);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        .work-service-list {
+            list-style: none;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .work-service-item {
+            border-top: 1px solid var(--rich-brown);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            gap: 0;
+        }
+
+        .work-service-item:last-child {
+            border-bottom: 1px solid var(--rich-brown);
+        }
+
+        .work-service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 15px;
+        }
+
+        .work-service-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+            color: var(--rich-brown);
+            flex: 1;
+        }
+
+        .work-service-desc {
+            font-size: 0.85rem;
+            color: var(--rich-brown);
+            opacity: 0;
+            line-height: 1.5;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            display: block;
+            margin-top: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .work-service-desc.show {
+            opacity: 0.8;
+            margin-top: 12px;
+            max-height: 100px;
+        }
+
+        .work-arrow-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            color: var(--burnt-orange);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .work-service-item.active .work-arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        .work-service-item:hover {
+            padding-left: 15px;
+            background-color: rgba(252,196,25,0.05);
+        }
+
+        .work-service-item:hover .work-service-desc {
+            opacity: 1;
+            color: var(--burnt-orange);
+        }
+
+        .work-service-item:hover .work-arrow-icon {
+            color: var(--sunflower-yellow);
+        }
+
+        .work-explore-btn {
+            align-self: flex-end;
+            padding: 18px 45px;
+            border: 1.5px solid var(--rich-brown);
+            background: transparent;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            color: var(--rich-brown);
+            border-radius: 30px;
+        }
+
+        .work-explore-btn:hover {
+            background-color: var(--sunflower-yellow);
+            color: var(--rich-brown);
+            border-color: var(--sunflower-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(252, 196, 25, 0.2);
+        }
+
+        @media (max-width: 1024px) {
+            .our-work-section {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+            .work-title {
+                writing-mode: horizontal-tb;
+                transform: none;
+                font-size: 60px;
+                margin-bottom: 40px;
+            }
+            .work-images {
+                min-height: 400px;
+                margin-bottom: 40px;
+            }
+            .work-menu {
+                padding-left: 0;
+            }
+            .secondary-img-wrapper {
+                width: 180px;
+                height: 250px;
+            }
+            .work-explore-btn {
+                align-self: center;
+            }
+        }
+
+        /* --- FOOTER SECTION STYLES --- */
+        .footer {
+            width: 100%;
+            background-color: var(--color-light-cream);
+            color: var(--color-rich-brown);
+            padding: 100px 5% 40px 5%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        /* The large decorative background circle */
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vh;
+            height: 80vh;
+            background-color: #d8d8ce;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Top Heading Section */
+        .footer-top {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .footer-top p {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--color-rich-brown);
+        }
+
+        .main-heading {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -5px;
+            line-height: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-rich-brown);
+        }
+
+        /* The small colored circle inside the "O" */
+        .dot-circle {
+            display: inline-block;
+            width: 0.8em;
+            height: 0.8em;
+            background-color: var(--color-burnt-orange);
+            border-radius: 50%;
+            margin: 0 -0.05em;
+        }
+
+        /* Navigation Grid */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-top: 2px solid var(--color-burnt-orange);
+            padding-top: 40px;
+            gap: 40px;
+        }
+
+        .footer-grid-column h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            color: var(--color-rich-brown);
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .footer-grid-column ul {
+            list-style: none;
+        }
+
+        .footer-grid-column ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--color-rich-brown);
+        }
+
+        .footer-grid-column ul li a {
+            color: var(--color-rich-brown);
+            text-decoration: none;
+        }
+
+        .footer-grid-column ul li a:visited {
+            color: var(--color-rich-brown);
+        }
+
+        .footer-grid-column ul li:hover {
+            color: var(--color-primary-yellow);
+            padding-left: 10px;
+        }
+
+        .footer-grid-column ul li:hover a {
+            color: var(--color-primary-yellow);
+        }
+
+        /* Bottom Brand & Time Section */
+        .footer-bottom {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 5%;
+        }
+
+        .footer-brand h2 {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+            color: var(--color-rich-brown);
+        }
+
+        .footer-brand span {
+            font-size: 28px;
+            display: block;
+            color: var(--color-rich-brown);
+        }
+
+        .footer-local-time {
+            text-align: right;
+        }
+
+        .footer-local-time h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: var(--color-rich-brown);
+        }
+
+        .footer-local-time p {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-rich-brown);
+        }
+
+        /* Floating Action Buttons (Bottom Right) */
+        .footer-fab-container {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-fab {
+            width: 45px;
+            height: 45px;
+            background: var(--color-primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--color-rich-brown);
+            border: 2px solid var(--color-burnt-orange);
+        }
+
+        .footer-fab:hover {
+            background: var(--color-burnt-orange);
+            color: white;
+        }
+
+        .footer-fab svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 40px;
+            }
+            .main-heading {
+                letter-spacing: -2px;
+            }
+        }
+    </style>
+
+    <script>
+        // Our Work section image swap and accordion
+        const featuredWorkImg = document.getElementById('featured-work-image');
+        const secondaryWorkImg = document.getElementById('secondary-work-image');
+        
+        const workServiceItems = document.querySelectorAll('.work-service-item');
+
+        function smoothWorkSwap(imgElement, newSrc) {
+            imgElement.style.opacity = '0';
+            
+            setTimeout(() => {
+                imgElement.src = newSrc;
+                imgElement.style.opacity = '1';
+            }, 200);
+        }
+
+        workServiceItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Close all other items
+                workServiceItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const desc = otherItem.querySelector('.work-service-desc');
+                        if (desc) {
+                            desc.classList.remove('show');
+                        }
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+                const desc = item.querySelector('.work-service-desc');
+                if (desc) {
+                    desc.classList.toggle('show');
+                }
+
+                // Swap images
+                const newMainSrc = item.getAttribute('data-main-img');
+                const newSecSrc = item.getAttribute('data-sec-img');
+                
+                smoothWorkSwap(featuredWorkImg, newMainSrc);
+                smoothWorkSwap(secondaryWorkImg, newSecSrc);
+            });
+
+            // Hover effect for image swap
+            item.addEventListener('mouseenter', () => {
+                const newMainSrc = item.getAttribute('data-main-img');
+                const newSecSrc = item.getAttribute('data-sec-img');
+                
+                smoothWorkSwap(featuredWorkImg, newMainSrc);
+                smoothWorkSwap(secondaryWorkImg, newSecSrc);
+            });
+        });
+    </script>
+
+    <!-- Explore Our Creative Section -->
+    <section class="explore-section">
+        <!-- Decorative prop -->
+    <div class="decorative-prop" id="prop-explore-1" data-rotation="0" data-speed="0" style="position: absolute;z-index: 1;bottom: -20px;right: -40px;transform: rotate(0deg);width: 300px;overflow: hidden;">
+        <img src="image-Photoroom-0.png" alt="prop" style="width: 300px;">
+    </div>        <div class="explore-header-container">
+            <div class="explore-header-left">
+                <h1>Explore Our<br>Creative Work</h1>
+                <p>You can explore our creative work through different categories.</p>
+            </div>
+            <div class="explore-header-right">
+                <p>RAM Digital Media showcases a diverse portfolio of creative solutions designed to help brands stand out and engage their audiences effectively through multiple mediums.</p>
+                <a href="#" class="explore-book-btn">View Full Portfolio</a>
+            </div>
+        </div>
+
+        <div class="explore-services-grid">
+            <div class="explore-card explore-card-mint">
+                <div class="explore-tags">
+                    <span class="explore-tag">Digital</span>
+                    <span class="explore-tag">Strategy</span>
+                </div>
+                <div class="explore-card-icon"></div>
+                <h3>Social Media<br>Content</h3>
+                <p class="explore-description">See how we design engaging posts and creative social media strategies.</p>
+                <div class="explore-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400" alt="Social Media Content">
+                    <div class="explore-read-more-btn">Explore <span>→</span></div>
+                </div>
+            </div>
+
+            <div class="explore-card">
+                <div class="explore-tags">
+                    <span class="explore-tag">Visual</span>
+                    <span class="explore-tag">Premium</span>
+                </div>
+                <div class="explore-card-icon"></div>
+                <h3>Professional<br>Photography</h3>
+                <p class="explore-description">Capturing products, spaces, and brand identity through professional photography.</p>
+                <div class="explore-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&q=80&w=400" alt="Photography">
+                    <div class="explore-read-more-btn">Explore <span>→</span></div>
+                </div>
+            </div>
+
+            <div class="explore-card">
+                <div class="explore-tags">
+                    <span class="explore-tag">Video</span>
+                    <span class="explore-tag">Motion</span>
+                </div>
+                <div class="explore-card-icon"></div>
+                <h3>Videography<br>& Motion</h3>
+                <p class="explore-description">Creative video content designed to attract attention and tell brand stories.</p>
+                <div class="explore-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1533928298208-27ff66555d0d?auto=format&fit=crop&q=80&w=400" alt="Videography">
+                    <div class="explore-read-more-btn">Explore <span>→</span></div>
+                </div>
+            </div>
+
+            <div class="explore-card">
+                <div class="explore-tags">
+                    <span class="explore-tag">Events</span>
+                    <span class="explore-tag">Moments</span>
+                </div>
+                <div class="explore-card-icon"></div>
+                <h3>Wedding<br>Content</h3>
+                <p class="explore-description">Capturing special moments and emotions in a modern digital storytelling format.</p>
+                <div class="explore-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=400" alt="Wedding Content">
+                    <div class="explore-read-more-btn">Explore <span>→</span></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+
+<footer class="footer">
+        <div class="footer-content">
+                        <div class="footer-top">
+                <p>Got a project? Need an unfair advantage?</p>
+                <h1 class="main-heading">
+                    GET IN T<span class="dot-circle"></span>UCH
+                </h1>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-grid-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#agency-section">Home</a></li>
+                        <li><a href="#our-services">Services</a></li>
+                        <li><a href="#how-we-work">How We Work</a></li>
+                        <li><a href="#certified-excellence-section">Portfolio</a></li>
+                        <li><a href="#contact-us">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#contact-us">Get In Touch</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <span>© 2024</span>
+                    <h2>EDEN MEDIA</h2>
+                </div>
+                
+                <div class="footer-local-time">
+                    <h4>Local Time</h4>
+                    <p id="footerTimeDisplay">12:25 AM GMT+11</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-fab-container">
+            <button class="footer-fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"></path></svg>
+            </button>
+        </div>
+    </footer>
+    <script>
+        // Function to update time
+        function updateTime() {
+            const now = new Date();
+            // Simulating GMT+11 as per the image
+            const options = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                hour12: true,
+                timeZone: 'Australia/Sydney' // Sydney is usually GMT+11 in AEDT
+            };
+            const timeString = now.toLocaleTimeString('en-US', options);
+            document.getElementById('time-display').innerText = `${timeString} GMT+11`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+
+    <!-- Decorative Props Initialization and Scroll Handler -->
+    <script>
+        // Initialize all decorative props with positioning
+        const props = {
+            'prop-hero-1': { top: '-60px', left: '-80px', width: '', speed: 0.20 },
+            'prop-hero-2': { bottom: '-100px', right: '-100px', width: '300px', speed: 0.18 },
+            'prop-scroll-1': { bottom: '0px', left: '-12px', width: '300px', speed: 0.15 },
+            'prop-work-1': { top: '-80px', right: '-80px', width: '320px', speed: 0 },
+            'prop-work-2': { bottom: '-70px', left: '-20px', width: '340px', speed: 0 },
+            'prop-explore-1': { bottom: '-20px', right: '-40px', width: '300px', speed: 0 }
+        };
+
+        // Position and initialize each prop
+        Object.entries(props).forEach(([id, config]) => {
+            const prop = document.getElementById(id);
+            if (prop) {
+                // Apply positioning
+                prop.style.position = 'absolute';
+                prop.style.zIndex = '1';
+                prop.style.width = config.width;
+                
+                if (config.top) prop.style.top = config.top;
+                if (config.bottom) prop.style.bottom = config.bottom;
+                if (config.left) prop.style.left = config.left;
+                if (config.right) prop.style.right = config.right;
+                
+                // Initialize rotation dataset
+                prop.dataset.rotation = 0;
+                prop.dataset.speed = config.speed;
+                prop.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Rotation disabled - props stay in static position
+        // Previously: Scroll handler applied rotation based on scroll delta
+        // Now: Props remain at their initial rotation value (0deg)
+    </script>
+
+</body>
+</html>

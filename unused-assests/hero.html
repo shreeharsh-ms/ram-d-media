@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eidan | Project Tactics & Strategies</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --primary-orange: #ff7a00;
+            --bg-dark: #0a0a0a;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .logo .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        /* Sunflower Icon Animation */
+        .sun-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-links li a:hover .sun-icon {
+            transform: scale(1.8) rotate(20deg); /* Sunflower gets BIG on hover */
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* --- Fullscreen Carousel --- */
+        .swiper {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .swiper-slide {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        .swiper-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .hero-subheading {
+            font-size: clamp(14px, 2vw, 18px);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #d0d0d0;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .view-btn {
+            background: black;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .view-btn:hover {
+            background: #222;
+            transform: translateY(-3px);
+        }
+
+        /* --- Mobile Menu Overlay --- */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(30, 15, 5, 0.95) 100%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 120px;
+            padding-left: 40px;
+            transition: 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .mobile-overlay::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 122, 0, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .mobile-overlay.active {
+            right: 0;
+        }
+
+        .mobile-overlay a {
+            position: relative;
+            color: white;
+            font-size: 1.3rem;
+            text-decoration: none;
+            margin: 20px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 15px 25px;
+            border-radius: 12px;
+            transition: var(--transition);
+            width: 85%;
+            max-width: 400px;
+        }
+
+        .mobile-overlay a .menu-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .mobile-overlay a:hover .menu-image {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .mobile-overlay a:hover {
+            background: rgba(255, 122, 0, 0.15);
+            transform: translateX(15px);
+            color: var(--primary-orange);
+            box-shadow: 0 8px 24px rgba(255, 122, 0, 0.2);
+        }
+
+        /* --- Video Splash Screen --- */
+        .video-splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .video-splash video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fadeToWhite 1.5s ease-out forwards;
+            animation-delay: 3.5s;
+        }
+
+        @keyframes fadeToWhite {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        .nav-btn {
+            color: white !important;
+            transform: scale(0.7);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            header { padding: 20px 30px; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video Splash Screen -->
+    <div class="video-splash" id="videoSplash">
+        <video autoplay muted playsinline>
+            <source src="Sunflower_Logo_Animation_with_Butterfly.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <header>
+        <div class="logo">Eidan<div class="dot"></div></div>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#"><span class="sun-icon">🌻</span> Homes</a></li>
+                <li><a href="#"><span class="sun-icon">🌻</span> Pages</a></li>
+                <li><a href="#"><span class="sun-icon">🌻</span> Portfolio</a></li>
+                <li><a href="#"><span class="sun-icon">🌻</span> Blog</a></li>
+                <li><a href="#"><span class="sun-icon">🌻</span> Shop</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </div>
+    </header>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <a href="#"><img src="Gemini_Generated_Image_kkd9wtkkd9wtkkd9.png" alt="Homes" class="menu-image">Homes</a>
+        <a href="#"><img src="Gemini_Generated_Image_7lli67lli67lli67.png" alt="Pages" class="menu-image">Pages</a>
+        <a href="#"><img src="Gemini_Generated_Image_kkd9wtkkd9wtkkd9.png" alt="Portfolio" class="menu-image">Portfolio</a>
+        <a href="#"><img src="Gemini_Generated_Image_7lli67lli67lli67.png" alt="Blog" class="menu-image">Blog</a>
+        <a href="#"><img src="Gemini_Generated_Image_kkd9wtkkd9wtkkd9.png" alt="Shop" class="menu-image">Shop</a>
+    </div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('Gemini_Generated_Image_kkd9wtkkd9wtkkd9.png');">
+                <div class="hero-content">
+                    <h1>Your Brand Has a Story.<br>Let's Make the World Notice It.</h1>
+                    <p class="hero-subheading">Fresh ideas, creative storytelling, and smart digital strategies designed for modern brands that want to stand out, grow, and connect with the right audience.</p>
+                    <div class="hero-buttons">
+                        <button class="view-btn">Start Your Digital Journey <div class="dot"></div></button>
+                        <button class="view-btn">Explore Our Services <div class="dot"></div></button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url('Gemini_Generated_Image_7lli67lli67lli67.png');">
+                <div class="hero-content">
+                    <h1>Your Brand Has a Story.<br>Let's Make the World Notice It.</h1>
+                    <p class="hero-subheading">Fresh ideas, creative storytelling, and smart digital strategies designed for modern brands that want to stand out, grow, and connect with the right audience.</p>
+                    <div class="hero-buttons">
+                        <button class="view-btn">Start Your Digital Journey <div class="dot"></div></button>
+                        <button class="view-btn">Explore Our Services <div class="dot"></div></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="swiper-button-next nav-btn"></div>
+        <div class="swiper-button-prev nav-btn"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // 0. Video Splash Screen Handler
+        const videoSplash = document.getElementById('videoSplash');
+        const videoElement = videoSplash.querySelector('video');
+
+        // Remove video splash after it plays and fades out
+        videoElement.addEventListener('ended', () => {
+            setTimeout(() => {
+                videoSplash.style.display = 'none';
+            }, 1000); // Wait for fade animation to complete
+        });
+
+        // Fallback: Remove after 5.5 seconds if video doesn't end properly
+        setTimeout(() => {
+            if (videoSplash && videoSplash.style.display !== 'none') {
+                videoSplash.style.display = 'none';
+            }
+        }, 5500);
+
+        // 1. Initialize Swiper Carousel
+        const swiper = new Swiper(".mySwiper", {
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            effect: 'fade', // Smooth crossfade effect like the image
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+
+        // 2. Mobile Navbar Logic (Fixing your issue)
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            // Toggle the 'active' class to show/hide the menu
+            mobileMenu.classList.toggle('active');
+            
+            // Optional: Change hamburger icon to an X (basic logic)
+            if(mobileMenu.classList.contains('active')) {
+                hamburger.style.transform = 'rotate(90deg)';
+            } else {
+                hamburger.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mobile-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

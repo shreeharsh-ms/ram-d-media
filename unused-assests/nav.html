@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflower Haven Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --cream: #FDF5E6; 
+            --sunflower-yellow: #E8B923; /* Matching the golden tone in your image */
+            --bg-dark: #121212; /* Dark top bar color */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            /* Placeholder for your sunflower background */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1597420489977-9807578278f2?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        /* The Top Dark Bar */
+        .top-edge {
+            background: var(--bg-dark);
+            height: 35px;
+            width: 100%;
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 20px 0; /* Making it a bit "big" as requested */
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Spread the links */
+        .nav-group {
+            display: flex;
+            list-style: none;
+            gap: 60px; /* High spread between items */
+            flex: 1;
+        }
+
+        .nav-group.left { justify-content: flex-end; padding-right: 50px; }
+        .nav-group.right { justify-content: flex-start; padding-left: 50px; }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--cream);
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--sunflower-yellow);
+        }
+
+        /* Exact "About" Underline Style from your image */
+        .nav-link.active {
+            color: var(--sunflower-yellow);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--sunflower-yellow);
+        }
+
+        /* Logo Styling to match image */
+        .logo-area {
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .logo-main {
+            color: var(--cream);
+            font-size: 42px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            color: var(--cream);
+            font-family: 'Great Vibes', cursive; /* Close to the script font in image */
+            font-size: 38px;
+            margin-top: -5px;
+            display: block;
+        }
+
+        /* Cart Icon with Yellow Badge */
+        .cart-section {
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+        }
+
+        .cart-icon-wrapper {
+            position: relative;
+            color: var(--cream);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .cart-badge {
+            background: var(--sunflower-yellow);
+            color: #121212;
+            font-size: 11px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -8px;
+            right: -10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-edge"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-group left">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link active">About</a></li>
+                <li><a href="#" class="nav-link">Shop</a></li>
+            </ul>
+
+            <div class="logo-area">
+                <div class="logo-main">SUNFLOWER</div>
+                <div class="logo-sub">Haven</div>
+            </div>
+
+            <ul class="nav-group right">
+                <li><a href="#" class="nav-link">Farm</a></li>
+                <li><a href="#" class="nav-link">Blog</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</body>
+</html>

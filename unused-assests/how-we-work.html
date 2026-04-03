@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Cleaner Space | How It Works</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-dark: #0a1d37;
+            --text-gray: #555c6e;
+            --yellow-accent: #f7e121;
+            --card-radius: 40px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            padding: 0;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 80px 5%;
+        }
+
+        /* --- Header Section --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            gap: 20px;
+        }
+
+        .header-left .sub-label {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .header-left .sub-label span {
+            border-bottom: 2px solid var(--yellow-accent);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .header-right p {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* --- Step Grid Section --- */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .step-card {
+            position: relative;
+            height: 240px;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            background-color: #333; /* Fallback */
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* Background Image with Dark Overlay */
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6) grayscale(30%);
+            z-index: 1;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 20px;
+            bottom: -20px;
+            font-size: 12rem;
+            font-weight: 700;
+            opacity: 0.2;
+            z-index: 2;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .step-content {
+            position: relative;
+            z-index: 3;
+            max-width: 250px;
+            margin-left: 140px; /* Offset to clear the large number */
+        }
+
+        .step-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* --- Footer Section --- */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        .footer-text h4 {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-text p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .pricing-btn {
+            background-color: var(--yellow-accent);
+            color: var(--text-dark);
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: background 0.3s;
+            box-shadow: 0 4px 15px rgba(247, 225, 33, 0.3);
+        }
+
+        .pricing-btn:hover {
+            background-color: #e5d11e;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            header { flex-direction: column; align-items: flex-start; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .step-content { margin-left: 80px; }
+            .step-number { font-size: 8rem; }
+            footer { flex-direction: column; align-items: flex-start; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <span class="sub-label"><span>HOW IT</span> WORKS</span>
+                <h1>Get Cleaner Space <br> in Four Steps</h1>
+            </div>
+            <div class="header-right">
+                <p>And sometimes, in as little as 24 hours.</p>
+            </div>
+        </header>
+
+        <section class="steps-grid">
+            <div class="step-card">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Share Details</h3>
+                    <p>Fill out a quick form with details about your space, schedule, and preferences.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1556740734-7f95831300f9?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Get Quote</h3>
+                    <p>We'll send you a personalized estimate, no hidden fees, no upselling.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6958?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>We Clean</h3>
+                    <p>Our team arrives on time, equipped, and ready to clean thoroughly.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h3>You Relax</h3>
+                    <p>Enjoy a spotless home or workspace that looks, feels, and smells truly clean.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-text">
+                <h4>Ready to get started?</h4>
+                <p>Simple pricing, no hidden fees - <br> see what works for your space.</p>
+            </div>
+            <a href="#" class="pricing-btn">View Our Pricing</a>
+        </footer>
+    </div>
+
+    <script>
+        // Simple Interaction: Smooth scroll or button click handler
+        document.querySelector('.pricing-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("Navigating to pricing...");
+            // You can add logic here to navigate or open a modal
+        });
+    </script>
+</body>
+</html>

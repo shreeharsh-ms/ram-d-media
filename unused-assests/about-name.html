@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAM Digital Media | Our Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Image Background */
+        .story-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Text on the right like your reference */
+            padding: 80px 10%;
+            overflow: hidden;
+        }
+
+        .story-section::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right, 
+                rgba(0,0,0,0.7) 0%, 
+                rgba(0,0,0,0.2) 50%, 
+                rgba(0,0,0,0.8) 100%
+            ), 
+            url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2000') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: -1;
+            transform: translateY(0px);
+        }
+
+        /* Decorative Gold Line from reference */
+        .decorative-line {
+            position: absolute;
+            top: 0;
+            right: 15%;
+            width: 2px;
+            height: 100px;
+            background: #c5a059; /* Gold accent color */
+        }
+
+        .content-box {
+            max-width: 600px;
+            text-align: left;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        /* Trigger for JS Animation */
+        .content-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #c5a059;
+            font-weight: 600;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .story-section {
+                justify-content: center;
+                padding: 60px 5%;
+                background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                            url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2000');
+                background-size: cover;
+            }
+            .content-box {
+                text-align: center;
+            }
+            .decorative-line {
+                right: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="story-section">
+        <div class="decorative-line"></div>
+        
+        <div class="content-box" id="scrollContent">
+            <h1>Why the Name <span class="highlight">RAM Digital Media?</span></h1>
+            
+            <div class="story-text">
+                <p>RAM Digital Media is more than just a business name — it carries a personal story and meaning.</p>
+                
+                <p>I am the only child of my father, <span class="highlight">Rajendra Amarchand Meher</span>, and taking his name forward has always been something very close to my heart. The name RAM comes from his initials, and choosing this name was my way of honoring his identity while building something meaningful for the future.</p>
+                
+                <p>By combining RAM with Digital Media, I wanted to create something that represents both generations — the values and legacy of the past, along with the innovation and creativity of the new digital generation.</p>
+                
+                <p>For me, RAM Digital Media is not just a company. It is a journey of combining legacy, passion, and creativity to build something meaningful in today’s digital world.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Enhanced Parallax Effect
+        const storySection = document.querySelector('.story-section');
+        
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            const parallaxStrength = 0.5; // Adjust this value for stronger/weaker effect (0-1)
+            
+            storySection.style.backgroundPosition = `center ${scrollPosition * parallaxStrength}px`;
+        });
+
+        // Intersection Observer to trigger the fade-in effect on scroll
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.getElementById('scrollContent');
+            observer.observe(content);
+        });
+    </script>
+</body>
+</html>
