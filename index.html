@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eidan | Project Tactics & Strategies</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -15,23 +16,33 @@
     <style>
         :root {
             /* New Elegant Color Theme */
-            --color-primary-yellow: #FCC419;      /* Sunflower Yellow - Use Very Sparingly */
-            --color-golden-yellow: #FCC419;       /* Sunflower Yellow - Minimal Use */
-            --color-pale-yellow: #FAF8E2;         /* Soft Lemon Yellow Background */
-            --color-deep-yellow: #FAF8E2;         /* Soft Lemon Yellow */
-            --color-sunny-cream: #FAF8E2;         /* Soft Lemon Yellow Background */
-            --color-burnt-orange: #5B8C2A;        /* Deep Moss Green */
-            --color-rich-brown: #5F3C28;          /* Deep Brown - Headings */
-            --color-warm-beige: #FAF8E2;          /* Soft Lemon Yellow Background */
-            --color-light-cream: #FAF8E2;         /* Soft Lemon Yellow Background */
-            --color-dark-charcoal: #3C444B;       /* Dark Charcoal Grey - Text */
-            
+            --color-primary-yellow: #FCC419;
+            /* Sunflower Yellow - Use Very Sparingly */
+            --color-golden-yellow: #FCC419;
+            /* Sunflower Yellow - Minimal Use */
+            --color-pale-yellow: #FAF8E2;
+            /* Soft Lemon Yellow Background */
+            --color-deep-yellow: #FAF8E2;
+            /* Soft Lemon Yellow */
+            --color-sunny-cream: #FAF8E2;
+            /* Soft Lemon Yellow Background */
+            --color-burnt-orange: #5B8C2A;
+            /* Deep Moss Green */
+            --color-rich-brown: #5F3C28;
+            /* Deep Brown - Headings */
+            --color-warm-beige: #FAF8E2;
+            /* Soft Lemon Yellow Background */
+            --color-light-cream: #FAF8E2;
+            /* Soft Lemon Yellow Background */
+            --color-dark-charcoal: #3C444B;
+            /* Dark Charcoal Grey - Text */
+
             /* Font Families (STRICT - ONLY THESE 4) */
             --font-display: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
             --font-body: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
             --font-script: 'Great Vibes', 'Brush Script MT', cursive;
             --font-oswald: 'Oswald', 'Arial', sans-serif;
-            
+
             /* Spacing Scale (8px base) */
             --spacing-xs: 4px;
             --spacing-sm: 8px;
@@ -44,13 +55,13 @@
             --spacing-5xl: 64px;
             --spacing-6xl: 80px;
             --spacing-7xl: 100px;
-            
+
             /* Responsive Padding */
             --section-padding: clamp(60px, 10vw, 120px);
             --section-padding-h: clamp(40px, 5vw, 80px);
             --card-padding: clamp(20px, 3vw, 40px);
             --element-padding: clamp(12px, 2vw, 24px);
-            
+
             /* Font Sizes (Responsive with clamp) */
             --font-size-h1: clamp(2.5rem, 6vw, 5rem);
             --font-size-h2: clamp(2rem, 4.5vw, 4.5rem);
@@ -61,21 +72,21 @@
             --font-size-small-body: clamp(0.9rem, 1vw, 1rem);
             --font-size-label: clamp(0.8rem, 0.9vw, 0.95rem);
             --font-size-caption: clamp(0.7rem, 0.8vw, 0.85rem);
-            
+
             /* Line Heights */
             --line-height-tight: 1.1;
             --line-height-heading: 1.2;
             --line-height-body: 1.6;
             --line-height-relaxed: 1.7;
             --line-height-compact: 1.4;
-            
+
             /* Letter Spacing */
             --letter-spacing-tight: -5px;
             --letter-spacing-normal: 0;
             --letter-spacing-wide: 0.5px;
             --letter-spacing-wider: 1px;
             --letter-spacing-widest: 1.5px;
-            
+
             /* Legacy variables for compatibility */
             --primary-orange: #5B8C2A;
             --bg-dark: #FAF8E2;
@@ -97,6 +108,7 @@
         html {
             scroll-behavior: smooth;
         }
+
         body {
             background-color: var(--color-light-cream);
             color: var(--color-rich-brown);
@@ -110,7 +122,7 @@
         body.allow-scroll {
             overflow: auto;
         }
-        
+
         /* Typography Hierarchy */
         h1 {
             font-family: var(--font-display);
@@ -120,7 +132,7 @@
             letter-spacing: var(--letter-spacing-tight);
             margin-bottom: clamp(16px, 2vw, 32px);
         }
-        
+
         h2 {
             font-family: var(--font-display);
             font-size: var(--font-size-h2);
@@ -129,7 +141,7 @@
             letter-spacing: -2px;
             margin-bottom: clamp(16px, 2vw, 32px);
         }
-        
+
         h3 {
             font-family: var(--font-display);
             font-size: var(--font-size-h3);
@@ -137,7 +149,7 @@
             line-height: 1.3;
             margin-bottom: clamp(12px, 1.5vw, 24px);
         }
-        
+
         h4 {
             font-family: var(--font-body);
             font-size: var(--font-size-h4);
@@ -145,13 +157,14 @@
             line-height: 1.4;
             margin-bottom: clamp(12px, 1.5vw, 20px);
         }
-        
-        h5, h6 {
+
+        h5,
+        h6 {
             font-family: var(--font-body);
             font-weight: 600;
             margin-bottom: var(--spacing-md);
         }
-        
+
         p {
             font-family: var(--font-body);
             font-size: var(--font-size-body);
@@ -159,21 +172,23 @@
             line-height: var(--line-height-body);
             margin-bottom: clamp(16px, 2vw, 24px);
         }
-        
+
         a {
             font-family: var(--font-body);
             font-weight: 600;
             text-decoration: none;
         }
-        
-        button, .btn {
+
+        button,
+        .btn {
             font-family: var(--font-body);
             font-weight: 600;
             font-size: 13px;
             letter-spacing: var(--letter-spacing-wide);
         }
-        
-        label, small {
+
+        label,
+        small {
             font-family: var(--font-body);
             font-size: var(--font-size-label);
             font-weight: 600;
@@ -242,14 +257,14 @@
             flex: 1;
         }
 
-        .nav-group.left { 
-            justify-content: flex-end; 
-            padding-right: 50px; 
+        .nav-group.left {
+            justify-content: flex-end;
+            padding-right: 50px;
         }
-        
-        .nav-group.right { 
-            justify-content: flex-start; 
-            padding-left: 50px; 
+
+        .nav-group.right {
+            justify-content: flex-start;
+            padding-left: 50px;
         }
 
         .nav-link {
@@ -404,9 +419,9 @@
             font-size: var(--font-size-h1);
             line-height: var(--line-height-tight);
             margin-bottom: var(--spacing-2xl);
-            font-weight: 700;
+            font-weight: bold;
             letter-spacing: var(--letter-spacing-tight);
-            color: var(--color-rich-brown);
+            color: white;
             font-family: var(--font-display);
         }
 
@@ -414,7 +429,8 @@
             font-size: clamp(14px, 2vw, 18px);
             line-height: 1.6;
             margin-bottom: var(--spacing-2xl);
-            color: var(--color-light-gray);
+            color: white;
+            /* font-weight: bold; */
             font-family: var(--font-body);
             max-width: 600px;
         }
@@ -521,11 +537,11 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            min-height: 100vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: var(--section-padding);
+            padding: clamp(20px, 4vw, 60px) clamp(20px, 5vw, 50px);
             box-sizing: border-box;
             background: var(--color-light-cream);
             border-top: 2px solid rgba(252, 196, 25, 0.3);
@@ -533,48 +549,64 @@
             font-family: var(--font-body);
         }
 
-        .floating-sunflower {
-            position: absolute;
-            right: 5%;
-            bottom: -50px;
-            width: 350px;
-            height: auto;
-            z-index: 10;
-            pointer-events: none;
-            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
-            transform: rotate(20deg) translateY(100px);
-        }
-
-        .floating-sunflower.active {
-            transform: rotate(-10deg) translateY(0);
-        }
-
         .content-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
             z-index: 5;
             width: 100%;
-            max-width: 1400px;
+        }
+
+        .story-text-group {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex: 1.5;
+        }
+
+        .story-image-col {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .story-inline-image {
+            max-width: 100%;
+            height: auto;
+            width: 350px;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .story-title-vertical {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            opacity: 0.15;
+            font-size: clamp(60px, 3vw, 120px);
+            font-weight: 700;
+            color: var(--color-rich-brown);
+            line-height: 1;
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .story-col {
+            flex: 1;
         }
 
         .story-col h3 {
-            font-family: var(--font-body);
-            font-size: clamp(12px, 1vw, 14px);
-            text-transform: uppercase;
-            letter-spacing: var(--letter-spacing-wide);
-            margin-bottom: var(--spacing-2xl);
-            opacity: 0.7;
-            color: var(--color-primary-yellow);
-            font-weight: 600;
+            display: none;
         }
 
         .main-text {
-            font-family: var(--font-display);
+            font-family: var(--font-body);
             font-size: clamp(28px, 4vw, 56px);
             line-height: 1.2;
-            font-weight: 700;
+            /* font-weight: 700;  */
             color: var(--color-rich-brown);
         }
 
@@ -963,14 +995,14 @@
             background-image: url('Gemini_Generated_Image_9rrwc79rrwc79rrw.png');
             background-size: cover;
             background-position: center;
-            -webkit-mask-image: linear-gradient(to right, 
-                transparent 0%, 
-                rgba(0,0,0,0.2) 10%, 
-                rgba(0,0,0,1) 30%);
-            mask-image: linear-gradient(to right, 
-                transparent 0%, 
-                rgba(0,0,0,0.2) 10%, 
-                rgba(0,0,0,1) 30%);
+            -webkit-mask-image: linear-gradient(to right,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.2) 10%,
+                    rgba(0, 0, 0, 1) 30%);
+            mask-image: linear-gradient(to right,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.2) 10%,
+                    rgba(0, 0, 0, 1) 30%);
             filter: saturate(1.1);
         }
 
@@ -1025,7 +1057,7 @@
             position: absolute;
             z-index: 15;
             pointer-events: none;
-            filter: drop-shadow(8px 8px 15px rgba(0,0,0,0.2));
+            filter: drop-shadow(8px 8px 15px rgba(0, 0, 0, 0.2));
             will-change: transform;
         }
 
@@ -1048,14 +1080,14 @@
             .manifesto-image-section {
                 width: 100%;
                 height: 40%;
-                -webkit-mask-image: linear-gradient(to bottom, 
-                    transparent 0%, 
-                    rgba(0,0,0,0.2) 10%, 
-                    rgba(0,0,0,1) 30%);
-                mask-image: linear-gradient(to bottom, 
-                    transparent 0%, 
-                    rgba(0,0,0,0.2) 10%, 
-                    rgba(0,0,0,1) 30%);
+                -webkit-mask-image: linear-gradient(to bottom,
+                        transparent 0%,
+                        rgba(0, 0, 0, 0.2) 10%,
+                        rgba(0, 0, 0, 1) 30%);
+                mask-image: linear-gradient(to bottom,
+                        transparent 0%,
+                        rgba(0, 0, 0, 0.2) 10%,
+                        rgba(0, 0, 0, 1) 30%);
             }
 
             .manifesto-content {
@@ -1145,16 +1177,19 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            header { 
-                padding: 20px 30px; 
+            header {
+                padding: 20px 30px;
             }
-            .nav-group { 
-                display: none; 
+
+            .nav-group {
+                display: none;
             }
+
             .logo-area {
                 flex: 1;
             }
-            .hamburger { 
+
+            .hamburger {
                 display: block;
                 position: fixed;
                 top: 70px;
@@ -1170,8 +1205,27 @@
         }
 
         @media (max-width: 900px) {
-            .content-grid { grid-template-columns: 1fr; gap: 50px; }
-            .floating-sunflower { width: 200px; opacity: 0.5; }
+            .content-grid {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .story-title-vertical {
+                writing-mode: horizontal-tb;
+                transform: none;
+                font-size: clamp(40px, 10vw, 60px);
+                text-align: center;
+                opacity: 0.15;
+            }
+
+            .story-text-group {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .story-image-col {
+                display: none;
+            }
         }
 
         /* --- Content Section Styles --- */
@@ -1186,7 +1240,7 @@
 
         /* Sidebar Icons */
         .content-sidebar {
-            position: fixed; 
+            position: fixed;
             right: 20px;
             top: 100px;
             display: flex;
@@ -1406,7 +1460,6 @@
             width: 100%;
             background: var(--color-light-cream);
             padding: 40px 5%;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -1425,9 +1478,120 @@
         /* --- Top Section --- */
         .services-top-section {
             display: grid;
-            grid-template-columns: 1fr 1.2fr 2fr;
+            grid-template-columns: 1fr 1.5fr;
             gap: 40px;
             margin-bottom: 60px;
+        }
+
+        .services-image-preview {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            cursor: pointer;
+        }
+
+        .services-image-preview .image-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .services-image-preview img#previewImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.5s ease, opacity 0.3s ease;
+        }
+
+        .services-image-preview:hover img#previewImage {
+            filter: blur(8px) brightness(0.5);
+        }
+
+        .preview-text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            text-align: left;
+        }
+
+        .services-image-preview:hover .preview-text-overlay {
+            opacity: 1;
+        }
+
+        .preview-text-overlay h4 {
+            font-family: var(--font-body);
+            color: var(--color-primary-yellow);
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            width: 100%;
+            text-shadow: none;
+        }
+
+        .preview-text-overlay p {
+            font-family: var(--font-body);
+            color: #ffffff;
+            font-size: 18px;
+            margin: 0;
+            line-height: 1.6;
+            width: 100%;
+            text-shadow: none;
+        }
+
+        .service-prop {
+            position: absolute;
+            width: 180px;
+            height: auto;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .service-prop-1 {
+            bottom: -50px;
+            right: -50px;
+            transform: rotate(-15deg);
+        }
+
+        @media (max-width: 900px) {
+            .services-top-section {
+                grid-template-columns: 1fr;
+            }
+
+            .services-image-preview {
+                height: 350px;
+            }
+
+            .preview-text-overlay p {
+                font-size: 15px;
+            }
+
+            .preview-text-overlay h4 {
+                font-size: 20px;
+            }
+
+            .service-prop {
+                width: 100px;
+            }
+
+            .service-prop-1 {
+                bottom: -30px;
+                right: -20px;
+            }
         }
 
         .services-label {
@@ -1459,7 +1623,8 @@
             margin-bottom: var(--spacing-xs);
         }
 
-        .services-list li:hover, .services-list li.active {
+        .services-list li:hover,
+        .services-list li.active {
             color: var(--color-dark-charcoal);
             background: var(--color-pale-yellow);
             padding-left: 20px;
@@ -1677,6 +1842,7 @@
             .services-top-section {
                 grid-template-columns: 1fr;
             }
+
             .services-cta-card {
                 height: 300px;
             }
@@ -1686,10 +1852,12 @@
             .our-services-section {
                 padding: 30px 5%;
             }
+
             .services-section-title {
                 font-size: 2rem;
                 margin-bottom: 40px;
             }
+
             .services-cards-grid {
                 grid-template-columns: 1fr;
             }
@@ -1749,12 +1917,11 @@
         /* --- HOW WE WORK SECTION --- */
         .how-we-work-section {
             background-color: var(--color-light-cream);
-            padding: 100px 5%;
+            padding: 0px 5%;
             color: var(--color-rich-brown);
         }
 
         .how-we-work-container {
-            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -1812,7 +1979,7 @@
             display: flex;
             align-items: center;
             padding: 40px;
-            color: var(--color-rich-brown);
+            color: #ffffff;
             transition: transform 0.3s ease;
             border: 3px solid var(--color-pale-yellow);
         }
@@ -1841,11 +2008,11 @@
             bottom: -20px;
             font-size: 12rem;
             font-weight: 700;
-            opacity: 0.15;
+            opacity: 0.25;
             z-index: 2;
             line-height: 1;
             user-select: none;
-            color: var(--color-burnt-orange);
+            color: #ffea69;
         }
 
         .how-we-work-content {
@@ -1859,16 +2026,16 @@
             font-family: var(--font-display);
             font-size: clamp(18px, 2vw, 24px);
             margin-bottom: var(--spacing-md);
-            color: var(--color-rich-brown);
+            color: #ffffff;
             font-weight: 700;
         }
 
         .how-we-work-content p {
             font-family: var(--font-body);
             font-size: clamp(13px, 1.1vw, 15px);
-            opacity: 0.8;
+            opacity: 0.9;
             line-height: var(--line-height-body);
-            color: var(--color-rich-brown);
+            color: #ffffff;
         }
 
         /* Footer Section */
@@ -1990,7 +2157,6 @@
         }
 
         .certified-container {
-            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -2096,7 +2262,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.8) 100%);
             z-index: 1;
         }
 
@@ -2164,55 +2330,18 @@
 
         /* Instagram Grid */
         .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
             margin-top: 50px;
         }
 
-        .instagram-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            aspect-ratio: 1;
-            cursor: pointer;
-            background: var(--color-primary-yellow);
-            transition: transform 0.3s ease;
-        }
-
-        .instagram-item:hover {
-            transform: scale(1.05);
-        }
-
-        .instagram-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .instagram-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .instagram-item:hover .instagram-overlay {
-            opacity: 1;
-        }
-
-        .instagram-icons {
-            display: flex;
-            gap: 20px;
-            font-size: 24px;
+        .instagram-grid>iframe,
+        .instagram-grid>blockquote {
+            flex: 1 1 300px;
+            max-width: 400px;
+            min-width: 300px !important;
         }
 
         /* Responsive */
@@ -2311,6 +2440,36 @@
             width: 100%;
         }
 
+        /* Contact Form Toggle */
+        .contact-form-toggle {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .contact-toggle-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 2px solid var(--color-primary-yellow);
+            background: transparent;
+            color: var(--color-rich-brown);
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-toggle-btn:hover {
+            background: rgba(224, 122, 95, 0.1);
+        }
+
+        .contact-toggle-btn.active {
+            background-color: var(--color-primary-yellow);
+            color: white;
+            box-shadow: 0 4px 15px rgba(224, 122, 95, 0.3);
+        }
+
         /* Left Side */
         .contact-left-side {
             flex: 1;
@@ -2331,7 +2490,6 @@
             font-size: clamp(16px, 2vw, 24px);
             max-width: 700px;
             margin-bottom: var(--spacing-2xl);
-            font-weight: 600;
             line-height: 1.5;
             color: var(--color-rich-brown);
         }
@@ -2341,7 +2499,6 @@
             background-color: var(--color-sunny-cream);
             border-radius: 20px;
             padding: 40px;
-            border: 3px solid var(--color-primary-yellow);
             box-shadow: 0 20px 50px rgba(252, 196, 25, 0.2);
             max-width: 100%;
             width: 100%;
@@ -2420,7 +2577,7 @@
         }
 
         .contact-submit-btn {
-            background-color: var(--color-burnt-orange);
+            background-color: var(--color-primary-yellow);
             color: white;
             border: none;
             padding: 14px 30px;
@@ -2615,23 +2772,9 @@
             width: 100%;
             background-color: var(--color-warm-beige);
             color: var(--color-rich-brown);
-            padding: var(--section-padding) 5% 40px 5%;
+            padding: var(--section-padding) % 40px 5%;
             position: relative;
             overflow: hidden;
-        }
-
-        /* The large decorative background circle */
-        .footer::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vh;
-            height: 80vh;
-            background-color: #d8d8ce;
-            border-radius: 50%;
-            z-index: 0;
         }
 
         .footer-content {
@@ -2686,7 +2829,7 @@
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            border-top: 1px solid rgba(0,0,0,0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
             padding-top: var(--spacing-2xl);
             gap: var(--spacing-2xl);
         }
@@ -2735,7 +2878,6 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            padding: 0 5%;
         }
 
         .footer-brand h2 {
@@ -2844,7 +2986,9 @@
             }
         }
     </style>
+
 </head>
+
 <body>
 
     <!-- Video Splash Screen -->
@@ -2866,7 +3010,8 @@
             </ul>
 
             <div class="logo-area">
-                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo" style="height: 70px; width: auto; object-fit: contain;">
+                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo"
+                    style="height: 70px; width: auto; object-fit: contain;">
             </div>
 
             <ul class="nav-group right">
@@ -2900,17 +3045,19 @@
             <div class="swiper-slide" style="background-image: url('Gemini_Generated_Image_kkd9wtkkd9wtkkd9.png');">
                 <div class="hero-content">
                     <h1>Your Brand Has a Story.<br>Let's Make the World Notice It.</h1>
-                    <p class="hero-subheading">Fresh ideas, creative storytelling, and smart digital strategies designed for modern brands that want to stand out, grow, and connect with the right audience.</p>
+                    <p class="hero-subheading">Fresh ideas, creative storytelling, and smart digital strategies designed
+                        for modern brands that want to stand out, grow, and connect with the right audience.</p>
                     <div class="hero-buttons">
                         <button class="view-btn">Start Your Digital Journey <div class="dot"></div></button>
                         <button class="view-btn">Explore Our Services <div class="dot"></div></button>
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide" style="background-image: url('Gemini_Generated_Image_7lli67lli67lli67.png');">
+            <div class="swiper-slide" style="background-image: url('banner.png');">
                 <div class="hero-content">
                     <h1>Your Brand Has a Story.<br>Let's Make the World Notice It.</h1>
-                    <p class="hero-subheading">Fresh ideas, creative storytelling, and smart digital strategies designed for modern brands that want to stand out, grow, and connect with the right audience.</p>
+                    <p class="hero-subheading">Fresh ideas, creative storytelling, and smart digital strategies designed
+                        for modern brands that want to stand out, grow, and connect with the right audience.</p>
                     <div class="hero-buttons">
                         <button class="view-btn">Start Your Digital Journey <div class="dot"></div></button>
                         <button class="view-btn">Explore Our Services <div class="dot"></div></button>
@@ -2918,45 +3065,46 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="swiper-button-next nav-btn"></div>
         <div class="swiper-button-prev nav-btn"></div>
     </div>
 
     <!-- Mid Section with Story & Services -->
     <section class="hero-section" id="agency-section">
-        <div class="rotating-sunflower">
-            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="Rotating Sunflower">
-        </div>
-
-        <img src="image-Photoroom (1).png" 
-             alt="Sunflower" 
-             class="floating-sunflower" 
-             id="sunflower-asset">
 
         <div class="content-grid">
-            <div class="story-col">
-                <h3>The Story</h3>
-                <p class="main-text" style="font-size: 31px;">
-                    <b>A Fresh Approach to Digital Growth</b><br><br>
-                    Hi, I'm Samruddhi Meher, the founder of RAM Digital Media. What started as an idea to bring fresh thinking into the digital space has now grown into a platform where <span>creativity, strategy, and passion come together</span> to help brands grow.<br><br>
-                    At RAM Digital Media, we focus on helping brands build meaningful digital presence through creative storytelling, thoughtful strategies, and ideas that truly connect with people. In today's fast-moving digital world, brands need more than just visibility — they need identity, creativity, and the ability to stand out.<br><br>
-                    We believe every brand has a story worth sharing, and with the right creativity and digital strategy, that story can reach the right audience and grow into something powerful.
-                </p>
+            <div class="story-text-group">
+                <div class="story-title-vertical">
+                    The Story
+                </div>
+                <div class="story-col">
+                    <p class="main-text" style="font-size: 18px;">
+                        <b>
+                            <p style="font-size: 35px;">A Fresh Approach to Digital Growth</p>
+                        </b>
+                        Hi, I'm Samruddhi Meher, the founder of RAM Digital Media. What started as an idea to bring
+                        fresh
+                        thinking into the digital space has now grown into a platform where <span>creativity, strategy,
+                            and
+                            passion come together</span> to help brands grow.<br><br>
+                        At RAM Digital Media, we focus on helping brands build meaningful digital presence through
+                        creative
+                        storytelling, thoughtful strategies, and ideas that truly connect with people. In today's
+                        fast-moving digital world, brands need more than just visibility — they need identity,
+                        creativity,
+                        and the ability to stand out.<br><br>
+                        We believe every brand has a story worth sharing, and with the right creativity and digital
+                        strategy, that story can reach the right audience and grow into something powerful.
+                    </p>
+                </div>
             </div>
 
-            <div class="services-col">
-                <h3>Our Service</h3>
-                <div class="service-item">User Experience Design</div>
-                <div class="service-item">User Interface Design</div>
-                <div class="service-item">Digital Prototypes</div>
-                <div class="service-item">Front-end and CMS</div>
+            <div class="story-image-col">
+                <img src="image-Photoroom (1).png" alt="Sunflower" class="story-inline-image" id="sunflower-asset">
             </div>
         </div>
 
-        <div class="cart-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-        </div>
     </section>
 
     <!-- Brand Manifesto Section -->
@@ -2966,151 +3114,68 @@
 
             <div class="manifesto-content">
                 <h1>Our Brand Manifesto</h1>
-                <p>We believe brands are not just businesses. They are ideas, dreams, and stories waiting to be seen. In a world where everyone is online, simply being present is not enough. Brands need creativity, courage, and the right digital voice to truly stand out.
-<br><br>
-At EDEN Digital Media, we believe in bringing fresh perspectives to the digital space. We believe in thinking differently, creating with purpose, and building strategies that help brands grow with confidence.
-<br><br>
-We believe great marketing is not about noise — it's about meaningful connections, strong ideas, and authentic storytelling.
-<br><br>
-Every brand has the potential to grow, evolve, and reach people who truly connect with it. With the right creativity and strategy, that growth becomes limitless.
-<br><br>
-At EDEN Digital Media, our mission is simple: to help brands move forward with clarity, creativity, and impact in the digital world.
-<br><br>
-Because when ideas meet passion and strategy, brands don't just exist — they grow, inspire, and leave a lasting impression.</p>
+                <p>We believe brands are not just businesses. They are ideas, dreams, and stories waiting to be seen. In
+                    a world where everyone is online, simply being present is not enough. Brands need creativity,
+                    courage, and the right digital voice to truly stand out.
+                    <br><br>
+                    At EDEN Digital Media, we believe in bringing fresh perspectives to the digital space. We believe in
+                    thinking differently, creating with purpose, and building strategies that help brands grow with
+                    confidence.
+                    <br><br>
+                    We believe great marketing is not about noise — it's about meaningful connections, strong ideas, and
+                    authentic storytelling.
+                    <br><br>
+                    Every brand has the potential to grow, evolve, and reach people who truly connect with it. With the
+                    right creativity and strategy, that growth becomes limitless.
+                    <br><br>
+                    At EDEN Digital Media, our mission is simple: to help brands move forward with clarity, creativity,
+                    and impact in the digital world.
+                    <br><br>
+                    Because when ideas meet passion and strategy, brands don't just exist — they grow, inspire, and
+                    leave a lasting impression.
+                </p>
             </div>
 
             <div class="manifesto-scroll-hint">Scroll Down ↓</div>
 
             <!-- Decorative Sunflowers -->
-            <img id="manifesto-sunflower-top-right" class="manifesto-sunflower-corner" src="Gemini_Generated_Image_nvors3nvors3nvor-Photoroom.png" alt="Sunflower">
-            <img id="manifesto-sunflower-bottom-right" class="manifesto-sunflower-corner" src="Gemini_Generated_Image_74b7y874b7y874b7-Photoroom.png" alt="Sunflower">
+            <img id="manifesto-sunflower-top-right" class="manifesto-sunflower-corner"
+                src="Gemini_Generated_Image_nvors3nvors3nvor-Photoroom.png" alt="Sunflower">
+            <img id="manifesto-sunflower-bottom-right" class="manifesto-sunflower-corner"
+                src="Gemini_Generated_Image_74b7y874b7y874b7-Photoroom.png" alt="Sunflower">
         </div>
     </section>
 
     <!-- Our Services Section -->
     <section class="our-services-section" id="our-services">
         <h1 class="services-section-title">Our Services</h1>
-        
+
         <div class="services-top-section">
             <div class="services-expertise">
                 <span class="services-label">Expertise</span>
-                <ul class="services-list">
-                    <li class="active">Social Media Management</li>
-                    <li>SEO</li>
-                    <li>Digital Marketing Strategy</li>
-                    <li>Paid Advertising</li>
-                    <li>Wedding Content Creation</li>
-                    <li>Photo & Videography</li>
-                    <li>Website Designing</li>
+                <ul class="services-list" id="servicesList">
+                    <li class="active" data-index="0">Social Media Management</li>
+                    <li data-index="1">SEO</li>
+                    <li data-index="2">Digital Marketing Strategy</li>
+                    <li data-index="3">Paid Advertising</li>
+                    <li data-index="4">Wedding Content Creation</li>
+                    <li data-index="5">Photo & Videography</li>
+                    <li data-index="6">Website Designing</li>
                 </ul>
             </div>
 
-            <div class="services-detail">
-                <span class="services-label">Service</span>
-                <h2 id="serviceTitle">Social Media Management</h2>
-                <p id="serviceDescription">Social media is one of the most powerful ways for brands to communicate with their audience today. Through thoughtful content, creative visuals, and consistent engagement, social media helps brands build identity and stay connected with their community. At RAM Digital Media, we manage your social media presence with a clear strategy, creative storytelling, and content that reflects the true personality of your brand.</p>
-                <button class="services-btn-outline">Explore Service</button>
-            </div>
-
-            <div class="services-cta-card">
-                <h2>Why It Matters</h2>
-                <p id="serviceWhy">Social media is where people discover brands, explore products, and build connections. But creating a strong presence requires more than just posting content. With the right mix of creativity, consistency, and strategy, social media becomes a powerful platform for building relationships with your audience and strengthening your brand identity.</p>
-                <button class="services-btn-white">Start Project</button>
-            </div>
-        </div>
-
-        <div class="services-bottom-section">
-            <div class="services-bottom-header">
-                <h3>Featured Services</h3>
-                <div style="display:flex; gap:10px">
-                    <span class="services-btn-outline" style="padding: 5px 15px; font-size: 0.7rem;">Digital</span>
-                    <span class="services-btn-outline" style="padding: 5px 15px; font-size: 0.7rem;">Creative</span>
-                </div>
-            </div>
-
-            <div class="services-carousel-wrapper">
-                <div class="services-carousel" id="servicesCarousel">
-                <div class="services-card">
-                    <div class="services-card-img">
-                        <img src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=400&h=260&fit=crop" alt="Social Media">
-                    </div>
-                    <h4>Social Media Management</h4>
-                    <p>Strategic content creation and community engagement across all platforms.</p>
-                    <div class="services-card-footer">
-                        <div class="services-icon-circle">📱</div>
-                        <span style="font-size: 0.7rem; color: #999;">Management</span>
-                    </div>
-                </div>
-
-                <div class="services-card">
-                    <div class="services-card-img">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=260&fit=crop" alt="SEO">
-                    </div>
-                    <h4>Search Engine Optimization</h4>
-                    <p>Improve visibility and reach potential customers searching for your services.</p>
-                    <div class="services-card-footer">
-                        <div class="services-icon-circle">�</div>
-                        <span style="font-size: 0.7rem; color: #999;">SEO</span>
-                    </div>
-                </div>
-
-                <div class="services-card">
-                    <div class="services-card-img">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=260&fit=crop" alt="Digital Strategy">
-                    </div>
-                    <h4>Digital Marketing Strategy</h4>
-                    <p>Customized strategies for online growth with clear direction and purpose.</p>
-                    <div class="services-card-footer">
-                        <div class="services-icon-circle">📊</div>
-                        <span style="font-size: 0.7rem; color: #999;">Strategy</span>
-                    </div>
-                </div>
-
-                <div class="services-card">
-                    <div class="services-card-img">
-                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=260&fit=crop" alt="Paid Ads">
-                    </div>
-                    <h4>Paid Advertising</h4>
-                    <p>Targeted campaigns to reach your audience faster and increase conversions.</p>
-                    <div class="services-card-footer">
-                        <div class="services-icon-circle">💰</div>
-                        <span style="font-size: 0.7rem; color: #999;">Ads</span>
-                    </div>
-                </div>
-
-                <div class="services-card">
-                    <div class="services-card-img">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=260&fit=crop" alt="Wedding Content">
-                    </div>
-                    <h4>Wedding Content Creation</h4>
-                    <p>Capture authentic moments and emotions in a modern, shareable format.</p>
-                    <div class="services-card-footer">
-                        <div class="services-icon-circle">�</div>
-                        <span style="font-size: 0.7rem; color: #999;">Wedding</span>
-                    </div>
-                </div>
-
-                <div class="services-card">
-                    <div class="services-card-img">
-                        <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=260&fit=crop" alt="Photo & Video">
-                    </div>
-                    <h4>Photo & Videography</h4>
-                    <p>Professional visual storytelling that showcases your brand authentically.</p>
-                    <div class="services-card-footer">
-                        <div class="services-icon-circle">📸</div>
-                        <span style="font-size: 0.7rem; color: #999;">Visual</span>
-                    </div>
-                </div>
-
-                <div class="services-card">
-                    <div class="services-card-img">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=260&fit=crop" alt="Web Design">
-                    </div>
-                    <h4>Website Designing</h4>
-                    <p>Modern, user-friendly websites that build trust and drive results.</p>
-                    <div class="services-card-footer">
-                        <div class="services-icon-circle">🌐</div>
-                        <span style="font-size: 0.7rem; color: #999;">Web</span>
+            <div class="services-image-preview" id="servicesImagePreview">
+                <img src="image-Photoroom-2.png" alt="prop" class="service-prop service-prop-1">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=800&h=600&fit=crop"
+                        id="previewImage" alt="Service Preview">
+                    <div class="preview-text-overlay">
+                        <h4 id="tooltipHeading">Why Social Media Management matters</h4>
+                        <p id="tooltipText">Social media is where people discover brands, explore products, and build
+                            connections. But creating a strong presence requires more than just posting content. With
+                            the right mix of creativity, consistency, and strategy, social media becomes a powerful
+                            platform for building relationships with your audience and strengthening your brand
+                            identity.</p>
                     </div>
                 </div>
             </div>
@@ -3132,7 +3197,9 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
 
             <div class="how-we-work-grid">
                 <div class="how-we-work-card">
-                    <div class="how-we-work-card-bg" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600');"></div>
+                    <div class="how-we-work-card-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600');">
+                    </div>
                     <div class="how-we-work-number">01</div>
                     <div class="how-we-work-content">
                         <h3>Understand</h3>
@@ -3141,7 +3208,9 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
                 </div>
 
                 <div class="how-we-work-card">
-                    <div class="how-we-work-card-bg" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600');"></div>
+                    <div class="how-we-work-card-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600');">
+                    </div>
                     <div class="how-we-work-number">02</div>
                     <div class="how-we-work-content">
                         <h3>Create</h3>
@@ -3150,7 +3219,9 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
                 </div>
 
                 <div class="how-we-work-card">
-                    <div class="how-we-work-card-bg" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=600');"></div>
+                    <div class="how-we-work-card-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=600');">
+                    </div>
                     <div class="how-we-work-number">03</div>
                     <div class="how-we-work-content">
                         <h3>Execute</h3>
@@ -3159,7 +3230,9 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
                 </div>
 
                 <div class="how-we-work-card">
-                    <div class="how-we-work-card-bg" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600');"></div>
+                    <div class="how-we-work-card-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600');">
+                    </div>
                     <div class="how-we-work-number">04</div>
                     <div class="how-we-work-content">
                         <h3>Grow</h3>
@@ -3187,53 +3260,68 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
                     <h1>Creativity in Real Time</h1>
                 </div>
                 <div class="certified-header-right">
-                    <p>Our work is always evolving, and Instagram is where we share our latest projects, ideas, and creative moments. Explore our latest content and see what we've been creating recently.</p>
+                    <p>Our work is always evolving, and Instagram is where we share our latest projects, ideas, and
+                        creative moments. Explore our latest content and see what we've been creating recently.</p>
                     <div class="certified-links-group">
-                        <a href="https://instagram.com" target="_blank" class="certified-cta-link">Follow Us on Instagram <span>›</span></a>
+                        <a href="https://instagram.com" target="_blank" class="certified-cta-link">Follow Us on
+                            Instagram <span>›</span></a>
                     </div>
                 </div>
             </div>
+            <style>
+                .instagram-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 20px;
+                    padding: 20px;
+                }
 
+                .reel-container {
+                    position: relative;
+                    width: 100%;
+                    max-width: 400px;
+                    height: 460px;
+                    /* Taller height to show more video, but still cuts likes */
+                    overflow: hidden;
+                    border: none;
+                    /* Removed all borders */
+                    border-radius: 0;
+                    /* Sharp edges for that Palantir/BlackRock minimalist look */
+                    background: #000;
+                }
+
+                .reel-container iframe {
+                    width: 100% !important;
+                    height: 580px !important;
+                    /* Over-height to ensure footer is pushed out */
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border: none !important;
+                }
+            </style>
             <div class="instagram-grid">
-                <div class="instagram-item">
-                    <img src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=300&h=300&fit=crop" alt="Instagram Reel 1">
-                    <div class="instagram-overlay">
-                        <div class="instagram-icons">
-                            <span>❤️</span>
-                            <span>💬</span>
-                        </div>
-                    </div>
+                <div class="reel-container">
+                    <iframe src="https://www.instagram.com/reel/DXgwN1UDON5/embed/" frameborder="0"
+                        scrolling="no"></iframe>
                 </div>
 
-                <div class="instagram-item">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=300&fit=crop" alt="Instagram Reel 2">
-                    <div class="instagram-overlay">
-                        <div class="instagram-icons">
-                            <span>❤️</span>
-                            <span>💬</span>
-                        </div>
-                    </div>
+                <div class="reel-container">
+                    <iframe src="https://www.instagram.com/reel/DW3BcWyDChM/embed/" frameborder="0"
+                        scrolling="no"></iframe>
                 </div>
 
-                <div class="instagram-item">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop" alt="Instagram Reel 3">
-                    <div class="instagram-overlay">
-                        <div class="instagram-icons">
-                            <span>❤️</span>
-                            <span>💬</span>
-                        </div>
-                    </div>
+                <div class="reel-container">
+                    <iframe src="https://www.instagram.com/p/DXLyoRDjJhJ/embed/" frameborder="0"
+                        scrolling="no"></iframe>
                 </div>
 
-                <div class="instagram-item">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&h=300&fit=crop" alt="Instagram Reel 4">
-                    <div class="instagram-overlay">
-                        <div class="instagram-icons">
-                            <span>❤️</span>
-                            <span>💬</span>
-                        </div>
-                    </div>
+                <div class="reel-container">
+                    <iframe src="https://www.instagram.com/reel/DWk1-GCjPg5/embed/" frameborder="0"
+                        scrolling="no"></iframe>
                 </div>
+
+                <script async src="https://www.instagram.com/embed.js"></script>
             </div>
         </div>
     </section>
@@ -3241,32 +3329,34 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
     <!-- Contact Us Section -->
     <section class="contact-us-section" id="contact-us">
         <div class="contact-main-container">
-            
+
             <div class="contact-top-content">
                 <div class="contact-left-side">
-                    <h1>Let's Create Something Meaningful</h1>
-                    <p class="contact-tagline">Every brand starts with an idea. With the right creativity and strategy, that idea can grow into something powerful. At RAM Digital Media, we are here to help brands build strong digital identities and connect with the people who matter most.</p>
-                    
+                    <div class="contact-form-toggle">
+                        <button class="contact-toggle-btn active" id="btn-work-with-us"
+                            onclick="setContactMode('work')">Work with Us</button>
+                        <button class="contact-toggle-btn" id="btn-join-us" onclick="setContactMode('join')">Join
+                            Us</button>
+                    </div>
+
+                    <h1 id="contactHeading">Let's Create Something Meaningful</h1>
+                    <p class="contact-tagline" id="contactTagline">Every brand starts with an idea. With the right
+                        creativity and strategy,
+                        that idea can grow into something powerful. At RAM Digital Media, we are here to help brands
+                        build strong digital identities and connect with the people who matter most.</p>
+
                     <div class="contact-highlight-box">
-                        <p style="font-size: clamp(16px, 1.3vw, 18px); color: var(--color-burnt-orange); font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        <p id="contactHighlightText"
+                            style="font-size: clamp(16px, 1.3vw, 18px); color: var(--color-burnt-orange); font-weight: 700; display: flex; align-items: center; gap: 10px;">
                             <span style="font-size: 24px;">✨</span> Let's grow your brand in the digital world.
                         </p>
                     </div>
 
-                    <div class="contact-trusted-container">
-                        <p class="contact-trusted-text">Trusted by</p>
-                        <div class="contact-logo-grid">
-                            <span>Samsonite</span>
-                            <span>airbnb</span>
-                            <span style="font-family: serif; font-weight: 900;">Emirates</span>
-                            <span>Unitedtravel</span>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="contact-form-section">
                     <div class="contact-card">
-                        <h2>Get In Touch</h2>
+                        <h2 id="contactFormHeading">Get In Touch</h2>
                         <form id="contactForm">
                             <div class="contact-form-grid">
                                 <div class="contact-form-group">
@@ -3279,14 +3369,17 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
                                 </div>
                             </div>
                             <div class="contact-form-group">
-                                <label>Message</label>
+                                <label id="contactMessageLabel">Message</label>
                                 <textarea required></textarea>
                             </div>
 
                             <div class="contact-submit-area">
-                                <img class="contact-sunflower" src="https://cdn-icons-png.flaticon.com/512/1043/1043236.png" alt="sunflower">
-                                <button type="submit" class="contact-submit-btn">Get In Touch</button>
-                                <img class="contact-sunflower" src="https://cdn-icons-png.flaticon.com/512/1043/1043236.png" alt="sunflower">
+                                <img class="contact-sunflower"
+                                    src="https://cdn-icons-png.flaticon.com/512/1043/1043236.png" alt="sunflower">
+                                <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">Get In
+                                    Touch</button>
+                                <img class="contact-sunflower"
+                                    src="https://cdn-icons-png.flaticon.com/512/1043/1043236.png" alt="sunflower">
                             </div>
                         </form>
                     </div>
@@ -3301,7 +3394,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
-            
+
             <div class="footer-grid">
                 <div class="footer-grid-column">
                     <h4>Quick Links</h4>
@@ -3334,13 +3427,12 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <div class="footer-brand">
                     <span>© 2024</span>
                     <h2>EDEN MEDIA</h2>
                 </div>
-                
+
                 <div class="footer-local-time">
                     <h4>Local Time</h4>
                     <p id="footerTimeDisplay">00:00 PM GMT+11</p>
@@ -3350,16 +3442,20 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
 
         <div class="footer-fab-container">
             <button class="footer-fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 15l-6-6-6 6" />
+                </svg>
             </button>
         </div>
     </footer>
 
     <!-- Floating Popup Form -->
     <div class="floating-popup" id="floatingPopup">
-        <img src="Gemini_Generated_Image_uatnsjuatnsjuatn-Photoroom.png" alt="Sunflower" class="popup-flowers popup-flower-top">
-        <img src="Gemini_Generated_Image_wxxhc2wxxhc2wxxh-Photoroom.png" alt="Sunflower" class="popup-flowers popup-flower-bottom">
-        
+        <img src="Gemini_Generated_Image_uatnsjuatnsjuatn-Photoroom.png" alt="Sunflower"
+            class="popup-flowers popup-flower-top">
+        <img src="Gemini_Generated_Image_wxxhc2wxxhc2wxxh-Photoroom.png" alt="Sunflower"
+            class="popup-flowers popup-flower-bottom">
+
         <button class="close-popup-btn" id="closePopupBtn">✕</button>
 
         <div class="popup-content">
@@ -3370,7 +3466,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
 
             <form class="popup-form" id="popupForm">
                 <input type="email" placeholder="Business Email" required>
-                
+
                 <div class="form-row">
                     <input type="text" placeholder="First Name" required>
                     <input type="text" placeholder="Last Name" required>
@@ -3398,14 +3494,14 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
         let proxy = { skew: 0 },
             skewSetter = gsap.quickSetter(proxy, "skew", "deg"),
             clamp = gsap.utils.clamp(-20, 20);
-        
+
         gsap.set(document.body, { transformOrigin: "center center", force3D: true });
-        
+
         window.addEventListener("wheel", (e) => {
             let skew = clamp(e.deltaY * 0.1);
             proxy.skew = skew;
             skewSetter(skew);
-            
+
             gsap.to(proxy, {
                 skew: 0,
                 duration: 0.8,
@@ -3419,17 +3515,17 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
         // ===== SMOOTH SCROLL ANIMATION FOR ANCHOR LINKS =====
         // Handle all anchor links with butter-smooth GSAP scroll
         document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                
+
                 // Only handle anchor links (skip empty anchors)
                 if (href === '#' || href === '#!') return;
-                
+
                 e.preventDefault();
-                
+
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
-                
+
                 if (targetElement) {
                     // Butter-smooth scroll using GSAP ScrollToPlugin
                     gsap.to(window, {
@@ -3452,31 +3548,31 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
 
         window.addEventListener('scroll', () => {
             let currentScroll = window.pageYOffset;
-            
+
             // Add scrolled class when user scrolls down
             if (currentScroll > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-            
+
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
         // 0. Handle Video Splash Screen - Wait for video to end, then fade out
         const videoSplash = document.getElementById('videoSplash');
         const splashVideo = videoSplash ? videoSplash.querySelector('video') : null;
-        
+
         if (videoSplash && splashVideo) {
             // Keep splash visible while video plays
             videoSplash.style.display = 'flex';
             document.body.classList.remove('allow-scroll');
-            
+
             // When video ends, fade out the splash screen
             splashVideo.addEventListener('ended', () => {
                 // Allow scrolling
                 document.body.classList.add('allow-scroll');
-                
+
                 // Fade out animation
                 gsap.to(videoSplash, {
                     opacity: 0,
@@ -3489,7 +3585,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
                     }
                 });
             });
-            
+
             // Fallback: Also hide after 10 seconds max (in case video doesn't end properly)
             setTimeout(() => {
                 if (videoSplash.style.display !== 'none') {
@@ -3582,8 +3678,8 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
 
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
-            
-            if(mobileMenu.classList.contains('active')) {
+
+            if (mobileMenu.classList.contains('active')) {
                 hamburger.style.transform = 'rotate(90deg)';
             } else {
                 hamburger.style.transform = 'rotate(0deg)';
@@ -3604,7 +3700,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
         const serviceItems = document.querySelectorAll('.service-item');
 
         // Animate story column
-        gsap.fromTo(storyCol, 
+        gsap.fromTo(storyCol,
             {
                 opacity: 0,
                 x: -50
@@ -3715,14 +3811,14 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
             const scrolled = window.pageYOffset;
             const section = document.getElementById('agency-section');
             const sectionTop = section.offsetTop;
-            
+
             if (scrolled > sectionTop - window.innerHeight && scrolled < sectionTop + section.offsetHeight) {
                 const relativeScroll = scrolled - sectionTop;
                 const tilt = (relativeScroll * 0.05) - 10;
                 const yMove = (relativeScroll * 0.1);
-                
+
                 sunflower.style.transform = `rotate(${tilt}deg) translateY(${yMove}px)`;
-                
+
                 // Very subtle rotation for corner sunflower only on scroll
                 const cornerRotation = relativeScroll * 0.08;
                 rotatingSunflower.style.transform = `rotate(${cornerRotation}deg)`;
@@ -3759,7 +3855,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
             e.preventDefault();
             const btn = popupForm.querySelector('.popup-submit-btn');
             const originalText = btn.textContent;
-            
+
             btn.textContent = 'Sending...';
             btn.style.opacity = '0.7';
 
@@ -3846,10 +3942,10 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
 
         // Handle side menu item clicks
         document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const id = this.getAttribute('data-id');
                 updateContent(id);
-                
+
                 document.querySelectorAll('.menu-item').forEach(m => {
                     m.style.background = '#FCC419';
                     m.style.color = 'inherit';
@@ -3861,7 +3957,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
 
         // Handle step item clicks
         document.querySelectorAll('.step-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const step = this.getAttribute('data-step');
                 updateContent(step);
 
@@ -3896,7 +3992,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
             const originalText = manifestoContent.innerHTML;
             const words = originalText.split(/(<br><br>)/);
             let wrappedHTML = '';
-            
+
             words.forEach(word => {
                 if (word === '<br><br>') {
                     wrappedHTML += word;
@@ -3907,7 +4003,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
                     });
                 }
             });
-            
+
             manifestoContent.innerHTML = wrappedHTML;
             const manifestoWordSpans = document.querySelectorAll('.manifesto-word');
 
@@ -3938,7 +4034,7 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
             // Check if section is in viewport
             if (scrollY + window.innerHeight > sectionTop && scrollY < sectionTop + sectionHeight) {
                 const scrollPercent = (scrollY - sectionTop + window.innerHeight) / (sectionHeight + window.innerHeight);
-                
+
                 // Top Right Sunflower
                 gsap.to(manifestoSunflowerTopRight, {
                     rotation: (scrollPercent * 45) - 22.5,
@@ -3967,10 +4063,10 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                
+
                 const btn = contactForm.querySelector('.contact-submit-btn');
                 const originalText = btn.textContent;
-                
+
                 btn.textContent = 'Sending...';
                 btn.style.opacity = '0.7';
                 btn.disabled = true;
@@ -3988,9 +4084,9 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
         // 11. Footer Time Display
         function updateFooterTime() {
             const now = new Date();
-            const options = { 
-                hour: '2-digit', 
-                minute: '2-digit', 
+            const options = {
+                hour: '2-digit',
+                minute: '2-digit',
                 hour12: true,
                 timeZone: 'Australia/Sydney' // Sydney is usually GMT+11 in AEDT
             };
@@ -4004,6 +4100,212 @@ Because when ideas meet passion and strategy, brands don't just exist — they g
         // Update footer time on page load and every second
         updateFooterTime();
         setInterval(updateFooterTime, 1000);
+
+        // 12. Services Interactive Auto-Rotation and Tooltip
+        const serviceData = [
+            {
+                title: "Social Media Management",
+                image: "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=800&h=600&fit=crop",
+                why: "Social media is where people discover brands, explore products, and build connections. But creating a strong presence requires more than just posting content. With the right mix of creativity, consistency, and strategy, social media becomes a powerful platform for building relationships with your audience and strengthening your brand identity."
+            },
+            {
+                title: "SEO",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+                why: "SEO ensures that your brand appears when potential customers are actively searching for your services."
+            },
+            {
+                title: "Digital Marketing Strategy",
+                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=600&fit=crop",
+                why: "A clear strategy gives your marketing purpose, ensuring every dollar spent drives measurable growth."
+            },
+            {
+                title: "Paid Advertising",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop",
+                why: "Paid ads deliver immediate visibility and targeted reach to connect with high-intent audiences quickly."
+            },
+            {
+                title: "Wedding Content Creation",
+                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=600&fit=crop",
+                why: "Authentic, raw moments captured specifically for social media to let you relive your special day instantly."
+            },
+            {
+                title: "Photo & Videography",
+                image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&h=600&fit=crop",
+                why: "High-quality visuals build trust and tell your brand's story more powerfully than words alone."
+            },
+            {
+                title: "Website Designing",
+                image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+                why: "Your website is your digital storefront; a great design converts visitors into loyal customers."
+            }
+        ];
+
+        const servicesListItems = document.querySelectorAll('#servicesList li');
+        const previewImage = document.getElementById('previewImage');
+        const tooltipText = document.getElementById('tooltipText');
+        const tooltipHeading = document.getElementById('tooltipHeading');
+        const imagePreviewContainer = document.getElementById('servicesImagePreview');
+
+        let currentServiceIndex = 0;
+        let serviceInterval;
+
+        function updateService(index) {
+            if (index === currentServiceIndex) return; // Prevent unnecessary updates
+
+            servicesListItems.forEach(li => li.classList.remove('active'));
+            servicesListItems[index].classList.add('active');
+
+            previewImage.style.opacity = 0;
+            setTimeout(() => {
+                previewImage.src = serviceData[index].image;
+                if (tooltipHeading) {
+                    tooltipHeading.textContent = "Why " + serviceData[index].title + " matters";
+                }
+                tooltipText.textContent = serviceData[index].why;
+                previewImage.style.opacity = 1;
+            }, 300);
+
+            currentServiceIndex = index;
+        }
+
+        function startServiceAutoRotation() {
+            serviceInterval = setInterval(() => {
+                let nextIndex = (currentServiceIndex + 1) % serviceData.length;
+                updateService(nextIndex);
+            }, 2000);
+        }
+
+        function stopServiceAutoRotation() {
+            clearInterval(serviceInterval);
+        }
+
+        if (servicesListItems.length > 0) {
+            servicesListItems.forEach(li => {
+                li.addEventListener('mouseenter', function () {
+                    stopServiceAutoRotation();
+                    const index = parseInt(this.getAttribute('data-index'));
+                    updateService(index);
+                });
+                li.addEventListener('mouseleave', startServiceAutoRotation);
+            });
+
+            if (imagePreviewContainer) {
+                imagePreviewContainer.addEventListener('mouseenter', stopServiceAutoRotation);
+                imagePreviewContainer.addEventListener('mouseleave', startServiceAutoRotation);
+            }
+
+            startServiceAutoRotation();
+        }
+
+        function setContactMode(mode) {
+            const btnWork = document.getElementById('btn-work-with-us');
+            const btnJoin = document.getElementById('btn-join-us');
+            const heading = document.getElementById('contactHeading');
+            const tagline = document.getElementById('contactTagline');
+            const highlightText = document.getElementById('contactHighlightText');
+            const formHeading = document.getElementById('contactFormHeading');
+            const submitBtn = document.getElementById('contactSubmitBtn');
+            const messageLabel = document.getElementById('contactMessageLabel');
+
+            if (mode === 'work') {
+                btnWork.classList.add('active');
+                btnJoin.classList.remove('active');
+
+                heading.textContent = "Let's Create Something Meaningful";
+                tagline.textContent = "Every brand starts with an idea. With the right creativity and strategy, that idea can grow into something powerful. At RAM Digital Media, we are here to help brands build strong digital identities and connect with the people who matter most.";
+                highlightText.innerHTML = '<span style="font-size: 24px;">✨</span> Let\'s grow your brand in the digital world.';
+                formHeading.textContent = "Get In Touch";
+                messageLabel.textContent = "Message";
+                submitBtn.textContent = "Get In Touch";
+            } else if (mode === 'join') {
+                btnJoin.classList.add('active');
+                btnWork.classList.remove('active');
+
+                heading.textContent = "Grow With Us";
+                tagline.textContent = "Are you a passionate designer, editor, or photographer? We are always looking for creative individuals to collaborate with. Bring your ideas, learn with us, and let's create amazing things together.";
+                highlightText.innerHTML = '<span style="font-size: 24px;">✨</span> Join a team of passionate creators.';
+                formHeading.textContent = "Apply Now";
+                messageLabel.textContent = "Portfolio Link / Message";
+                submitBtn.textContent = "Send Application";
+            }
+        }
     </script>
+
+<style>
+/* --- Custom JS Cursor Styles --- */
+* {
+    cursor: none !important;
+}
+
+#custom-sunflower-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 72px;
+    background-image: url("image-Photoroom-2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    will-change: transform, left, top;
+    transition: opacity 0.2s;
+}
+</style>
+<script>
+    // --- Custom JS Cursor Logic ---
+    document.addEventListener("DOMContentLoaded", () => {
+        // Create the cursor element
+        const cursor = document.createElement("div");
+        cursor.id = "custom-sunflower-cursor";
+        document.body.appendChild(cursor);
+
+        let currentAngle = 0;
+        let lastX = -1;
+        let lastY = -1;
+        
+        // Use requestAnimationFrame for smooth performance
+        let mouseX = -100;
+        let mouseY = -100;
+
+        document.addEventListener("mousemove", (e) => {
+            if (lastX === -1) {
+                lastX = e.clientX;
+                lastY = e.clientY;
+            }
+            
+            const dx = e.clientX - lastX;
+            const dy = e.clientY - lastY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Determine direction of rotation based on X movement
+            const direction = dx > 0 ? 1 : (dx < 0 ? -1 : 1);
+            
+            // Rotate based on movement distance
+            currentAngle += distance * 1.5 * direction;
+            
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursor.style.left = mouseX + "px";
+            cursor.style.top = mouseY + "px";
+            cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+            
+            lastX = e.clientX;
+            lastY = e.clientY;
+        });
+
+        document.addEventListener("mouseleave", () => {
+            cursor.style.opacity = "0";
+        });
+        document.addEventListener("mouseenter", () => {
+            cursor.style.opacity = "1";
+        });
+    });
+</script>
 </body>
+
+
 </html>

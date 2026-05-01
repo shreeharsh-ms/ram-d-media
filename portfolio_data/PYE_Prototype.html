@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PULL YOUR EXPERT (PYE) — Prototype</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        brand:   { 50:'#eef4fb', 100:'#d6e4f3', 500:'#2e5c8a', 600:'#1f3a5f', 700:'#16294a' },
+        accent:  { 500:'#f59e0b' }
+      },
+      fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'] }
+    }}
+  }
+</script>
+<style>
+  body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+  .tile { transition: transform .15s ease, box-shadow .15s ease; }
+  .tile:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(31,58,95,.25); }
+  .featured-ribbon { background: linear-gradient(90deg,#f59e0b,#fb923c); }
+  .pulse-dot { animation: pulse 1.4s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<!-- ========= HEADER ========= -->
+<header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg bg-brand-600 text-white grid place-items-center font-black">P</div>
+      <div>
+        <div class="font-extrabold text-brand-600 tracking-tight leading-none">PULL YOUR EXPERT</div>
+        <div class="text-[10px] uppercase tracking-widest text-slate-500 leading-none mt-0.5">PYE</div>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+      <a href="#essentials" class="hover:text-brand-600">PYE Essentials</a>
+      <a href="#executives" class="hover:text-brand-600">PYE Executives</a>
+      <a href="#how" class="hover:text-brand-600">How it works</a>
+      <a href="#pricing" class="hover:text-brand-600">For Experts</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button class="hidden sm:inline-flex text-sm px-3 py-1.5 rounded-md border border-slate-300 hover:bg-slate-100">Sign in</button>
+      <button class="text-sm px-3 py-1.5 rounded-md bg-brand-600 text-white hover:bg-brand-700">List as Expert</button>
+    </div>
+  </div>
+</header>
+
+<!-- ========= HERO + SIMULATOR ========= -->
+<section class="bg-gradient-to-br from-brand-600 via-brand-500 to-brand-700 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+    <div class="max-w-3xl">
+      <p class="text-sm uppercase tracking-widest text-brand-100 mb-3">India's verified expert marketplace</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Describe what you need. <br/>We'll <span class="text-amber-300">pull the right expert</span> for you.</h1>
+      <p class="mt-4 text-brand-100 text-lg">From a quick plumber today to a top-tier corporate lawyer this quarter — escrow-protected, milestone-based, dispute-shielded.</p>
+    </div>
+
+    <!-- Simulator card -->
+    <div class="mt-8 bg-white text-slate-800 rounded-2xl shadow-2xl p-4 md:p-6">
+      <label class="block text-sm font-semibold text-slate-700 mb-2">What do you need?</label>
+      <textarea id="prompt" rows="2"
+        class="w-full border border-slate-300 rounded-lg px-3 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-500"
+        placeholder="e.g. I need a Chartered Accountant in Pune to file my GST returns for last 6 months."></textarea>
+
+      <div class="mt-3 grid grid-cols-2 md:grid-cols-5 gap-3">
+        <select id="vertical" class="border border-slate-300 rounded-lg px-3 py-2 text-sm">
+          <option value="all">Both verticals</option>
+          <option value="essentials">PYE Essentials</option>
+          <option value="executives">PYE Executives</option>
+        </select>
+        <select id="city" class="border border-slate-300 rounded-lg px-3 py-2 text-sm">
+          <option>Any city</option><option>Mumbai</option><option>Bengaluru</option>
+          <option>Delhi NCR</option><option>Hyderabad</option><option>Pune</option><option>Chennai</option>
+        </select>
+        <select id="urgency" class="border border-slate-300 rounded-lg px-3 py-2 text-sm">
+          <option value="0">Urgency: anytime</option>
+          <option value="1">Within 24 hours</option>
+          <option value="3">Within 3 days</option>
+          <option value="7">Within a week</option>
+        </select>
+        <input id="budget" type="number" placeholder="Budget (₹) — kept hidden"
+          class="border border-slate-300 rounded-lg px-3 py-2 text-sm" />
+        <button onclick="runSimulator()"
+          class="bg-brand-600 hover:bg-brand-700 text-white rounded-lg px-4 py-2 text-sm font-semibold">
+          🔎 Run Match Simulator
+        </button>
+      </div>
+
+      <div id="simStatus" class="mt-3 text-sm text-slate-500 hidden">
+        <span class="inline-block w-2 h-2 bg-amber-500 rounded-full pulse-dot mr-2 align-middle"></span>
+        <span id="simStep">Parsing prompt…</span>
+      </div>
+    </div>
+
+    <p class="mt-4 text-brand-100 text-xs">Your budget is never shown to Experts — it's used internally to filter and rank.</p>
+  </div>
+</section>
+
+<!-- ========= STATS BAR ========= -->
+<section class="bg-white border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+    <div><div class="text-2xl font-bold text-brand-600">12,400+</div><div class="text-xs text-slate-500 uppercase tracking-wide">Verified Experts</div></div>
+    <div><div class="text-2xl font-bold text-brand-600">₹86 Cr</div><div class="text-xs text-slate-500 uppercase tracking-wide">Escrow Processed</div></div>
+    <div><div class="text-2xl font-bold text-brand-600">98.4%</div><div class="text-xs text-slate-500 uppercase tracking-wide">On-time Milestones</div></div>
+    <div><div class="text-2xl font-bold text-brand-600">14 days</div><div class="text-xs text-slate-500 uppercase tracking-wide">Avg Dispute Award</div></div>
+  </div>
+</section>
+
+<!-- ========= RESULTS GRID ========= -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="flex items-end justify-between mb-4">
+    <div>
+      <h2 id="resultsTitle" class="text-2xl font-bold text-brand-600">Featured Experts</h2>
+      <p class="text-sm text-slate-500" id="resultsSub">Run the simulator above to see a personalised match.</p>
+    </div>
+    <div class="hidden md:flex items-center gap-2 text-xs text-slate-500">
+      <span class="px-2 py-1 rounded bg-amber-100 text-amber-800 font-semibold">★ Featured</span>
+      <span class="px-2 py-1 rounded bg-emerald-100 text-emerald-800 font-semibold">✓ Verified+</span>
+      <span class="px-2 py-1 rounded bg-sky-100 text-sky-800 font-semibold">⚡ Fast Response</span>
+    </div>
+  </div>
+  <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+</section>
+
+<!-- ========= ESSENTIALS ========= -->
+<section id="essentials" class="bg-white border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h3 class="text-2xl font-bold text-brand-600">PYE Essentials</h3>
+        <p class="text-sm text-slate-500">Day-to-day utility services at your doorstep.</p>
+      </div>
+      <a href="#" class="text-sm text-brand-600 font-semibold hover:underline">Browse all →</a>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4" id="catEss"></div>
+  </div>
+</section>
+
+<!-- ========= EXECUTIVES ========= -->
+<section id="executives" class="bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h3 class="text-2xl font-bold text-brand-600">PYE Executives</h3>
+        <p class="text-sm text-slate-500">Qualified professionals — Advocates, CAs, Doctors, Architects, Engineers, PhDs and more.</p>
+      </div>
+      <a href="#" class="text-sm text-brand-600 font-semibold hover:underline">Browse all →</a>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4" id="catExe"></div>
+  </div>
+</section>
+
+<!-- ========= HOW IT WORKS ========= -->
+<section id="how" class="bg-white border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h3 class="text-2xl font-bold text-brand-600 text-center">How PYE works</h3>
+    <p class="text-center text-slate-500 mt-1">Five steps. Escrow-protected. Dispute-shielded.</p>
+    <div class="mt-10 grid md:grid-cols-5 gap-6 text-center">
+      <div><div class="w-14 h-14 mx-auto rounded-full bg-brand-50 grid place-items-center text-brand-600 text-xl font-bold">1</div><div class="font-semibold mt-3">Prompt</div><p class="text-xs text-slate-500 mt-1">Describe your need + (optional) hidden budget.</p></div>
+      <div><div class="w-14 h-14 mx-auto rounded-full bg-brand-50 grid place-items-center text-brand-600 text-xl font-bold">2</div><div class="font-semibold mt-3">Simulate</div><p class="text-xs text-slate-500 mt-1">AI ranks the best-matching Experts as tiles.</p></div>
+      <div><div class="w-14 h-14 mx-auto rounded-full bg-brand-50 grid place-items-center text-brand-600 text-xl font-bold">3</div><div class="font-semibold mt-3">Pull / Push</div><p class="text-xs text-slate-500 mt-1">PULL to engage, PUSH to shortlist or refer.</p></div>
+      <div><div class="w-14 h-14 mx-auto rounded-full bg-brand-50 grid place-items-center text-brand-600 text-xl font-bold">4</div><div class="font-semibold mt-3">Sign SOW + Escrow</div><p class="text-xs text-slate-500 mt-1">Milestones agreed. Funds parked safely.</p></div>
+      <div><div class="w-14 h-14 mx-auto rounded-full bg-brand-50 grid place-items-center text-brand-600 text-xl font-bold">5</div><div class="font-semibold mt-3">Deliver & Release</div><p class="text-xs text-slate-500 mt-1">Approve → release. Late → auto penalty.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PRICING (For Experts) ========= -->
+<section id="pricing" class="bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h3 class="text-2xl font-bold text-brand-600 text-center">Subscription tiers for Experts</h3>
+    <p class="text-center text-slate-500 mt-1">Boost your visibility, win more pulls.</p>
+    <div class="mt-8 grid md:grid-cols-4 gap-5">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5">
+        <div class="text-sm text-slate-500">Free</div>
+        <div class="text-3xl font-bold mt-1">₹0</div>
+        <ul class="mt-3 text-sm text-slate-600 space-y-1">
+          <li>10 pulls / month</li><li>5 portfolio items</li><li>Basic profile</li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5">
+        <div class="text-sm text-slate-500">Silver</div>
+        <div class="text-3xl font-bold mt-1">₹499<span class="text-sm font-normal text-slate-500">/mo</span></div>
+        <ul class="mt-3 text-sm text-slate-600 space-y-1">
+          <li>50 pulls / month</li><li>+0.02 rank boost</li><li>15 portfolio items</li><li>Basic analytics</li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl border-2 border-brand-500 p-5 relative">
+        <div class="absolute -top-3 left-4 bg-brand-600 text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Most Popular</div>
+        <div class="text-sm text-slate-500">Gold</div>
+        <div class="text-3xl font-bold mt-1">₹1,499<span class="text-sm font-normal text-slate-500">/mo</span></div>
+        <ul class="mt-3 text-sm text-slate-600 space-y-1">
+          <li>200 pulls / month</li><li>+0.05 rank boost</li><li>1 city Featured slot</li><li>Verified+ badge</li><li>Advanced analytics</li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5">
+        <div class="text-sm text-slate-500">Platinum</div>
+        <div class="text-3xl font-bold mt-1">₹4,999<span class="text-sm font-normal text-slate-500">/mo</span></div>
+        <ul class="mt-3 text-sm text-slate-600 space-y-1">
+          <li>Unlimited pulls</li><li>+0.10 rank boost</li><li>3 city Featured slots</li><li>Elite badge + dedicated CSM</li><li>API access</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer class="bg-brand-700 text-brand-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-4 gap-6 text-sm">
+    <div>
+      <div class="font-extrabold text-white text-lg">PULL YOUR EXPERT</div>
+      <p class="text-brand-100 mt-1 text-xs">India's escrow-backed marketplace for verified Experts.</p>
+    </div>
+    <div><div class="font-semibold text-white mb-2">Platform</div>
+      <ul class="space-y-1 text-brand-100"><li>PYE Essentials</li><li>PYE Executives</li><li>How it works</li><li>Pricing</li></ul>
+    </div>
+    <div><div class="font-semibold text-white mb-2">Trust & Safety</div>
+      <ul class="space-y-1 text-brand-100"><li>Escrow & Payments</li><li>KYC & Verification</li><li>Arbitration Desk</li><li>DPDP Compliance</li></ul>
+    </div>
+    <div><div class="font-semibold text-white mb-2">Company</div>
+      <ul class="space-y-1 text-brand-100"><li>About</li><li>Careers</li><li>Press</li><li>Contact</li></ul>
+    </div>
+  </div>
+  <div class="border-t border-brand-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs text-brand-200 flex justify-between">
+      <span>© 2026 PYE Technologies Pvt. Ltd.</span>
+      <span>Built on RBI-recognised payment partners. Escrow held by nodal-account PA-PG.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========= EXPERT TILE TEMPLATE + DATA ========= -->
+<script>
+const SAMPLE_EXPERTS = [
+  // PYE Executives
+  { id:'e1', vertical:'executives', name:'Adv. Priya Sharma', headline:'Corporate Lawyer • Drafting & SHA Specialist', city:'Bengaluru', cat:'Advocate', rating:4.9, ratingN:182, resp:18, band:'₹₹₹', badges:['Featured','Verified+'], hero:'⚖️' },
+  { id:'e2', vertical:'executives', name:'CA Rohit Mehra', headline:'GST + Income Tax for SMEs and Startups', city:'Pune', cat:'Chartered Accountant', rating:4.8, ratingN:241, resp:35, band:'₹₹', badges:['Verified+','Fast'], hero:'🧮' },
+  { id:'e3', vertical:'executives', name:'Dr. Anjali Rao', headline:'Senior Cardiologist • Online & in-clinic', city:'Hyderabad', cat:'Doctor', rating:4.95, ratingN:512, resp:45, band:'₹₹₹', badges:['Verified+'], hero:'🩺' },
+  { id:'e4', vertical:'executives', name:'Ar. Kabir Khanna', headline:'Residential & Commercial Architect, 12 yrs', city:'Delhi NCR', cat:'Architect', rating:4.7, ratingN:96, resp:120, band:'₹₹₹', badges:['Featured'], hero:'🏛️' },
+  { id:'e5', vertical:'executives', name:'Dr. Meera Iyer (PhD)', headline:'AI Researcher • LLM evaluation & safety', city:'Bengaluru', cat:'Researcher', rating:4.85, ratingN:73, resp:60, band:'₹₹₹', badges:['Verified+'], hero:'🧠' },
+  { id:'e6', vertical:'executives', name:'Er. Sandeep Joshi', headline:'Structural Engineer • PEB & High-rise', city:'Mumbai', cat:'Engineer', rating:4.6, ratingN:128, resp:90, band:'₹₹', badges:['Verified+'], hero:'🏗️' },
+  // PYE Essentials
+  { id:'s1', vertical:'essentials', name:'Spark Electricals', headline:'Same-day electrician for home + small office', city:'Mumbai', cat:'Electrician', rating:4.7, ratingN:1840, resp:25, band:'₹', badges:['Featured','Fast'], hero:'⚡' },
+  { id:'s2', vertical:'essentials', name:'AquaFix Plumbing', headline:'Leakage, fitting, geyser — 24×7', city:'Pune', cat:'Plumber', rating:4.6, ratingN:910, resp:40, band:'₹', badges:['Verified+'], hero:'🔧' },
+  { id:'s3', vertical:'essentials', name:'Shine & Sparkle', headline:'Deep cleaning + sofa shampoo packages', city:'Bengaluru', cat:'Cleaner', rating:4.8, ratingN:2210, resp:30, band:'₹', badges:['Featured'], hero:'🧽' },
+  { id:'s4', vertical:'essentials', name:'WoodCraft Carpenters', headline:'Custom furniture, repair, polishing', city:'Delhi NCR', cat:'Carpenter', rating:4.5, ratingN:512, resp:90, band:'₹₹', badges:['Verified+'], hero:'🪚' },
+  { id:'s5', vertical:'essentials', name:'CoolBreeze AC Care', headline:'AC service, install, gas top-up — all brands', city:'Hyderabad', cat:'AC Tech', rating:4.7, ratingN:1180, resp:60, band:'₹₹', badges:['Fast'], hero:'❄️' },
+  { id:'s6', vertical:'essentials', name:'GoFresh Laundry', headline:'Pickup & delivery wash + iron, 24h turnaround', city:'Bengaluru', cat:'Laundry', rating:4.6, ratingN:760, resp:120, band:'₹', badges:['Verified+'], hero:'👕' },
+];
+
+const ESS_CATS = [
+  ['Electrician','⚡'],['Plumber','🔧'],['Cleaner','🧽'],['Carpenter','🪚'],
+  ['AC Tech','❄️'],['Laundry','👕'],['Cook','🍳'],['Driver','🚗'],
+  ['Painter','🎨'],['Pest Control','🐜'],['Beautician','💅'],['Tutor','📚'],
+  ['Movers','📦'],['Gardener','🌿'],['Pet Care','🐾'],['Locksmith','🔑'],
+];
+const EXE_CATS = [
+  ['Advocate','⚖️'],['CA','🧮'],['Doctor','🩺'],['Architect','🏛️'],
+  ['Engineer','🏗️'],['Designer','🎨'],['Consultant','💼'],['Researcher','🧠'],
+  ['Coach','🎯'],['Tutor (PG)','🎓'],['CS','📜'],['Auditor','🔍'],
+  ['Therapist','🧘'],['Dentist','🦷'],['Vet','🐕'],['Translator','🌐'],
+];
+
+function tileHTML(e, pushed=false) {
+  const featured = e.badges.includes('Featured');
+  const verified = e.badges.includes('Verified+');
+  const fast = e.badges.includes('Fast');
+  return `
+  <div class="tile relative bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col">
+    ${featured ? `<div class="featured-ribbon text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1">★ Featured</div>` : ''}
+    <div class="aspect-square bg-gradient-to-br from-brand-50 to-slate-100 grid place-items-center text-6xl">${e.hero}</div>
+    <div class="p-3 flex-1 flex flex-col">
+      <div class="flex items-start justify-between gap-2">
+        <div class="font-semibold text-slate-800 leading-tight">${e.name}</div>
+        <div class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-2 py-0.5 rounded-full whitespace-nowrap">★ ${e.rating} <span class="text-emerald-500 font-normal">(${e.ratingN})</span></div>
+      </div>
+      <div class="text-xs text-slate-500 mt-1 line-clamp-2">${e.headline}</div>
+      <div class="mt-2 flex items-center gap-2 text-[11px] text-slate-500">
+        <span>📍 ${e.city}</span><span>•</span>
+        <span>⏱ ~${e.resp}m</span><span>•</span>
+        <span class="font-semibold text-brand-600">${e.band}</span>
+      </div>
+      <div class="mt-2 flex flex-wrap gap-1">
+        ${verified ? `<span class="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-1.5 py-0.5 rounded">✓ Verified+</span>`:''}
+        ${fast ? `<span class="text-[10px] bg-sky-100 text-sky-800 font-semibold px-1.5 py-0.5 rounded">⚡ Fast</span>`:''}
+        <span class="text-[10px] bg-slate-100 text-slate-700 font-semibold px-1.5 py-0.5 rounded">${e.cat}</span>
+      </div>
+      <div class="mt-3 grid grid-cols-2 gap-2">
+        <button onclick="pull('${e.id}')" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold py-2 rounded-lg">PULL</button>
+        <button onclick="push('${e.id}', this)" class="border ${pushed?'border-amber-400 bg-amber-50 text-amber-700':'border-slate-300 text-slate-700 hover:bg-slate-50'} text-sm font-semibold py-2 rounded-lg">${pushed?'★ PUSHED':'PUSH'}</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function categoryHTML(name, emoji) {
+  return `
+  <div class="bg-white rounded-xl border border-slate-200 p-3 text-center hover:border-brand-500 hover:shadow-md cursor-pointer transition">
+    <div class="text-3xl">${emoji}</div>
+    <div class="text-xs font-medium text-slate-700 mt-1">${name}</div>
+  </div>`;
+}
+
+function renderCategories() {
+  document.getElementById('catEss').innerHTML = ESS_CATS.map(c => categoryHTML(c[0], c[1])).join('');
+  document.getElementById('catExe').innerHTML = EXE_CATS.map(c => categoryHTML(c[0], c[1])).join('');
+}
+
+function renderGrid(list) {
+  const grid = document.getElementById('grid');
+  if (!list.length) {
+    grid.innerHTML = `<div class="col-span-full bg-white border border-dashed border-slate-300 rounded-xl p-8 text-center text-slate-500">No matching Experts. Try a different prompt or relax filters.</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(e => tileHTML(e)).join('');
+}
+
+// ====== Match Simulator (client-side mock) ======
+function runSimulator() {
+  const prompt = document.getElementById('prompt').value.trim();
+  const vertical = document.getElementById('vertical').value;
+  const city = document.getElementById('city').value;
+  const budget = parseFloat(document.getElementById('budget').value || '0');
+  const status = document.getElementById('simStatus');
+  const step = document.getElementById('simStep');
+  status.classList.remove('hidden');
+
+  const steps = [
+    'Parsing prompt and extracting intent…',
+    'Generating semantic embedding…',
+    'Running candidate retrieval (vector + BM25)…',
+    'Applying hidden budget filter…',
+    'Scoring with rating, completion, response time…',
+    'Diversity rerank + featured injection…',
+  ];
+  let i = 0;
+  step.textContent = steps[0];
+  const interval = setInterval(() => {
+    i++;
+    if (i < steps.length) { step.textContent = steps[i]; }
+    else {
+      clearInterval(interval);
+      status.classList.add('hidden');
+      const filtered = SAMPLE_EXPERTS
+        .filter(e => vertical === 'all' || e.vertical === vertical)
+        .filter(e => city === 'Any city' || e.city === city)
+        .filter(e => {
+          if (!budget) return true;
+          // band → approx ceiling
+          const ceiling = e.band === '₹' ? 5000 : e.band === '₹₹' ? 50000 : 500000;
+          return ceiling <= budget * 1.5;
+        });
+      const ranked = filtered.sort((a,b) => {
+        const score = e => 0.45 + (e.rating/5)*0.15 + (e.badges.includes('Featured')?0.1:0) + (e.badges.includes('Verified+')?0.05:0) - (e.resp/240)*0.05;
+        return score(b) - score(a);
+      });
+      document.getElementById('resultsTitle').textContent = `Top ${ranked.length} matches for your prompt`;
+      document.getElementById('resultsSub').textContent = budget
+        ? `Hidden budget ₹${budget.toLocaleString('en-IN')} applied — Experts can't see this.`
+        : `No budget set. Experts will quote based on your scope.`;
+      renderGrid(ranked);
+    }
+  }, 320);
+}
+
+function pull(id) {
+  alert(`✓ Pull request sent to Expert ${id}.\nThey've been notified and will respond shortly.\n\nNext step: review their proposal → sign SOW → fund escrow.`);
+}
+function push(id, btn) {
+  btn.classList.toggle('bg-amber-50');
+  btn.classList.toggle('border-amber-400');
+  btn.classList.toggle('text-amber-700');
+  btn.classList.toggle('border-slate-300');
+  btn.textContent = btn.textContent.includes('PUSHED') ? 'PUSH' : '★ PUSHED';
+}
+
+// Initial render
+renderCategories();
+renderGrid(SAMPLE_EXPERTS);
+</script>
+</body>
+</html>

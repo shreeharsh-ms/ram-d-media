@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strategic Partner Section</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -17,18 +19,28 @@
             --primary-orange: #ff7a00;
             --cream: #FDF5E6;
             --sunflower-yellow: #FCC419;
-            
+
             /* Sunflower Color Theme */
-            --color-primary-yellow: #FCC419;      /* Sunflower Yellow - Use Very Sparingly */
-            --color-golden-yellow: #FCC419;       /* Sunflower Yellow - Minimal Use */
-            --color-pale-yellow: #FAF8E2;         /* Soft Lemon Yellow Background */
-            --color-deep-yellow: #5B8C2A;         /* Deep Moss Green */
-            --color-sunny-cream: #FAF8E2;         /* Soft Lemon Cream */
-            --color-burnt-orange: #5B8C2A;        /* Deep Moss Green */
-            --color-rich-brown: #5F3C28;          /* Deep Brown - Headings */
-            --color-warm-beige: #FAF8E2;          /* Soft Lemon Beige */
-            --color-light-cream: #FFFFF0;         /* Light Cream */
-            --color-dark-charcoal: #3C444B;       /* Dark Charcoal Grey - Text */
+            --color-primary-yellow: #FCC419;
+            /* Sunflower Yellow - Use Very Sparingly */
+            --color-golden-yellow: #FCC419;
+            /* Sunflower Yellow - Minimal Use */
+            --color-pale-yellow: #FAF8E2;
+            /* Soft Lemon Yellow Background */
+            --color-deep-yellow: #5B8C2A;
+            /* Deep Moss Green */
+            --color-sunny-cream: #FAF8E2;
+            /* Soft Lemon Cream */
+            --color-burnt-orange: #5B8C2A;
+            /* Deep Moss Green */
+            --color-rich-brown: #5F3C28;
+            /* Deep Brown - Headings */
+            --color-warm-beige: #FAF8E2;
+            /* Soft Lemon Beige */
+            --color-light-cream: #FFFFF0;
+            /* Light Cream */
+            --color-dark-charcoal: #3C444B;
+            /* Dark Charcoal Grey - Text */
         }
 
         * {
@@ -105,14 +117,14 @@
             flex: 1;
         }
 
-        .nav-group.left { 
-            justify-content: flex-end; 
-            padding-right: 50px; 
+        .nav-group.left {
+            justify-content: flex-end;
+            padding-right: 50px;
         }
-        
-        .nav-group.right { 
-            justify-content: flex-start; 
-            padding-left: 50px; 
+
+        .nav-group.right {
+            justify-content: flex-start;
+            padding-left: 50px;
         }
 
         .nav-link {
@@ -285,6 +297,7 @@
             .hamburger {
                 display: flex;
             }
+
             .nav-group {
                 display: none;
             }
@@ -369,7 +382,7 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
+
             .partner-section {
                 padding: 60px 20px;
             }
@@ -650,11 +663,12 @@
 
         .dot-circle {
             display: inline-block;
-            width: 0.8em;
-            height: 0.8em;
-            background-color: var(--color-burnt-orange);
-            border-radius: 50%;
-            margin: 0 -0.05em;
+            width: 1.3em;
+            height: 1.3em;
+            margin: 0 -0.08em;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
         }
 
         .footer-grid {
@@ -780,6 +794,7 @@
             justify-content: flex-end;
             padding: 80px 10%;
             overflow: hidden;
+            background-color: rgb(0, 0, 0);
         }
 
         .story-section::before {
@@ -787,18 +802,20 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 65%;
             height: 100%;
-            background: linear-gradient(
-                to right, 
-                rgba(0,0,0,0.7) 0%, 
-                rgba(0,0,0,0.2) 50%, 
-                rgba(0,0,0,0.8) 100%
-            ), 
-            url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2000') no-repeat center center;
+            z-index: 0;
+            /* Move behind the content but above the section background */
+
+            /* Using a relative path and multiple background layers */
+            background: linear-gradient(to right,
+                    rgba(0, 0, 0, 0) 40%,
+                    rgb(0, 0, 0) 100%),
+                url('./PHOTO-2026-04-25-13-52-17.jpg');
+
+            background-repeat: no-repeat;
+            background-position: center center;
             background-size: cover;
-            z-index: -1;
-            transform: translateY(0px);
         }
 
         .decorative-line {
@@ -807,7 +824,7 @@
             right: 15%;
             width: 2px;
             height: 100px;
-            background: var(--color-primary-yellow);
+            background: var(--color-rich-brown);
         }
 
         .story-section .content-box {
@@ -817,6 +834,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 1s ease-out;
+            position: relative;
         }
 
         .story-section .content-box.visible {
@@ -828,7 +846,7 @@
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             margin-bottom: 30px;
-            color: #fff;
+            color: #ffffff;
             line-height: 1.2;
         }
 
@@ -845,7 +863,7 @@
 
         .story-section .highlight {
             color: var(--color-primary-yellow);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* --- Responsive Fixes --- */
@@ -854,52 +872,65 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+
             .quote-row {
                 grid-template-columns: 1fr;
                 padding: 60px 5%;
             }
+
             .quote-box {
                 padding: 40px;
                 order: 2;
                 margin-bottom: 30px;
             }
+
             .split-image {
                 order: 1;
                 border-radius: 12px;
             }
+
             .why-choose-us-section {
                 grid-template-columns: 1fr;
                 gap: 40px;
                 padding: 60px 5%;
             }
+
             .why-us-image {
                 min-height: 400px;
                 order: -1;
             }
+
             .footer-grid {
                 grid-template-columns: 1fr;
             }
+
             .footer-bottom {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 40px;
             }
+
             .main-heading {
                 letter-spacing: -2px;
             }
+
             .story-section {
                 justify-content: center;
                 padding: 60px 5%;
             }
+
             .story-section .content-box {
                 text-align: center;
             }
+
             .decorative-line {
                 right: 50%;
             }
         }
     </style>
+
 </head>
+
 <body>
 
     <div class="top-edge"></div>
@@ -913,7 +944,8 @@
             </ul>
 
             <div class="logo-area">
-                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo" style="height: 70px; width: auto; object-fit: contain;">
+                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo"
+                    style="height: 70px; width: auto; object-fit: contain;">
             </div>
 
             <ul class="nav-group right">
@@ -944,28 +976,34 @@
     <section class="partner-section">
         <div class="header-content reveal">
             <h1>The Story Behind<br>RAM Digital Media</h1>
-            <p>The journey of how experience, creativity, and a passion for digital marketing came together to shape the vision behind RAM Digital Media.</p>
+            <p>The journey of how experience, creativity, and a passion for digital marketing came together to shape the
+                vision behind RAM Digital Media.</p>
         </div>
 
         <!-- Decorative prop images -->
         <div class="decorative-prop" id="prop-partner-1" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom-2.png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
         <div class="decorative-prop" id="prop-partner-2" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-3.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom-3.png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
 
         <div class="image-grid">
             <div class="card reveal" style="transition-delay: 0.1s;">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop" alt="Strategy Leader">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
+                    alt="Strategy Leader">
             </div>
 
             <div class="card reveal" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1000&auto=format&fit=crop" alt="Team Discussion">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1000&auto=format&fit=crop"
+                    alt="Team Discussion">
             </div>
 
             <div class="card reveal" style="transition-delay: 0.3s;">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Operational Specialist">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop"
+                    alt="Operational Specialist">
             </div>
         </div>
     </section>
@@ -973,15 +1011,17 @@
     <!-- About Section -->
     <section class="header-section reveal">
         <h1 class="title-main">About us.</h1>
-        
+
         <!-- Decorative props -->
         <div class="decorative-prop" id="prop-about-1" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-3.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom-3.png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
         <div class="decorative-prop" id="prop-about-2" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom (3).png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom (3).png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
-        
+
         <div class="intro-grid">
             <ul class="side-nav">
                 <li>About us.</li>
@@ -990,20 +1030,28 @@
             </ul>
             <div class="main-description">
                 <p><span class="highlight">Hello, I'm Samruddhi Meher</span>, the founder of RAM Digital Media.</p>
-                
-                <p>In today's fast-moving digital world, simply having a brand online is not enough. People scroll through hundreds of posts every day, and only a few brands truly stand out. That's where the right creativity, strategy, and fresh ideas make all the difference.</p>
-                
-                <p>At RAM Digital Media, our goal is to help brands grow by bringing new-generation thinking, creative storytelling, and smart digital strategies. We focus on building a strong and meaningful online presence so your brand can connect with the right audience in the right way.</p>
-                
-                <p>We believe marketing should never feel boring or forced. It should feel engaging, exciting, and memorable. With the right mix of creativity and strategy, your brand can reach more people, create stronger connections, and build lasting recognition in the digital space.</p>
-                
-                <p>Our approach is simple — understand your brand, think creatively, and execute with dedication so your brand can grow confidently in the digital world.</p>
+
+                <p>In today's fast-moving digital world, simply having a brand online is not enough. People scroll
+                    through hundreds of posts every day, and only a few brands truly stand out. That's where the right
+                    creativity, strategy, and fresh ideas make all the difference.</p>
+
+                <p>At RAM Digital Media, our goal is to help brands grow by bringing new-generation thinking, creative
+                    storytelling, and smart digital strategies. We focus on building a strong and meaningful online
+                    presence so your brand can connect with the right audience in the right way.</p>
+
+                <p>We believe marketing should never feel boring or forced. It should feel engaging, exciting, and
+                    memorable. With the right mix of creativity and strategy, your brand can reach more people, create
+                    stronger connections, and build lasting recognition in the digital space.</p>
+
+                <p>Our approach is simple — understand your brand, think creatively, and execute with dedication so your
+                    brand can grow confidently in the digital world.</p>
             </div>
         </div>
     </section>
 
     <div class="full-width-image reveal" style="padding-bottom: 40px;">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" alt="Full Width Workspace">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
+            alt="Full Width Workspace">
     </div>
 
 
@@ -1011,26 +1059,34 @@
     <!-- Story Section -->
     <section class="story-section">
         <div class="decorative-line"></div>
-        
+
         <!-- Decorative props -->
         <div class="decorative-prop" id="prop-story-1" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom-2.png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
         <div class="decorative-prop" id="prop-story-2" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-3.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom-3.png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
-        
+
         <div class="content-box" id="scrollContent">
             <h1>Why the Name <span class="highlight">RAM Digital Media?</span></h1>
-            
+
             <div class="story-text">
                 <p>RAM Digital Media is more than just a business name — it carries a personal story and meaning.</p>
-                
-                <p>I am the only child of my father, <span class="highlight">Rajendra Amarchand Meher</span>, and taking his name forward has always been something very close to my heart. The name RAM comes from his initials, and choosing this name was my way of honoring his identity while building something meaningful for the future.</p>
-                
-                <p>By combining RAM with Digital Media, I wanted to create something that represents both generations — the values and legacy of the past, along with the innovation and creativity of the new digital generation.</p>
-                
-                <p>For me, RAM Digital Media is not just a company. It is a journey of combining legacy, passion, and creativity to build something meaningful in today's digital world.</p>
+
+                <p>I am the only child of my father, <span class="highlight">Rajendra Amarchand Meher</span>, and taking
+                    his name forward has always been something very close to my heart. The name RAM comes from his
+                    initials, and choosing this name was my way of honoring his identity while building something
+                    meaningful for the future.</p>
+
+                <p>By combining RAM with Digital Media, I wanted to create something that represents both generations —
+                    the values and legacy of the past, along with the innovation and creativity of the new digital
+                    generation.</p>
+
+                <p>For me, RAM Digital Media is not just a company. It is a journey of combining legacy, passion, and
+                    creativity to build something meaningful in today's digital world.</p>
             </div>
         </div>
     </section>
@@ -1039,16 +1095,19 @@
     <section class="why-choose-us-section reveal">
         <!-- Decorative props -->
         <div class="decorative-prop" id="prop-why-1" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-3.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom-3.png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
         <div class="decorative-prop" id="prop-why-2" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom-2.png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
-        
+
         <div class="why-us-content">
             <h2 class="why-us-title">Why<br>Choose<br>Us?</h2>
-            <p class="why-us-subtitle">There are many digital marketing companies today, but at EDEN Digital Media, we believe in working with brands in a more personal and dedicated way.</p>
-            
+            <p class="why-us-subtitle">There are many digital marketing companies today, but at EDEN Digital Media, we
+                believe in working with brands in a more personal and dedicated way.</p>
+
             <div class="why-us-grid">
                 <div class="why-us-item">
                     <div class="why-us-icon">
@@ -1056,7 +1115,9 @@
                     </div>
                     <div class="why-us-item-content">
                         <h3>Personal & Dedicated Approach</h3>
-                        <p>We don't just see brands as projects — we treat every brand with care, creativity, and genuine commitment. Our focus is on understanding what makes your brand unique and building strategies that help communicate that identity clearly.</p>
+                        <p>We don't just see brands as projects — we treat every brand with care, creativity, and
+                            genuine commitment. Our focus is on understanding what makes your brand unique and building
+                            strategies that help communicate that identity clearly.</p>
                     </div>
                 </div>
 
@@ -1066,7 +1127,10 @@
                     </div>
                     <div class="why-us-item-content">
                         <h3>Fresh Ideas & Strong Strategy</h3>
-                        <p>From planning to execution, we focus on bringing fresh ideas, thoughtful strategies, and creative content that can help brands connect with modern audiences. We especially understand the importance of connecting with today's digital-first generation, where creativity, authenticity, and consistency matter the most.</p>
+                        <p>From planning to execution, we focus on bringing fresh ideas, thoughtful strategies, and
+                            creative content that can help brands connect with modern audiences. We especially
+                            understand the importance of connecting with today's digital-first generation, where
+                            creativity, authenticity, and consistency matter the most.</p>
                     </div>
                 </div>
 
@@ -1076,14 +1140,16 @@
                     </div>
                     <div class="why-us-item-content">
                         <h3>Long-term Growth</h3>
-                        <p>Support long-term brand growth through dedicated strategies and consistent execution. We're committed to building sustainable success that grows with your business.</p>
+                        <p>Support long-term brand growth through dedicated strategies and consistent execution. We're
+                            committed to building sustainable success that grows with your business.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="why-us-image reveal">
-            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=1500" alt="Why Choose Us">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=1500"
+                alt="Why Choose Us">
         </div>
     </section>
 
@@ -1093,18 +1159,20 @@
     <footer class="footer">
         <!-- Decorative props -->
         <div class="decorative-prop" id="prop-footer-1" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom-2.png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
         <div class="decorative-prop" id="prop-footer-2" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom (6).png" alt="prop" style="width: 100%; border-radius: 8px; filter: none; display: block;">
+            <img src="image-Photoroom (6).png" alt="prop"
+                style="width: 100%; border-radius: 8px; filter: none; display: block;">
         </div>
-        
+
         <div class="footer-content">
-            
+
             <div class="footer-top">
                 <p>Got a project? Need an unfair advantage?</p>
                 <h1 class="main-heading">
-                    GET IN T<span class="dot-circle"></span>UCH
+                    GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
                 </h1>
             </div>
 
@@ -1112,12 +1180,18 @@
                 <div class="grid-column">
                     <h4>Navigation</h4>
                     <ul>
-                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="back.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="services.html" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="how-we-work.html" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
-                        <li><a href="whyChooseUs.html" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
+                        <li><a href="index.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="back.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="services.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="how-we-work.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="whyChooseUs.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="grid-column">
@@ -1145,7 +1219,7 @@
                     <span>© 2024</span>
                     <h2>EDEN Digital Media</h2>
                 </div>
-                
+
                 <div class="local-time">
                     <h4>Local Time</h4>
                     <p id="time-display">00:00 PM GMT+11</p>
@@ -1155,7 +1229,9 @@
 
         <div class="fab-container">
             <div class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 15l-6-6-6 6" />
+                </svg>
             </div>
         </div>
     </footer>
@@ -1168,7 +1244,7 @@
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
         // ===== DECORATIVE PROP FIXED POSITIONS - MANUALLY DEFINED =====
-        
+
         // Partner Section Props
         const propPartner1 = document.getElementById('prop-partner-1');
         if (propPartner1) {
@@ -1328,7 +1404,7 @@
                 const footer = document.querySelector('.footer');
                 const footerRect = footer.getBoundingClientRect();
                 const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
-                
+
                 if (isFooterInView) {
                     // propFooter2 rotates down when scrolling up (opposite direction)
                     let rotation = parseFloat(propFooter2.dataset.rotation) || -167.93;
@@ -1344,17 +1420,17 @@
         // ===== SMOOTH SCROLL ANIMATION FOR ANCHOR LINKS =====
         // Handle all anchor links with butter-smooth GSAP scroll
         document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                
+
                 // Only handle anchor links (skip empty anchors)
                 if (href === '#' || href === '#!') return;
-                
+
                 e.preventDefault();
-                
+
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
-                
+
                 if (targetElement) {
                     // Butter-smooth scroll using GSAP ScrollToPlugin
                     gsap.to(window, {
@@ -1372,10 +1448,10 @@
 
         // Navbar Scroll Effect
         const header = document.querySelector('header');
-        
+
         window.addEventListener('scroll', () => {
             let currentScroll = window.pageYOffset;
-            
+
             // Add scrolled class when user scrolls down
             if (currentScroll > 50) {
                 header.classList.add('scrolled');
@@ -1415,9 +1491,9 @@
         // Footer time update
         function updateTime() {
             const now = new Date();
-            const options = { 
-                hour: '2-digit', 
-                minute: '2-digit', 
+            const options = {
+                hour: '2-digit',
+                minute: '2-digit',
                 hour12: true,
                 timeZone: 'Australia/Sydney'
             };
@@ -1433,7 +1509,7 @@
 
         // Enhanced Parallax Effect for Story Section
         const storySection = document.querySelector('.story-section');
-        
+
         window.addEventListener('scroll', () => {
             if (storySection) {
                 const scrollPosition = window.pageYOffset;
@@ -1463,5 +1539,82 @@
         });
     </script>
 
+
+<style>
+/* --- Custom JS Cursor Styles --- */
+* {
+    cursor: none !important;
+}
+
+#custom-sunflower-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 72px;
+    background-image: url("image-Photoroom-2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    will-change: transform, left, top;
+    transition: opacity 0.2s;
+}
+</style>
+<script>
+    // --- Custom JS Cursor Logic ---
+    document.addEventListener("DOMContentLoaded", () => {
+        // Create the cursor element
+        const cursor = document.createElement("div");
+        cursor.id = "custom-sunflower-cursor";
+        document.body.appendChild(cursor);
+
+        let currentAngle = 0;
+        let lastX = -1;
+        let lastY = -1;
+        
+        // Use requestAnimationFrame for smooth performance
+        let mouseX = -100;
+        let mouseY = -100;
+
+        document.addEventListener("mousemove", (e) => {
+            if (lastX === -1) {
+                lastX = e.clientX;
+                lastY = e.clientY;
+            }
+            
+            const dx = e.clientX - lastX;
+            const dy = e.clientY - lastY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Determine direction of rotation based on X movement
+            const direction = dx > 0 ? 1 : (dx < 0 ? -1 : 1);
+            
+            // Rotate based on movement distance
+            currentAngle += distance * 1.5 * direction;
+            
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursor.style.left = mouseX + "px";
+            cursor.style.top = mouseY + "px";
+            cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+            
+            lastX = e.clientX;
+            lastY = e.clientY;
+        });
+
+        document.addEventListener("mouseleave", () => {
+            cursor.style.opacity = "0";
+        });
+        document.addEventListener("mouseenter", () => {
+            cursor.style.opacity = "1";
+        });
+    });
+</script>
 </body>
+
+
 </html>

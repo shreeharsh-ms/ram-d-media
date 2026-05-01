@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | EDEN Digital Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f3eee6;
+            --text-dark: #1a1a1a;
+            --accent-red: #c61d23;
+
+            /* Sunflower Color Theme - Matching index.html */
+            --color-primary-yellow: #FCC419;
+            /* Sunflower Yellow - Use Very Sparingly */
+            --color-golden-yellow: #FCC419;
+            /* Sunflower Yellow - Minimal Use */
+            --color-pale-yellow: #FAF8E2;
+            /* Soft Lemon Yellow Background */
+            --color-burnt-orange: #5B8C2A;
+            /* Deep Moss Green */
+            --color-rich-brown: #5F3C28;
+            /* Deep Brown - Headings */
+            --color-warm-beige: #FAF8E2;
+            /* Soft Lemon Beige */
+            --color-sunny-cream: #FAF8E2;
+            /* Soft Lemon Cream */
+            --color-white: #FFFFFF;
+            /* White */
+
+            /* Legacy variables for compatibility */
+            --sunflower-yellow: #FCC419;
+            --burnt-orange: #5B8C2A;
+            --rich-brown: #5F3C28;
+            --warm-beige: #FAF8E2;
+            --sunny-cream: #FAF8E2;
+            --golden-yellow: #FCC419;
+            --pale-sunflower: #FAF8E2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Generic Spacer Sections */
+        .spacer {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- HORIZONTAL SCROLL SECTION LOGIC --- */
+
+        .horizontal-scroll-wrapper {
+            position: relative;
+            /* The 'height' here determines how long the scroll feels. 
+               1200vh means you scroll 12 full screen heights to finish the animation - VERY SLOW & SMOOTH */
+            height: 1200vh;
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .scroll-content {
+            display: flex;
+            padding: 0 10vw;
+            will-change: transform;
+            height: 60vh;
+            align-items: center;
+            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* --- STYLING THE CARDS --- */
+
+        .intro-slide {
+            min-width: 40vw;
+            padding-right: 5vw;
+        }
+
+        .intro-slide h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1;
+            font-weight: 400;
+        }
+
+        .museum-card {
+            min-width: 45vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 0 40px;
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .card-info {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 300px;
+        }
+
+        .image-box {
+            width: 100%;
+            flex-grow: 1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .arrow-icon {
+            position: absolute;
+            bottom: 0;
+            left: -30px;
+            font-size: 1.5rem;
+            transform: rotate(-45deg);
+        }
+
+        /* Background Images */
+        .img-1 {
+            background-image: url('https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=1000');
+        }
+
+        .img-2 {
+            background-image: url('https://images.unsplash.com/photo-1518998053502-51908d17ca33?q=80&w=1000');
+        }
+
+        .img-3 {
+            background-image: url('https://images.unsplash.com/photo-1544333323-c242b442017a?q=80&w=1000');
+        }
+
+        .img-4 {
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000');
+        }
+
+        .img-5 {
+            background-image: url('https://images.unsplash.com/photo-1460925895917-adf4198c838d?q=80&w=1000');
+        }
+
+        .img-6 {
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000');
+        }
+
+        .img-7 {
+            background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000');
+        }
+
+        .img-8 {
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000');
+        }
+
+        /* --- Decorative Props --- */
+        .decorative-prop {
+            position: absolute;
+            z-index: 1;
+            border-radius: 24px;
+            filter: none;
+            transition: none;
+            overflow: hidden;
+        }
+    </style>
+
+    <style>
+        :root {
+            --bg-color: #FFFFF0;
+            --text-dark: #5F3C28;
+            --text-gray: #3C444B;
+            --accent-green: #5B8C2A;
+            --white: #FAF8E2;
+            --primary-orange: #5B8C2A;
+            --cream: #FAF8E2;
+            --sunflower-yellow: #FCC419;
+            --golden-yellow: #FCC419;
+            --pale-sunflower: #FAF8E2;
+            --deep-sunflower: #5B8C2A;
+            --sunny-cream: #FAF8E2;
+            --rich-brown: #5F3C28;
+            --warm-beige: #FAF8E2;
+            --burnt-orange: #5B8C2A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body,
+        html {
+            width: 100%;
+            background-color: var(--bg-color);
+        }
+
+        /* --- Header & Navigation --- */
+        .top-edge {
+            background: #0a0a0a;
+            height: 0;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0;
+            z-index: 1000;
+            background: transparent;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            background: var(--sunny-cream);
+            box-shadow: 0 4px 20px rgba(252, 196, 25, 0.2);
+        }
+
+        header.scrolled .nav-link {
+            color: var(--rich-brown);
+        }
+
+        header.scrolled .nav-link:hover {
+            color: var(--burnt-orange);
+        }
+
+        header.scrolled .nav-link.active {
+            color: var(--burnt-orange);
+        }
+
+        header.scrolled .logo-main,
+        header.scrolled .logo-sub {
+            color: var(--rich-brown);
+        }
+
+        header.scrolled .cart-icon-wrapper {
+            color: var(--rich-brown);
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-group {
+            display: flex;
+            list-style: none;
+            gap: 60px;
+            flex: 1;
+        }
+
+        .nav-group.left {
+            justify-content: flex-end;
+            padding-right: 50px;
+        }
+
+        .nav-group.right {
+            justify-content: flex-start;
+            padding-left: 50px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--rich-brown);
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover svg {
+            transform: rotate(20deg) scale(1.1);
+        }
+
+        .nav-link:hover {
+            color: var(--sunflower-yellow);
+        }
+
+        .nav-link.active {
+            color: var(--sunflower-yellow);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--sunflower-yellow);
+        }
+
+        .logo-area {
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .logo-main {
+            color: var(--rich-brown);
+            font-size: 42px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            color: var(--rich-brown);
+            font-family: 'Great Vibes', cursive;
+            font-size: 38px;
+            margin-top: -5px;
+            display: block;
+        }
+
+        .cart-section {
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+        }
+
+        .cart-icon-wrapper {
+            position: relative;
+            color: var(--sunny-cream);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .sunflower-icon-wrapper {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .sunflower-icon-wrapper:hover {
+            transform: scale(1.15) rotate(20deg);
+        }
+
+        .sunflower-icon-wrapper svg {
+            filter: drop-shadow(0 0 2px rgba(252, 196, 25, 0.6));
+        }
+
+        .sunflower-icon-wrapper:hover svg {
+            filter: drop-shadow(0 0 8px rgba(252, 196, 25, 1));
+        }
+
+        .cart-badge {
+            background: var(--sunflower-yellow);
+            color: var(--rich-brown);
+            font-size: 11px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -8px;
+            right: -10px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: fixed;
+            top: 55px;
+            left: 25px;
+            z-index: 1001;
+            gap: 6px;
+        }
+
+        .hamburger svg {
+            stroke: white;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(30, 15, 5, 0.95) 100%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 120px;
+            padding-left: 40px;
+            transition: 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .mobile-overlay.active {
+            right: 0;
+        }
+
+        .mobile-overlay a {
+            color: white;
+            font-size: 1.3rem;
+            text-decoration: none;
+            margin: 20px 0;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .mobile-overlay a:hover {
+            color: var(--primary-orange);
+        }
+
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-group {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Aligned to left */
+            justify-content: center;
+            padding: 180px 8% 50px 8%;
+            background: var(--white);
+            position: relative;
+            text-align: left; /* Aligned to left */
+        }
+
+        .hero-content h4 {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: var(--deep-sunflower);
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(4rem, 10vw, 8rem); /* Massive heading */
+            line-height: 1;
+            color: var(--sunflower-yellow);
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .line-divider {
+            width: 150px;
+            height: 3px;
+            background-color: var(--sunflower-yellow);
+            margin: 0 0 40px 0; /* Left margin 0 */
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-section {
+            width: 100%;
+            padding: 100px 8%;
+            background-color: transparent; /* Allow background props to show through */
+            position: relative;
+        }
+
+        .gallery-grid {
+            column-count: 2;
+            column-gap: 40px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            position: relative;
+            z-index: 2; /* Stay above background props */
+            break-inside: avoid;
+            margin-bottom: 40px;
+            border-radius: 0;
+            overflow: hidden;
+            background-color: var(--white);
+            box-shadow: 0 10px 30px rgba(95, 60, 40, 0.03);
+            display: inline-block;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Bento Grid Spans - Disabled for Masonry to keep dimensions */
+        /* 
+        .item-2x2 { grid-column: span 2; grid-row: span 2; }
+        .item-1x2 { grid-row: span 2; }
+        .item-2x1 { grid-column: span 2; }
+        */
+
+        .gallery-img-wrapper {
+            position: relative;
+            width: 100%;
+            z-index: 1;
+            background-color: var(--cream);
+            display: block;
+        }
+
+        .gallery-img-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: initial;
+            padding: 0; /* Removing padding to show full image edge-to-edge */
+            transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 20px 20px 20px;
+            background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 2;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            transform: none;
+            border-top: none;
+            -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
+            mask-image: linear-gradient(to top, black 70%, transparent 100%);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .gallery-item:hover .gallery-img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        /* Editorial Index Number */
+        .item-index {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--rich-brown);
+            z-index: 3;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .gallery-info p {
+            font-size: 0.75rem;
+            line-height: 1.4;
+            color: white;
+            opacity: 0.8;
+            max-width: 100%;
+        }
+
+        .gallery-tag {
+            display: inline-block;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            color: var(--sunflower-yellow);
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 300px;
+            }
+
+            .item-2x2 {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                column-count: 1;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <style>
+        /* --- Footer Styles --- */
+        .footer {
+            width: 100%;
+            background-color: var(--color-sunny-cream);
+            color: var(--color-rich-brown);
+            padding: 100px 5% 40px 5%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0; /* Removed extra space */
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vh;
+            height: 80vh;
+            background-color: var(--color-pale-yellow);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-top {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .footer-top p {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--color-rich-brown);
+        }
+
+        .main-heading {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -5px;
+            line-height: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-rich-brown);
+        }
+
+        .dot-circle {
+            display: inline-block;
+            width: 1.3em;
+            height: 1.3em;
+            margin: 0 -0.08em;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-top: 2px solid var(--color-burnt-orange);
+            padding-top: 40px;
+            gap: 40px;
+        }
+
+        .grid-column h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            color: var(--color-rich-brown);
+            background: var(--color-pale-yellow);
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .grid-column ul {
+            list-style: none;
+        }
+
+        .grid-column ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--color-rich-brown);
+        }
+
+        .grid-column ul li:hover {
+            color: var(--color-primary-yellow);
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 5%;
+        }
+
+        .brand h2 {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+            color: var(--color-rich-brown);
+        }
+
+        .brand span {
+            font-size: 28px;
+            display: block;
+            color: var(--color-rich-brown);
+        }
+
+        .local-time {
+            text-align: right;
+        }
+
+        .local-time h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: var(--color-rich-brown);
+        }
+
+        .local-time p {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-rich-brown);
+        }
+
+        .decorative-prop {
+            position: absolute;
+            z-index: 1;
+            border-radius: 24px;
+            filter: none;
+            transition: none;
+            overflow: hidden;
+        }
+
+        .fab-container {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fab {
+            width: 45px;
+            height: 45px;
+            background: var(--color-primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--color-rich-brown);
+            border: 2px solid var(--color-burnt-orange);
+        }
+
+        .fab:hover {
+            background: var(--color-burnt-orange);
+            color: white;
+        }
+    </style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="top-edge"></div>
+
+    <header>
+        <div class="header-container">
+            <ul class="nav-group left">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#our-services" class="nav-link">Our Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            </ul>
+
+            <div class="logo-area">
+                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo"
+                    style="height: 70px; width: auto; object-fit: contain;">
+            </div>
+
+            <ul class="nav-group right">
+                <li><a href="index.html#how-we-work" class="nav-link">How We Work</a></li>
+                <li><a href="about-us-hero.html" class="nav-link">About Us</a></li>
+                <li><a href="index.html#contact-us" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="hamburger" id="hamburger">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </div>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#our-services">Our Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="index.html#how-we-work">How We Work</a>
+        <a href="about-us-hero.html">About Us</a>
+        <a href="index.html#contact-us">Contact Us</a>
+    </div>
+
+    <main class="hero">
+        <section class="hero-content">
+            <h4>Creative Portfolio</h4>
+            <h1>Works by Sam</h1>
+            <div class="line-divider"></div>
+        </section>
+    </main>
+
+    <section class="gallery-section">
+        <!-- Background Props for Gallery -->
+        <div class="decorative-prop" id="prop-hero-1" style="top: -200px; left: -5%; width: 400px; opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-2.png" alt="sunflower" style="width: 100%;">
+        </div>
+        <div class="decorative-prop" id="prop-hero-2" style="top: 400px; right: -8%; width: 500px; opacity: 1; z-index: 1;">
+            <img src="image-Photoroom (6).png" alt="sunflower" style="width: 100%;">
+        </div>
+        <div class="decorative-prop" id="prop-vfx-1" style="top: 1200px; right: 5%; width: 320px; opacity: 1; z-index: 1;">
+            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 100%;">
+        </div>
+        <div class="decorative-prop" id="prop-photo-1" style="top: 1800px; left: 2%; width: 300px; opacity: 1; z-index: 1;">
+            <img src="image-Photoroom (1).png" alt="Sunflower" style="width: 100%;">
+        </div>
+        <div class="decorative-prop" id="prop-mid-1" style="top: 2800px; left: -10%; width: 600px; opacity: 1; z-index: 1;">
+            <img src="image-Photoroom (5).png" alt="sunflower" style="width: 100%;">
+        </div>
+        <div class="decorative-prop" id="prop-mid-2" style="top: 4500px; right: -5%; width: 450px; opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-3.png" alt="sunflower" style="width: 100%;">
+        </div>
+        <div class="decorative-prop" id="prop-low-1" style="top: 6000px; left: -2%; width: 350px; opacity: 1; z-index: 1;">
+            <img src="Gemini_Generated_Image_74b7y874b7y874b7-Photoroom.png" alt="sunflower" style="width: 100%;">
+        </div>
+        <div class="decorative-prop" id="prop-vfx-2" style="top: 8000px; left: 10%; width: 280px; opacity: 1; z-index: 1;">
+            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 100%;">
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Items will be loaded dynamically from portfolio_data.json -->
+        </div>
+    </section>
+
+    <footer class="footer">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-footer-1" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-2.png" alt="prop"
+                style="width: 100%; border-radius: 0; filter: none; display: block;">
+        </div>
+        <div class="decorative-prop" id="prop-footer-2" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom (6).png" alt="prop"
+                style="width: 100%; border-radius: 0; filter: none; display: block;">
+        </div>
+
+        <div class="footer-content">
+
+            <div class="footer-top">
+                <p>Got a project? Need an unfair advantage?</p>
+                <h1 class="main-heading">
+                    GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
+                </h1>
+            </div>
+
+            <div class="footer-grid">
+                <div class="grid-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="back.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="services.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="how-we-work.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="whyChooseUs.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-column">
+                    <h4>Socials</h4>
+                    <ul>
+                        <li>LinkedIn</li>
+                        <li>YouTube</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                        <li>Facebook</li>
+                    </ul>
+                </div>
+                <div class="grid-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li>Portfolio</li>
+                        <li>Case Studies</li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="brand">
+                    <span>© 2024</span>
+                    <h2>EDEN Digital Media</h2>
+                </div>
+
+                <div class="local-time">
+                    <h4>Local Time</h4>
+                    <p id="time-display">00:00 PM GMT+11</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="fab-container">
+            <div class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 15l-6-6-6 6" />
+                </svg>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Footer time update
+        function updateTime() {
+            const now = new Date();
+            const options = {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true,
+                timeZone: 'Australia/Sydney'
+            };
+            const timeString = now.toLocaleTimeString('en-US', options);
+            const timeDisplay = document.getElementById('time-display');
+            if (timeDisplay) {
+                timeDisplay.innerText = `${timeString} GMT+11`;
+            }
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Staggered reveal animation for gallery items
+        const galleryObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add delay based on index for staggered effect
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                    galleryObserver.unobserve(entry.target);
+                }
+            });
+        }, galleryObserverOptions);
+
+        // Observe function to be called after dynamic load
+        function observeGalleryItems() {
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                galleryObserver.observe(item);
+            });
+        }
+
+        // --- DYNAMIC DATA LOADING ---
+        async function loadPortfolioData() {
+            const grid = document.getElementById('gallery-grid');
+            if (!grid) return;
+
+            try {
+                const response = await fetch('portfolio_data/portfolio_data.json');
+                const data = await response.json();
+                
+                data.items.forEach((item, index) => {
+                    const itemIndex = (index + 1).toString().padStart(2, '0');
+                    
+                    // Fallback title from image URL if empty
+                    let title = item.title;
+                    if (!title) {
+                        const filename = item.image_url.split('/').pop().split('?')[0];
+                        title = decodeURIComponent(filename).replace(/\.[^/.]+$/, "").replace(/%20/g, " ").replace(/copy|PSD|mockup/gi, "").trim();
+                        // Capitalize words
+                        title = title.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                        if (!title) title = `Project ${itemIndex}`;
+                    }
+
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = `gallery-item`;
+                    galleryItem.innerHTML = `
+                        <span class="item-index">${itemIndex}</span>
+                        <div class="gallery-img-wrapper">
+                            <img src="${item.local_path}" alt="${title}" loading="lazy">
+                        </div>
+                        <div class="gallery-overlay">
+                            <span class="gallery-tag">${item.category || 'Creative Project'}</span>
+                            <div class="gallery-info">
+                                <h3>${title}</h3>
+                                <p>View full project on <a href="${item.redirect_url}" target="_blank" style="color: var(--sunflower-yellow); text-decoration: underline;">Figma</a></p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    grid.appendChild(galleryItem);
+                });
+
+                // Trigger animations after items are added
+                observeGalleryItems();
+
+            } catch (error) {
+                console.error('Error loading portfolio data:', error);
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px;">Failed to load portfolio items. Please check back later.</p>';
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', loadPortfolioData);
+
+        // Footer Section Props Initialization
+        const propFooter1 = document.getElementById('prop-footer-1');
+        if (propFooter1) {
+            propFooter1.style.display = 'none';
+        }
+
+        const propFooter2 = document.getElementById('prop-footer-2');
+        if (propFooter2) {
+            propFooter2.style.bottom = '-100px';
+            propFooter2.style.right = '-1.9%';
+            propFooter2.style.width = '480px';
+            propFooter2.dataset.rotation = 87.93;
+            propFooter2.style.transform = 'rotate(-167.93deg)';
+        }
+
+        // Scroll listener for footer prop rotation
+        let lastScrollY = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.pageYOffset;
+            const scrollDelta = currentScrollY - lastScrollY;
+
+            if (propFooter2) {
+                const footer = document.querySelector('.footer');
+                const footerRect = footer.getBoundingClientRect();
+                const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+
+                if (isFooterInView) {
+                    let rotation = parseFloat(propFooter2.dataset.rotation) || -167.93;
+                    rotation += scrollDelta * 0.05;
+                    propFooter2.dataset.rotation = rotation;
+                    propFooter2.style.transform = `rotate(${rotation}deg)`;
+                }
+            }
+
+            // Navbar Scroll Effect
+            const header = document.querySelector('header');
+            if (currentScrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        // Mobile Navbar Logic
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.mobile-overlay a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+
+    <style>
+        /* --- Custom JS Cursor Styles --- */
+        * {
+            cursor: none !important;
+        }
+
+        #custom-sunflower-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 72px;
+            height: 72px;
+            background-image: url("image-Photoroom-2.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            will-change: transform, left, top;
+            transition: opacity 0.2s;
+        }
+    </style>
+    <script>
+        // --- Custom JS Cursor Logic ---
+        document.addEventListener("DOMContentLoaded", () => {
+            // Create the cursor element
+            const cursor = document.createElement("div");
+            cursor.id = "custom-sunflower-cursor";
+            document.body.appendChild(cursor);
+
+            let currentAngle = 0;
+            let lastX = -1;
+            let lastY = -1;
+
+            // Use requestAnimationFrame for smooth performance
+            let mouseX = -100;
+            let mouseY = -100;
+
+            document.addEventListener("mousemove", (e) => {
+                if (lastX === -1) {
+                    lastX = e.clientX;
+                    lastY = e.clientY;
+                }
+
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                // Determine direction of rotation based on X movement
+                const direction = dx > 0 ? 1 : (dx < 0 ? -1 : 1);
+
+                // Rotate based on movement distance
+                currentAngle += distance * 1.5 * direction;
+
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                cursor.style.left = mouseX + "px";
+                cursor.style.top = mouseY + "px";
+                cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+
+                lastX = e.clientX;
+                lastY = e.clientY;
+            });
+
+            document.addEventListener("mouseleave", () => {
+                cursor.style.opacity = "0";
+            });
+            document.addEventListener("mouseenter", () => {
+                cursor.style.opacity = "1";
+            });
+        });
+    </script>
+</body>
+
+</html>

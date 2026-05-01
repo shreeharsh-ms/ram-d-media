@@ -141,14 +141,14 @@
         }
 
         /* Background Images */
-        .img-1 { background-image: url('https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=1000'); }
-        .img-2 { background-image: url('https://images.unsplash.com/photo-1518998053502-51908d17ca33?q=80&w=1000'); }
-        .img-3 { background-image: url('https://images.unsplash.com/photo-1544333323-c242b442017a?q=80&w=1000'); }
-        .img-4 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000'); }
-        .img-5 { background-image: url('https://images.unsplash.com/photo-1460925895917-adf4198c838d?q=80&w=1000'); }
-        .img-6 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000'); }
-        .img-7 { background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000'); }
-        .img-8 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000'); }
+        .img-1 { background-image: url('portfolio_data/images/exp_ui.png'); }
+        .img-2 { background-image: url('portfolio_data/images/social_plan.png'); }
+        .img-3 { background-image: url('portfolio_data/images/creative_design.png'); }
+        .img-4 { background-image: url('portfolio_data/images/ui_ux.png'); }
+        .img-5 { background-image: url('portfolio_data/images/web_dev.png'); }
+        .img-6 { background-image: url('portfolio_data/images/content_creation.png'); }
+        .img-7 { background-image: url('portfolio_data/images/brand_promo.png'); }
+        .img-8 { background-image: url('portfolio_data/images/analytics.png'); }
 
         /* --- Decorative Props --- */
         .decorative-prop {
@@ -445,11 +445,42 @@
             gap: 20px;
             padding-top: 150px;
             background: var(--white);
+            position: relative;
         }
 
         /* Left Column */
         .hero-content {
             z-index: 2;
+        }
+
+        .portfolio-nav-btns {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .portfolio-nav-btn {
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sunflower-yellow);
+            color: var(--rich-brown);
+            background: transparent;
+            border-radius: 0;
+            white-space: nowrap;
+        }
+
+        .portfolio-nav-btn.active, .portfolio-nav-btn:hover {
+            background: var(--sunflower-yellow);
+            color: var(--rich-brown);
         }
 
         .hero-content h4 {
@@ -516,11 +547,12 @@
 
         .oval-mask {
             width: 100%;
-            max-width: 450px;
+            max-width: 650px;
             aspect-ratio: 0.75 / 1;
-            background: url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1000&auto=format&fit=crop') center/cover;
+            background: url('meet samruddhi.png') center/cover;
             border-radius: 200px; /* Modern pill/oval shape */
             box-shadow: 0 30px 60px rgba(252,196,25,0.15);
+            transition: transform 0.1s ease-out; /* Smooth scale transition */
         }
 
         /* Right Column - Stats */
@@ -600,6 +632,7 @@
             }
         }
     </style>
+
 </head>
 <body>
 
@@ -643,6 +676,8 @@
     </div>
 
     <main class="hero">
+
+
         <!-- Decorative props -->
         <div class="decorative-prop" id="prop-hero-1">
             <img src="image-Photoroom-2.png" alt="prop">
@@ -730,6 +765,17 @@
                     el.style.transform = 'translateY(0)';
                 }, 100);
             });
+        });
+
+        // Oval Mask Scroll Zoom Effect
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            const ovalMask = document.querySelector('.oval-mask');
+            if (ovalMask) {
+                // Starts at scale 1 and grows up to 1.3
+                const scale = 1 + Math.min(scrollY * 0.0008, 0.3);
+                ovalMask.style.transform = `scale(${scale})`;
+            }
         });
     </script>
 
@@ -1453,7 +1499,7 @@
 
         .explore-card {
             background: var(--sunny-cream);
-            border-radius: 24px;
+            border-radius: 0; /* Square cards */
             padding: 30px 20px 20px 20px;
             display: flex;
             flex-direction: column;
@@ -1528,7 +1574,7 @@
             position: relative;
             width: 100%;
             height: 250px;
-            border-radius: 18px;
+            border-radius: 0; /* Square images */
             overflow: hidden;
             margin-top: auto;
         }
@@ -1620,10 +1666,10 @@
 
         <div class="work-images">
             <div class="main-img-wrapper">
-                <img id="featured-work-image" class="work-swap-image" src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000" alt="Service Showcase">
+                <img id="featured-work-image" class="work-swap-image" src="portfolio_data/images/work_rest_main.png" alt="Service Showcase">
             </div>
             <div class="secondary-img-wrapper">
-                <img id="secondary-work-image" class="work-swap-image" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600" alt="Professional Portrait">
+                <img id="secondary-work-image" class="work-swap-image" src="portfolio_data/images/work_rest_sec.png" alt="Professional Portrait">
             </div>
         </div>
 
@@ -1635,8 +1681,8 @@
             
             <ul class="work-service-list">
                 <li class="work-service-item active" 
-                    data-main-img="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600">
+                    data-main-img="portfolio_data/images/work_rest_main.png"
+                    data-sec-img="portfolio_data/images/work_rest_sec.png">
                     <div class="work-service-header">
                         <span class="work-service-name">Restaurants</span>
                         <span class="work-arrow-icon">
@@ -1648,8 +1694,8 @@
                     <span class="work-service-desc show">Social media content, food photography, campaign ideas, and promotional marketing</span>
                 </li>
                 <li class="work-service-item" 
-                    data-main-img="https://images.unsplash.com/photo-1565183938294-7563c6a8352d?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=600">
+                    data-main-img="portfolio_data/images/work_furn_main.png"
+                    data-sec-img="portfolio_data/images/work_furn_sec.png">
                     <div class="work-service-header">
                         <span class="work-service-name">Furniture & Interior Brands</span>
                         <span class="work-arrow-icon">
@@ -1661,8 +1707,8 @@
                     <span class="work-service-desc">Creative product posts, photoshoots, and visual storytelling to showcase designs</span>
                 </li>
                 <li class="work-service-item" 
-                    data-main-img="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=600">
+                    data-main-img="portfolio_data/images/work_school_main.png"
+                    data-sec-img="portfolio_data/images/work_school_sec.png">
                     <div class="work-service-header">
                         <span class="work-service-name">Schools & Educational Institutes</span>
                         <span class="work-arrow-icon">
@@ -1674,8 +1720,8 @@
                     <span class="work-service-desc">Informative posts, event coverage, and digital presence building</span>
                 </li>
                 <li class="work-service-item" 
-                    data-main-img="https://images.unsplash.com/photo-1576091160550-112173f7f869?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1552882688-d0d40e92b019?q=80&w=600">
+                    data-main-img="portfolio_data/images/work_salon_main.png"
+                    data-sec-img="portfolio_data/images/work_salon_sec.png">
                     <div class="work-service-header">
                         <span class="work-service-name">Salons & Beauty Businesses</span>
                         <span class="work-arrow-icon">
@@ -1687,8 +1733,8 @@
                     <span class="work-service-desc">Beauty-focused content, service promotions, and brand visuals</span>
                 </li>
                 <li class="work-service-item" 
-                    data-main-img="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1520763185298-1b434c919abe?q=80&w=600">
+                    data-main-img="portfolio_data/images/work_retail_main.png"
+                    data-sec-img="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=600">
                     <div class="work-service-header">
                         <span class="work-service-name">Gift & Retail Stores</span>
                         <span class="work-arrow-icon">
@@ -1700,8 +1746,8 @@
                     <span class="work-service-desc">Creative product presentation, festive campaigns, and engaging posts</span>
                 </li>
                 <li class="work-service-item" 
-                    data-main-img="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1576091160511-112902676fc5?q=80&w=600">
+                    data-main-img="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=600">
                     <div class="work-service-header">
                         <span class="work-service-name">Hospitals & Healthcare</span>
                         <span class="work-arrow-icon">
@@ -1713,8 +1759,8 @@
                     <span class="work-service-desc">Professional digital presence, informative content, and brand visibility</span>
                 </li>
                 <li class="work-service-item" 
-                    data-main-img="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?q=80&w=600">
+                    data-main-img="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600">
                     <div class="work-service-header">
                         <span class="work-service-name">Real Estate</span>
                         <span class="work-arrow-icon">
@@ -1969,18 +2015,17 @@
             }
         }
 
-        /* --- FOOTER SECTION STYLES --- */
+        /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background-color: var(--color-light-cream);
+            background-color: var(--color-sunny-cream);
             color: var(--color-rich-brown);
             padding: 100px 5% 40px 5%;
             position: relative;
             overflow: hidden;
-            margin-top: 80px;
+            margin-top: 0;
         }
 
-        /* The large decorative background circle */
         .footer::before {
             content: "";
             position: absolute;
@@ -1989,7 +2034,7 @@
             transform: translate(-50%, -50%);
             width: 80vh;
             height: 80vh;
-            background-color: #d8d8ce;
+            background-color: var(--color-pale-yellow);
             border-radius: 50%;
             z-index: 0;
         }
@@ -1999,7 +2044,6 @@
             z-index: 1;
         }
 
-        /* Top Heading Section */
         .footer-top {
             text-align: center;
             margin-bottom: 80px;
@@ -2025,17 +2069,16 @@
             color: var(--color-rich-brown);
         }
 
-        /* The small colored circle inside the "O" */
         .dot-circle {
             display: inline-block;
-            width: 0.8em;
-            height: 0.8em;
-            background-color: var(--color-burnt-orange);
-            border-radius: 50%;
-            margin: 0 -0.05em;
+            width: 1.3em;
+            height: 1.3em;
+            margin: 0 -0.08em;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
         }
 
-        /* Navigation Grid */
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
@@ -2044,22 +2087,23 @@
             gap: 40px;
         }
 
-        .footer-grid-column h4 {
+        .grid-column h4 {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 25px;
             color: var(--color-rich-brown);
+            background: var(--color-pale-yellow);
             padding: 8px 12px;
             border-radius: 4px;
             display: inline-block;
         }
 
-        .footer-grid-column ul {
+        .grid-column ul {
             list-style: none;
         }
 
-        .footer-grid-column ul li {
+        .grid-column ul li {
             font-size: 14px;
             margin-bottom: 8px;
             cursor: pointer;
@@ -2067,25 +2111,11 @@
             color: var(--color-rich-brown);
         }
 
-        .footer-grid-column ul li a {
-            color: var(--color-rich-brown);
-            text-decoration: none;
-        }
-
-        .footer-grid-column ul li a:visited {
-            color: var(--color-rich-brown);
-        }
-
-        .footer-grid-column ul li:hover {
+        .grid-column ul li:hover {
             color: var(--color-primary-yellow);
             padding-left: 10px;
         }
 
-        .footer-grid-column ul li:hover a {
-            color: var(--color-primary-yellow);
-        }
-
-        /* Bottom Brand & Time Section */
         .footer-bottom {
             margin-top: 100px;
             display: flex;
@@ -2094,7 +2124,7 @@
             padding: 0 5%;
         }
 
-        .footer-brand h2 {
+        .brand h2 {
             font-size: 32px;
             font-weight: 800;
             line-height: 1;
@@ -2102,31 +2132,39 @@
             color: var(--color-rich-brown);
         }
 
-        .footer-brand span {
+        .brand span {
             font-size: 28px;
             display: block;
             color: var(--color-rich-brown);
         }
 
-        .footer-local-time {
+        .local-time {
             text-align: right;
         }
 
-        .footer-local-time h4 {
+        .local-time h4 {
             font-size: 11px;
             text-transform: uppercase;
             margin-bottom: 5px;
             color: var(--color-rich-brown);
         }
 
-        .footer-local-time p {
+        .local-time p {
             font-size: 14px;
             font-weight: 400;
             color: var(--color-rich-brown);
         }
 
-        /* Floating Action Buttons (Bottom Right) */
-        .footer-fab-container {
+        .decorative-prop {
+            position: absolute;
+            z-index: 1;
+            border-radius: 24px;
+            filter: none;
+            transition: none;
+            overflow: hidden;
+        }
+
+        .fab-container {
             position: absolute;
             bottom: 40px;
             right: 40px;
@@ -2135,7 +2173,7 @@
             gap: 15px;
         }
 
-        .footer-fab {
+        .fab {
             width: 45px;
             height: 45px;
             background: var(--color-primary-yellow);
@@ -2149,32 +2187,9 @@
             border: 2px solid var(--color-burnt-orange);
         }
 
-        .footer-fab:hover {
+        .fab:hover {
             background: var(--color-burnt-orange);
             color: white;
-        }
-
-        .footer-fab svg {
-            width: 20px;
-            height: 20px;
-            stroke: currentColor;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        /* Responsive Footer */
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 40px;
-            }
-            .main-heading {
-                letter-spacing: -2px;
-            }
         }
     </style>
 
@@ -2259,7 +2274,7 @@
                 <h3>Social Media<br>Content</h3>
                 <p class="explore-description">See how we design engaging posts and creative social media strategies.</p>
                 <div class="explore-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400" alt="Social Media Content">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800" alt="Social Media Content">
                     <div class="explore-read-more-btn">Explore <span>→</span></div>
                 </div>
             </div>
@@ -2273,7 +2288,7 @@
                 <h3>Professional<br>Photography</h3>
                 <p class="explore-description">Capturing products, spaces, and brand identity through professional photography.</p>
                 <div class="explore-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&q=80&w=400" alt="Photography">
+                    <img src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?q=80&w=800" alt="Photography">
                     <div class="explore-read-more-btn">Explore <span>→</span></div>
                 </div>
             </div>
@@ -2287,7 +2302,7 @@
                 <h3>Videography<br>& Motion</h3>
                 <p class="explore-description">Creative video content designed to attract attention and tell brand stories.</p>
                 <div class="explore-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1533928298208-27ff66555d0d?auto=format&fit=crop&q=80&w=400" alt="Videography">
+                    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=800" alt="Videography">
                     <div class="explore-read-more-btn">Explore <span>→</span></div>
                 </div>
             </div>
@@ -2301,7 +2316,7 @@
                 <h3>Wedding<br>Content</h3>
                 <p class="explore-description">Capturing special moments and emotions in a modern digital storytelling format.</p>
                 <div class="explore-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=400" alt="Wedding Content">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800" alt="Wedding Content">
                     <div class="explore-read-more-btn">Explore <span>→</span></div>
                 </div>
             </div>
@@ -2311,87 +2326,110 @@
 
     <!-- Footer Section -->
 
-<footer class="footer">
+    <footer class="footer">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-footer-1" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom-2.png" alt="prop" style="width: 100%; border-radius: 0; filter: none; display: block;">
+        </div>
+        <div class="decorative-prop" id="prop-footer-2" style="opacity: 1; z-index: 1;">
+            <img src="image-Photoroom (6).png" alt="prop" style="width: 100%; border-radius: 0; filter: none; display: block;">
+        </div>
+        
         <div class="footer-content">
-                        <div class="footer-top">
+            
+            <div class="footer-top">
                 <p>Got a project? Need an unfair advantage?</p>
                 <h1 class="main-heading">
-                    GET IN T<span class="dot-circle"></span>UCH
+                    GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
                 </h1>
             </div>
+
             <div class="footer-grid">
-                <div class="footer-grid-column">
-                    <h4>Quick Links</h4>
+                <div class="grid-column">
+                    <h4>Navigation</h4>
                     <ul>
-                        <li><a href="#agency-section">Home</a></li>
-                        <li><a href="#our-services">Services</a></li>
-                        <li><a href="#how-we-work">How We Work</a></li>
-                        <li><a href="#certified-excellence-section">Portfolio</a></li>
-                        <li><a href="#contact-us">Contact</a></li>
+                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="back.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="services.html" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="how-we-work.html" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="whyChooseUs.html" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
                     </ul>
                 </div>
-                <div class="footer-grid-column">
-                    <h4>Connect</h4>
+                <div class="grid-column">
+                    <h4>Socials</h4>
                     <ul>
-                        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-                        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-                        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-                        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+                        <li>LinkedIn</li>
+                        <li>YouTube</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                        <li>Facebook</li>
                     </ul>
                 </div>
-                <div class="footer-grid-column">
-                    <h4>Company</h4>
+                <div class="grid-column">
+                    <h4>Resources</h4>
                     <ul>
-                        <li><a href="#contact-us">Get In Touch</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li>Portfolio</li>
+                        <li>Case Studies</li>
+                        <li>Blog</li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <div class="footer-brand">
+                <div class="brand">
                     <span>© 2024</span>
-                    <h2>EDEN MEDIA</h2>
+                    <h2>EDEN Digital Media</h2>
                 </div>
                 
-                <div class="footer-local-time">
+                <div class="local-time">
                     <h4>Local Time</h4>
-                    <p id="footerTimeDisplay">12:25 AM GMT+11</p>
+                    <p id="time-display">00:00 PM GMT+11</p>
                 </div>
             </div>
         </div>
 
-        <div class="footer-fab-container">
-            <button class="footer-fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"></path></svg>
-            </button>
+        <div class="fab-container">
+            <div class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+            </div>
         </div>
     </footer>
     <script>
-        // Function to update time
+        // Footer time update
         function updateTime() {
             const now = new Date();
-            // Simulating GMT+11 as per the image
             const options = { 
                 hour: '2-digit', 
                 minute: '2-digit', 
                 hour12: true,
-                timeZone: 'Australia/Sydney' // Sydney is usually GMT+11 in AEDT
+                timeZone: 'Australia/Sydney'
             };
             const timeString = now.toLocaleTimeString('en-US', options);
-            document.getElementById('time-display').innerText = `${timeString} GMT+11`;
+            const timeDisplay = document.getElementById('time-display');
+            if (timeDisplay) {
+                timeDisplay.innerText = `${timeString} GMT+11`;
+            }
         }
 
         setInterval(updateTime, 1000);
         updateTime();
-    </script>
 
-    <!-- Decorative Props Initialization and Scroll Handler -->
-    <script>
+        // Footer Section Props Initialization
+        const propFooter1 = document.getElementById('prop-footer-1');
+        if (propFooter1) {
+            propFooter1.style.display = 'none';
+        }
+
+        const propFooter2 = document.getElementById('prop-footer-2');
+        if (propFooter2) {
+            propFooter2.style.bottom = '-100px';
+            propFooter2.style.right = '-1.9%';
+            propFooter2.style.width = '480px';
+            propFooter2.dataset.rotation = 87.93;
+            propFooter2.style.transform = 'rotate(-167.93deg)';
+        }
+
         // Initialize all decorative props with positioning
         const props = {
             'prop-hero-1': { top: '-60px', left: '-80px', width: '', speed: 0.20 },
@@ -2406,7 +2444,6 @@
         Object.entries(props).forEach(([id, config]) => {
             const prop = document.getElementById(id);
             if (prop) {
-                // Apply positioning
                 prop.style.position = 'absolute';
                 prop.style.zIndex = '1';
                 prop.style.width = config.width;
@@ -2416,17 +2453,117 @@
                 if (config.left) prop.style.left = config.left;
                 if (config.right) prop.style.right = config.right;
                 
-                // Initialize rotation dataset
                 prop.dataset.rotation = 0;
                 prop.dataset.speed = config.speed;
                 prop.style.transform = 'rotate(0deg)';
             }
         });
 
-        // Rotation disabled - props stay in static position
-        // Previously: Scroll handler applied rotation based on scroll delta
-        // Now: Props remain at their initial rotation value (0deg)
+        // Scroll listener for prop rotation (Footer Only)
+        let lastScrollY = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.pageYOffset;
+            const scrollDelta = currentScrollY - lastScrollY;
+
+            if (propFooter1) {
+                let rotation = parseFloat(propFooter1.dataset.rotation) || 0;
+                rotation -= scrollDelta * 0.09;
+                propFooter1.dataset.rotation = rotation;
+                propFooter1.style.transform = `rotate(${rotation}deg) translateX(-50%)`;
+            }
+
+            if (propFooter2) {
+                const footer = document.querySelector('.footer');
+                const footerRect = footer.getBoundingClientRect();
+                const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+                
+                if (isFooterInView) {
+                    let rotation = parseFloat(propFooter2.dataset.rotation) || -167.93;
+                    rotation += scrollDelta * 0.05;
+                    propFooter2.dataset.rotation = rotation;
+                    propFooter2.style.transform = `rotate(${rotation}deg)`;
+                }
+            }
+
+            lastScrollY = currentScrollY;
+        });
     </script>
 
+
+<style>
+/* --- Custom JS Cursor Styles --- */
+* {
+    cursor: none !important;
+}
+
+#custom-sunflower-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 72px;
+    background-image: url("image-Photoroom-2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    will-change: transform, left, top;
+    transition: opacity 0.2s;
+}
+</style>
+<script>
+    // --- Custom JS Cursor Logic ---
+    document.addEventListener("DOMContentLoaded", () => {
+        // Create the cursor element
+        const cursor = document.createElement("div");
+        cursor.id = "custom-sunflower-cursor";
+        document.body.appendChild(cursor);
+
+        let currentAngle = 0;
+        let lastX = -1;
+        let lastY = -1;
+        
+        // Use requestAnimationFrame for smooth performance
+        let mouseX = -100;
+        let mouseY = -100;
+
+        document.addEventListener("mousemove", (e) => {
+            if (lastX === -1) {
+                lastX = e.clientX;
+                lastY = e.clientY;
+            }
+            
+            const dx = e.clientX - lastX;
+            const dy = e.clientY - lastY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Determine direction of rotation based on X movement
+            const direction = dx > 0 ? 1 : (dx < 0 ? -1 : 1);
+            
+            // Rotate based on movement distance
+            currentAngle += distance * 1.5 * direction;
+            
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursor.style.left = mouseX + "px";
+            cursor.style.top = mouseY + "px";
+            cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+            
+            lastX = e.clientX;
+            lastY = e.clientY;
+        });
+
+        document.addEventListener("mouseleave", () => {
+            cursor.style.opacity = "0";
+        });
+        document.addEventListener("mouseenter", () => {
+            cursor.style.opacity = "1";
+        });
+    });
+</script>
 </body>
+
 </html>
