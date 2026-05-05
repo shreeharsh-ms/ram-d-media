@@ -14,31 +14,28 @@
         rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f3eee6;
-            --text-dark: #1a1a1a;
-            --accent-red: #c61d23;
+            --bg-color: #FAF8E2;
+            --text-dark: #5F3C28;
+            
+            /* Font Families */
+            --font-display: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+            --font-body: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            --font-script: 'Great Vibes', 'Brush Script MT', cursive;
+            --font-oswald: 'Oswald', 'Arial', sans-serif;
 
             /* Sunflower Color Theme - Matching index.html */
-            --color-primary-yellow: #FCC419;
-            /* Sunflower Yellow - Use Very Sparingly */
-            --color-golden-yellow: #FCC419;
-            /* Sunflower Yellow - Minimal Use */
-            --color-pale-yellow: #FAF8E2;
-            /* Soft Lemon Yellow Background */
-            --color-burnt-orange: #5B8C2A;
-            /* Deep Moss Green */
-            --color-rich-brown: #5F3C28;
-            /* Deep Brown - Headings */
-            --color-warm-beige: #FAF8E2;
-            /* Soft Lemon Beige */
-            --color-sunny-cream: #FAF8E2;
-            /* Soft Lemon Cream */
-            --color-white: #FFFFFF;
-            /* White */
-
+            --color-primary-yellow: #FCC419;      /* Sunflower Yellow */
+            --color-golden-yellow: #FCC419;       /* Sunflower Yellow */
+            --color-pale-yellow: #FAF8E2;         /* Soft Lemon Yellow Background */
+            --color-burnt-orange: #FCC419;        /* CHANGED FROM GREEN TO YELLOW */
+            --color-rich-brown: #5F3C28;          /* Deep Brown - Headings */
+            --color-warm-beige: #FAF8E2;          /* Soft Lemon Beige */
+            --color-sunny-cream: #FAF8E2;         /* Soft Lemon Cream */
+            --color-white: #FFFFFF;               /* White */
+            
             /* Legacy variables for compatibility */
             --sunflower-yellow: #FCC419;
-            --burnt-orange: #5B8C2A;
+            --burnt-orange: #FCC419;              /* CHANGED FROM GREEN TO YELLOW */
             --rich-brown: #5F3C28;
             --warm-beige: #FAF8E2;
             --sunny-cream: #FAF8E2;
@@ -54,7 +51,7 @@
 
         body {
             background-color: var(--bg-color);
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             color: var(--text-dark);
             overflow-x: hidden;
         }
@@ -66,7 +63,7 @@
             justify-content: center;
             align-items: center;
             font-size: 2rem;
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
         }
 
         /* --- HORIZONTAL SCROLL SECTION LOGIC --- */
@@ -106,7 +103,7 @@
         }
 
         .intro-slide h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
             font-size: clamp(3rem, 6vw, 5rem);
             line-height: 1;
             font-weight: 400;
@@ -411,26 +408,17 @@
 
         .hamburger {
             display: none;
-            flex-direction: column;
             cursor: pointer;
-            position: fixed;
-            top: 55px;
-            left: 25px;
             z-index: 1001;
-            gap: 6px;
-        }
-
-        .hamburger svg {
-            stroke: white;
         }
 
         .mobile-overlay {
             position: fixed;
             top: 0;
-            right: -100%;
+            right: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(30, 15, 5, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(250, 248, 226, 0.98) 0%, rgba(250, 248, 226, 0.95) 100%);
             z-index: 999;
             display: flex;
             flex-direction: column;
@@ -440,15 +428,21 @@
             padding-left: 40px;
             transition: 0.5s ease-in-out;
             overflow-y: auto;
+            transform: translateX(100%);
+            visibility: hidden;
+            pointer-events: none;
         }
 
         .mobile-overlay.active {
-            right: 0;
+            transform: translateX(0);
+            visibility: visible;
+            pointer-events: all;
         }
 
         .mobile-overlay a {
-            color: white;
-            font-size: 1.3rem;
+            color: var(--color-rich-brown);
+            font-family: var(--font-body);
+            font-size: clamp(18px, 3vw, 22px);
             text-decoration: none;
             margin: 20px 0;
             font-weight: 700;
@@ -456,12 +450,43 @@
         }
 
         .mobile-overlay a:hover {
-            color: var(--primary-orange);
+            color: var(--color-burnt-orange);
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 900px) {
+            header {
+                padding: 10px 0;
+            }
+
+            .header-container {
+                padding: 0 20px;
+                justify-content: space-between;
+            }
+
+            .logo-area {
+                flex: none !important;
+                order: 1;
+            }
+
+            .logo-area img {
+                height: 65px !important;
+                display: block;
+            }
+
             .hamburger {
-                display: flex;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                position: static !important;
+                order: 2;
+                cursor: pointer;
+                height: 65px !important;
+            }
+            
+            .hamburger svg {
+                stroke: var(--color-rich-brown) !important;
+                width: 32px;
+                height: 32px;
             }
 
             .nav-group {
@@ -487,11 +512,12 @@
             text-transform: uppercase;
             font-size: 14px;
             letter-spacing: 3px;
-            color: var(--deep-sunflower);
+            color: var(--color-primary-yellow);
             margin-bottom: 20px;
         }
 
         .hero-content h1 {
+            font-family: var(--font-display);
             font-size: clamp(4rem, 10vw, 8rem); /* Massive heading */
             line-height: 1;
             color: var(--sunflower-yellow);
@@ -707,23 +733,27 @@
         }
 
         .main-heading {
-            font-size: clamp(4rem, 15vw, 12rem);
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 12vw, 12rem);
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: -5px;
+            letter-spacing: -2px;
             line-height: 0.9;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 0.1em;
             color: var(--color-rich-brown);
+            white-space: nowrap;
+            width: 100%;
+            overflow: visible;
         }
 
         .dot-circle {
             display: inline-block;
-            width: 1.3em;
-            height: 1.3em;
-            margin: 0 -0.08em;
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0;
             vertical-align: middle;
             object-fit: contain;
             background-color: transparent;
@@ -771,7 +801,14 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            padding: 0 5%;
+            padding: 0; /* Align with grid content */
+        }
+
+        .brand img {
+            height: 100px; /* Big logo */
+            width: auto;
+            object-fit: contain;
+            display: block;
         }
 
         .brand h2 {
@@ -814,6 +851,34 @@
             overflow: hidden;
         }
 
+        @media (max-width: 768px) {
+            .decorative-prop {
+                width: 80px !important;
+            }
+
+            .footer-bottom {
+                flex-direction: row !important; /* Keep same line on mobile */
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+                width: 100%;
+            }
+
+            .brand img {
+                height: 60px; /* Slightly smaller for mobile but still decent */
+            }
+
+            .local-time {
+                text-align: right;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .decorative-prop {
+                width: 80px !important;
+            }
+        }
+
         .fab-container {
             position: absolute;
             bottom: 40px;
@@ -840,6 +905,29 @@
         .fab:hover {
             background: var(--color-burnt-orange);
             color: white;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 60px 5% 40px 5%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 30px;
+                margin-top: 60px;
+            }
+
+            .local-time {
+                text-align: center;
+            }
         }
     </style>
 
@@ -868,16 +956,15 @@
                 <li><a href="about-us-hero.html" class="nav-link">About Us</a></li>
                 <li><a href="index.html#contact-us" class="nav-link">Contact Us</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rich-brown)" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
         </div>
     </header>
-
-    <div class="hamburger" id="hamburger">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </div>
 
     <div class="mobile-overlay" id="mobileMenu">
         <a href="index.html">Home</a>
@@ -899,7 +986,6 @@
     <section class="gallery-section">
         <!-- Background Props for Gallery -->
         <div class="decorative-prop" id="prop-hero-1" style="top: -200px; left: -5%; width: 400px; opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-2.png" alt="sunflower" style="width: 100%;">
         </div>
         <div class="decorative-prop" id="prop-hero-2" style="top: 400px; right: -8%; width: 500px; opacity: 1; z-index: 1;">
             <img src="image-Photoroom (6).png" alt="sunflower" style="width: 100%;">
@@ -931,8 +1017,6 @@
     <footer class="footer">
         <!-- Decorative props -->
         <div class="decorative-prop" id="prop-footer-1" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-2.png" alt="prop"
-                style="width: 100%; border-radius: 0; filter: none; display: block;">
         </div>
         <div class="decorative-prop" id="prop-footer-2" style="opacity: 1; z-index: 1;">
             <img src="image-Photoroom (6).png" alt="prop"
@@ -954,25 +1038,20 @@
                     <ul>
                         <li><a href="index.html"
                                 style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="back.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="services.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="how-we-work.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
-                        <li><a href="whyChooseUs.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
-                        </li>
+                        <li><a href="about-us-hero.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="index.html#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="whyChooseUs.html" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
                     </ul>
                 </div>
                 <div class="grid-column">
                     <h4>Socials</h4>
                     <ul>
-                        <li>LinkedIn</li>
+
                         <li>YouTube</li>
                         <li>Instagram</li>
-                        <li>Twitter</li>
+
                         <li>Facebook</li>
                     </ul>
                 </div>
@@ -988,8 +1067,7 @@
 
             <div class="footer-bottom">
                 <div class="brand">
-                    <span>© 2024</span>
-                    <h2>EDEN Digital Media</h2>
+                    <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo">
                 </div>
 
                 <div class="local-time">
@@ -1074,6 +1152,11 @@
                         if (!title) title = `Project ${itemIndex}`;
                     }
 
+                    const hasFigmaLink = item.redirect_url && item.redirect_url.toLowerCase().includes('figma.com');
+                    const linkHtml = hasFigmaLink 
+                        ? `<p>View full project on <a href="${item.redirect_url}" target="_blank" style="color: var(--sunflower-yellow); text-decoration: underline;">Figma</a></p>`
+                        : '';
+
                     const galleryItem = document.createElement('div');
                     galleryItem.className = `gallery-item`;
                     galleryItem.innerHTML = `
@@ -1085,7 +1168,7 @@
                             <span class="gallery-tag">${item.category || 'Creative Project'}</span>
                             <div class="gallery-info">
                                 <h3>${title}</h3>
-                                <p>View full project on <a href="${item.redirect_url}" target="_blank" style="color: var(--sunflower-yellow); text-decoration: underline;">Figma</a></p>
+                                ${linkHtml}
                             </div>
                         </div>
                     `;

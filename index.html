@@ -26,8 +26,8 @@
             /* Soft Lemon Yellow */
             --color-sunny-cream: #FAF8E2;
             /* Soft Lemon Yellow Background */
-            --color-burnt-orange: #5B8C2A;
-            /* Deep Moss Green */
+            --color-burnt-orange: #FCC419;
+            /* Sunflower Yellow - Highlights */
             --color-rich-brown: #5F3C28;
             /* Deep Brown - Headings */
             --color-warm-beige: #FAF8E2;
@@ -88,7 +88,7 @@
             --letter-spacing-widest: 1.5px;
 
             /* Legacy variables for compatibility */
-            --primary-orange: #5B8C2A;
+            --primary-orange: #FCC419;
             --bg-dark: #FAF8E2;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             --bg-deep: #FAF8E2;
@@ -106,21 +106,32 @@
         }
 
         html {
-            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         body {
             background-color: var(--color-light-cream);
             color: var(--color-rich-brown);
-            overflow-x: hidden;
             font-size: var(--font-size-body);
             line-height: var(--line-height-body);
             font-weight: 400;
-            overflow: hidden;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body.no-scroll {
+            overflow: hidden !important;
+            height: 100vh !important;
+            width: 100% !important;
+            position: fixed !important;
         }
 
         body.allow-scroll {
-            overflow: auto;
+            overflow: visible !important;
+            overflow-x: hidden !important;
+            position: relative !important;
+            height: auto !important;
         }
 
         /* Typography Hierarchy */
@@ -313,6 +324,103 @@
             background: var(--color-primary-yellow);
         }
 
+        /* Navigation Dropdown Styles */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--color-rich-brown);
+            font-family: var(--font-body);
+            font-size: clamp(16px, 1.2vw, 18px);
+            font-weight: 500;
+            transition: 0.3s ease;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .nav-dropdown-toggle:hover {
+            color: var(--color-burnt-orange);
+        }
+
+        .nav-dropdown-toggle::after {
+            content: '▼';
+            font-size: 10px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-dropdown-toggle.active::after {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--color-pale-yellow);
+            border: 1px solid rgba(91, 140, 42, 0.1);
+            border-radius: 8px;
+            min-width: 300px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            margin-top: 10px;
+            box-shadow: 0 8px 32px rgba(91, 140, 42, 0.15);
+            z-index: 1001;
+        }
+
+        .nav-dropdown-menu.active {
+            max-height: 500px;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-dropdown-section {
+            border-bottom: 1px solid rgba(91, 140, 42, 0.1);
+            padding: 16px 20px;
+        }
+
+        .nav-dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .nav-dropdown-section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: rgba(91, 140, 42, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .nav-dropdown-item {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: var(--color-rich-brown);
+            font-size: 13px;
+            font-family: var(--font-body);
+            transition: 0.2s ease;
+            border-left: 2px solid transparent;
+            padding-left: 8px;
+        }
+
+        .nav-dropdown-item:hover {
+            color: var(--color-burnt-orange);
+            border-left-color: var(--color-burnt-orange);
+            padding-left: 12px;
+        }
+
         /* Logo Styling */
         .logo-area {
             text-align: center;
@@ -468,7 +576,7 @@
         .mobile-overlay {
             position: fixed;
             top: 0;
-            right: -100%;
+            right: 0;
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, rgba(250, 248, 226, 0.98) 0%, rgba(250, 248, 226, 0.95) 100%);
@@ -481,10 +589,15 @@
             padding-left: 40px;
             transition: 0.5s ease-in-out;
             overflow-y: auto;
+            transform: translateX(100%);
+            visibility: hidden;
+            pointer-events: none;
         }
 
         .mobile-overlay.active {
-            right: 0;
+            transform: translateX(0);
+            visibility: visible;
+            pointer-events: all;
         }
 
         .mobile-overlay a {
@@ -501,31 +614,30 @@
             color: var(--color-burnt-orange);
         }
 
-        /* --- Video Splash Screen --- */
+        /* --- Desktop-Only Video Splash Screen --- */
         .video-splash {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100vw;
-            height: 100vh;
-            background: transparent;
-            z-index: 9999;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background: var(--color-pale-yellow);
+            z-index: 999999;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             opacity: 1;
             transition: opacity 0.8s ease-in-out;
-            pointer-events: none;
+            pointer-events: all;
         }
 
         .video-splash video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
         }
+
 
         .nav-btn {
             color: white !important;
@@ -544,8 +656,7 @@
             padding: clamp(20px, 4vw, 60px) clamp(20px, 5vw, 50px);
             box-sizing: border-box;
             background: var(--color-light-cream);
-            border-top: 2px solid rgba(252, 196, 25, 0.3);
-            border-bottom: 2px solid rgba(252, 196, 25, 0.3);
+
             font-family: var(--font-body);
         }
 
@@ -1178,7 +1289,18 @@
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
             header {
-                padding: 20px 30px;
+                padding: 15px 0 !important;
+                background: var(--color-pale-yellow) !important;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            }
+
+            .header-container {
+                width: 100% !important;
+                padding: 0 20px 0 20px !important; /* 20px left and right padding */
+                margin: 0 !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
             }
 
             .nav-group {
@@ -1186,15 +1308,53 @@
             }
 
             .logo-area {
-                flex: 1;
+                flex: none !important;
+                order: 1;
+            }
+
+            .logo-area img {
+                height: 65px !important; /* Bigger logo as requested */
+                display: block;
             }
 
             .hamburger {
-                display: block;
-                position: fixed;
-                top: 70px;
-                right: 30px;
-                z-index: 1001;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                position: static !important;
+                order: 2;
+                cursor: pointer;
+                height: 65px !important;
+            }
+            
+            .hamburger svg {
+                stroke: var(--color-rich-brown) !important;
+                width: 32px;
+                height: 32px;
+            }
+
+            /* Hero Responsiveness */
+            .hero-content h1 {
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+                letter-spacing: -1px !important;
+            }
+
+            .hero-subheading {
+                font-size: 0.95rem !important;
+                max-width: 100% !important;
+            }
+
+            .hero-buttons {
+                flex-direction: column !important;
+                width: 100% !important;
+                gap: 12px !important;
+            }
+
+            .view-btn {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 16px 20px !important;
             }
         }
 
@@ -1585,7 +1745,7 @@
             }
 
             .service-prop {
-                width: 100px;
+                width: 60px;
             }
 
             .service-prop-1 {
@@ -2204,7 +2364,7 @@
         }
 
         .certified-cta-link {
-            color: var(--color-burnt-orange);
+            color: #FCC419;
             text-decoration: none;
             font-family: var(--font-body);
             font-weight: 700;
@@ -2571,10 +2731,7 @@
             flex-wrap: wrap;
         }
 
-        .contact-sunflower {
-            width: 40px;
-            height: 40px;
-        }
+
 
         .contact-submit-btn {
             background-color: var(--color-primary-yellow);
@@ -2726,7 +2883,7 @@
 
         @media (max-width: 768px) {
             .contact-us-section {
-                padding: 60px 5%;
+                padding: 60px 0 !important;
             }
 
             .contact-us-section h1 {
@@ -2738,12 +2895,22 @@
             }
 
             .contact-card {
-                padding: 25px;
-                width: 100%;
+                padding: 40px 15px !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+                box-sizing: border-box;
+                box-shadow: none !important;
+                border-top: 1px solid rgba(252, 196, 25, 0.3);
+                border-bottom: 1px solid rgba(252, 196, 25, 0.3);
+            }
+
+            .contact-form-section {
+                width: 100% !important;
+                flex: none !important;
             }
 
             .contact-form-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
                 gap: 12px;
             }
 
@@ -2751,10 +2918,7 @@
                 gap: 10px;
             }
 
-            .contact-sunflower {
-                width: 35px;
-                height: 35px;
-            }
+
 
             .contact-submit-btn {
                 padding: 12px 30px;
@@ -2768,202 +2932,236 @@
         }
 
         /* --- FOOTER SECTION (FOOTER.HTML INTEGRATION) --- */
+        /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background-color: var(--color-warm-beige);
+            background-color: var(--color-sunny-cream);
             color: var(--color-rich-brown);
-            padding: var(--section-padding) % 40px 5%;
+            padding: 100px 5% 40px 5%;
             position: relative;
             overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vh;
+            height: 80vh;
+            background-color: var(--color-pale-yellow);
+            border-radius: 50%;
+            z-index: 0;
         }
 
         .footer-content {
             position: relative;
             z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
         }
 
-        /* Top Heading Section */
         .footer-top {
             text-align: center;
-            margin-bottom: var(--spacing-5xl);
+            margin-bottom: 80px;
         }
 
         .footer-top p {
-            font-family: var(--font-body);
-            font-size: var(--font-size-label);
+            font-size: 14px;
             font-weight: 700;
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 10px;
             color: var(--color-rich-brown);
-            text-transform: uppercase;
-            letter-spacing: var(--letter-spacing-wide);
         }
 
-        .footer-main-heading {
+        .main-heading {
             font-family: var(--font-display);
-            font-size: clamp(48px, 15vw, 120px);
+            font-size: clamp(2.5rem, 12vw, 12rem);
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: -5px;
+            letter-spacing: -2px;
             line-height: 0.9;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: var(--spacing-md);
-            flex-wrap: wrap;
+            gap: 0.1em;
             color: var(--color-rich-brown);
+            white-space: nowrap;
+            width: 100%;
+            overflow: visible;
         }
 
-        /* The small colored circle inside the "O" */
-        .footer-dot-circle {
+        .dot-circle {
             display: inline-block;
-            width: 0.8em;
-            height: 0.8em;
-            background-color: #b1b1a3;
-            border-radius: 50%;
-            margin: 0 -0.05em;
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
         }
 
-        /* Navigation Grid */
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: var(--spacing-2xl);
-            gap: var(--spacing-2xl);
+            border-top: 2px solid var(--color-burnt-orange);
+            padding-top: 40px;
+            gap: 40px;
         }
 
-        .footer-grid-column h4 {
-            font-family: var(--font-body);
-            font-size: var(--font-size-caption);
+        .grid-column h4 {
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: var(--letter-spacing-wide);
-            margin-bottom: var(--spacing-2xl);
+            letter-spacing: 1px;
+            margin-bottom: 25px;
             color: var(--color-rich-brown);
-            font-weight: 700;
+            background: var(--color-pale-yellow);
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
         }
 
-        .footer-grid-column ul li {
-            font-family: var(--font-body);
-            font-size: clamp(13px, 1.1vw, 15px);
-            margin-bottom: var(--spacing-sm);
+        .grid-column ul {
+            list-style: none;
+        }
+
+        .grid-column ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
             cursor: pointer;
-            transition: opacity 0.2s;
-            color: var(--color-rich-brown);
-            font-weight: 500;
-        }
-
-        .footer-grid-column ul li a {
-            color: var(--color-rich-brown);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .footer-grid-column ul li a:visited {
+            transition: all 0.2s;
             color: var(--color-rich-brown);
         }
 
-        .footer-grid-column ul li:hover {
-            opacity: 0.5;
+        .grid-column ul li:hover {
+            color: var(--color-primary-yellow);
+            padding-left: 10px;
         }
 
-        .footer-grid-column ul li:hover a {
-            opacity: 0.5;
-        }
-
-        /* Bottom Brand & Time Section */
         .footer-bottom {
-            margin-top: var(--spacing-5xl);
+            margin-top: 100px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            padding: 0; /* Align with grid content */
         }
 
-        .footer-brand h2 {
-            font-family: var(--font-display);
-            font-size: clamp(24px, 3vw, 40px);
-            font-weight: 700;
+        .brand img {
+            height: 100px; /* Big logo */
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .brand h2 {
+            font-size: 32px;
+            font-weight: 800;
             line-height: 1;
             text-transform: uppercase;
             color: var(--color-rich-brown);
-            letter-spacing: -1px;
         }
 
-        .footer-brand span {
-            font-family: var(--font-script);
-            font-size: clamp(22px, 2.5vw, 32px);
+        .brand span {
+            font-size: 28px;
             display: block;
             color: var(--color-rich-brown);
-            font-weight: 400;
-            margin-top: var(--spacing-xs);
         }
 
-        .footer-local-time {
+        .local-time {
             text-align: right;
         }
 
-        .footer-local-time h4 {
-            font-family: var(--font-body);
-            font-size: var(--font-size-caption);
+        .local-time h4 {
+            font-size: 11px;
             text-transform: uppercase;
-            margin-bottom: var(--spacing-xs);
-            color: var(--color-rich-brown);
-            font-weight: 700;
-            letter-spacing: var(--letter-spacing-wide);
-        }
-
-        .footer-local-time p {
-            font-family: var(--font-body);
-            font-size: clamp(13px, 1.1vw, 15px);
-            font-weight: 500;
+            margin-bottom: 5px;
             color: var(--color-rich-brown);
         }
 
-        /* Floating Action Buttons (Bottom Right) */
-        .footer-fab-container {
+        .local-time p {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-rich-brown);
+        }
+
+        .decorative-prop {
+            position: absolute;
+            z-index: 1;
+            border-radius: 24px;
+            filter: none;
+            transition: none;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .decorative-prop {
+                width: 80px !important;
+            }
+
+            .footer-bottom {
+                flex-direction: row !important; /* Keep same line on mobile */
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+                width: 100%;
+            }
+
+            .brand img {
+                height: 60px; /* Slightly smaller for mobile but still decent */
+            }
+
+            .local-time {
+                text-align: right;
+            }
+        }
+
+        .fab-container {
             position: absolute;
             bottom: 40px;
             right: 40px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            z-index: 2;
         }
 
-        .footer-fab {
+        .fab {
             width: 45px;
             height: 45px;
-            background: #d1d1c7;
+            background: var(--color-primary-yellow);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             transition: 0.3s;
-            border: none;
             color: var(--color-rich-brown);
+            border: 2px solid var(--color-burnt-orange);
         }
 
-        .footer-fab:hover {
-            background: #c2c2b5;
-        }
-
-        .footer-fab svg {
-            width: 20px;
-            height: 20px;
+        .fab:hover {
+            background: var(--color-burnt-orange);
+            color: white;
         }
 
         /* Responsive Footer */
         @media (max-width: 768px) {
+            .footer {
+                padding: 60px 5%;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
             }
 
             .footer-bottom {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 40px;
+                align-items: center;
+                text-align: center;
+                gap: var(--spacing-xl);
+            }
+
+            .footer-local-time {
+                text-align: center;
             }
 
             .footer-main-heading {
@@ -2994,17 +3192,19 @@
     <!-- Video Splash Screen -->
     <div class="video-splash" id="videoSplash">
         <video autoplay muted playsinline>
-            <source src="Sunflower_Logo_Animation_with_Butterfly.mp4" type="video/mp4">
+            <source src="f_e_e_d_d_a_f_b_mp_.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
+
+
 
     <div class="top-edge"></div>
 
     <header>
         <div class="header-container">
             <ul class="nav-group left">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="#agency-section" class="nav-link active">Home</a></li>
                 <li><a href="#our-services" class="nav-link">Our Services</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
             </ul>
@@ -3019,16 +3219,15 @@
                 <li><a href="about-us-hero.html" class="nav-link">About Us</a></li>
                 <li><a href="#contact-us" class="nav-link">Contact Us</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rich-brown)" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
         </div>
     </header>
-
-    <div class="hamburger" id="hamburger">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </div>
 
     <div class="mobile-overlay" id="mobileMenu">
         <a href="index.html">Home</a>
@@ -3165,9 +3364,9 @@
             </div>
 
             <div class="services-image-preview" id="servicesImagePreview">
-                <img src="image-Photoroom-2.png" alt="prop" class="service-prop service-prop-1">
+                <img src="service_prop_sunflower_butterfly_1777907794965.png" alt="prop" class="service-prop service-prop-1">
                 <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=800&h=600&fit=crop"
+                    <img src="social_media_mgmt_1777907673000.png"
                         id="previewImage" alt="Service Preview">
                     <div class="preview-text-overlay">
                         <h4 id="tooltipHeading">Why Social Media Management matters</h4>
@@ -3198,7 +3397,7 @@
             <div class="how-we-work-grid">
                 <div class="how-we-work-card">
                     <div class="how-we-work-card-bg"
-                        style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600');">
+                        style="background-image: url('work_step_understand_1777907980007.png');">
                     </div>
                     <div class="how-we-work-number">01</div>
                     <div class="how-we-work-content">
@@ -3209,7 +3408,7 @@
 
                 <div class="how-we-work-card">
                     <div class="how-we-work-card-bg"
-                        style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600');">
+                        style="background-image: url('work_step_create_1777907997576.png');">
                     </div>
                     <div class="how-we-work-number">02</div>
                     <div class="how-we-work-content">
@@ -3220,7 +3419,7 @@
 
                 <div class="how-we-work-card">
                     <div class="how-we-work-card-bg"
-                        style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=600');">
+                        style="background-image: url('work_step_execute_1777908014790.png');">
                     </div>
                     <div class="how-we-work-number">03</div>
                     <div class="how-we-work-content">
@@ -3231,7 +3430,7 @@
 
                 <div class="how-we-work-card">
                     <div class="how-we-work-card-bg"
-                        style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600');">
+                        style="background-image: url('work_step_grow_1777908030972.png');">
                     </div>
                     <div class="how-we-work-number">04</div>
                     <div class="how-we-work-content">
@@ -3348,7 +3547,7 @@
                     <div class="contact-highlight-box">
                         <p id="contactHighlightText"
                             style="font-size: clamp(16px, 1.3vw, 18px); color: var(--color-burnt-orange); font-weight: 700; display: flex; align-items: center; gap: 10px;">
-                            <span style="font-size: 24px;">✨</span> Let's grow your brand in the digital world.
+                            <span style="font-size: 24px;">✨</span> <span style="color: var(--color-primary-yellow);">Let's grow your brand in the digital world.</span>
                         </p>
                     </div>
 
@@ -3374,12 +3573,8 @@
                             </div>
 
                             <div class="contact-submit-area">
-                                <img class="contact-sunflower"
-                                    src="https://cdn-icons-png.flaticon.com/512/1043/1043236.png" alt="sunflower">
                                 <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">Get In
                                     Touch</button>
-                                <img class="contact-sunflower"
-                                    src="https://cdn-icons-png.flaticon.com/512/1043/1043236.png" alt="sunflower">
                             </div>
                         </form>
                     </div>
@@ -3393,59 +3588,70 @@
 
     <!-- Footer Section -->
     <footer class="footer">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-footer-1" style="opacity: 1; z-index: 1; display: none; transform: rotate(-1310.35deg) translateX(-50%);" data-rotation="-1310.3549999999996">
+        </div>
+        <div class="decorative-prop" id="prop-footer-2" style="opacity: 1; z-index: 1; bottom: -100px; right: -1.9%; width: 480px; transform: rotate(134.905deg);" data-rotation="134.9050000000002">
+            <img src="image-Photoroom (6).png" alt="prop" style="width: 100%; border-radius: 0; filter: none; display: block;">
+        </div>
+        
         <div class="footer-content">
+            
+            <div class="footer-top">
+                <p>Got a project? Need an unfair advantage?</p>
+                <h1 class="main-heading">
+                    GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
+                </h1>
+            </div>
 
             <div class="footer-grid">
-                <div class="footer-grid-column">
-                    <h4>Quick Links</h4>
+                <div class="grid-column">
+                    <h4>Navigation</h4>
                     <ul>
-                        <li><a href="#agency-section">Home</a></li>
-                        <li><a href="#our-services">Services</a></li>
-                        <li><a href="#how-we-work">How We Work</a></li>
-                        <li><a href="#certified-excellence-section">Portfolio</a></li>
-                        <li><a href="#contact-us">Contact</a></li>
+                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="about-us-hero.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="whyChooseUs.html" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
                     </ul>
                 </div>
-                <div class="footer-grid-column">
-                    <h4>Connect</h4>
+                <div class="grid-column">
+                    <h4>Socials</h4>
                     <ul>
-                        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-                        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-                        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-                        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+
+                        <li>YouTube</li>
+                        <li>Instagram</li>
+
+                        <li>Facebook</li>
                     </ul>
                 </div>
-                <div class="footer-grid-column">
-                    <h4>Company</h4>
+                <div class="grid-column">
+                    <h4>Resources</h4>
                     <ul>
-                        <li><a href="#contact-us">Get In Touch</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li>Portfolio</li>
+                        <li>Case Studies</li>
+                        <li>Blog</li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-brand">
-                    <span>© 2024</span>
-                    <h2>EDEN MEDIA</h2>
-                </div>
 
-                <div class="footer-local-time">
+            <div class="footer-bottom">
+                <div class="brand">
+                    <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo">
+                </div>
+                
+                <div class="local-time">
                     <h4>Local Time</h4>
-                    <p id="footerTimeDisplay">00:00 PM GMT+11</p>
+                    <p id="time-display">04:37 PM GMT+11</p>
                 </div>
             </div>
         </div>
 
-        <div class="footer-fab-container">
-            <button class="footer-fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 15l-6-6-6 6" />
-                </svg>
-            </button>
+        <div class="fab-container">
+            <div class="fab" onclick="lenis.scrollTo(0)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"></path></svg>
+            </div>
         </div>
     </footer>
 
@@ -3488,27 +3694,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <script>
-        // ===== SMOOTH SCROLL MOMENTUM =====
-        // Detect scroll wheel and apply smooth easing
-        let proxy = { skew: 0 },
-            skewSetter = gsap.quickSetter(proxy, "skew", "deg"),
-            clamp = gsap.utils.clamp(-20, 20);
+        // ===== EXTREMELY SMOOTH SCROLL (LENIS) =====
+        const lenis = new Lenis({
+            lerp: 0.1, // More natural/normal feel
+            wheelMultiplier: 1,
+            smoothWheel: true,
+            smoothTouch: false,
+        });
 
-        gsap.set(document.body, { transformOrigin: "center center", force3D: true });
+        // Integrate Lenis with GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
 
-        window.addEventListener("wheel", (e) => {
-            let skew = clamp(e.deltaY * 0.1);
-            proxy.skew = skew;
-            skewSetter(skew);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
 
-            gsap.to(proxy, {
-                skew: 0,
-                duration: 0.8,
-                ease: "power3.out",
-                overwrite: true
-            });
-        }, false);
+        gsap.ticker.lagSmoothing(0);
         // Register GSAP plugins
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -3521,21 +3725,25 @@
                 // Only handle anchor links (skip empty anchors)
                 if (href === '#' || href === '#!') return;
 
-                e.preventDefault();
-
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
 
                 if (targetElement) {
-                    // Butter-smooth scroll using GSAP ScrollToPlugin
-                    gsap.to(window, {
-                        scrollTo: {
-                            y: targetElement,
-                            autoKill: true,
-                            offsetY: 100 // Add offset to account for fixed header
-                        },
-                        duration: 1.2, // Smooth 1.2 second animation
-                        ease: "power2.inOut" // Butter-smooth easing
+                    e.preventDefault();
+
+                    // Close mobile menu if open (Fixed ID to mobileMenu)
+                    const mobileOverlay = document.getElementById('mobileMenu');
+                    const hamburger = document.getElementById('hamburger');
+                    if (mobileOverlay && mobileOverlay.classList.contains('active')) {
+                        mobileOverlay.classList.remove('active');
+                        if (hamburger) hamburger.classList.remove('active');
+                    }
+
+                    // Precise scroll to element using Lenis
+                    lenis.scrollTo(targetElement, {
+                        offset: -80,
+                        duration: 1.5,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
                     });
                 }
             });
@@ -3559,52 +3767,68 @@
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
-        // 0. Handle Video Splash Screen - Wait for video to end, then fade out
+        // 0. Handle Video Splash - Block scroll and fade out when ends
         const videoSplash = document.getElementById('videoSplash');
         const splashVideo = videoSplash ? videoSplash.querySelector('video') : null;
+        const splashSource = splashVideo ? splashVideo.querySelector('source') : null;
 
-        if (videoSplash && splashVideo) {
-            // Keep splash visible while video plays
-            videoSplash.style.display = 'flex';
+        // Session-based check: Only play once per session
+        const hasPlayedThisSession = sessionStorage.getItem('splashPlayed');
+
+        // Detect if mobile (Android/iOS)
+        const isMobile = window.innerWidth <= 992;
+        
+        if (videoSplash && splashVideo && splashSource && !hasPlayedThisSession) {
+            // Set different video for mobile/Android
+            if (isMobile) {
+                splashSource.src = 'JNE_W_B_V_VTSGTS_B_G_videomp_.mp4';
+                splashVideo.load();
+            }
+
+            // Make video fast (2x speed)
+            splashVideo.playbackRate = 2.0;
+
+            // Block scroll initially
+            document.body.classList.add('no-scroll');
             document.body.classList.remove('allow-scroll');
 
-            // When video ends, fade out the splash screen
             splashVideo.addEventListener('ended', () => {
-                // Allow scrolling
+                // Mark as played
+                sessionStorage.setItem('splashPlayed', 'true');
+                
+                document.body.classList.remove('no-scroll');
                 document.body.classList.add('allow-scroll');
-
-                // Fade out animation
                 gsap.to(videoSplash, {
                     opacity: 0,
-                    duration: 0.8,
+                    duration: 0.6,
                     ease: "power2.inOut",
                     onComplete: () => {
                         videoSplash.style.display = 'none';
-                        videoSplash.style.opacity = '1'; // Reset for potential re-use
-                        videoSplash.style.pointerEvents = 'none';
                     }
                 });
             });
 
-            // Fallback: Also hide after 10 seconds max (in case video doesn't end properly)
+            // Fallback
             setTimeout(() => {
-                if (videoSplash.style.display !== 'none') {
+                if (getComputedStyle(videoSplash).display !== 'none') {
+                    sessionStorage.setItem('splashPlayed', 'true');
+                    document.body.classList.remove('no-scroll');
                     document.body.classList.add('allow-scroll');
                     gsap.to(videoSplash, {
                         opacity: 0,
-                        duration: 0.8,
+                        duration: 0.6,
                         ease: "power2.inOut",
                         onComplete: () => {
                             videoSplash.style.display = 'none';
-                            videoSplash.style.opacity = '1';
-                            videoSplash.style.pointerEvents = 'none';
                         }
                     });
                 }
-            }, 10000);
+            }, 8000);
         } else {
-            // If video splash doesn't exist, allow scrolling
+            // Splash already played or missing, skip it
+            if (videoSplash) videoSplash.style.display = 'none';
             document.body.classList.add('allow-scroll');
+            document.body.classList.remove('no-scroll');
         }
 
         // 1. Initialize Swiper Carousel
@@ -4016,7 +4240,7 @@
                     trigger: '.manifesto-content p',
                     start: 'top 80%',
                     end: 'bottom 50%',
-                    scrub: 1,
+                    scrub: 0.5,
                     markers: false
                 }
             });
@@ -4091,7 +4315,7 @@
                 timeZone: 'Australia/Sydney' // Sydney is usually GMT+11 in AEDT
             };
             const timeString = now.toLocaleTimeString('en-US', options);
-            const timeDisplay = document.getElementById('footerTimeDisplay');
+            const timeDisplay = document.getElementById('time-display');
             if (timeDisplay) {
                 timeDisplay.innerText = `${timeString} GMT+11`;
             }
@@ -4105,37 +4329,37 @@
         const serviceData = [
             {
                 title: "Social Media Management",
-                image: "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=800&h=600&fit=crop",
+                image: "social_media_mgmt_1777907673000.png",
                 why: "Social media is where people discover brands, explore products, and build connections. But creating a strong presence requires more than just posting content. With the right mix of creativity, consistency, and strategy, social media becomes a powerful platform for building relationships with your audience and strengthening your brand identity."
             },
             {
                 title: "SEO",
-                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+                image: "seo_optimization_1777907689307.png",
                 why: "SEO ensures that your brand appears when potential customers are actively searching for your services."
             },
             {
                 title: "Digital Marketing Strategy",
-                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=600&fit=crop",
+                image: "marketing_strategy_1777907706366.png",
                 why: "A clear strategy gives your marketing purpose, ensuring every dollar spent drives measurable growth."
             },
             {
                 title: "Paid Advertising",
-                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop",
+                image: "paid_ads_1777907727018.png",
                 why: "Paid ads deliver immediate visibility and targeted reach to connect with high-intent audiences quickly."
             },
             {
                 title: "Wedding Content Creation",
-                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=600&fit=crop",
+                image: "wedding_content_1777907743808.png",
                 why: "Authentic, raw moments captured specifically for social media to let you relive your special day instantly."
             },
             {
                 title: "Photo & Videography",
-                image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&h=600&fit=crop",
+                image: "photo_video_1777907763009.png",
                 why: "High-quality visuals build trust and tell your brand's story more powerfully than words alone."
             },
             {
                 title: "Website Designing",
-                image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+                image: "web_design_1777907780054.png",
                 why: "Your website is your digital storefront; a great design converts visitors into loyal customers."
             }
         ];
@@ -4213,7 +4437,7 @@
 
                 heading.textContent = "Let's Create Something Meaningful";
                 tagline.textContent = "Every brand starts with an idea. With the right creativity and strategy, that idea can grow into something powerful. At RAM Digital Media, we are here to help brands build strong digital identities and connect with the people who matter most.";
-                highlightText.innerHTML = '<span style="font-size: 24px;">✨</span> Let\'s grow your brand in the digital world.';
+                highlightText.innerHTML = '<span style="font-size: 24px;">✨</span> <span style="color: var(--color-primary-yellow);">Let\'s grow your brand in the digital world.</span>';
                 formHeading.textContent = "Get In Touch";
                 messageLabel.textContent = "Message";
                 submitBtn.textContent = "Get In Touch";
@@ -4303,6 +4527,34 @@
         document.addEventListener("mouseenter", () => {
             cursor.style.opacity = "1";
         });
+
+        // Navigation Dropdown Toggle
+        const navDropdownToggle = document.getElementById('navDropdownToggle');
+        const navDropdownMenu = document.getElementById('navDropdownMenu');
+
+        if (navDropdownToggle && navDropdownMenu) {
+            navDropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                navDropdownToggle.classList.toggle('active');
+                navDropdownMenu.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-dropdown')) {
+                    navDropdownToggle.classList.remove('active');
+                    navDropdownMenu.classList.remove('active');
+                }
+            });
+
+            // Close dropdown when clicking a link
+            document.querySelectorAll('.nav-dropdown-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    navDropdownToggle.classList.remove('active');
+                    navDropdownMenu.classList.remove('active');
+                });
+            });
+        }
     });
 </script>
 </body>
