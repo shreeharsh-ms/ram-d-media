@@ -8,6 +8,7 @@ import os
 import time
 from urllib.parse import urljoin
 
+
 def scrape_with_selenium(url, output_dir='portfolio_data'):
     """Scrape using Selenium for JavaScript-rendered content"""
     
