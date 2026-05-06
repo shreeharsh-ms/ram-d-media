@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategic Partner Section</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Great+Vibes&display=swap"
-        rel="stylesheet">
+    <title>About Us | RAM Digital Media</title>
+    <link rel="icon" type="image/jpeg" href="PHOTO-2026-05-06-12-43-27.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -30,10 +28,35 @@
             --color-warm-beige: #FAF8E2;          /* Soft Lemon Beige */
             --color-sunny-cream: #FAF8E2;         /* Soft Lemon Cream */
             --color-white: #FFFFFF;               /* White */
+
+            /* Font Sizes (Responsive with clamp) */
+            --font-size-h1: clamp(2.5rem, 6vw, 5rem);
+            --font-size-h2: clamp(2rem, 4.5vw, 4.5rem);
+            --font-size-h3: clamp(1.5rem, 3vw, 3rem);
+            --font-size-h4: clamp(1.2rem, 2vw, 2rem);
+            --font-size-large-body: clamp(1.05rem, 1.5vw, 1.25rem);
+            --font-size-body: clamp(0.95rem, 1.2vw, 1.1rem);
+            --font-size-small-body: clamp(0.9rem, 1vw, 1rem);
+            --font-size-label: clamp(0.8rem, 0.9vw, 0.95rem);
+            --font-size-caption: clamp(0.7rem, 0.8vw, 0.85rem);
+
+            /* Line Heights */
+            --line-height-tight: 1.1;
+            --line-height-heading: 1.2;
+            --line-height-body: 1.6;
+            --line-height-relaxed: 1.7;
+            --line-height-compact: 1.4;
+
+            /* Letter Spacing */
+            --letter-spacing-tight: -2px;
+            --letter-spacing-normal: 0;
+            --letter-spacing-wide: 0.5px;
+            --letter-spacing-wider: 1px;
+            --letter-spacing-widest: 1.5px;
             
             /* Legacy variables for compatibility */
             --sunflower-yellow: #FCC419;
-            --burnt-orange: #FCC419;              /* CHANGED FROM GREEN TO YELLOW */
+            --burnt-orange: #FCC419;
             --rich-brown: #5F3C28;
             --warm-beige: #FAF8E2;
             --sunny-cream: #FAF8E2;
@@ -45,12 +68,66 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
         }
 
         body {
-            color: var(--text-white);
+            background-color: var(--color-warm-beige);
+            color: var(--color-rich-brown);
+            font-size: var(--font-size-body);
+            line-height: var(--line-height-body);
+            font-weight: 400;
             overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Typography Hierarchy */
+        h1 {
+            font-family: var(--font-display);
+            font-size: var(--font-size-h1);
+            font-weight: 700;
+            line-height: var(--line-height-tight);
+            letter-spacing: var(--letter-spacing-tight);
+            margin-bottom: clamp(16px, 2vw, 32px);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: var(--font-size-h2);
+            font-weight: 700;
+            line-height: var(--line-height-heading);
+            letter-spacing: -2px;
+            margin-bottom: clamp(16px, 2vw, 32px);
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: var(--font-size-h3);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: clamp(12px, 1.5vw, 24px);
+        }
+
+        h4 {
+            font-family: var(--font-body);
+            font-size: var(--font-size-h4);
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: clamp(12px, 1.5vw, 20px);
+        }
+
+        p {
+            font-family: var(--font-body);
+            font-size: var(--font-size-body);
+            font-weight: 400;
+            line-height: var(--line-height-body);
+            margin-bottom: clamp(16px, 2vw, 24px);
+        }
+
+        a {
+            font-family: var(--font-body);
+            font-weight: 600;
+            text-decoration: none;
         }
 
         /* --- Header & Navigation --- */
@@ -88,7 +165,7 @@
         }
 
         header.scrolled .nav-link.active {
-            color: var(--color-burnt-orange);
+            color: var(--color-rich-brown);
         }
 
         header.scrolled .logo-main,
@@ -128,6 +205,7 @@
         .nav-link {
             text-decoration: none;
             color: var(--color-rich-brown);
+            font-family: var(--font-display);
             font-size: 18px;
             font-weight: 500;
             transition: 0.3s ease;
@@ -157,7 +235,7 @@
         }
 
         .nav-link.active {
-            color: var(--color-primary-yellow);
+            color: var(--color-rich-brown);
         }
 
         .nav-link.active::after {
@@ -167,7 +245,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: var(--color-primary-yellow);
+            background: var(--color-rich-brown);
         }
 
         .logo-area {
@@ -276,7 +354,7 @@
 
         .mobile-overlay a {
             color: var(--color-rich-brown);
-            font-family: var(--font-body);
+            font-family: var(--font-display);
             font-size: clamp(18px, 3vw, 22px);
             text-decoration: none;
             margin: 20px 0;
@@ -442,7 +520,6 @@
             text-transform: uppercase;
             letter-spacing: -4px;
             margin-bottom: 40px;
-            border-bottom: 2px solid var(--color-burnt-orange);
             width: 100%;
             color: var(--color-rich-brown);
         }
@@ -483,7 +560,7 @@
         }
 
         .highlight {
-            color: var(--color-primary-yellow);
+            color: var(--color-rich-brown);
         }
 
         /* --- FULL WIDTH HERO IMAGE --- */
@@ -580,26 +657,46 @@
             max-width: 500px;
         }
 
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+        .why-us-narrative {
+            color: var(--color-rich-brown);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            max-width: 700px;
         }
 
-        .why-us-item {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
+        .why-us-narrative p {
+            margin-bottom: 20px;
         }
 
-        .why-us-icon {
-            font-size: 32px;
-            color: var(--color-primary-yellow);
-            min-width: 40px;
-            height: 40px;
+        .why-us-narrative ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .why-us-narrative li {
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        .why-us-narrative .bullet {
+            color: var(--color-rich-brown);
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        .why-us-narrative .highlight-text {
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .why-us-narrative .summary-text {
+            font-weight: 600;
+            opacity: 0.9;
         }
 
         .why-us-item-content h3 {
@@ -631,81 +728,73 @@
             object-fit: cover;
             display: block;
         }
-
         /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background-color: var(--color-sunny-cream);
+            background: url('Gemini_Generated_Image_5wdc7d5wdc7d5wdc.png');
+            background-size: cover;
+            background-position: 50% 40%;
+            background-repeat: no-repeat;
             color: var(--color-rich-brown);
-            padding: 100px 5% 40px 5%;
+            text-shadow: 0 1px 2px rgba(250, 248, 226, 0.5);
+            padding: 60px 5% 600px 5%;
             position: relative;
             overflow: hidden;
-            margin-top: 80px;
+            margin-top: 40px;
+            max-height: 900px;
         }
 
-        .footer::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vh;
-            height: 80vh;
-            background-color: var(--color-pale-yellow);
-            border-radius: 50%;
-            z-index: 0;
+        .footer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 20px;
         }
 
-        .footer-content {
-            position: relative;
-            z-index: 1;
+        .footer-header-left {
+            flex: 1;
         }
 
-        .footer-top {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .footer-top p {
+        .footer-sub {
             font-size: 14px;
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--color-rich-brown);
         }
 
-        .main-heading {
+        .footer-heading {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 12vw, 12rem);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 0.9;
+            letter-spacing: -1px;
+            line-height: 1;
             display: flex;
-            justify-content: center;
             align-items: center;
             gap: 0.1em;
             color: var(--color-rich-brown);
-            white-space: nowrap;
-            width: 100%;
-            overflow: visible;
+            margin: 0;
         }
 
-        .dot-circle {
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            margin: 0;
-            vertical-align: middle;
-            object-fit: contain;
-            background-color: transparent;
+        .footer-header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            text-align: right;
         }
 
         .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            border-top: 2px solid var(--color-burnt-orange);
-            padding-top: 40px;
-            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(95, 60, 40, 0.1);
+        }
+
+        .grid-column {
+            min-width: 150px;
         }
 
         .grid-column h4 {
@@ -720,98 +809,47 @@
             display: inline-block;
         }
 
-        .grid-column ul {
-            list-style: none;
-        }
-
-        .grid-column ul li {
-            font-size: 14px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: var(--color-rich-brown);
-        }
-
-        .grid-column ul li:hover {
-            color: var(--color-primary-yellow);
-            padding-left: 10px;
-        }
-
-        .footer-bottom {
-            margin-top: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding: 0; /* Align with grid content */
-        }
-
         .brand img {
-            height: 100px; /* Big logo */
+            height: 160px;
+            /* Big logo */
             width: auto;
             object-fit: contain;
             display: block;
         }
 
-        .brand h2 {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1;
-            text-transform: uppercase;
-            color: var(--color-rich-brown);
-        }
-
-        .brand span {
-            font-size: 28px;
-            display: block;
-            color: var(--color-rich-brown);
-        }
-
         .local-time {
-            text-align: right;
+            display: none;
         }
 
-        .local-time h4 {
-            font-size: 11px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
+        .dot-circle {
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
+        }
+
+        .grid-column ul {
+            list-style: none;
+        }
+
+        .grid-column ul li,
+        .grid-column ul li a {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             color: var(--color-rich-brown);
+            display: block;
+            text-decoration: none;
         }
 
-        .local-time p {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--color-rich-brown);
-        }
-
-        .decorative-prop {
-            position: absolute;
-            z-index: 1;
-            border-radius: 24px;
-            filter: none;
-            transition: none;
-            overflow: hidden;
-        }
-
-        @media (max-width: 768px) {
-            .decorative-prop {
-                width: 80px !important;
-            }
-
-            .footer-bottom {
-                flex-direction: row !important; /* Keep same line on mobile */
-                justify-content: space-between;
-                align-items: center;
-                text-align: left;
-                width: 100%;
-            }
-
-            .brand img {
-                height: 60px; /* Slightly smaller for mobile but still decent */
-            }
-
-            .local-time {
-                text-align: right;
-            }
+        .grid-column ul li:hover {
+            transform: scale(1.1) translateX(8px);
         }
 
         .fab-container {
@@ -834,13 +872,57 @@
             cursor: pointer;
             transition: 0.3s;
             color: var(--color-rich-brown);
-            border: 2px solid var(--color-burnt-orange);
+            border: 2px solid var(--color-rich-brown);
         }
 
         .fab:hover {
             background: var(--color-burnt-orange);
             color: white;
         }
+
+        .decorative-prop {
+            position: absolute;
+            z-index: 1;
+            border-radius: 24px;
+            filter: none;
+            transition: none;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .decorative-prop {
+                width: 80px !important;
+            }
+
+            .footer-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-header-right {
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .grid-column {
+                min-width: 100%;
+            }
+
+            .brand img {
+                height: 120px;
+            }
+        }
+
+
 
         /* --- Story Section Styles --- */
         .story-section {
@@ -864,7 +946,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 65%;
+            width: 66%; /* Increased from 65% to eliminate sub-pixel white line gap */
             height: 100%;
             z-index: 0;
             /* Move behind the content but above the section background */
@@ -962,18 +1044,6 @@
                 order: -1;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 30px;
-            }
-
             .local-time {
                 text-align: center;
             }
@@ -1031,18 +1101,16 @@
     <header>
         <div class="header-container">
             <ul class="nav-group left">
-                <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="index.html#our-services" class="nav-link">Our Services</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
             </ul>
 
-            <div class="logo-area">
-                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo"
+            <div class="logo-area" style="cursor: pointer;" onclick="window.location.href='index.html'">
+                <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo"
                     style="height: 70px; width: auto; object-fit: contain;">
             </div>
 
             <ul class="nav-group right">
-                <li><a href="index.html#how-we-work" class="nav-link">How We Work</a></li>
                 <li><a href="about-us-hero.html" class="nav-link active">About Us</a></li>
                 <li><a href="index.html#contact-us" class="nav-link">Contact Us</a></li>
             </ul>
@@ -1057,10 +1125,8 @@
     </header>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="#our-services">Our Services</a>
+        <a href="index.html#our-services">Our Services</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="#how-we-work">How We Work</a>
         <a href="about-us-hero.html">About Us</a>
         <a href="index.html#contact-us">Contact Us</a>
     </div>
@@ -1148,11 +1214,10 @@
 
     <!-- Story Section -->
     <section class="story-section">
-        <div class="decorative-line"></div>
+
 
         <!-- Decorative props -->
-        <div class="decorative-prop" id="prop-story-1" style="opacity: 1; z-index: 1;">
-        </div>
+
         <div class="decorative-prop" id="prop-story-2" style="opacity: 1; z-index: 1;">
             <img src="image-Photoroom-3.png" alt="prop"
                 style="width: 100%; border-radius: 8px; filter: none; display: block;">
@@ -1162,7 +1227,7 @@
             <h1>Why the Name <span class="highlight">RAM Digital Media?</span></h1>
 
             <div class="story-text">
-                <p>RAM Digital Media is more than just a business name — it carries a personal story and meaning.</p>
+                <p>RAM Digital Media is more than just a business name it carries a personal story and meaning.</p>
 
                 <p>I am the only child of my father, <span class="highlight">Rajendra Amarchand Meher</span>, and taking
                     his name forward has always been something very close to my heart. The name RAM comes from his
@@ -1191,45 +1256,24 @@
 
         <div class="why-us-content">
             <h2 class="why-us-title">Why<br>Choose<br>Us?</h2>
-            <p class="why-us-subtitle">There are many digital marketing companies today, but at EDEN Digital Media, we
-                believe in working with brands in a more personal and dedicated way.</p>
-
-            <div class="why-us-grid">
-                <div class="why-us-item">
-                    <div class="why-us-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <div class="why-us-item-content">
-                        <h3>Personal & Dedicated Approach</h3>
-                        <p>We don't just see brands as projects — we treat every brand with care, creativity, and
-                            genuine commitment. Our focus is on understanding what makes your brand unique and building
-                            strategies that help communicate that identity clearly.</p>
-                    </div>
-                </div>
-
-                <div class="why-us-item">
-                    <div class="why-us-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <div class="why-us-item-content">
-                        <h3>Fresh Ideas & Strong Strategy</h3>
-                        <p>From planning to execution, we focus on bringing fresh ideas, thoughtful strategies, and
-                            creative content that can help brands connect with modern audiences. We especially
-                            understand the importance of connecting with today's digital-first generation, where
-                            creativity, authenticity, and consistency matter the most.</p>
-                    </div>
-                </div>
-
-                <div class="why-us-item">
-                    <div class="why-us-icon">
-                        <i class="fas fa-hourglass-end"></i>
-                    </div>
-                    <div class="why-us-item-content">
-                        <h3>Long-term Growth</h3>
-                        <p>Support long-term brand growth through dedicated strategies and consistent execution. We're
-                            committed to building sustainable success that grows with your business.</p>
-                    </div>
-                </div>
+            <p class="why-us-subtitle">There are many digital marketing companies today, but at RAM Digital Media, we believe in working with brands in a more personal and dedicated way.</p>
+            
+            <div class="why-us-narrative">
+                <p>We don’t just see brands as projects — we treat every brand with care, creativity, and genuine commitment. Our focus is on understanding what makes your brand unique and building strategies that help communicate that identity clearly.</p>
+                
+                <p>From planning to execution, we focus on bringing fresh ideas, thoughtful strategies, and creative content that can help brands connect with modern audiences.</p>
+                
+                <p>We especially understand the importance of connecting with today’s digital-first generation, where creativity, authenticity, and consistency matter the most.</p>
+                
+                <span class="highlight-text">At RAM Digital Media, our aim is simple:</span>
+                <ul>
+                    <li><span class="bullet">•</span> Bring fresh and creative ideas</li>
+                    <li><span class="bullet">•</span> Build strong digital presence for brands</li>
+                    <li><span class="bullet">•</span> Help brands connect with their audience</li>
+                    <li><span class="bullet">•</span> Support long-term brand growth</li>
+                </ul>
+                
+                <p class="summary-text">When creativity meets the right strategy and dedication, brands naturally begin to stand out — and that is what we strive to achieve with every project we take on.</p>
             </div>
         </div>
 
@@ -1252,12 +1296,18 @@
         </div>
 
         <div class="footer-content">
-
-            <div class="footer-top">
-                <p>Got a project? Need an unfair advantage?</p>
-                <h1 class="main-heading">
-                    GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
-                </h1>
+            <div class="footer-header">
+                <div class="footer-header-left">
+                    <p class="footer-sub">Got a project? Need an unfair advantage?</p>
+                    <h1 class="footer-heading">
+                        GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
+                    </h1>
+                </div>
+                <div class="footer-header-right">
+                    <div class="brand">
+                        <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
+                    </div>
+                </div>
             </div>
 
             <div class="footer-grid">
@@ -1267,13 +1317,13 @@
                         <li><a href="index.html"
                                 style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
                         <li><a href="about-us-hero.html"
-                                 style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
                         <li><a href="index.html#our-services"
-                                 style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="index.html#how-we-work"
-                                 style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How
+                                We Work</a></li>
                         <li><a href="whyChooseUs.html"
-                                 style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
                         <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
                         </li>
                     </ul>
@@ -1281,10 +1331,8 @@
                 <div class="grid-column">
                     <h4>Socials</h4>
                     <ul>
-
                         <li>YouTube</li>
                         <li>Instagram</li>
-
                         <li>Facebook</li>
                     </ul>
                 </div>
@@ -1295,17 +1343,6 @@
                         <li>Case Studies</li>
                         <li>Blog</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="brand">
-                    <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo">
-                </div>
-
-                <div class="local-time">
-                    <h4>Local Time</h4>
-                    <p id="time-display">00:00 PM GMT+11</p>
                 </div>
             </div>
         </div>
@@ -1364,17 +1401,13 @@
         }
 
         // Story Section Props
-        const propStory1 = document.getElementById('prop-story-1');
-        if (propStory1) {
-            propStory1.style.top = '100px';
-            propStory1.style.left = '3%';
-            propStory1.style.width = '280px';
-            propStory1.dataset.rotation = 0;
-        }
-
         const propStory2 = document.getElementById('prop-story-2');
         if (propStory2) {
-            propStory2.style.display = 'none';
+            propStory2.style.top = '15%';
+            propStory2.style.left = '8%';
+            propStory2.style.width = '320px';
+            propStory2.dataset.rotation = 0;
+            propStory2.style.display = 'block';
         }
 
         // Why Choose Us Section Props
@@ -1416,25 +1449,25 @@
             const currentScrollY = window.pageYOffset;
             const scrollDelta = currentScrollY - lastScrollY;
 
-            // Partner Props - Medium and Fast speeds
+            // Partner Props - Very slow speeds
             if (propPartner1) {
                 let rotation = parseFloat(propPartner1.dataset.rotation) || 0;
-                rotation -= scrollDelta * 0.25; // Fast speed
+                rotation -= scrollDelta * 0.04; // Drastically reduced from 0.12
                 propPartner1.dataset.rotation = rotation;
                 propPartner1.style.transform = `rotate(${rotation}deg)`;
             }
 
             if (propPartner2) {
                 let rotation = parseFloat(propPartner2.dataset.rotation) || 0;
-                rotation -= scrollDelta * 0.08; // Slow speed
+                rotation -= scrollDelta * 0.01; // "Too slow" - Adjusted from 0.04
                 propPartner2.dataset.rotation = rotation;
                 propPartner2.style.transform = `rotate(${rotation}deg)`;
             }
 
-            // About Props - Slow and Medium speeds
+            // About Props - Very slow speeds
             if (propAbout1) {
                 let rotation = parseFloat(propAbout1.dataset.rotation) || 0;
-                rotation -= scrollDelta * 0.12; // Medium speed
+                rotation -= scrollDelta * 0.01; // "Too slow" - Adjusted from 0.06
                 propAbout1.dataset.rotation = rotation;
                 propAbout1.style.transform = `rotate(${rotation}deg)`;
             }
@@ -1444,54 +1477,52 @@
                 propAbout2.style.transform = `rotate(0deg)`;
             }
 
-            // Story Props - Fast and Slow speeds
+            // Story Props - Very slow speeds
             if (propStory1) {
                 let rotation = parseFloat(propStory1.dataset.rotation) || 0;
-                rotation -= scrollDelta * 0.20; // Fast speed
+                rotation -= scrollDelta * 0.03; // Adjusted from 0.10
                 propStory1.dataset.rotation = rotation;
                 propStory1.style.transform = `rotate(${rotation}deg)`;
             }
 
             if (propStory2) {
                 let rotation = parseFloat(propStory2.dataset.rotation) || 0;
-                rotation -= scrollDelta * 0.06; // Very slow speed
+                rotation -= scrollDelta * 0.01; // "Too slow" - Adjusted from 0.03
                 propStory2.dataset.rotation = rotation;
                 propStory2.style.transform = `rotate(${rotation}deg)`;
             }
 
-            // Why Choose Us Props - Medium and Very Fast speeds
+            // Why Choose Us Props - Very slow speeds
             if (propWhy1) {
                 let rotation = parseFloat(propWhy1.dataset.rotation) || 0;
-                rotation -= scrollDelta * 0.30; // Very fast speed
+                rotation -= scrollDelta * 0.01; // "Too slow" - Adjusted from 0.12
                 propWhy1.dataset.rotation = rotation;
                 propWhy1.style.transform = `rotate(${rotation}deg)`;
             }
 
             if (propWhy2) {
                 let rotation = parseFloat(propWhy2.dataset.rotation) || 0;
-                rotation -= scrollDelta * 0.11; // Medium-Slow speed
+                rotation -= scrollDelta * 0.02; // Adjusted from 0.05
                 propWhy2.dataset.rotation = rotation;
                 propWhy2.style.transform = `rotate(${rotation}deg)`;
             }
 
-            // Footer Props - Slow and Medium speeds
+            // Footer Props - Minimal rotation
             if (propFooter1) {
                 let rotation = parseFloat(propFooter1.dataset.rotation) || 0;
-                rotation -= scrollDelta * 0.09; // Slow speed
+                rotation -= scrollDelta * 0.02; // Adjusted from 0.09
                 propFooter1.dataset.rotation = rotation;
                 propFooter1.style.transform = `rotate(${rotation}deg) translateX(-50%)`;
             }
 
             if (propFooter2) {
-                // propFooter2 rotates only when footer section is visible
                 const footer = document.querySelector('.footer');
                 const footerRect = footer.getBoundingClientRect();
                 const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
 
                 if (isFooterInView) {
-                    // propFooter2 rotates down when scrolling up (opposite direction)
                     let rotation = parseFloat(propFooter2.dataset.rotation) || -167.93;
-                    rotation += scrollDelta * 0.05; // Much slower rotation speed
+                    rotation += scrollDelta * 0.01; // Very slow speed
                     propFooter2.dataset.rotation = rotation;
                     propFooter2.style.transform = `rotate(${rotation}deg)`;
                 }
@@ -1571,25 +1602,6 @@
 
         revealElements.forEach(el => observer.observe(el));
 
-        // Footer time update
-        function updateTime() {
-            const now = new Date();
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: true,
-                timeZone: 'Australia/Sydney'
-            };
-            const timeString = now.toLocaleTimeString('en-US', options);
-            const timeDisplay = document.getElementById('time-display');
-            if (timeDisplay) {
-                timeDisplay.innerText = `${timeString} GMT+11`;
-            }
-        }
-
-        setInterval(updateTime, 1000);
-        updateTime();
-
         // Enhanced Parallax Effect for Story Section
         const storySection = document.querySelector('.story-section');
 
@@ -1649,6 +1661,9 @@
 <script>
     // --- Custom JS Cursor Logic ---
     document.addEventListener("DOMContentLoaded", () => {
+        // Disable custom cursor on Android
+        if (/Android/i.test(navigator.userAgent)) return;
+
         // Create the cursor element
         const cursor = document.createElement("div");
         cursor.id = "custom-sunflower-cursor";

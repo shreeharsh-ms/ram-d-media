@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | EDEN Digital Media</title>
+    <title>Portfolio | RAM Digital Media</title>
+    <link rel="icon" type="image/jpeg" href="PHOTO-2026-05-06-12-43-27.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
@@ -240,13 +241,14 @@
             align-items: center;
             padding: 5px 0;
             z-index: 1000;
-            background: transparent;
+            background: var(--color-sunny-cream);
             transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(95, 60, 40, 0.1);
         }
 
         header.scrolled {
-            background: var(--sunny-cream);
-            box-shadow: 0 4px 20px rgba(252, 196, 25, 0.2);
+            background: var(--color-sunny-cream);
+            box-shadow: 0 4px 20px rgba(95, 60, 40, 0.15);
         }
 
         header.scrolled .nav-link {
@@ -258,7 +260,7 @@
         }
 
         header.scrolled .nav-link.active {
-            color: var(--burnt-orange);
+            color: var(--rich-brown);
         }
 
         header.scrolled .logo-main,
@@ -298,6 +300,7 @@
         .nav-link {
             text-decoration: none;
             color: var(--rich-brown);
+            font-family: var(--font-display);
             font-size: 18px;
             font-weight: 500;
             transition: 0.3s ease;
@@ -322,7 +325,7 @@
         }
 
         .nav-link.active {
-            color: var(--sunflower-yellow);
+            color: var(--rich-brown);
         }
 
         .nav-link.active::after {
@@ -332,7 +335,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: var(--sunflower-yellow);
+            background: var(--rich-brown);
         }
 
         .logo-area {
@@ -512,7 +515,7 @@
             text-transform: uppercase;
             font-size: 14px;
             letter-spacing: 3px;
-            color: var(--color-primary-yellow);
+            color: var(--rich-brown);
             margin-bottom: 20px;
         }
 
@@ -520,7 +523,7 @@
             font-family: var(--font-display);
             font-size: clamp(4rem, 10vw, 8rem); /* Massive heading */
             line-height: 1;
-            color: var(--sunflower-yellow);
+            color: var(--rich-brown);
             font-weight: 700;
             margin-bottom: 30px;
             text-transform: uppercase;
@@ -663,7 +666,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 700;
-            color: var(--sunflower-yellow);
+            color: white;
             margin-bottom: 8px;
         }
 
@@ -694,77 +697,70 @@
         /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background-color: var(--color-sunny-cream);
+            background: url('Gemini_Generated_Image_5wdc7d5wdc7d5wdc.png');
+            background-size: cover;
+            background-position: 50% 40%;
+            background-repeat: no-repeat;
             color: var(--color-rich-brown);
-            padding: 100px 5% 40px 5%;
+            text-shadow: 0 1px 2px rgba(250, 248, 226, 0.5);
+            padding: 60px 5% 600px 5%;
             position: relative;
             overflow: hidden;
-            margin-top: 0; /* Removed extra space */
+            margin-top: 40px;
+            max-height: 900px;
         }
 
-        .footer::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vh;
-            height: 80vh;
-            background-color: var(--color-pale-yellow);
-            border-radius: 50%;
-            z-index: 0;
+        .footer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 20px;
         }
 
-        .footer-content {
-            position: relative;
-            z-index: 1;
+        .footer-header-left {
+            flex: 1;
         }
 
-        .footer-top {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .footer-top p {
+        .footer-sub {
             font-size: 14px;
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--color-rich-brown);
         }
 
-        .main-heading {
+        .footer-heading {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 12vw, 12rem);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 0.9;
+            letter-spacing: -1px;
+            line-height: 1;
             display: flex;
-            justify-content: center;
             align-items: center;
             gap: 0.1em;
             color: var(--color-rich-brown);
-            white-space: nowrap;
-            width: 100%;
-            overflow: visible;
+            margin: 0;
         }
 
-        .dot-circle {
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            margin: 0;
-            vertical-align: middle;
-            object-fit: contain;
-            background-color: transparent;
+        .footer-header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            text-align: right;
         }
 
         .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            border-top: 2px solid var(--color-burnt-orange);
-            padding-top: 40px;
-            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(95, 60, 40, 0.1);
+        }
+
+        .grid-column {
+            min-width: 150px;
         }
 
         .grid-column h4 {
@@ -779,67 +775,75 @@
             display: inline-block;
         }
 
-        .grid-column ul {
-            list-style: none;
-        }
-
-        .grid-column ul li {
-            font-size: 14px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: var(--color-rich-brown);
-        }
-
-        .grid-column ul li:hover {
-            color: var(--color-primary-yellow);
-            padding-left: 10px;
-        }
-
-        .footer-bottom {
-            margin-top: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding: 0; /* Align with grid content */
-        }
-
         .brand img {
-            height: 100px; /* Big logo */
+            height: 160px;
+            /* Big logo */
             width: auto;
             object-fit: contain;
             display: block;
         }
 
-        .brand h2 {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1;
-            text-transform: uppercase;
-            color: var(--color-rich-brown);
-        }
-
-        .brand span {
-            font-size: 28px;
-            display: block;
-            color: var(--color-rich-brown);
-        }
-
         .local-time {
-            text-align: right;
+            display: none;
         }
 
-        .local-time h4 {
-            font-size: 11px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            color: var(--color-rich-brown);
+        .dot-circle {
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
         }
 
-        .local-time p {
-            font-size: 14px;
-            font-weight: 400;
+        .grid-column ul {
+            list-style: none;
+        }
+
+        .grid-column ul li,
+        .grid-column ul li a {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             color: var(--color-rich-brown);
+            display: block;
+            text-decoration: none;
+        }
+
+        .grid-column ul li:hover {
+            transform: scale(1.1) translateX(8px);
+        }
+
+        .fab-container {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fab {
+            width: 45px;
+            height: 45px;
+            background: var(--color-primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--color-rich-brown);
+            border: 2px solid var(--color-rich-brown);
+        }
+
+        .fab:hover {
+            background: var(--color-burnt-orange);
+            color: white;
         }
 
         .decorative-prop {
@@ -856,20 +860,31 @@
                 width: 80px !important;
             }
 
-            .footer-bottom {
-                flex-direction: row !important; /* Keep same line on mobile */
-                justify-content: space-between;
+            .footer-header {
+                flex-direction: column;
                 align-items: center;
-                text-align: left;
-                width: 100%;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-header-right {
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .grid-column {
+                min-width: 100%;
             }
 
             .brand img {
-                height: 60px; /* Slightly smaller for mobile but still decent */
-            }
-
-            .local-time {
-                text-align: right;
+                height: 120px;
             }
         }
 
@@ -912,11 +927,6 @@
                 padding: 60px 5% 40px 5%;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
             .footer-bottom {
                 flex-direction: column;
                 align-items: center;
@@ -941,18 +951,16 @@
     <header>
         <div class="header-container">
             <ul class="nav-group left">
-                <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="index.html#our-services" class="nav-link">Our Services</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
             </ul>
 
-            <div class="logo-area">
-                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo"
+            <div class="logo-area" style="cursor: pointer;" onclick="window.location.href='index.html'">
+                <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo"
                     style="height: 70px; width: auto; object-fit: contain;">
             </div>
 
             <ul class="nav-group right">
-                <li><a href="index.html#how-we-work" class="nav-link">How We Work</a></li>
                 <li><a href="about-us-hero.html" class="nav-link">About Us</a></li>
                 <li><a href="index.html#contact-us" class="nav-link">Contact Us</a></li>
             </ul>
@@ -967,10 +975,8 @@
     </header>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <a href="index.html">Home</a>
         <a href="index.html#our-services">Our Services</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="index.html#how-we-work">How We Work</a>
         <a href="about-us-hero.html">About Us</a>
         <a href="index.html#contact-us">Contact Us</a>
     </div>
@@ -979,7 +985,6 @@
         <section class="hero-content">
             <h4>Creative Portfolio</h4>
             <h1>Works by Sam</h1>
-            <div class="line-divider"></div>
         </section>
     </main>
 
@@ -991,7 +996,7 @@
             <img src="image-Photoroom (6).png" alt="sunflower" style="width: 100%;">
         </div>
         <div class="decorative-prop" id="prop-vfx-1" style="top: 1200px; right: 5%; width: 320px; opacity: 1; z-index: 1;">
-            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 100%;">
+            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 60%; border-radius: 2px;">
         </div>
         <div class="decorative-prop" id="prop-photo-1" style="top: 1800px; left: 2%; width: 300px; opacity: 1; z-index: 1;">
             <img src="image-Photoroom (1).png" alt="Sunflower" style="width: 100%;">
@@ -1006,7 +1011,7 @@
             <img src="Gemini_Generated_Image_74b7y874b7y874b7-Photoroom.png" alt="sunflower" style="width: 100%;">
         </div>
         <div class="decorative-prop" id="prop-vfx-2" style="top: 8000px; left: 10%; width: 280px; opacity: 1; z-index: 1;">
-            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 100%;">
+            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 60%; border-radius: 2px;">
         </div>
 
         <div class="gallery-grid" id="gallery-grid">
@@ -1024,12 +1029,18 @@
         </div>
 
         <div class="footer-content">
-
-            <div class="footer-top">
-                <p>Got a project? Need an unfair advantage?</p>
-                <h1 class="main-heading">
-                    GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
-                </h1>
+            <div class="footer-header">
+                <div class="footer-header-left">
+                    <p class="footer-sub">Got a project? Need an unfair advantage?</p>
+                    <h1 class="footer-heading">
+                        GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
+                    </h1>
+                </div>
+                <div class="footer-header-right">
+                    <div class="brand">
+                        <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
+                    </div>
+                </div>
             </div>
 
             <div class="footer-grid">
@@ -1038,20 +1049,23 @@
                     <ul>
                         <li><a href="index.html"
                                 style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="about-us-hero.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="index.html#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
-                        <li><a href="whyChooseUs.html" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
+                        <li><a href="about-us-hero.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="index.html#our-services"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How
+                                We Work</a></li>
+                        <li><a href="whyChooseUs.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="grid-column">
                     <h4>Socials</h4>
                     <ul>
-
                         <li>YouTube</li>
                         <li>Instagram</li>
-
                         <li>Facebook</li>
                     </ul>
                 </div>
@@ -1062,17 +1076,6 @@
                         <li>Case Studies</li>
                         <li>Blog</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="brand">
-                    <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo">
-                </div>
-
-                <div class="local-time">
-                    <h4>Local Time</h4>
-                    <p id="time-display">00:00 PM GMT+11</p>
                 </div>
             </div>
         </div>
@@ -1086,24 +1089,7 @@
         </div>
     </footer>
     <script>
-        // Footer time update
-        function updateTime() {
-            const now = new Date();
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: true,
-                timeZone: 'Australia/Sydney'
-            };
-            const timeString = now.toLocaleTimeString('en-US', options);
-            const timeDisplay = document.getElementById('time-display');
-            if (timeDisplay) {
-                timeDisplay.innerText = `${timeString} GMT+11`;
-            }
-        }
 
-        setInterval(updateTime, 1000);
-        updateTime();
 
         // Staggered reveal animation for gallery items
         const galleryObserverOptions = {
@@ -1154,7 +1140,7 @@
 
                     const hasFigmaLink = item.redirect_url && item.redirect_url.toLowerCase().includes('figma.com');
                     const linkHtml = hasFigmaLink 
-                        ? `<p>View full project on <a href="${item.redirect_url}" target="_blank" style="color: var(--sunflower-yellow); text-decoration: underline;">Figma</a></p>`
+                        ? `<p>View full project on <a href="${item.redirect_url}" target="_blank" style="color: white; text-decoration: underline;">Figma</a></p>`
                         : '';
 
                     const galleryItem = document.createElement('div');
@@ -1277,6 +1263,9 @@
     <script>
         // --- Custom JS Cursor Logic ---
         document.addEventListener("DOMContentLoaded", () => {
+            // Disable custom cursor on Android
+            if (/Android/i.test(navigator.userAgent)) return;
+
             // Create the cursor element
             const cursor = document.createElement("div");
             cursor.id = "custom-sunflower-cursor";

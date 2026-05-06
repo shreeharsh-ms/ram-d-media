@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eidan | Project Tactics & Strategies</title>
+    <title>RAM Digital Media | Project Tactics & Strategies</title>
+    <link rel="icon" type="image/jpeg" href="PHOTO-2026-05-06-12-43-27.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -221,14 +222,14 @@
             align-items: center;
             padding: 5px 0;
             z-index: 1000;
-            background: transparent;
+            background: var(--color-sunny-cream);
             transition: background 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: none;
+            box-shadow: 0 2px 8px rgba(95, 60, 40, 0.1);
         }
 
         header.scrolled {
-            background: var(--color-pale-yellow);
-            box-shadow: 0 4px 20px rgba(250, 248, 226, 0.3);
+            background: var(--color-sunny-cream);
+            box-shadow: 0 4px 20px rgba(95, 60, 40, 0.15);
         }
 
         header.scrolled .nav-link {
@@ -240,7 +241,7 @@
         }
 
         header.scrolled .nav-link.active {
-            color: var(--color-burnt-orange);
+            color: var(--color-rich-brown);
         }
 
         header.scrolled .logo-main,
@@ -281,7 +282,7 @@
         .nav-link {
             text-decoration: none;
             color: var(--color-rich-brown);
-            font-family: var(--font-body);
+            font-family: var(--font-display);
             font-size: clamp(16px, 1.2vw, 18px);
             font-weight: 500;
             transition: 0.3s ease;
@@ -311,7 +312,7 @@
         }
 
         .nav-link.active {
-            color: var(--color-primary-yellow);
+            color: var(--color-rich-brown);
         }
 
         .nav-link.active::after {
@@ -321,7 +322,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: var(--color-primary-yellow);
+            background: var(--color-rich-brown);
         }
 
         /* Navigation Dropdown Styles */
@@ -800,7 +801,7 @@
             border-radius: 16px;
             padding: 35px;
             box-shadow: 0 20px 60px rgba(252, 196, 25, 0.25);
-            border: 4px solid var(--color-primary-yellow);
+            border: 4px solid var(--color-rich-brown);
             z-index: 500;
             opacity: 0;
             visibility: hidden;
@@ -873,7 +874,7 @@
         .popup-form input {
             width: 100%;
             padding: var(--spacing-sm) var(--spacing-md);
-            border: 2px solid var(--color-primary-yellow);
+            border: 2px solid var(--color-rich-brown);
             border-radius: 6px;
             font-size: var(--font-size-body);
             box-sizing: border-box;
@@ -1291,12 +1292,13 @@
             header {
                 padding: 15px 0 !important;
                 background: var(--color-pale-yellow) !important;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             }
 
             .header-container {
                 width: 100% !important;
-                padding: 0 20px 0 20px !important; /* 20px left and right padding */
+                padding: 0 20px 0 20px !important;
+                /* 20px left and right padding */
                 margin: 0 !important;
                 display: flex !important;
                 justify-content: space-between !important;
@@ -1313,7 +1315,8 @@
             }
 
             .logo-area img {
-                height: 65px !important; /* Bigger logo as requested */
+                height: 65px !important;
+                /* Bigger logo as requested */
                 display: block;
             }
 
@@ -1326,7 +1329,7 @@
                 cursor: pointer;
                 height: 65px !important;
             }
-            
+
             .hamburger svg {
                 stroke: var(--color-rich-brown) !important;
                 width: 32px;
@@ -1459,7 +1462,7 @@
         .step-item:hover {
             background: rgba(252, 196, 25, 0.2);
             transform: translateX(10px);
-            border-left-color: var(--color-primary-yellow);
+            border-left-color: var(--color-rich-brown);
         }
 
         .step-content {
@@ -1514,7 +1517,7 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 30px 60px rgba(252, 196, 25, 0.2);
-            border: 3px solid var(--color-primary-yellow);
+            border: 3px solid var(--color-rich-brown);
         }
 
         .main-image-container img {
@@ -1562,7 +1565,7 @@
             background: var(--color-sunny-cream);
             padding: var(--card-padding);
             border-radius: 12px;
-            border: 2px solid var(--color-primary-yellow);
+            border: 2px solid var(--color-rich-brown);
             transition: all 0.3s ease;
             font-family: var(--font-body);
         }
@@ -1685,6 +1688,7 @@
             transition: opacity 0.5s ease;
             pointer-events: none;
             text-align: left;
+            background: rgba(250, 248, 226, 0.9);
         }
 
         .services-image-preview:hover .preview-text-overlay {
@@ -1692,8 +1696,8 @@
         }
 
         .preview-text-overlay h4 {
-            font-family: var(--font-body);
-            color: var(--color-primary-yellow);
+            font-family: var(--font-display);
+            color: var(--color-rich-brown);
             margin-bottom: 20px;
             font-size: 24px;
             text-transform: uppercase;
@@ -1705,8 +1709,8 @@
 
         .preview-text-overlay p {
             font-family: var(--font-body);
-            color: #ffffff;
-            font-size: 18px;
+            color: var(--color-rich-brown);
+            font-size: 16px;
             margin: 0;
             line-height: 1.6;
             width: 100%;
@@ -1795,6 +1799,26 @@
             color: var(--color-primary-yellow);
         }
 
+        .service-description-area {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--color-sunny-cream);
+            border-left: 4px solid var(--color-rich-brown);
+            border-radius: 4px;
+            max-width: 90%;
+            min-height: 120px;
+            transition: opacity 0.3s ease;
+        }
+
+        #serviceDescription {
+            font-family: var(--font-body);
+            font-size: clamp(14px, 1.2vw, 16px);
+            line-height: 1.7;
+            color: var(--color-rich-brown);
+            margin: 0;
+            white-space: pre-line;
+        }
+
         /* Detail Column */
         .services-detail h2 {
             font-family: var(--font-display);
@@ -1815,7 +1839,7 @@
 
         .services-btn-outline {
             padding: var(--spacing-md) var(--spacing-lg);
-            border: 2px solid var(--color-primary-yellow);
+            border: 2px solid var(--color-rich-brown);
             border-radius: 30px;
             background: transparent;
             font-family: var(--font-body);
@@ -2701,7 +2725,7 @@
         .contact-form-group textarea {
             width: 100%;
             background-color: var(--color-light-cream);
-            border: 2px solid var(--color-primary-yellow);
+            border: 2px solid var(--color-rich-brown);
             border-radius: 12px;
             padding: 12px 14px;
             font-family: var(--font-body);
@@ -2713,7 +2737,8 @@
 
         .contact-form-group input:focus,
         .contact-form-group textarea:focus {
-            border-color: var(--color-burnt-orange);
+            border-color: var(--color-rich-brown);
+            box-shadow: 0 0 0 4px rgba(95, 60, 40, 0.1);
         }
 
         .contact-form-group textarea {
@@ -2765,12 +2790,7 @@
             gap: 15px;
         }
 
-        .contact-highlight-box {
-            margin: 30px 0;
-            padding: 20px 0;
-            border-top: 2px solid var(--color-primary-yellow);
-            border-bottom: 2px solid var(--color-primary-yellow);
-        }
+
 
         .contact-trusted-text {
             font-family: var(--font-body);
@@ -2900,8 +2920,6 @@
                 border-radius: 0 !important;
                 box-sizing: border-box;
                 box-shadow: none !important;
-                border-top: 1px solid rgba(252, 196, 25, 0.3);
-                border-bottom: 1px solid rgba(252, 196, 25, 0.3);
             }
 
             .contact-form-section {
@@ -2935,59 +2953,92 @@
         /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background-color: var(--color-sunny-cream);
+            background: url('Gemini_Generated_Image_5wdc7d5wdc7d5wdc.png');
+            background-size: cover;
+            background-position: 50% 40%;
+            background-repeat: no-repeat;
             color: var(--color-rich-brown);
-            padding: 100px 5% 40px 5%;
+            text-shadow: 0 1px 2px rgba(250, 248, 226, 0.5);
+            padding: 60px 5% 600px 5%;
             position: relative;
             overflow: hidden;
-            margin-top: 80px;
+            margin-top: 40px;
+            max-height: 900px;
         }
 
-        .footer::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vh;
-            height: 80vh;
-            background-color: var(--color-pale-yellow);
-            border-radius: 50%;
-            z-index: 0;
+        .footer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 20px;
         }
 
-        .footer-content {
-            position: relative;
-            z-index: 1;
+        .footer-header-left {
+            flex: 1;
         }
 
-        .footer-top {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .footer-top p {
+        .footer-sub {
             font-size: 14px;
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--color-rich-brown);
         }
 
-        .main-heading {
+        .footer-heading {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 12vw, 12rem);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 0.9;
+            letter-spacing: -1px;
+            line-height: 1;
             display: flex;
-            justify-content: center;
             align-items: center;
             gap: 0.1em;
             color: var(--color-rich-brown);
-            white-space: nowrap;
-            width: 100%;
-            overflow: visible;
+            margin: 0;
+        }
+
+
+
+        .footer-header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(95, 60, 40, 0.1);
+        }
+
+        .grid-column {
+            min-width: 150px;
+        }
+
+        .grid-column h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--color-rich-brown);
+            opacity: 0.8;
+        }
+
+        .brand img {
+            height: 350px;
+            width: auto;
+            object-fit: contain;
+            margin-top: -30px;
+        }
+
+        .local-time {
+            display: none;
         }
 
         .dot-circle {
@@ -3000,13 +3051,7 @@
             background-color: transparent;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            border-top: 2px solid var(--color-burnt-orange);
-            padding-top: 40px;
-            gap: 40px;
-        }
+
 
         .grid-column h4 {
             font-size: 11px;
@@ -3024,17 +3069,21 @@
             list-style: none;
         }
 
-        .grid-column ul li {
-            font-size: 14px;
-            margin-bottom: 8px;
+        .grid-column ul li,
+        .grid-column ul li a {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 2px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             color: var(--color-rich-brown);
+            display: block;
+            text-decoration: none;
         }
 
         .grid-column ul li:hover {
-            color: var(--color-primary-yellow);
-            padding-left: 10px;
+            transform: scale(1.1) translateX(8px);
         }
 
         .footer-bottom {
@@ -3042,11 +3091,13 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            padding: 0; /* Align with grid content */
+            padding: 0;
+            /* Align with grid content */
         }
 
         .brand img {
-            height: 100px; /* Big logo */
+            height: 160px;
+            /* Big logo */
             width: auto;
             object-fit: contain;
             display: block;
@@ -3098,7 +3149,8 @@
             }
 
             .footer-bottom {
-                flex-direction: row !important; /* Keep same line on mobile */
+                flex-direction: row !important;
+                /* Keep same line on mobile */
                 justify-content: space-between;
                 align-items: center;
                 text-align: left;
@@ -3106,7 +3158,8 @@
             }
 
             .brand img {
-                height: 60px; /* Slightly smaller for mobile but still decent */
+                height: 60px;
+                /* Slightly smaller for mobile but still decent */
             }
 
             .local-time {
@@ -3148,9 +3201,31 @@
                 padding: 60px 5%;
             }
 
+            .footer-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-header-right {
+                align-items: center;
+                text-align: center;
+            }
+
             .footer-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-xl);
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .grid-column {
+                min-width: 100%;
+            }
+
+            .brand img {
+                height: 120px;
             }
 
             .footer-bottom {
@@ -3204,23 +3279,22 @@
     <header>
         <div class="header-container">
             <ul class="nav-group left">
-                <li><a href="#agency-section" class="nav-link active">Home</a></li>
                 <li><a href="#our-services" class="nav-link">Our Services</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
             </ul>
 
-            <div class="logo-area">
-                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo"
+            <div class="logo-area" style="cursor: pointer;" onclick="window.location.href='index.html'">
+                <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo"
                     style="height: 70px; width: auto; object-fit: contain;">
             </div>
 
             <ul class="nav-group right">
-                <li><a href="#how-we-work" class="nav-link">How We Work</a></li>
                 <li><a href="about-us-hero.html" class="nav-link">About Us</a></li>
                 <li><a href="#contact-us" class="nav-link">Contact Us</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rich-brown)" stroke-width="2">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rich-brown)"
+                    stroke-width="2">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -3230,10 +3304,8 @@
     </header>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <a href="index.html">Home</a>
         <a href="#our-services">Our Services</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="#how-we-work">How We Work</a>
         <a href="about-us-hero.html">About Us</a>
         <a href="#contact-us">Contact Us</a>
     </div>
@@ -3278,10 +3350,9 @@
                     The Story
                 </div>
                 <div class="story-col">
+                    <h3 style="font-size: 35px; color: var(--color-rich-brown); margin-bottom: 20px;"><b>A Fresh
+                            Approach to Digital Growth</b></h3>
                     <p class="main-text" style="font-size: 18px;">
-                        <b>
-                            <p style="font-size: 35px;">A Fresh Approach to Digital Growth</p>
-                        </b>
                         Hi, I'm Samruddhi Meher, the founder of RAM Digital Media. What started as an idea to bring
                         fresh
                         thinking into the digital space has now grown into a platform where <span>creativity, strategy,
@@ -3317,9 +3388,10 @@
                     a world where everyone is online, simply being present is not enough. Brands need creativity,
                     courage, and the right digital voice to truly stand out.
                     <br><br>
-                    At EDEN Digital Media, we believe in bringing fresh perspectives to the digital space. We believe in
-                    thinking differently, creating with purpose, and building strategies that help brands grow with
-                    confidence.
+                    At RAM Digital Media, we believe in bringing fresh perspectives to the digital space. We believe in
+                    creativity that connects, strategy that drives results, and technology that empowers brands to grow.
+                    What started as a vision of combining modern thinking into the digital space has now grown into a
+                    platform where <span>creativity, strategy, and legacy</span> come together.
                     <br><br>
                     We believe great marketing is not about noise — it's about meaningful connections, strong ideas, and
                     authentic storytelling.
@@ -3327,8 +3399,9 @@
                     Every brand has the potential to grow, evolve, and reach people who truly connect with it. With the
                     right creativity and strategy, that growth becomes limitless.
                     <br><br>
-                    At EDEN Digital Media, our mission is simple: to help brands move forward with clarity, creativity,
-                    and impact in the digital world.
+                    At RAM Digital Media, our mission is simple: to help brands move forward with clarity, creativity,
+                    and confidence. We take the time to understand your unique story and goals, translating them into
+                    powerful digital experiences that make a lasting impact.
                     <br><br>
                     Because when ideas meet passion and strategy, brands don't just exist — they grow, inspire, and
                     leave a lasting impression.
@@ -3361,13 +3434,16 @@
                     <li data-index="5">Photo & Videography</li>
                     <li data-index="6">Website Designing</li>
                 </ul>
+                <div class="service-description-area">
+                    <p id="serviceDescription"></p>
+                </div>
             </div>
 
             <div class="services-image-preview" id="servicesImagePreview">
-                <img src="service_prop_sunflower_butterfly_1777907794965.png" alt="prop" class="service-prop service-prop-1">
+                <img src="service_prop_sunflower_butterfly_1777907794965.png" alt="prop"
+                    class="service-prop service-prop-1">
                 <div class="image-container">
-                    <img src="social_media_mgmt_1777907673000.png"
-                        id="previewImage" alt="Service Preview">
+                    <img src="social_media_mgmt_1777907673000.png" id="previewImage" alt="Service Preview">
                     <div class="preview-text-overlay">
                         <h4 id="tooltipHeading">Why Social Media Management matters</h4>
                         <p id="tooltipText">Social media is where people discover brands, explore products, and build
@@ -3429,8 +3505,7 @@
                 </div>
 
                 <div class="how-we-work-card">
-                    <div class="how-we-work-card-bg"
-                        style="background-image: url('work_step_grow_1777908030972.png');">
+                    <div class="how-we-work-card-bg" style="background-image: url('work_step_grow_1777908030972.png');">
                     </div>
                     <div class="how-we-work-number">04</div>
                     <div class="how-we-work-content">
@@ -3544,12 +3619,10 @@
                         that idea can grow into something powerful. At RAM Digital Media, we are here to help brands
                         build strong digital identities and connect with the people who matter most.</p>
 
-                    <div class="contact-highlight-box">
-                        <p id="contactHighlightText"
-                            style="font-size: clamp(16px, 1.3vw, 18px); color: var(--color-burnt-orange); font-weight: 700; display: flex; align-items: center; gap: 10px;">
-                            <span style="font-size: 24px;">✨</span> <span style="color: var(--color-primary-yellow);">Let's grow your brand in the digital world.</span>
-                        </p>
-                    </div>
+                    <p id="contactHighlightText"
+                        style="font-size: clamp(16px, 1.3vw, 18px); color: var(--color-rich-brown); font-weight: 700; display: flex; align-items: center; gap: 10px; margin: 20px 0;">
+                        <span>Let's grow your brand in the digital world.</span>
+                    </p>
 
                 </div>
 
@@ -3589,40 +3662,55 @@
     <!-- Footer Section -->
     <footer class="footer">
         <!-- Decorative props -->
-        <div class="decorative-prop" id="prop-footer-1" style="opacity: 1; z-index: 1; display: none; transform: rotate(-1310.35deg) translateX(-50%);" data-rotation="-1310.3549999999996">
+        <div class="decorative-prop" id="prop-footer-1"
+            style="opacity: 1; z-index: 1; display: none; transform: rotate(-1310.35deg) translateX(-50%);"
+            data-rotation="-1310.3549999999996">
         </div>
-        <div class="decorative-prop" id="prop-footer-2" style="opacity: 1; z-index: 1; bottom: -100px; right: -1.9%; width: 480px; transform: rotate(134.905deg);" data-rotation="134.9050000000002">
-            <img src="image-Photoroom (6).png" alt="prop" style="width: 100%; border-radius: 0; filter: none; display: block;">
+        <div class="decorative-prop" id="prop-footer-2"
+            style="opacity: 1; z-index: 1; bottom: -100px; right: -1.9%; width: 480px; transform: rotate(134.905deg);"
+            data-rotation="134.9050000000002">
+            <img src="image-Photoroom (6).png" alt="prop"
+                style="width: 100%; border-radius: 0; filter: none; display: block;">
         </div>
-        
+
         <div class="footer-content">
-            
-            <div class="footer-top">
-                <p>Got a project? Need an unfair advantage?</p>
-                <h1 class="main-heading">
-                    GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
-                </h1>
+            <div class="footer-header">
+                <div class="footer-header-left">
+                    <p class="footer-sub">Got a project? Need an unfair advantage?</p>
+                    <h1 class="footer-heading">
+                        GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
+                    </h1>
+                </div>
+                <div class="footer-header-right">
+                    <div class="brand">
+                        <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
+                    </div>
+                </div>
             </div>
 
             <div class="footer-grid">
                 <div class="grid-column">
                     <h4>Navigation</h4>
                     <ul>
-                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="about-us-hero.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
-                        <li><a href="whyChooseUs.html" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
+                        <li><a href="index.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="about-us-hero.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="#our-services"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How
+                                We Work</a></li>
+                        <li><a href="whyChooseUs.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="grid-column">
                     <h4>Socials</h4>
                     <ul>
-
                         <li>YouTube</li>
                         <li>Instagram</li>
-
                         <li>Facebook</li>
                     </ul>
                 </div>
@@ -3635,22 +3723,13 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <div class="brand">
-                    <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo">
-                </div>
-                
-                <div class="local-time">
-                    <h4>Local Time</h4>
-                    <p id="time-display">04:37 PM GMT+11</p>
-                </div>
-            </div>
         </div>
 
         <div class="fab-container">
             <div class="fab" onclick="lenis.scrollTo(0)">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"></path></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 15l-6-6-6 6"></path>
+                </svg>
             </div>
         </div>
     </footer>
@@ -3666,7 +3745,7 @@
 
         <div class="popup-content">
             <div class="popup-header">
-                <h2>Get A Free SEO Audit 🌻</h2>
+                <h2>Get A Free SEO Audit</h2>
                 <p>Analyze Your Website Performance.<br>Boost Traffic & Rankings.</p>
             </div>
 
@@ -3777,7 +3856,7 @@
 
         // Detect if mobile (Android/iOS)
         const isMobile = window.innerWidth <= 992;
-        
+
         if (videoSplash && splashVideo && splashSource && !hasPlayedThisSession) {
             // Set different video for mobile/Android
             if (isMobile) {
@@ -3795,7 +3874,7 @@
             splashVideo.addEventListener('ended', () => {
                 // Mark as played
                 sessionStorage.setItem('splashPlayed', 'true');
-                
+
                 document.body.classList.remove('no-scroll');
                 document.body.classList.add('allow-scroll');
                 gsap.to(videoSplash, {
@@ -4074,22 +4153,61 @@
             floatingPopup.classList.remove('visible');
         });
 
-        // Form submission
+        // 7. ScrollSpy Implementation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function scrollSpy() {
+            const scrollPos = window.pageYOffset + 150; // Offset for header
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const id = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        link.classList.remove('active');
+                        if (href === `#${id}` || href === `index.html#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', scrollSpy);
+        window.addEventListener('load', scrollSpy);
+
+        // Form submission (WhatsApp Redirect)
         popupForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = popupForm.querySelector('.popup-submit-btn');
             const originalText = btn.textContent;
 
-            btn.textContent = 'Sending...';
+            // Get form values
+            const email = popupForm.querySelector('input[type="email"]').value;
+            const firstName = popupForm.querySelector('input[placeholder="First Name"]').value;
+            const lastName = popupForm.querySelector('input[placeholder="Last Name"]').value;
+            const mobile = popupForm.querySelector('input[type="tel"]').value;
+            const company = popupForm.querySelector('input[placeholder="Company Name"]').value;
+            const website = popupForm.querySelector('input[type="url"]').value;
+
+            // Format WhatsApp Message
+            const whatsappMessage = `*SEO Audit Request*%0A%0A*Name:* ${firstName} ${lastName}%0A*Email:* ${email}%0A*Mobile:* ${mobile}%0A*Company:* ${company}%0A*Website:* ${website}`;
+            const whatsappUrl = `https://wa.me/919890757811?text=${whatsappMessage}`;
+
+            btn.textContent = 'Redirecting...';
             btn.style.opacity = '0.7';
 
             setTimeout(() => {
-                alert('Thank you! Your SEO audit request has been sent.');
+                window.open(whatsappUrl, '_blank');
                 btn.textContent = originalText;
                 btn.style.opacity = '1';
                 popupForm.reset();
                 floatingPopup.classList.remove('visible');
-            }, 1500);
+            }, 1000);
         });
 
         // 7. Content Section Menu & Feature Toggle
@@ -4282,7 +4400,7 @@
         // 9. Instagram Grid - Hover Effects (Already handled by CSS)
         // Grid is now interactive with hover overlays showing like/comment icons
 
-        // 10. Contact Form Submission
+        // 10. Contact Form Submission (WhatsApp Redirect)
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
@@ -4291,17 +4409,30 @@
                 const btn = contactForm.querySelector('.contact-submit-btn');
                 const originalText = btn.textContent;
 
-                btn.textContent = 'Sending...';
+                // Get form values
+                const name = contactForm.querySelector('input[type="text"]').value;
+                const email = contactForm.querySelector('input[type="email"]').value;
+                const message = contactForm.querySelector('textarea').value;
+
+                // Determine Mode (Work with Us vs Join Us)
+                const isWorkMode = document.getElementById('btn-work-with-us').classList.contains('active');
+                const modeText = isWorkMode ? 'Work with Us' : 'Join Us';
+
+                // Format WhatsApp Message
+                const whatsappMessage = `*New Inquiry - ${modeText}*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
+                const whatsappUrl = `https://wa.me/919890757811?text=${whatsappMessage}`;
+
+                btn.textContent = 'Redirecting...';
                 btn.style.opacity = '0.7';
                 btn.disabled = true;
 
                 setTimeout(() => {
-                    alert('Thank you! Your message has been sent successfully. We will get back to you soon!');
+                    window.open(whatsappUrl, '_blank');
                     btn.textContent = originalText;
                     btn.style.opacity = '1';
                     btn.disabled = false;
                     contactForm.reset();
-                }, 1500);
+                }, 1000);
             });
         }
 
@@ -4330,37 +4461,44 @@
             {
                 title: "Social Media Management",
                 image: "social_media_mgmt_1777907673000.png",
+                description: "Social media is one of the most powerful ways for brands to communicate with their audience today. Through thoughtful content, creative visuals, and consistent engagement, social media helps brands build identity and stay connected with their community.\n\nAt RAM Digital Media, we manage your social media presence with a clear strategy, creative storytelling, and content that reflects the true personality of your brand.",
                 why: "Social media is where people discover brands, explore products, and build connections. But creating a strong presence requires more than just posting content. With the right mix of creativity, consistency, and strategy, social media becomes a powerful platform for building relationships with your audience and strengthening your brand identity."
             },
             {
                 title: "SEO",
                 image: "seo_optimization_1777907689307.png",
-                why: "SEO ensures that your brand appears when potential customers are actively searching for your services."
+                description: "Search Engine Optimization helps your website become more visible when people search for products or services online. It focuses on improving website performance, content quality, and search visibility so potential customers can easily discover your brand.\n\nSEO is a long-term approach that helps businesses build credibility and reach people who are actively looking for what they offer.",
+                why: "When people search for products or services online, they usually choose from the first few results they see. SEO helps your brand appear in those search results so potential customers can easily find you. With the right optimization and strategy, SEO improves visibility, credibility, and long-term digital growth."
             },
             {
                 title: "Digital Marketing Strategy",
                 image: "marketing_strategy_1777907706366.png",
-                why: "A clear strategy gives your marketing purpose, ensuring every dollar spent drives measurable growth."
+                description: "A strong digital presence starts with the right strategy. Digital marketing strategy involves understanding your brand, audience, and goals to create a clear plan for online growth.\n\nAt RAM Digital Media, we develop customized strategies that help brands move forward with clarity and purpose in the digital space.",
+                why: "Behind every successful digital brand is a clear strategy. A strong strategy ensures every campaign, post, and marketing effort moves your brand in the right direction. Strategic planning helps brands grow with purpose instead of simply reacting to trends."
             },
             {
                 title: "Paid Advertising",
                 image: "paid_ads_1777907727018.png",
-                why: "Paid ads deliver immediate visibility and targeted reach to connect with high-intent audiences quickly."
+                description: "Paid advertising allows brands to promote their products and services directly to their target audience across digital platforms. It is a powerful way to increase brand visibility and reach potential customers more quickly.\n\nWith thoughtful planning and creative campaigns, paid ads can help brands achieve measurable results and stronger audience engagement.",
+                why: "Paid advertising allows brands to reach their target audience faster and more effectively. With the right targeting and creative campaigns, ads can increase visibility, attract potential customers, and support overall business growth."
             },
             {
                 title: "Wedding Content Creation",
                 image: "wedding_content_1777907743808.png",
-                why: "Authentic, raw moments captured specifically for social media to let you relive your special day instantly."
+                description: "Wedding content creation focuses on capturing the real emotions and candid moments of a wedding day in a natural and modern style. It is designed to document the celebration in a way that feels personal, authentic, and easy to share.\n\nThese moments are captured in a digital-friendly format so couples can quickly relive and share their memories.",
+                why: "While photographers and videographers beautifully capture the main moments of a wedding, wedding content creators focus on capturing the real emotions happening throughout the celebration. From candid laughter to behind-the-scenes excitement, these moments tell the true story of the day and allow couples to relive their memories instantly."
             },
             {
                 title: "Photo & Videography",
                 image: "photo_video_1777907763009.png",
-                why: "High-quality visuals build trust and tell your brand's story more powerfully than words alone."
+                description: "Visual storytelling plays a key role in how brands communicate today. High-quality photos and videos help showcase products, services, and experiences in a visually engaging way.\n\nProfessional visuals help brands create stronger impressions and maintain a consistent visual identity across digital platforms.",
+                why: "Visuals are often the first impression people have of a brand. High-quality photos and videos help communicate your brand story, showcase products, and capture attention in a powerful way, making your brand more memorable across digital platforms."
             },
             {
                 title: "Website Designing",
                 image: "web_design_1777907780054.png",
-                why: "Your website is your digital storefront; a great design converts visitors into loyal customers."
+                description: "We create modern, user-friendly websites that help businesses build a strong online presence. Our focus is on clean design, easy navigation, and websites that represent your brand professionally while making it simple for customers to learn about your services.",
+                why: "A website acts as your brand’s digital home. It helps customers discover your business, understand your services, and trust your brand. A well-designed website improves credibility, supports marketing efforts, and allows your business to be accessible anytime, anywhere."
             }
         ];
 
@@ -4368,29 +4506,42 @@
         const previewImage = document.getElementById('previewImage');
         const tooltipText = document.getElementById('tooltipText');
         const tooltipHeading = document.getElementById('tooltipHeading');
+        const serviceDescription = document.getElementById('serviceDescription');
         const imagePreviewContainer = document.getElementById('servicesImagePreview');
 
-        let currentServiceIndex = 0;
+        let currentServiceIndex = -1; // Force first update
         let serviceInterval;
 
         function updateService(index) {
-            if (index === currentServiceIndex) return; // Prevent unnecessary updates
+            if (index === currentServiceIndex) return;
 
             servicesListItems.forEach(li => li.classList.remove('active'));
             servicesListItems[index].classList.add('active');
 
+            // Fade out preview elements
             previewImage.style.opacity = 0;
+            if (serviceDescription) serviceDescription.style.opacity = 0;
+
             setTimeout(() => {
                 previewImage.src = serviceData[index].image;
                 if (tooltipHeading) {
                     tooltipHeading.textContent = "Why " + serviceData[index].title + " matters";
                 }
                 tooltipText.textContent = serviceData[index].why;
+
+                if (serviceDescription) {
+                    serviceDescription.textContent = serviceData[index].description;
+                    serviceDescription.style.opacity = 1;
+                }
+
                 previewImage.style.opacity = 1;
             }, 300);
 
             currentServiceIndex = index;
         }
+
+        // Initialize first service
+        updateService(0);
 
         function startServiceAutoRotation() {
             serviceInterval = setInterval(() => {
@@ -4455,108 +4606,111 @@
         }
     </script>
 
-<style>
-/* --- Custom JS Cursor Styles --- */
-* {
-    cursor: none !important;
-}
+    <style>
+        /* --- Custom JS Cursor Styles --- */
+        * {
+            cursor: none !important;
+        }
 
-#custom-sunflower-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 72px;
-    height: 72px;
-    background-image: url("image-Photoroom-2.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 999999;
-    transform: translate(-50%, -50%);
-    will-change: transform, left, top;
-    transition: opacity 0.2s;
-}
-</style>
-<script>
-    // --- Custom JS Cursor Logic ---
-    document.addEventListener("DOMContentLoaded", () => {
-        // Create the cursor element
-        const cursor = document.createElement("div");
-        cursor.id = "custom-sunflower-cursor";
-        document.body.appendChild(cursor);
+        #custom-sunflower-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 72px;
+            height: 72px;
+            background-image: url("image-Photoroom-2.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            will-change: transform, left, top;
+            transition: opacity 0.2s;
+        }
+    </style>
+    <script>
+        // --- Custom JS Cursor Logic ---
+        document.addEventListener("DOMContentLoaded", () => {
+            // Disable custom cursor on Android
+            if (/Android/i.test(navigator.userAgent)) return;
 
-        let currentAngle = 0;
-        let lastX = -1;
-        let lastY = -1;
-        
-        // Use requestAnimationFrame for smooth performance
-        let mouseX = -100;
-        let mouseY = -100;
+            // Create the cursor element
+            const cursor = document.createElement("div");
+            cursor.id = "custom-sunflower-cursor";
+            document.body.appendChild(cursor);
 
-        document.addEventListener("mousemove", (e) => {
-            if (lastX === -1) {
+            let currentAngle = 0;
+            let lastX = -1;
+            let lastY = -1;
+
+            // Use requestAnimationFrame for smooth performance
+            let mouseX = -100;
+            let mouseY = -100;
+
+            document.addEventListener("mousemove", (e) => {
+                if (lastX === -1) {
+                    lastX = e.clientX;
+                    lastY = e.clientY;
+                }
+
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                // Determine direction of rotation based on X movement
+                const direction = dx > 0 ? 1 : (dx < 0 ? -1 : 1);
+
+                // Rotate based on movement distance
+                currentAngle += distance * 1.5 * direction;
+
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                cursor.style.left = mouseX + "px";
+                cursor.style.top = mouseY + "px";
+                cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+
                 lastX = e.clientX;
                 lastY = e.clientY;
-            }
-            
-            const dx = e.clientX - lastX;
-            const dy = e.clientY - lastY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            // Determine direction of rotation based on X movement
-            const direction = dx > 0 ? 1 : (dx < 0 ? -1 : 1);
-            
-            // Rotate based on movement distance
-            currentAngle += distance * 1.5 * direction;
-            
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            cursor.style.left = mouseX + "px";
-            cursor.style.top = mouseY + "px";
-            cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
-            
-            lastX = e.clientX;
-            lastY = e.clientY;
-        });
-
-        document.addEventListener("mouseleave", () => {
-            cursor.style.opacity = "0";
-        });
-        document.addEventListener("mouseenter", () => {
-            cursor.style.opacity = "1";
-        });
-
-        // Navigation Dropdown Toggle
-        const navDropdownToggle = document.getElementById('navDropdownToggle');
-        const navDropdownMenu = document.getElementById('navDropdownMenu');
-
-        if (navDropdownToggle && navDropdownMenu) {
-            navDropdownToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                navDropdownToggle.classList.toggle('active');
-                navDropdownMenu.classList.toggle('active');
             });
 
-            // Close dropdown when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.nav-dropdown')) {
-                    navDropdownToggle.classList.remove('active');
-                    navDropdownMenu.classList.remove('active');
-                }
+            document.addEventListener("mouseleave", () => {
+                cursor.style.opacity = "0";
+            });
+            document.addEventListener("mouseenter", () => {
+                cursor.style.opacity = "1";
             });
 
-            // Close dropdown when clicking a link
-            document.querySelectorAll('.nav-dropdown-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    navDropdownToggle.classList.remove('active');
-                    navDropdownMenu.classList.remove('active');
+            // Navigation Dropdown Toggle
+            const navDropdownToggle = document.getElementById('navDropdownToggle');
+            const navDropdownMenu = document.getElementById('navDropdownMenu');
+
+            if (navDropdownToggle && navDropdownMenu) {
+                navDropdownToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navDropdownToggle.classList.toggle('active');
+                    navDropdownMenu.classList.toggle('active');
                 });
-            });
-        }
-    });
-</script>
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.nav-dropdown')) {
+                        navDropdownToggle.classList.remove('active');
+                        navDropdownMenu.classList.remove('active');
+                    }
+                });
+
+                // Close dropdown when clicking a link
+                document.querySelectorAll('.nav-dropdown-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        navDropdownToggle.classList.remove('active');
+                        navDropdownMenu.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 

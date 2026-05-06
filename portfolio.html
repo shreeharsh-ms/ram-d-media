@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | EDEN Digital Media</title>
+    <title>Portfolio | RAM Digital Media</title>
+    <link rel="icon" type="image/jpeg" href="PHOTO-2026-05-06-12-43-27.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
@@ -232,14 +233,14 @@
             --sunny-cream: #FAF8E2;
             --rich-brown: #5F3C28;
             --warm-beige: #FAF8E2;
-            --burnt-orange: #5B8C2A;
+            --burnt-orange: #FCC419;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
         }
 
         body, html {
@@ -263,13 +264,14 @@
             align-items: center;
             padding: 5px 0;
             z-index: 1000;
-            background: transparent;
+            background: var(--color-sunny-cream);
             transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(95, 60, 40, 0.1);
         }
 
         header.scrolled {
-            background: var(--sunny-cream);
-            box-shadow: 0 4px 20px rgba(252, 196, 25, 0.2);
+            background: var(--color-sunny-cream);
+            box-shadow: 0 4px 20px rgba(95, 60, 40, 0.15);
         }
 
         header.scrolled .nav-link {
@@ -281,7 +283,7 @@
         }
 
         header.scrolled .nav-link.active {
-            color: var(--burnt-orange);
+            color: var(--color-rich-brown);
         }
 
         header.scrolled .logo-main,
@@ -321,6 +323,7 @@
         .nav-link {
             text-decoration: none;
             color: var(--rich-brown);
+            font-family: var(--font-display);
             font-size: 18px;
             font-weight: 500;
             transition: 0.3s ease;
@@ -345,7 +348,7 @@
         }
 
         .nav-link.active {
-            color: var(--sunflower-yellow);
+            color: var(--color-rich-brown);
         }
 
         .nav-link.active::after {
@@ -355,7 +358,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: var(--sunflower-yellow);
+            background: var(--color-rich-brown);
         }
 
         .logo-area {
@@ -522,10 +525,10 @@
             width: 100%;
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             align-items: center;
             padding: 0 8%;
-            gap: 20px;
+            gap: 40px;
             padding-top: 150px;
             background: var(--white);
             position: relative;
@@ -570,7 +573,7 @@
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 2px;
-            color: var(--color-primary-yellow); /* Yellow color */
+            color: #5F3C28; /* Changed from Yellow to Brown */
             margin-bottom: 25px;
         }
 
@@ -578,17 +581,12 @@
             font-family: var(--font-display); /* Footer font */
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             line-height: 1.1;
-            color: var(--sunflower-yellow);
+            color: #5F3C28; /* Changed from Yellow to Brown */
             font-weight: 600;
             margin-bottom: 20px;
         }
 
-        .line-divider {
-            width: 50px;
-            height: 1.5px;
-            background-color: var(--sunflower-yellow);
-            margin-bottom: 25px;
-        }
+
 
         .hero-content p {
             color: var(--rich-brown);
@@ -616,10 +614,10 @@
         }
 
         .btn-appointment:hover {
-            background-color: var(--burnt-orange);
-            color: white;
-            box-shadow: 0 10px 20px rgba(252, 196, 25, 0.2);
-            transform: translateY(-2px);
+            background-color: var(--sunflower-yellow);
+            color: var(--rich-brown);
+            box-shadow: 0 15px 30px rgba(252, 196, 25, 0.3);
+            transform: translateY(-5px) scale(1.05);
         }
 
         /* Center Column - Image */
@@ -697,9 +695,6 @@
             .hero-content p {
                 max-width: 100%;
             }
-            .line-divider {
-                margin: 0 auto 25px auto;
-            }
         }
 
 
@@ -713,17 +708,15 @@
     <header>
         <div class="header-container">
             <ul class="nav-group left">
-                <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="index.html#our-services" class="nav-link">Our Services</a></li>
                 <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
             </ul>
 
-            <div class="logo-area">
-                <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo" style="height: 70px; width: auto; object-fit: contain;">
+            <div class="logo-area" style="cursor: pointer;" onclick="window.location.href='index.html'">
+                <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo" style="height: 70px; width: auto; object-fit: contain;">
             </div>
 
             <ul class="nav-group right">
-                <li><a href="index.html#how-we-work" class="nav-link">How We Work</a></li>
                 <li><a href="about-us-hero.html" class="nav-link">About Us</a></li>
                 <li><a href="index.html#contact-us" class="nav-link">Contact Us</a></li>
             </ul>
@@ -738,10 +731,8 @@
     </header>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <a href="index.html">Home</a>
         <a href="index.html#our-services">Our Services</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="index.html#how-we-work">How We Work</a>
         <a href="about-us-hero.html">About Us</a>
         <a href="index.html#contact-us">Contact Us</a>
     </div>
@@ -759,7 +750,6 @@
         <section class="hero-content">
             <h4>Creative Portfolio</h4>
             <h1>Works by Sam</h1>
-            <div class="line-divider"></div>
             <p>Every project, idea, and collaboration helps shape the creative journey of RAM Digital Media. This portfolio reflects the experience, skills, and creative work that continue to grow with every brand we work with.</p>
             <button class="btn-appointment" onclick="window.location.href='works-by-sam.html'">
                 <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -769,8 +759,6 @@
 
         <section class="hero-image-wrap">
             <div class="oval-mask"></div>
-        </section>
-
         </section>
     </main>
 
@@ -840,14 +828,14 @@
     <div class="horizontal-scroll-wrapper" id="scrollWrapper">
         <div class="sticky-container">
             <!-- Decorative prop -->
-            <div class="decorative-prop" id="prop-scroll-1" data-rotation="0" data-speed="0.15" style="position: absolute;z-index: 1;bottom: -1000px;left: -12px;transform: rotate(0deg);width: 300px;">
-                <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 320px; ">
+            <div class="decorative-prop" id="prop-scroll-1" data-rotation="0" data-speed="0.15" style="position: absolute; z-index: 1; bottom: 10px; left: 10px; transform: rotate(0deg); width: 20px;">
+                <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 60%; border-radius: 2px;">
             </div>
             
             <div class="scroll-content" id="scrollContent">
                 
                 <div class="intro-slide">
-                    <h1>IT Company<br>UI Designer & Social Media Manager<br><em style="font-size: 0.6em; font-weight: 400;">(3.5 Years)</em></h1>
+                    <h1>Professional Experience<br>IT Company<br><em style="font-size: 0.6em; font-weight: 400;">UI Designer & Social Media Manager (3.5 Years)</em></h1>
                 </div>
 
                 <div class="museum-card">
@@ -856,7 +844,7 @@
                         <div class="card-info">
                             <strong>UI Designer & Social Media Manager</strong><br>
                             <em>3.5 Years</em><br><br>
-                            Before starting RAM Digital Media, valuable experience was gained while working in an IT company where the focus was on digital creativity, brand communication, and social media growth.
+                            Before starting RAM Digital Media, valuable experience was gained while working in an IT company where the focus was on digital creativity, brand communication, and social media growth. This experience helped build strong practical knowledge in design, content creation, and digital strategy.
                         </div>
                     </div>
                     <div class="image-box img-1">
@@ -869,7 +857,7 @@
                         <h2>Social Media Content</h2>
                         <div class="card-info">
                             <strong>Managing and Planning</strong><br>
-                            Developing comprehensive social media strategies and content calendars across multiple platforms to ensure consistent brand messaging and audience engagement.
+                            Managing and planning social media content across multiple platforms to ensure consistent brand messaging and audience engagement.
                         </div>
                     </div>
                     <div class="image-box img-2">
@@ -882,7 +870,7 @@
                         <h2>Creative Design</h2>
                         <div class="card-info">
                             <strong>Visual Graphics & Posts</strong><br>
-                            Designing eye-catching social media posts and visual graphics that align with brand identity and effectively communicate key messages to target audiences.
+                            Designing creative social media posts and visual graphics that align with brand identity and effectively communicate key messages to target audiences.
                         </div>
                     </div>
                     <div class="image-box img-3">
@@ -895,7 +883,7 @@
                         <h2>UI/UX Concepts</h2>
                         <div class="card-info">
                             <strong>Website Design</strong><br>
-                            Developing innovative UI concepts for websites and user experiences that enhance usability and create compelling digital interactions.
+                            Developing UI concepts for websites and user experiences that enhance usability and create compelling digital interactions.
                         </div>
                     </div>
                     <div class="image-box img-4">
@@ -908,7 +896,7 @@
                         <h2>Website Development</h2>
                         <div class="card-info">
                             <strong>Layout & Design Support</strong><br>
-                            Supporting website designing and implementing layout improvements to optimize performance and enhance overall user experience.
+                            Supporting website designing and layout improvements to optimize performance and enhance overall user experience.
                         </div>
                     </div>
                     <div class="image-box img-5">
@@ -921,7 +909,7 @@
                         <h2>Content Creation</h2>
                         <div class="card-info">
                             <strong>Digital Content</strong><br>
-                            Creating engaging and diverse digital content for different platforms including videos, graphics, and written content that drives audience engagement.
+                            Creating engaging digital content for different platforms including videos and graphics that drive audience engagement.
                         </div>
                     </div>
                     <div class="image-box img-6">
@@ -934,7 +922,7 @@
                         <h2>Brand Promotions</h2>
                         <div class="card-info">
                             <strong>Creative Planning</strong><br>
-                            Planning and executing creative promotional ideas that drive brand awareness, engagement, and customer acquisition across all marketing channels.
+                            Planning creative ideas for brand promotions that drive awareness and engagement across all marketing channels.
                         </div>
                     </div>
                     <div class="image-box img-7">
@@ -947,7 +935,7 @@
                         <h2>Analytics & Reporting</h2>
                         <div class="card-info">
                             <strong>Performance Metrics</strong><br>
-                            Preparing comprehensive monthly performance reports and analytics to track campaign success and identify opportunities for optimization and growth.
+                            Preparing monthly performance reports and analytics to track campaign success and coordinating design, marketing, and social media tasks.
                         </div>
                     </div>
                     <div class="image-box img-8">
@@ -1272,7 +1260,6 @@
             margin-bottom: 12px;
             gap: 10px;
             padding-bottom: 10px;
-            border-bottom: 2px solid rgba(255, 140, 0, 0.15);
         }
 
         .carousel-label {
@@ -1511,7 +1498,7 @@
             font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 20px;
-            color: var(--sunflower-yellow);
+            color: #5F3C28;
         }
 
         .explore-header-left p {
@@ -1564,7 +1551,7 @@
             flex-direction: column;
             position: relative;
             transition: all 0.3s ease;
-            border: 2px solid var(--sunflower-yellow);
+            border: 2px solid #5F3C28;
         }
 
         .explore-card:hover {
@@ -1598,7 +1585,7 @@
             right: 25px;
             width: 24px;
             height: 24px;
-            border: 2px solid var(--sunflower-yellow);
+            border: 2px solid #5F3C28;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1609,7 +1596,7 @@
             content: '';
             width: 8px;
             height: 8px;
-            background: var(--sunflower-yellow);
+            background: #5F3C28;
             border-radius: 50%;
         }
 
@@ -1618,7 +1605,7 @@
             font-size: 2rem;
             margin-bottom: 15px;
             line-height: 1.2;
-            color: var(--sunflower-yellow);
+            color: #5F3C28;
         }
 
         .explore-card .explore-description {
@@ -1923,7 +1910,7 @@
         .work-header-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: var(--sunflower-yellow);
+            color: #5F3C28;
             margin-bottom: 15px;
             font-weight: 700;
         }
@@ -2095,77 +2082,70 @@
         /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background-color: var(--color-sunny-cream);
+            background: url('Gemini_Generated_Image_5wdc7d5wdc7d5wdc.png');
+            background-size: cover;
+            background-position: 50% 40%;
+            background-repeat: no-repeat;
             color: var(--color-rich-brown);
-            padding: 100px 5% 40px 5%;
+            text-shadow: 0 1px 2px rgba(250, 248, 226, 0.5);
+            padding: 60px 5% 600px 5%;
             position: relative;
             overflow: hidden;
-            margin-top: 0;
+            margin-top: 40px;
+            max-height: 900px;
         }
 
-        .footer::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vh;
-            height: 80vh;
-            background-color: var(--color-pale-yellow);
-            border-radius: 50%;
-            z-index: 0;
+        .footer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 20px;
         }
 
-        .footer-content {
-            position: relative;
-            z-index: 1;
+        .footer-header-left {
+            flex: 1;
         }
 
-        .footer-top {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .footer-top p {
+        .footer-sub {
             font-size: 14px;
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--color-rich-brown);
         }
 
-        .main-heading {
+        .footer-heading {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 12vw, 12rem);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 0.9;
+            letter-spacing: -1px;
+            line-height: 1;
             display: flex;
-            justify-content: center;
             align-items: center;
             gap: 0.1em;
             color: var(--color-rich-brown);
-            white-space: nowrap;
-            width: 100%;
-            overflow: visible;
+            margin: 0;
         }
 
-        .dot-circle {
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            margin: 0;
-            vertical-align: middle;
-            object-fit: contain;
-            background-color: transparent;
+        .footer-header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            text-align: right;
         }
 
         .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            border-top: 2px solid var(--color-burnt-orange);
-            padding-top: 40px;
-            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(95, 60, 40, 0.1);
+        }
+
+        .grid-column {
+            min-width: 150px;
         }
 
         .grid-column h4 {
@@ -2180,67 +2160,75 @@
             display: inline-block;
         }
 
-        .grid-column ul {
-            list-style: none;
-        }
-
-        .grid-column ul li {
-            font-size: 14px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: var(--color-rich-brown);
-        }
-
-        .grid-column ul li:hover {
-            color: var(--color-primary-yellow);
-            padding-left: 10px;
-        }
-
-        .footer-bottom {
-            margin-top: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding: 0; /* Align with grid content */
-        }
-
         .brand img {
-            height: 100px; /* Big logo */
+            height: 160px;
+            /* Big logo */
             width: auto;
             object-fit: contain;
             display: block;
         }
 
-        .brand h2 {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1;
-            text-transform: uppercase;
-            color: var(--color-rich-brown);
-        }
-
-        .brand span {
-            font-size: 28px;
-            display: block;
-            color: var(--color-rich-brown);
-        }
-
         .local-time {
-            text-align: right;
+            display: none;
         }
 
-        .local-time h4 {
-            font-size: 11px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            color: var(--color-rich-brown);
+        .dot-circle {
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
         }
 
-        .local-time p {
-            font-size: 14px;
-            font-weight: 400;
+        .grid-column ul {
+            list-style: none;
+        }
+
+        .grid-column ul li,
+        .grid-column ul li a {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             color: var(--color-rich-brown);
+            display: block;
+            text-decoration: none;
+        }
+
+        .grid-column ul li:hover {
+            transform: scale(1.1) translateX(8px);
+        }
+
+        .fab-container {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fab {
+            width: 45px;
+            height: 45px;
+            background: var(--color-primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--color-rich-brown);
+            border: 2px solid var(--color-rich-brown);
+        }
+
+        .fab:hover {
+            background: var(--color-burnt-orange);
+            color: white;
         }
 
         .decorative-prop {
@@ -2257,20 +2245,31 @@
                 width: 80px !important;
             }
 
-            .footer-bottom {
-                flex-direction: row !important; /* Keep same line on mobile */
-                justify-content: space-between;
+            .footer-header {
+                flex-direction: column;
                 align-items: center;
-                text-align: left;
-                width: 100%;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-header-right {
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .grid-column {
+                min-width: 100%;
             }
 
             .brand img {
-                height: 60px; /* Slightly smaller for mobile but still decent */
-            }
-
-            .local-time {
-                text-align: right;
+                height: 120px;
             }
         }
 
@@ -2310,16 +2309,6 @@
             background: var(--color-burnt-orange);
             color: white;
         }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 60px 5% 40px 5%;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
 
             .footer-bottom {
                 flex-direction: column;
@@ -2477,33 +2466,43 @@
         </div>
         
         <div class="footer-content">
-            
-            <div class="footer-top">
-                <p>Got a project? Need an unfair advantage?</p>
-                <h1 class="main-heading">
-                    GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
-                </h1>
+            <div class="footer-header">
+                <div class="footer-header-left">
+                    <p class="footer-sub">Got a project? Need an unfair advantage?</p>
+                    <h1 class="footer-heading">
+                        GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
+                    </h1>
+                </div>
+                <div class="footer-header-right">
+                    <div class="brand">
+                        <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
+                    </div>
+                </div>
             </div>
 
             <div class="footer-grid">
                 <div class="grid-column">
                     <h4>Navigation</h4>
                     <ul>
-                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="about-us-hero.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="index.html#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
-                        <li><a href="whyChooseUs.html" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
+                        <li><a href="index.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="about-us-hero.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="index.html#our-services"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How
+                                We Work</a></li>
+                        <li><a href="whyChooseUs.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="grid-column">
                     <h4>Socials</h4>
                     <ul>
-
                         <li>YouTube</li>
                         <li>Instagram</li>
-
                         <li>Facebook</li>
                     </ul>
                 </div>
@@ -2516,17 +2515,6 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <div class="brand">
-                    <img src="image-Photoroom (2).png" alt="EDEN Digital Media Logo">
-                </div>
-                
-                <div class="local-time">
-                    <h4>Local Time</h4>
-                    <p id="time-display">00:00 PM GMT+11</p>
-                </div>
-            </div>
         </div>
 
         <div class="fab-container">
@@ -2536,24 +2524,7 @@
         </div>
     </footer>
     <script>
-        // Footer time update
-        function updateTime() {
-            const now = new Date();
-            const options = { 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                hour12: true,
-                timeZone: 'Australia/Sydney'
-            };
-            const timeString = now.toLocaleTimeString('en-US', options);
-            const timeDisplay = document.getElementById('time-display');
-            if (timeDisplay) {
-                timeDisplay.innerText = `${timeString} GMT+11`;
-            }
-        }
 
-        setInterval(updateTime, 1000);
-        updateTime();
 
         // Footer Section Props Initialization
         const propFooter1 = document.getElementById('prop-footer-1');
@@ -2656,6 +2627,9 @@
 <script>
     // --- Custom JS Cursor Logic ---
     document.addEventListener("DOMContentLoaded", () => {
+        // Disable custom cursor on Android
+        if (/Android/i.test(navigator.userAgent)) return;
+
         // Create the cursor element
         const cursor = document.createElement("div");
         cursor.id = "custom-sunflower-cursor";
