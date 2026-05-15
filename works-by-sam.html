@@ -555,6 +555,7 @@
             background-color: transparent;
             /* Allow background props to show through */
             position: relative;
+            overflow: hidden; /* Prevent props from leaking into footer */
         }
 
         .filter-bar {
@@ -751,17 +752,20 @@
         /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background: url('Gemini_Generated_Image_5wdc7d5wdc7d5wdc.png');
+            background: url('Gemini_Generated_Image_6vq106vq106vq106 (1).png');
             background-size: cover;
-            background-position: 50% 40%;
+            background-position: center bottom;
             background-repeat: no-repeat;
             color: var(--color-rich-brown);
             text-shadow: 0 1px 2px rgba(250, 248, 226, 0.5);
-            padding: 60px 5% 600px 5%;
+            padding: 120px 5% 150px 5%;
             position: relative;
             overflow: hidden;
             margin-top: 40px;
-            max-height: 900px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .footer-header {
@@ -800,9 +804,20 @@
         .footer-header-right {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
+            /* Centered for brand logo + founder text */
             gap: 15px;
-            text-align: right;
+            text-align: center;
+        }
+
+        .founder-text {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--color-rich-brown);
+            margin: 0;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
         }
 
         .footer-grid {
@@ -815,6 +830,61 @@
 
         .grid-column {
             min-width: 150px;
+        }
+
+        .brand img {
+            height: 160px;
+            /* Big logo */
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Footer Semicircle Bump */
+        .footer-bump {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-bump img {
+            width: 180px;
+            height: auto;
+            margin-top: 100px;
+            /* Push it down so only half shows in the footer */
+            object-fit: contain;
+        }
+
+        @media (max-width: 992px) {
+            .footer-bump {
+                width: 200px;
+                height: 200px;
+            }
+
+            .footer-bump img {
+                width: 130px;
+                margin-top: 70px;
+            }
+        }
+
+        .dot-circle {
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
         }
 
         .grid-column h4 {
@@ -833,8 +903,6 @@
 
         .grid-column ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
 
         .grid-column ul li,
@@ -850,45 +918,66 @@
             text-decoration: none;
         }
 
-        .grid-column ul li:hover {
-            transform: scale(1.05) translateX(5px);
+        /* Footer Social Icons Corner */
+        .footer-social-corner {
+            position: absolute;
+            right: 5%;
+            bottom: 25%;
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            z-index: 10;
         }
 
-        .brand img {
-            height: 160px;
-            /* Big logo */
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        .local-time {
-            display: none;
-        }
-
-        .dot-circle {
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            margin: 0;
-            vertical-align: middle;
-            object-fit: contain;
-            background-color: transparent;
-        }
-
-        .grid-column ul {
-            list-style: none;
-        }
-
-        .grid-column ul li,
-        .grid-column ul li a {
-            font-family: var(--font-display);
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .social-icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--color-rich-brown);
-            display: block;
             text-decoration: none;
+            font-size: 32px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .social-icon-box:hover {
+            transform: scale(1.2) rotate(15deg);
+            background-color: var(--color-primary-yellow);
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 992px) {
+            .footer-bump {
+                display: none !important;
+            }
+
+            .founder-text {
+                font-size: 12px;
+                text-align: left;
+            }
+
+            .footer-header-right {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .footer-social-corner {
+                right: 5%;
+                bottom: 15%;
+                flex-direction: row;
+                /* Row on mobile for better space usage */
+                gap: 15px;
+            }
+
+            .social-icon-box {
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
         }
 
         .grid-column ul li:hover {
@@ -932,6 +1021,7 @@
             overflow: hidden;
         }
 
+        /* Responsive Footer */
         @media (max-width: 768px) {
 
             #prop-footer-1,
@@ -947,7 +1037,7 @@
 
             .footer {
                 padding: 60px 8% 40px;
-                background-image: url('28390e68-2146-4732-826b-f44d09598f2a.jpeg');
+                background-image: url('Gemini_Generated_Image_6vq106vq106vq106 AND.png');
                 background-size: 100% auto;
                 background-position: top center;
                 background-repeat: no-repeat;
@@ -1129,20 +1219,20 @@
             style="top: -200px; left: -5%; width: 400px; opacity: 1; z-index: 1;">
         </div>
         <div class="decorative-prop" id="prop-hero-2"
-            style="top: 400px; right: -8%; width: 500px; opacity: 1; z-index: 1;">
+            style="top: 10%; right: -8%; width: 500px; opacity: 1; z-index: 1;">
             <img src="image-Photoroom (6).png" alt="sunflower" style="width: 100%;">
         </div>
         <div class="decorative-prop" id="prop-vfx-1"
-            style="top: 1200px; right: 5%; width: 320px; opacity: 1; z-index: 1;">
+            style="top: 35%; right: 5%; width: 320px; opacity: 1; z-index: 1;">
             <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop"
                 style="width: 60%; border-radius: 2px;">
         </div>
         <div class="decorative-prop" id="prop-photo-1"
-            style="top: 1800px; left: 2%; width: 300px; opacity: 1; z-index: 1;">
+            style="top: 60%; left: 2%; width: 300px; opacity: 1; z-index: 1;">
             <img src="image-Photoroom (1).png" alt="Sunflower" style="width: 100%;">
         </div>
         <div class="decorative-prop" id="prop-mid-1"
-            style="top: 2800px; left: -10%; width: 600px; opacity: 1; z-index: 1;">
+            style="bottom: 5%; left: -10%; width: 600px; opacity: 1; z-index: 1;">
             <img src="image-Photoroom (5).png" alt="sunflower" style="width: 100%;">
         </div>
 
@@ -1156,22 +1246,30 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer class="footer">
-        <!-- Decorative props -->
-        <div class="decorative-prop" id="prop-footer-1" style="opacity: 1; z-index: 1;">
+        <div class="footer-bump">
+            <img src="image-PhotoroomLOGO(2).png" alt="RAM Digital Media Logo">
         </div>
-        <div class="decorative-prop" id="prop-footer-2" style="opacity: 1; z-index: 1;">
-            <img src="image-Photoroom (6).png" alt="prop"
-                style="width: 100%; border-radius: 0; filter: none; display: block;">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-footer-1"
+            style="opacity: 1; z-index: 1; display: none; transform: rotate(-1310.35deg) translateX(-50%);"
+            data-rotation="-1310.3549999999996">
+        </div>
+
+        <div class="footer-social-corner">
+            <a href="https://www.instagram.com/ram_digital_media?igsh=MW03N2t2dWJ3dzRncw==" target="_blank"
+                class="social-icon-box"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@ramdigitalmedia?si=k1G1o9X_K8Pj_r5R" target="_blank"
+                class="social-icon-box"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon-box"><i class="fab fa-facebook-f"></i></a>
         </div>
 
         <div class="footer-content">
             <div class="footer-header">
                 <div class="footer-header-left">
-                    <p class="footer-sub" style="font-family: var(--font-body);">Got a project? Need an unfair
-                        advantage?</p>
-                    <h1 class="footer-heading" onclick="window.location.href='/index#contact-us'"
-                        style="cursor: pointer;">
+                    <p class="footer-sub">Got a project? Need an unfair advantage?</p>
+                    <h1 class="footer-heading" onclick="window.location.href='/index#contact-us'" style="cursor: pointer;">
                         GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
                     </h1>
                 </div>
@@ -1179,6 +1277,7 @@
                     <div class="brand" onclick="window.location.href='/index'" style="cursor: pointer;">
                         <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
                     </div>
+                    <p class="founder-text">Founder - Samruddhi Meher</p>
                 </div>
             </div>
 
@@ -1187,46 +1286,77 @@
                     <h4
                         style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">
                         Navigation</h4>
-                    <ul style="font-family: var(--font-body); font-size: 15px; list-style: none;">
+                    <ul style="font-family: var(--font-body); font-size: 15px;">
                         <li><a href="/index"
-                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Home</a>
-                        </li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
                         <li><a href="/about"
-                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">About</a>
-                        </li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
                         <li><a href="/index#our-services"
-                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Services</a>
-                        </li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
                         <li><a href="/index#how-we-work"
-                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">How
-                                We Work</a></li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
                         <li><a href="/about#why-choose-us"
-                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Why
-                                Us</a></li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
                         <li><a href="/portfolio"
-                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Portfolio</a>
-                        </li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Portfolio</a></li>
                         <li><a href="/index#contact-us"
-                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Book</a>
-                        </li>
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
                     </ul>
                 </div>
                 <div class="grid-column">
                     <h4
                         style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">
                         Socials</h4>
-                    <ul style="font-family: var(--font-body); font-size: 15px; list-style: none;">
-                        <li style="font-family: var(--font-body);">YouTube</li>
-                        <li style="font-family: var(--font-body);">Instagram</li>
-                        <li style="font-family: var(--font-body);">Facebook</li>
+                    <ul style="font-family: var(--font-body); font-size: 15px;">
+                        <li>YouTube</li>
+                        <li>Instagram</li>
+                        <li>Facebook</li>
                     </ul>
                 </div>
             </div>
         </div>
-
-
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <script>
+        // ===== EXTREMELY SMOOTH SCROLL (LENIS) =====
+        const lenis = new Lenis({
+            lerp: 0.1,
+            wheelMultiplier: 1,
+            smoothWheel: true,
+            smoothTouch: false,
+        });
+
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // ===== SMOOTH SCROLL ANIMATION FOR ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href === '#!') return;
+
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+                    lenis.scrollTo(targetElement, {
+                        offset: -80,
+                        duration: 1.5,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                    });
+                }
+            });
+        });
 
 
         // Staggered reveal animation for gallery items
@@ -1431,33 +1561,11 @@
             propFooter1.style.display = 'none';
         }
 
-        const propFooter2 = document.getElementById('prop-footer-2');
-        if (propFooter2) {
-            propFooter2.style.bottom = '-100px';
-            propFooter2.style.right = '-1.9%';
-            propFooter2.style.width = '480px';
-            propFooter2.dataset.rotation = 87.93;
-            propFooter2.style.transform = 'rotate(-167.93deg)';
-        }
-
         // Scroll listener for footer prop rotation
         let lastScrollY = window.pageYOffset;
         window.addEventListener('scroll', () => {
             const currentScrollY = window.pageYOffset;
             const scrollDelta = currentScrollY - lastScrollY;
-
-            if (propFooter2) {
-                const footer = document.querySelector('.footer');
-                const footerRect = footer.getBoundingClientRect();
-                const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
-
-                if (isFooterInView) {
-                    let rotation = parseFloat(propFooter2.dataset.rotation) || -167.93;
-                    rotation += scrollDelta * 0.05;
-                    propFooter2.dataset.rotation = rotation;
-                    propFooter2.style.transform = `rotate(${rotation}deg)`;
-                }
-            }
 
             // Navbar Scroll Effect
             const header = document.querySelector('header');
