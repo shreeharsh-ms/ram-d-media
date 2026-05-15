@@ -1,0 +1,7 @@
+.git
+__pycache__
+unused-assests
+*.pyc
+.DS_Store
+venv
+.env
