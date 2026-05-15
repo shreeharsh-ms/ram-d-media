@@ -532,6 +532,7 @@
             letter-spacing: -1px;
             color: white;
             font-family: var(--font-display);
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
         .hero-subheading {
@@ -545,6 +546,7 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
         }
 
         .hero-buttons {
@@ -1107,7 +1109,7 @@
             position: absolute;
             right: 0;
             top: 0;
-            width: 55%;
+            width: 60%;
             height: 100%;
             background-image: url('sam shoting in sunflower garden.png');
             background-size: cover;
@@ -1127,7 +1129,7 @@
         .manifesto-content {
             position: relative;
             z-index: 10;
-            width: 45%;
+            width: 40%;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -1363,6 +1365,10 @@
                 width: 100% !important;
                 justify-content: center !important;
                 padding: 16px 20px !important;
+            }
+
+            .hero-slide-1 {
+                background-image: url('ChatGPT Image May 7, 2026, 11_53_00 AM AND.png') !important;
             }
         }
 
@@ -2632,7 +2638,8 @@
         .contact-top-content {
             display: flex;
             flex-direction: row;
-            align-items: stretch; /* Change from flex-start to stretch */
+            align-items: stretch;
+            /* Change from flex-start to stretch */
             gap: 50px;
             width: 100%;
         }
@@ -2716,7 +2723,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
         }
 
         .contact-bottom-form-section {
@@ -2748,8 +2755,10 @@
         .contact-form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px; /* Maximum gap for extreme separation */
-            margin-bottom: 80px; /* Maximum bottom margin */
+            gap: 80px;
+            /* Maximum gap for extreme separation */
+            margin-bottom: 80px;
+            /* Maximum bottom margin */
         }
 
         .contact-form-group {
@@ -2770,9 +2779,11 @@
         .contact-form-group input,
         .contact-form-group textarea {
             width: 100%;
-            background-color: transparent; /* Transparent background */
+            background-color: transparent;
+            /* Transparent background */
             border: none;
-            border-bottom: 2px solid var(--color-rich-brown); /* Bold underline */
+            border-bottom: 2px solid var(--color-rich-brown);
+            /* Bold underline */
             border-radius: 0;
             padding: 15px 0;
             font-family: var(--font-body);
@@ -2798,7 +2809,8 @@
             height: 120px;
             resize: none;
             grid-column: 1 / -1;
-            border: 2px solid var(--color-rich-brown); /* Full border for message */
+            border: 2px solid var(--color-rich-brown);
+            /* Full border for message */
             border-radius: 12px;
             padding: 15px;
             background-color: var(--color-light-cream);
@@ -3015,17 +3027,20 @@
         /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background: url('Gemini_Generated_Image_5wdc7d5wdc7d5wdc.png');
+            background: url('Gemini_Generated_Image_6vq106vq106vq106 (1).png');
             background-size: cover;
-            background-position: 50% 40%;
+            background-position: center bottom;
             background-repeat: no-repeat;
             color: var(--color-rich-brown);
             text-shadow: 0 1px 2px rgba(250, 248, 226, 0.5);
-            padding: 60px 5% 600px 5%;
+            padding: 120px 5% 150px 5%;
             position: relative;
             overflow: hidden;
             margin-top: 40px;
-            max-height: 900px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .footer-header {
@@ -3066,9 +3081,20 @@
         .footer-header-right {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
+            /* Centered for brand logo + founder text */
             gap: 15px;
-            text-align: right;
+            text-align: center;
+        }
+
+        .founder-text {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--color-rich-brown);
+            margin: 0;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
         }
 
         .footer-grid {
@@ -3090,6 +3116,43 @@
             width: auto;
             object-fit: contain;
             margin-top: -30px;
+        }
+
+        /* Footer Semicircle Bump */
+        .footer-bump {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-bump img {
+            width: 180px;
+            height: auto;
+            margin-top: 100px;
+            /* Push it down so only half shows in the footer */
+            object-fit: contain;
+        }
+
+        @media (max-width: 992px) {
+            .footer-bump {
+                width: 200px;
+                height: 200px;
+            }
+
+            .footer-bump img {
+                width: 130px;
+                margin-top: 70px;
+            }
         }
 
         .local-time {
@@ -3137,6 +3200,68 @@
             color: var(--color-rich-brown);
             display: block;
             text-decoration: none;
+        }
+
+        /* Footer Social Icons Corner */
+        .footer-social-corner {
+            position: absolute;
+            right: 5%;
+            bottom: 25%;
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        .social-icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-rich-brown);
+            text-decoration: none;
+            font-size: 32px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .social-icon-box:hover {
+            transform: scale(1.2) rotate(15deg);
+            background-color: var(--color-primary-yellow);
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 992px) {
+            .footer-bump {
+                display: none !important;
+            }
+
+            .founder-text {
+                font-size: 12px;
+                text-align: left;
+            }
+
+            .footer-header-right {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .footer-social-corner {
+                right: 5%;
+                bottom: 15%;
+                flex-direction: row;
+                /* Row on mobile for better space usage */
+                gap: 15px;
+            }
+
+            .social-icon-box {
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
         }
 
         .grid-column ul li:hover {
@@ -3262,7 +3387,7 @@
 
             .footer {
                 padding: 60px 8% 40px;
-                background-image: url('28390e68-2146-4732-826b-f44d09598f2a.jpeg');
+                background-image: url('Gemini_Generated_Image_6vq106vq106vq106 AND.png');
                 background-size: 100% auto;
                 background-position: top center;
                 background-repeat: no-repeat;
@@ -3360,6 +3485,7 @@
                 height: 18px;
             }
         }
+
         /* Force Heading Font for Contact Form */
         h2#contactFormHeading {
             font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif !important;
@@ -3423,7 +3549,8 @@
     <!-- Hero Carousel Section -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url('ChatGPT Image May 7, 2026, 11_53_00 AM.png');">
+            <div class="swiper-slide hero-slide-1"
+                style="background-image: url('ChatGPT Image May 7, 2026, 11_53_00 AM.png');">
                 <div class="hero-content">
                     <h1>Your Brand Has a Story.<br>Let's Make the World Notice It.</h1>
                     <p class="hero-subheading">Fresh ideas and creative storytelling designed for modern brands to stand
@@ -3497,7 +3624,7 @@
             <div class="manifesto-image-section"></div>
 
             <div class="manifesto-content">
-                <h1>Our Brand Manifesto</h1>
+                <h1>Brand Manifesto</h1>
                 <p>We believe brands are not just businesses. They are ideas, dreams, and stories waiting to be seen. In
                     a world where everyone is online, simply being present is not enough. Brands need creativity,
                     courage, and the right digital voice to truly stand out.
@@ -3749,7 +3876,8 @@
                 </div>
 
                 <div class="contact-form-section">
-                    <img src="PHOTO-2026-05-07-14-28-31.jpg" alt="Contact Brand Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-lg);">
+                    <img src="PHOTO-2026-05-07-14-28-31.jpg" alt="Contact Brand Image"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-lg);">
                 </div>
             </div>
 
@@ -3784,16 +3912,21 @@
 
     <!-- Footer Section -->
     <footer class="footer">
+        <div class="footer-bump">
+            <img src="image-PhotoroomLOGO(2).png" alt="RAM Digital Media Logo">
+        </div>
         <!-- Decorative props -->
         <div class="decorative-prop" id="prop-footer-1"
             style="opacity: 1; z-index: 1; display: none; transform: rotate(-1310.35deg) translateX(-50%);"
             data-rotation="-1310.3549999999996">
         </div>
-        <div class="decorative-prop" id="prop-footer-2"
-            style="opacity: 1; z-index: 1; bottom: -100px; right: -1.9%; width: 480px; transform: rotate(134.905deg);"
-            data-rotation="134.9050000000002">
-            <img src="image-Photoroom (6).png" alt="prop"
-                style="width: 100%; border-radius: 0; filter: none; display: block;">
+
+        <div class="footer-social-corner">
+            <a href="https://www.instagram.com/ram_digital_media?igsh=MW03N2t2dWJ3dzRncw==" target="_blank"
+                class="social-icon-box"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@ramdigitalmedia?si=k1G1o9X_K8Pj_r5R" target="_blank"
+                class="social-icon-box"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon-box"><i class="fab fa-facebook-f"></i></a>
         </div>
 
         <div class="footer-content">
@@ -3808,24 +3941,36 @@
                     <div class="brand" onclick="lenis.scrollTo(0)" style="cursor: pointer;">
                         <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
                     </div>
+                    <p class="founder-text">Founder - Samruddhi Meher</p>
                 </div>
             </div>
 
             <div class="footer-grid">
                 <div class="grid-column">
-                    <h4 style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">Navigation</h4>
+                    <h4
+                        style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">
+                        Navigation</h4>
                     <ul style="font-family: var(--font-body); font-size: 15px;">
-                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="about-us-hero.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="index.html#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
-                        <li><a href="about-us-hero.html#why-choose-us" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="portfolio.html" style="color: inherit; text-decoration: none; cursor: pointer;">Portfolio</a></li>
-                        <li><a href="index.html#contact-us" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
+                        <li><a href="index.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="about-us-hero.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="index.html#our-services"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="index.html#how-we-work"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="about-us-hero.html#why-choose-us"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="portfolio.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Portfolio</a></li>
+                        <li><a href="index.html#contact-us"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
                     </ul>
                 </div>
                 <div class="grid-column">
-                    <h4 style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">Socials</h4>
+                    <h4
+                        style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">
+                        Socials</h4>
                     <ul style="font-family: var(--font-body); font-size: 15px;">
                         <li>YouTube</li>
                         <li>Instagram</li>
@@ -4115,49 +4260,53 @@
         );
 
         // Animate services column
-        gsap.fromTo(servicesCol,
-            {
-                opacity: 0,
-                x: 50
-            },
-            {
-                opacity: 1,
-                x: 0,
-                duration: 1.5,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: servicesCol,
-                    start: "top 80%",
-                    end: "top 50%",
-                    scrub: 1,
-                    markers: false
-                }
-            }
-        );
-
-        // Stagger service items animation
-        serviceItems.forEach((item, index) => {
-            gsap.fromTo(item,
+        if (servicesCol) {
+            gsap.fromTo(servicesCol,
                 {
                     opacity: 0,
-                    y: 20
+                    x: 50
                 },
                 {
                     opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power2.out",
-                    delay: index * 0.1,
+                    x: 0,
+                    duration: 1.5,
+                    ease: "power3.out",
                     scrollTrigger: {
-                        trigger: item,
-                        start: "top 85%",
-                        end: "top 60%",
+                        trigger: servicesCol,
+                        start: "top 80%",
+                        end: "top 50%",
                         scrub: 1,
                         markers: false
                     }
                 }
             );
-        });
+        }
+
+        // Stagger service items animation
+        if (serviceItems.length > 0) {
+            serviceItems.forEach((item, index) => {
+                gsap.fromTo(item,
+                    {
+                        opacity: 0,
+                        y: 20
+                    },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: "power2.out",
+                        delay: index * 0.1,
+                        scrollTrigger: {
+                            trigger: item,
+                            start: "top 85%",
+                            end: "top 60%",
+                            scrub: 1,
+                            markers: false
+                        }
+                    }
+                );
+            });
+        }
 
         // 4. Intersection Observer for the Entrance Animation
         const observerOptions = {
@@ -4208,10 +4357,12 @@
         // Show/hide popup based on HERO CAROUSEL (Swiper) visibility only
         const popupObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    floatingPopup.classList.add('visible');
-                } else {
-                    floatingPopup.classList.remove('visible');
+                if (floatingPopup) {
+                    if (entry.isIntersecting) {
+                        floatingPopup.classList.add('visible');
+                    } else {
+                        floatingPopup.classList.remove('visible');
+                    }
                 }
             });
         }, { threshold: 0.3 });
@@ -4219,9 +4370,11 @@
         popupObserver.observe(swiperElement);
 
         // Close button functionality
-        closePopupBtn.addEventListener('click', () => {
-            floatingPopup.classList.remove('visible');
-        });
+        if (closePopupBtn) {
+            closePopupBtn.addEventListener('click', () => {
+                if (floatingPopup) floatingPopup.classList.remove('visible');
+            });
+        }
 
         // 7. ScrollSpy Implementation
         const sections = document.querySelectorAll('section[id]');
@@ -4251,34 +4404,36 @@
         window.addEventListener('load', scrollSpy);
 
         // Form submission (WhatsApp Redirect)
-        popupForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = popupForm.querySelector('.popup-submit-btn');
-            const originalText = btn.textContent;
+        if (popupForm) {
+            popupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = popupForm.querySelector('.popup-submit-btn');
+                const originalText = btn.textContent;
 
-            // Get form values
-            const email = popupForm.querySelector('input[type="email"]').value;
-            const firstName = popupForm.querySelector('input[placeholder="First Name"]').value;
-            const lastName = popupForm.querySelector('input[placeholder="Last Name"]').value;
-            const mobile = popupForm.querySelector('input[type="tel"]').value;
-            const company = popupForm.querySelector('input[placeholder="Company Name"]').value;
-            const website = popupForm.querySelector('input[type="url"]').value;
+                // Get form values
+                const email = popupForm.querySelector('input[type="email"]').value;
+                const firstName = popupForm.querySelector('input[placeholder="First Name"]').value;
+                const lastName = popupForm.querySelector('input[placeholder="Last Name"]').value;
+                const mobile = popupForm.querySelector('input[type="tel"]').value;
+                const company = popupForm.querySelector('input[placeholder="Company Name"]').value;
+                const website = popupForm.querySelector('input[type="url"]').value;
 
-            // Format WhatsApp Message
-            const whatsappMessage = `*SEO Audit Request*%0A%0A*Name:* ${firstName} ${lastName}%0A*Email:* ${email}%0A*Mobile:* ${mobile}%0A*Company:* ${company}%0A*Website:* ${website}`;
-            const whatsappUrl = `https://wa.me/919890757811?text=${whatsappMessage}`;
+                // Format WhatsApp Message
+                const whatsappMessage = `*SEO Audit Request*%0A%0A*Name:* ${firstName} ${lastName}%0A*Email:* ${email}%0A*Mobile:* ${mobile}%0A*Company:* ${company}%0A*Website:* ${website}`;
+                const whatsappUrl = `https://wa.me/919890757811?text=${whatsappMessage}`;
 
-            btn.textContent = 'Redirecting...';
-            btn.style.opacity = '0.7';
+                btn.textContent = 'Redirecting...';
+                btn.style.opacity = '0.7';
 
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-                btn.textContent = originalText;
-                btn.style.opacity = '1';
-                popupForm.reset();
-                floatingPopup.classList.remove('visible');
-            }, 1000);
-        });
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank');
+                    btn.textContent = originalText;
+                    btn.style.opacity = '1';
+                    if (popupForm) popupForm.reset();
+                    if (floatingPopup) floatingPopup.classList.remove('visible');
+                }, 1000);
+            });
+        }
 
         // 7. Content Section Menu & Feature Toggle
         const menuData = {
@@ -4572,75 +4727,120 @@
             }
         ];
 
-        const servicesListItems = document.querySelectorAll('#servicesList li');
-        const previewImage = document.getElementById('previewImage');
-        const tooltipText = document.getElementById('tooltipText');
-        const tooltipHeading = document.getElementById('tooltipHeading');
-        const serviceDescription = document.getElementById('serviceDescription');
-        const imagePreviewContainer = document.getElementById('servicesImagePreview');
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Services Script: DOMContentLoaded triggered");
 
-        let currentServiceIndex = -1; // Force first update
-        let serviceInterval;
+            const servicesListItems = document.querySelectorAll('#servicesList li');
+            const previewImage = document.getElementById('previewImage');
+            const tooltipText = document.getElementById('tooltipText');
+            const tooltipHeading = document.getElementById('tooltipHeading');
+            const serviceDescription = document.getElementById('serviceDescription');
+            const imagePreviewContainer = document.getElementById('servicesImagePreview');
 
-        function updateService(index) {
-            if (index === currentServiceIndex) return;
+            console.log("Services Script: Elements found:", {
+                itemsCount: servicesListItems.length,
+                previewImage: !!previewImage,
+                serviceDescription: !!serviceDescription,
+                tooltipText: !!tooltipText,
+                tooltipHeading: !!tooltipHeading,
+                imagePreviewContainer: !!imagePreviewContainer
+            });
 
-            servicesListItems.forEach(li => li.classList.remove('active'));
-            servicesListItems[index].classList.add('active');
+            if (!servicesListItems.length || !previewImage) {
+                console.error('Services Script: CRITICAL ELEMENTS MISSING! Script aborted.');
+                return;
+            }
 
-            // Fade out preview elements
-            previewImage.style.opacity = 0;
-            if (serviceDescription) serviceDescription.style.opacity = 0;
+            let currentServiceIndex = -1;
+            let serviceInterval;
 
-            setTimeout(() => {
-                previewImage.src = serviceData[index].image;
-                if (tooltipHeading) {
-                    tooltipHeading.textContent = "Why " + serviceData[index].title + " matters";
+            function updateService(index) {
+                console.log("Services Script: Updating to index:", index);
+                if (index < 0 || index >= serviceData.length) {
+                    console.error("Services Script: Index out of bounds:", index);
+                    return;
                 }
-                tooltipText.textContent = serviceData[index].why;
 
-                if (serviceDescription) {
-                    serviceDescription.textContent = serviceData[index].description;
-                    serviceDescription.style.opacity = 1;
-                }
-
-                previewImage.style.opacity = 1;
-            }, 300);
-
-            currentServiceIndex = index;
-        }
-
-        // Initialize first service
-        updateService(0);
-
-        function startServiceAutoRotation() {
-            serviceInterval = setInterval(() => {
-                let nextIndex = (currentServiceIndex + 1) % serviceData.length;
-                updateService(nextIndex);
-            }, 2000);
-        }
-
-        function stopServiceAutoRotation() {
-            clearInterval(serviceInterval);
-        }
-
-        if (servicesListItems.length > 0) {
-            servicesListItems.forEach(li => {
-                li.addEventListener('mouseenter', function () {
-                    stopServiceAutoRotation();
-                    const index = parseInt(this.getAttribute('data-index'));
-                    updateService(index);
+                // Update active state in list
+                servicesListItems.forEach((li, idx) => {
+                    if (idx === index) li.classList.add('active');
+                    else li.classList.remove('active');
                 });
-                li.addEventListener('mouseleave', startServiceAutoRotation);
+
+                // Transition content
+                if (previewImage) previewImage.style.opacity = 0;
+                if (serviceDescription) serviceDescription.style.opacity = 0;
+
+                setTimeout(() => {
+                    const data = serviceData[index];
+                    if (!data) {
+                        console.error("Services Script: No data found for index:", index);
+                        return;
+                    }
+
+                    if (previewImage) {
+                        previewImage.src = data.image;
+                        previewImage.style.opacity = 1;
+                        console.log("Services Script: Set image src to:", data.image);
+                    }
+                    if (tooltipHeading) tooltipHeading.textContent = "Why " + data.title + " matters";
+                    if (tooltipText) tooltipText.textContent = data.why;
+                    if (serviceDescription) {
+                        serviceDescription.textContent = data.description;
+                        serviceDescription.style.opacity = 1;
+                    }
+                    currentServiceIndex = index;
+                }, 300);
+            }
+
+            function startAutoRotation() {
+                stopAutoRotation();
+                serviceInterval = setInterval(() => {
+                    let nextIndex = (currentServiceIndex + 1) % serviceData.length;
+                    updateService(nextIndex);
+                }, 4000);
+                console.log("Services Script: Auto-rotation started");
+            }
+
+            function stopAutoRotation() {
+                if (serviceInterval) {
+                    clearInterval(serviceInterval);
+                    console.log("Services Script: Auto-rotation stopped");
+                }
+            }
+
+            // Initial load
+            console.log("Services Script: Performing initial load");
+            updateService(0);
+            startAutoRotation();
+
+            // Event Listeners
+            servicesListItems.forEach((li, i) => {
+                const triggerUpdate = (e) => {
+                    console.log(`Services Script: ${e.type} event triggered on item ${i}`);
+                    if (e.type === 'click' || e.type === 'touchstart') {
+                        stopAutoRotation();
+                    } else {
+                        stopAutoRotation();
+                    }
+                    const idx = parseInt(li.getAttribute('data-index'));
+                    updateService(idx);
+                };
+
+                li.addEventListener('mouseenter', triggerUpdate);
+                li.addEventListener('click', triggerUpdate);
+                li.addEventListener('touchstart', triggerUpdate, { passive: true });
+                li.addEventListener('mouseleave', () => {
+                    console.log(`Services Script: mouseleave on item ${i}`);
+                    startAutoRotation();
+                });
             });
 
             if (imagePreviewContainer) {
-                imagePreviewContainer.addEventListener('mouseenter', stopServiceAutoRotation);
-                imagePreviewContainer.addEventListener('mouseleave', startServiceAutoRotation);
+                imagePreviewContainer.addEventListener('mouseenter', stopAutoRotation);
+                imagePreviewContainer.addEventListener('mouseleave', startAutoRotation);
             }
-
-            startServiceAutoRotation();
-        }
+        });
 
         function setContactMode(mode) {
             const btnWork = document.getElementById('btn-work-with-us');
