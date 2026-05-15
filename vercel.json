@@ -1,28 +1,23 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(portfolio_data|Images-works|LOGOS)/(.*)",
-      "dest": "/$1/$2"
-    },
-    {
-      "src": "/(.*\\.(png|jpg|jpeg|mp4|ico|svg|gif|css|js))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
-  ],
   "functions": {
     "app.py": {
+      "runtime": "@vercel/python",
       "excludeFiles": "{portfolio_data/**,Images-works/**,unused-assests/**,LOGOS/**,*.png,*.jpg,*.jpeg,*.mp4}"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(portfolio_data|Images-works|LOGOS)/(.*)",
+      "destination": "/$1/$2"
+    },
+    {
+      "source": "/(.*\\.(png|jpg|jpeg|mp4|ico|svg|gif|css|js))",
+      "destination": "/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/app.py"
+    }
+  ]
 }
