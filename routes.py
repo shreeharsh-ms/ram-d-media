@@ -21,4 +21,4 @@ def setup_routes(app):
     # Serve other files as static
     @app.route('/<path:filename>')
     def serve_static(filename):
-        return send_from_directory('.', filename)
+        return send_from_directory('public', filename)

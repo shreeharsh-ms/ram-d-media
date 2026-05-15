@@ -1,11 +1,5 @@
 {
   "version": 2,
-  "functions": {
-    "app.py": {
-      "runtime": "@vercel/python",
-      "excludeFiles": "{portfolio_data/**,Images-works/**,unused-assests/**,LOGOS/**,*.png,*.jpg,*.jpeg,*.mp4}"
-    }
-  },
   "rewrites": [
     {
       "source": "/(index|about|portfolio|works)",
