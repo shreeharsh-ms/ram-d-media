@@ -8,15 +8,11 @@
   },
   "rewrites": [
     {
-      "source": "/(portfolio_data|Images-works|LOGOS)/(.*)",
-      "destination": "/$1/$2"
+      "source": "/(index|about|portfolio|works)",
+      "destination": "/app.py"
     },
     {
-      "source": "/(.*\\.(png|jpg|jpeg|mp4|ico|svg|gif|css|js))",
-      "destination": "/$1"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/",
       "destination": "/app.py"
     }
   ]
