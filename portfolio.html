@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <style>
         :root {
             --bg-color: #FAF8E2;
             --text-dark: #5F3C28;
-            
+
             /* Font Families */
             --font-display: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
             --font-body: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
@@ -23,18 +26,27 @@
             --font-oswald: 'Oswald', 'Arial', sans-serif;
 
             /* Sunflower Color Theme - Matching index.html */
-            --color-primary-yellow: #FCC419;      /* Sunflower Yellow */
-            --color-golden-yellow: #FCC419;       /* Sunflower Yellow */
-            --color-pale-yellow: #FAF8E2;         /* Soft Lemon Yellow Background */
-            --color-burnt-orange: #FCC419;        /* CHANGED FROM GREEN TO YELLOW */
-            --color-rich-brown: #5F3C28;          /* Deep Brown - Headings */
-            --color-warm-beige: #FAF8E2;          /* Soft Lemon Beige */
-            --color-sunny-cream: #FAF8E2;         /* Soft Lemon Cream */
-            --color-white: #FFFFFF;               /* White */
-            
+            --color-primary-yellow: #FCC419;
+            /* Sunflower Yellow */
+            --color-golden-yellow: #FCC419;
+            /* Sunflower Yellow */
+            --color-pale-yellow: #FAF8E2;
+            /* Soft Lemon Yellow Background */
+            --color-burnt-orange: #FCC419;
+            /* CHANGED FROM GREEN TO YELLOW */
+            --color-rich-brown: #5F3C28;
+            /* Deep Brown - Headings */
+            --color-warm-beige: #FAF8E2;
+            /* Soft Lemon Beige */
+            --color-sunny-cream: #FAF8E2;
+            /* Soft Lemon Cream */
+            --color-white: #FFFFFF;
+            /* White */
+
             /* Legacy variables for compatibility */
             --sunflower-yellow: #FCC419;
-            --burnt-orange: #FCC419;              /* CHANGED FROM GREEN TO YELLOW */
+            --burnt-orange: #FCC419;
+            /* CHANGED FROM GREEN TO YELLOW */
             --rich-brown: #5F3C28;
             --warm-beige: #FAF8E2;
             --sunny-cream: #FAF8E2;
@@ -66,12 +78,12 @@
         }
 
         /* --- HORIZONTAL SCROLL SECTION LOGIC --- */
-        
+
         .horizontal-scroll-wrapper {
             position: relative;
             /* The 'height' here determines how long the scroll feels. 
                1200vh means you scroll 12 full screen heights to finish the animation - VERY SLOW & SMOOTH */
-            height: 1200vh; 
+            height: 1200vh;
         }
 
         .sticky-container {
@@ -114,7 +126,7 @@
             display: flex;
             flex-direction: column;
             padding: 0 40px;
-            border-left: 1px solid rgba(0,0,0,0.2);
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
         }
 
         .card-header h2 {
@@ -148,14 +160,37 @@
         }
 
         /* Background Images */
-        .img-1 { background-image: url('portfolio_data/images/exp_ui.png'); }
-        .img-2 { background-image: url('portfolio_data/images/social_plan.png'); }
-        .img-3 { background-image: url('portfolio_data/images/creative_design.png'); }
-        .img-4 { background-image: url('portfolio_data/images/ui_ux.png'); }
-        .img-5 { background-image: url('portfolio_data/images/web_dev.png'); }
-        .img-6 { background-image: url('portfolio_data/images/content_creation.png'); }
-        .img-7 { background-image: url('portfolio_data/images/brand_promo.png'); }
-        .img-8 { background-image: url('portfolio_data/images/analytics.png'); }
+        .img-1 {
+            background-image: url('portfolio_data/images/exp_ui.png');
+        }
+
+        .img-2 {
+            background-image: url('portfolio_data/images/social_plan.png');
+        }
+
+        .img-3 {
+            background-image: url('portfolio_data/images/creative_design.png');
+        }
+
+        .img-4 {
+            background-image: url('portfolio_data/images/ui_ux.png');
+        }
+
+        .img-5 {
+            background-image: url('portfolio_data/images/web_dev.png');
+        }
+
+        .img-6 {
+            background-image: url('portfolio_data/images/content_creation.png');
+        }
+
+        .img-7 {
+            background-image: url('portfolio_data/images/brand_promo.png');
+        }
+
+        .img-8 {
+            background-image: url('portfolio_data/images/analytics.png');
+        }
 
         /* --- Decorative Props --- */
         .decorative-prop {
@@ -172,12 +207,14 @@
             .horizontal-scroll-wrapper {
                 height: auto !important;
             }
+
             .sticky-container {
                 position: relative !important;
                 height: auto !important;
                 top: auto !important;
                 display: block !important;
             }
+
             .scroll-content {
                 flex-direction: column !important;
                 height: auto !important;
@@ -185,39 +222,46 @@
                 transform: none !important;
                 gap: 60px;
             }
+
             .intro-slide {
                 min-width: 100% !important;
                 padding-right: 0 !important;
                 text-align: center;
             }
+
             .intro-slide h1 {
                 font-size: 2.2rem !important;
             }
+
             .museum-card {
                 min-width: 100% !important;
                 padding: 0 0 40px 0 !important;
                 border-left: none !important;
                 border-bottom: 1px solid rgba(95, 60, 40, 0.1);
             }
+
             .card-info {
                 max-width: 100% !important;
             }
+
             .image-box {
                 height: 350px !important;
                 width: 100% !important;
                 margin-top: 20px;
                 border-radius: 15px;
             }
+
             .arrow-icon {
                 display: none;
             }
+
             #prop-scroll-1 {
-                display: none; /* Hide confusing prop on mobile stack */
+                display: none;
+                /* Hide confusing prop on mobile stack */
             }
         }
-
     </style>
-   
+
     <style>
         :root {
             --bg-color: #FFFFF0;
@@ -244,7 +288,8 @@
             font-family: var(--font-body);
         }
 
-        body, html {
+        body,
+        html {
             width: 100%;
             background-color: var(--bg-color);
         }
@@ -311,14 +356,14 @@
             flex: 1;
         }
 
-        .nav-group.left { 
-            justify-content: flex-end; 
-            padding-right: 50px; 
+        .nav-group.left {
+            justify-content: flex-end;
+            padding-right: 50px;
         }
-        
-        .nav-group.right { 
-            justify-content: flex-start; 
-            padding-left: 50px; 
+
+        .nav-group.right {
+            justify-content: flex-start;
+            padding-left: 50px;
         }
 
         .nav-link {
@@ -520,7 +565,7 @@
                 cursor: pointer;
                 height: 65px !important;
             }
-            
+
             .hamburger svg {
                 stroke: var(--color-rich-brown) !important;
                 width: 32px;
@@ -576,7 +621,8 @@
             white-space: nowrap;
         }
 
-        .portfolio-nav-btn.active, .portfolio-nav-btn:hover {
+        .portfolio-nav-btn.active,
+        .portfolio-nav-btn:hover {
             background: var(--sunflower-yellow);
             color: var(--rich-brown);
         }
@@ -585,15 +631,18 @@
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 2px;
-            color: #5F3C28; /* Changed from Yellow to Brown */
+            color: #5F3C28;
+            /* Changed from Yellow to Brown */
             margin-bottom: 25px;
         }
 
         .hero-content h1 {
-            font-family: var(--font-display); /* Footer font */
+            font-family: var(--font-display);
+            /* Footer font */
             font-size: clamp(3.5rem, 9vw, 6.5rem);
             line-height: 1.0;
-            color: #5F3C28; /* Changed from Yellow to Brown */
+            color: #5F3C28;
+            /* Changed from Yellow to Brown */
             font-weight: 700;
             margin-bottom: 25px;
             letter-spacing: -2px;
@@ -645,9 +694,11 @@
             max-width: 650px;
             aspect-ratio: 0.75 / 1;
             background: url('meet samruddhi.png') center/cover;
-            border-radius: 200px; /* Modern pill/oval shape */
-            box-shadow: 0 30px 60px rgba(252,196,25,0.15);
-            transition: transform 0.1s ease-out; /* Smooth scale transition */
+            border-radius: 200px;
+            /* Modern pill/oval shape */
+            box-shadow: 0 30px 60px rgba(252, 196, 25, 0.15);
+            transition: transform 0.1s ease-out;
+            /* Smooth scale transition */
         }
 
         /* Responsive Breakpoints */
@@ -660,6 +711,7 @@
                 min-height: auto;
                 gap: 40px;
             }
+
             .hero-image-wrap {
                 order: -1;
                 width: 100%;
@@ -667,20 +719,24 @@
                 justify-content: center;
                 margin-bottom: 20px;
             }
+
             .oval-mask {
                 width: 250px;
                 max-width: 80%;
                 margin: 0 auto;
             }
+
             .hero-content {
                 order: 1;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
+
             #prop-hero-2 {
                 display: none !important;
             }
+
             .hero-stats {
                 order: 2;
                 grid-column: 1;
@@ -693,27 +749,30 @@
                 padding: 0 5%;
                 align-items: center;
             }
+
             .stat-box {
                 width: calc(50% - 12px);
                 min-width: 140px;
                 padding: 20px 10px;
                 border-radius: 30px;
             }
+
             .stat-num {
                 font-size: 1.6rem;
             }
+
             .stat-txt {
                 font-size: 0.75rem;
             }
+
             .hero-content p {
                 max-width: 100%;
             }
         }
-
-
     </style>
 
 </head>
+
 <body>
 
     <div class="top-edge"></div>
@@ -726,7 +785,8 @@
             </ul>
 
             <div class="logo-area" style="cursor: pointer;" onclick="window.location.href='/index'">
-                <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo" style="height: 70px; width: auto; object-fit: contain;">
+                <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo"
+                    style="height: 70px; width: auto; object-fit: contain;">
             </div>
 
             <ul class="nav-group right">
@@ -734,7 +794,8 @@
                 <li><a href="/index#contact-us" class="nav-link">Contact Us</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rich-brown)" stroke-width="2">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rich-brown)"
+                    stroke-width="2">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -766,9 +827,16 @@
         <section class="hero-content">
             <h4>Creative Portfolio</h4>
             <h1>Our Creative<br>Journey</h1>
-            <p>Every project, idea, and collaboration helps shape the creative journey of RAM Digital Media. This portfolio reflects the experience, skills, and creative work that continue to grow with every brand we work with.</p>
+            <p>Every project, idea, and collaboration helps shape the creative journey of RAM Digital Media. This
+                portfolio reflects the experience, skills, and creative work that continue to grow with every brand we
+                work with.</p>
             <button class="btn-appointment" onclick="window.location.href='/works'">
-                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                    </path>
+                </svg>
                 EXPLORE WORK
             </button>
         </section>
@@ -781,10 +849,10 @@
     <script>
         // Navbar Scroll Effect
         const header = document.querySelector('header');
-        
+
         window.addEventListener('scroll', () => {
             let currentScroll = window.pageYOffset;
-            
+
             // Add scrolled class when user scrolls down
             if (currentScroll > 50) {
                 header.classList.add('scrolled');
@@ -825,7 +893,7 @@
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = `all 0.6s ease-out ${index * 0.2}s`;
-                
+
                 setTimeout(() => {
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
@@ -849,17 +917,21 @@
     <div class="horizontal-scroll-wrapper" id="scrollWrapper">
         <div class="sticky-container">
             <!-- Decorative prop -->
-            <div class="decorative-prop" id="prop-scroll-1" data-rotation="0" data-speed="0.15" style="position: absolute; z-index: 1; bottom: 10px; left: 10px; transform: rotate(0deg); width: 20px;">
-                <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 60%; border-radius: 2px;">
+            <div class="decorative-prop" id="prop-scroll-1" data-rotation="0" data-speed="0.15"
+                style="position: absolute; z-index: 1; bottom: 10px; left: 10px; transform: rotate(0deg); width: 20px;">
+                <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop"
+                    style="width: 60%; border-radius: 2px;">
             </div>
-            
+
             <div class="scroll-content" id="scrollContent">
-                
+
                 <div class="intro-slide">
                     <h1 style="font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 0.9;">
                         Professional Experience<br>
                         IT Company<br>
-                        <span style="font-family: var(--font-body); font-size: 24px; font-weight: 400; font-style: normal; letter-spacing: 0.5px; display: block; margin-top: 15px; text-transform: none; line-height: 1.2;">UI Designer & Social Media Manager (3.5 Years)</span>
+                        <span
+                            style="font-family: var(--font-body); font-size: 24px; font-weight: 400; font-style: normal; letter-spacing: 0.5px; display: block; margin-top: 15px; text-transform: none; line-height: 1.2;">UI
+                            Designer & Social Media Manager (3.5 Years)</span>
                     </h1>
                 </div>
 
@@ -869,7 +941,10 @@
                         <div class="card-info">
                             <strong style="font-size: 0.9em;">UI Designer & Social Media Manager</strong><br>
                             <span style="font-size: 0.85em; font-style: normal;">3.5 Years</span><br><br>
-                            Before starting RAM Digital Media, valuable experience was gained while working in an IT company where the focus was on digital creativity, brand communication, and social media growth. This experience helped build strong practical knowledge in design, content creation, and digital strategy.
+                            Before starting RAM Digital Media, valuable experience was gained while working in an IT
+                            company where the focus was on digital creativity, brand communication, and social media
+                            growth. This experience helped build strong practical knowledge in design, content creation,
+                            and digital strategy.
                         </div>
                     </div>
                     <div class="image-box img-1">
@@ -882,7 +957,8 @@
                         <h2>Social Media Content</h2>
                         <div class="card-info">
                             <strong>Managing and Planning</strong><br>
-                            Managing and planning social media content across multiple platforms to ensure consistent brand messaging and audience engagement.
+                            Managing and planning social media content across multiple platforms to ensure consistent
+                            brand messaging and audience engagement.
                         </div>
                     </div>
                     <div class="image-box img-2">
@@ -895,7 +971,8 @@
                         <h2>Creative Design</h2>
                         <div class="card-info">
                             <strong>Visual Graphics & Posts</strong><br>
-                            Designing creative social media posts and visual graphics that align with brand identity and effectively communicate key messages to target audiences.
+                            Designing creative social media posts and visual graphics that align with brand identity and
+                            effectively communicate key messages to target audiences.
                         </div>
                     </div>
                     <div class="image-box img-3">
@@ -908,7 +985,8 @@
                         <h2>UI/UX Concepts</h2>
                         <div class="card-info">
                             <strong>Website Design</strong><br>
-                            Developing UI concepts for websites and user experiences that enhance usability and create compelling digital interactions.
+                            Developing UI concepts for websites and user experiences that enhance usability and create
+                            compelling digital interactions.
                         </div>
                     </div>
                     <div class="image-box img-4">
@@ -921,7 +999,8 @@
                         <h2>Website Development</h2>
                         <div class="card-info">
                             <strong>Layout & Design Support</strong><br>
-                            Supporting website designing and layout improvements to optimize performance and enhance overall user experience.
+                            Supporting website designing and layout improvements to optimize performance and enhance
+                            overall user experience.
                         </div>
                     </div>
                     <div class="image-box img-5">
@@ -934,7 +1013,8 @@
                         <h2>Content Creation</h2>
                         <div class="card-info">
                             <strong>Digital Content</strong><br>
-                            Creating engaging digital content for different platforms including videos and graphics that drive audience engagement.
+                            Creating engaging digital content for different platforms including videos and graphics that
+                            drive audience engagement.
                         </div>
                     </div>
                     <div class="image-box img-6">
@@ -947,7 +1027,8 @@
                         <h2>Brand Promotions</h2>
                         <div class="card-info">
                             <strong>Creative Planning</strong><br>
-                            Planning creative ideas for brand promotions that drive awareness and engagement across all marketing channels.
+                            Planning creative ideas for brand promotions that drive awareness and engagement across all
+                            marketing channels.
                         </div>
                     </div>
                     <div class="image-box img-7">
@@ -960,7 +1041,8 @@
                         <h2>Analytics & Reporting</h2>
                         <div class="card-info">
                             <strong>Performance Metrics</strong><br>
-                            Preparing monthly performance reports and analytics to track campaign success and coordinating design, marketing, and social media tasks.
+                            Preparing monthly performance reports and analytics to track campaign success and
+                            coordinating design, marketing, and social media tasks.
                         </div>
                     </div>
                     <div class="image-box img-8">
@@ -988,7 +1070,7 @@
 
             // Calculate progress: 0 when wrapper starts entering, 1 when wrapper finishes
             let progress = -wrapperTop / (wrapperHeight - viewportHeight);
-            
+
             // Clamp progress between 0 and 1
             progress = Math.max(0, Math.min(1, progress));
 
@@ -1012,10 +1094,10 @@
             const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
             const diff = targetTranslate - currentTranslate;
             const smoothness = 0.12; // Lower value = smoother (range: 0.01 to 0.3)
-            
+
             currentTranslate += diff * smoothness;
             scrollContent.style.transform = `translateX(${currentTranslate}px)`;
-            
+
             requestAnimationFrame(animateScroll);
         }
 
@@ -1031,90 +1113,193 @@
                 Helping brands grow creatively in the digital space through professional content and strategic planning.
             </p>
             <div class="clients-cta">
-                <a href="javascript:void(0)" onclick="lenis.scrollTo('#explore-creative-work')" class="clients-btn">Explore Work</a>
-                <a href="/index#contact-us" class="clients-btn" style="background: transparent; border: 2px solid var(--sunflower-yellow); color: white;">Get In Touch</a>
+                <a href="javascript:void(0)" onclick="lenis.scrollTo('#explore-creative-work')"
+                    class="clients-btn">Explore Work</a>
+                <a href="/index#contact-us" class="clients-btn"
+                    style="background: transparent; border: 2px solid var(--sunflower-yellow); color: white;">Get In
+                    Touch</a>
             </div>
         </div>
 
         <div class="clients-carousel">
             <div class="carousel-col carousel-up" id="clientsCol1">
                 <!-- Set 1 -->
-                <div class="carousel-card" onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')" style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="carousel-card-content"><h3>Sirimirii</h3><p>Social Media & Strategy</p></div>
+                <div class="carousel-card"
+                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
+                    <div class="carousel-card-content">
+                        <h3>Sirimirii</h3>
+                        <p>Social Media & Strategy</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Sakarya</h3><p>SEO & Content</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Sakarya</h3>
+                        <p>SEO & Content</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Creative Partner</h3><p>Digital Solutions</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Creative Partner</h3>
+                        <p>Digital Solutions</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Easy Living</h3><p>Photography</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Easy Living</h3>
+                        <p>Photography</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Plan Your Home</h3><p>Interior Strategy</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Plan Your Home</h3>
+                        <p>Interior Strategy</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Digital Growth</h3><p>Marketing</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Digital Growth</h3>
+                        <p>Marketing</p>
+                    </div>
                 </div>
                 <!-- Set 2 (for seamless loop) -->
-                <div class="carousel-card" onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')" style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="carousel-card-content"><h3>Sirimirii</h3><p>Social Media & Strategy</p></div>
+                <div class="carousel-card"
+                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
+                    <div class="carousel-card-content">
+                        <h3>Sirimirii</h3>
+                        <p>Social Media & Strategy</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Sakarya</h3><p>SEO & Content</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Sakarya</h3>
+                        <p>SEO & Content</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Creative Partner</h3><p>Digital Solutions</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Creative Partner</h3>
+                        <p>Digital Solutions</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Easy Living</h3><p>Photography</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Easy Living</h3>
+                        <p>Photography</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Plan Your Home</h3><p>Interior Strategy</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Plan Your Home</h3>
+                        <p>Interior Strategy</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Digital Growth</h3><p>Marketing</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Digital Growth</h3>
+                        <p>Marketing</p>
+                    </div>
                 </div>
             </div>
             <div class="carousel-col carousel-down" id="clientsCol2">
                 <!-- Set 1 (Reverse/Staggered Order) -->
-                <div class="carousel-card" style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Digital Growth</h3><p>Marketing</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Digital Growth</h3>
+                        <p>Marketing</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Plan Your Home</h3><p>Interior Strategy</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Plan Your Home</h3>
+                        <p>Interior Strategy</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Easy Living</h3><p>Photography</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Easy Living</h3>
+                        <p>Photography</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Creative Partner</h3><p>Digital Solutions</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Creative Partner</h3>
+                        <p>Digital Solutions</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-color: white;">
-                    <div class="carousel-card-content"><h3>Sakarya</h3><p>SEO & Content</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Sakarya</h3>
+                        <p>SEO & Content</p>
+                    </div>
                 </div>
-                <div class="carousel-card" onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')" style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="carousel-card-content"><h3>Sirimirii</h3><p>Social Media & Strategy</p></div>
+                <div class="carousel-card"
+                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
+                    <div class="carousel-card-content">
+                        <h3>Sirimirii</h3>
+                        <p>Social Media & Strategy</p>
+                    </div>
                 </div>
                 <!-- Set 2 -->
-                <div class="carousel-card" style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Digital Growth</h3><p>Marketing</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Digital Growth</h3>
+                        <p>Marketing</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Plan Your Home</h3><p>Interior Strategy</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Plan Your Home</h3>
+                        <p>Interior Strategy</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Easy Living</h3><p>Photography</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Easy Living</h3>
+                        <p>Photography</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Creative Partner</h3><p>Digital Solutions</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Creative Partner</h3>
+                        <p>Digital Solutions</p>
+                    </div>
                 </div>
-                <div class="carousel-card" style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content"><h3>Sakarya</h3><p>SEO & Content</p></div>
+                <div class="carousel-card"
+                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                    <div class="carousel-card-content">
+                        <h3>Sakarya</h3>
+                        <p>SEO & Content</p>
+                    </div>
                 </div>
-                <div class="carousel-card" onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')" style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="carousel-card-content"><h3>Sirimirii</h3><p>Social Media & Strategy</p></div>
+                <div class="carousel-card"
+                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
+                    <div class="carousel-card-content">
+                        <h3>Sirimirii</h3>
+                        <p>Social Media & Strategy</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1125,19 +1310,27 @@
         <section class="mobile-clients-section">
             <div class="mobile-clients-header">
                 <div class="clients-badge">Our Portfolio</div>
-                <h1 class="clients-title" style="font-family: var(--font-display); color: var(--rich-brown); font-size: 2.2rem; margin-top: 10px;">Work Done<br>By Us</h1>
-                <p style="color: var(--text-gray); margin-top: 15px; font-size: 0.9rem; line-height: 1.5; max-width: 85%;">
+                <h1 class="clients-title"
+                    style="font-family: var(--font-display); color: var(--rich-brown); font-size: 2.2rem; margin-top: 10px;">
+                    Work Done<br>By Us</h1>
+                <p
+                    style="color: var(--text-gray); margin-top: 15px; font-size: 0.9rem; line-height: 1.5; max-width: 85%;">
                     Helping brands grow creatively in the digital space through professional content.
                 </p>
                 <div style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
-                    <a href="javascript:void(0)" onclick="lenis.scrollTo('#explore-creative-work')" class="clients-btn" style="padding: 10px 20px; font-size: 0.8rem;">Explore Work</a>
-                    <a href="/index#contact-us" class="clients-btn" style="padding: 10px 20px; font-size: 0.8rem; background: var(--rich-brown); color: white;">Contact Us</a>
+                    <a href="javascript:void(0)" onclick="lenis.scrollTo('#explore-creative-work')" class="clients-btn"
+                        style="padding: 10px 20px; font-size: 0.8rem;">Explore Work</a>
+                    <a href="/index#contact-us" class="clients-btn"
+                        style="padding: 10px 20px; font-size: 0.8rem; background: var(--rich-brown); color: white;">Contact
+                        Us</a>
                 </div>
             </div>
 
             <div class="mobile-carousel-container" id="mobileCarousel">
                 <!-- Sirimirii -->
-                <div class="mobile-client-card" onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')" style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
+                <div class="mobile-client-card"
+                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
                     <div class="mobile-card-content">
                         <span class="mobile-card-badge">Premium</span>
                         <h3>Sirimirii</h3>
@@ -1146,7 +1339,8 @@
                 </div>
 
                 <!-- Easy Living -->
-                <div class="mobile-client-card" style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                <div class="mobile-client-card"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
                     <div class="mobile-card-content">
                         <span class="mobile-card-badge">Standard</span>
                         <h3>Easy Living</h3>
@@ -1155,7 +1349,8 @@
                 </div>
 
                 <!-- Sakarya Creations -->
-                <div class="mobile-client-card" style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                <div class="mobile-client-card"
+                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
                     <div class="mobile-card-content">
                         <span class="mobile-card-badge">Standard</span>
                         <h3>Sakarya Creations</h3>
@@ -1164,7 +1359,8 @@
                 </div>
 
                 <!-- Plan Your Home -->
-                <div class="mobile-client-card" style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                <div class="mobile-client-card"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
                     <div class="mobile-card-content">
                         <span class="mobile-card-badge">Premium</span>
                         <h3>Plan Your Home</h3>
@@ -1173,7 +1369,8 @@
                 </div>
 
                 <!-- Digital Growth -->
-                <div class="mobile-client-card" style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                <div class="mobile-client-card"
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
                     <div class="mobile-card-content">
                         <span class="mobile-card-badge">Standard</span>
                         <h3>Digital Growth</h3>
@@ -1182,7 +1379,8 @@
                 </div>
 
                 <!-- Creative Partner -->
-                <div class="mobile-client-card" style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
+                <div class="mobile-client-card"
+                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
                     <div class="mobile-card-content">
                         <span class="mobile-card-badge">Professional</span>
                         <h3>Creative Partner</h3>
@@ -1191,7 +1389,8 @@
                 </div>
 
                 <!-- Brand Client -->
-                <div class="mobile-client-card" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800')">
+                <div class="mobile-client-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800')">
                     <div class="mobile-card-content">
                         <span class="mobile-card-badge">Premium</span>
                         <h3>Brand Client</h3>
@@ -1205,7 +1404,7 @@
     <script>
         // Mobile Sticky Horizontal Scroll Logic
         let isScrolling = false;
-        
+
         function updateCarousel() {
             if (window.innerWidth > 900) {
                 isScrolling = false;
@@ -1229,10 +1428,10 @@
             progress = Math.max(0, Math.min(1, progress));
 
             // Max horizontal travel
-            const maxScroll = carousel.scrollWidth - window.innerWidth + (window.innerWidth * 0.16); 
+            const maxScroll = carousel.scrollWidth - window.innerWidth + (window.innerWidth * 0.16);
 
             carousel.style.transform = `translateX(${-progress * maxScroll}px) translateZ(0)`;
-            
+
             isScrolling = false;
         }
 
@@ -1242,7 +1441,7 @@
                 isScrolling = true;
             }
         }, { passive: true });
-        
+
         // Also update on resize to ensure maxScroll is correct
         window.addEventListener('resize', () => {
             window.requestAnimationFrame(updateCarousel);
@@ -1254,16 +1453,16 @@
     <style>
         /* --- Clients Section Styles --- */
 
-.clients-section {
-    display: flex;
-    width: 100%;
-    min-height: 50vh;
-    max-height: 90vh;
-    background: linear-gradient(135deg, var(--rich-brown) 0%, #2B2B2B 100%);
-    color: white;
-    padding: 60px 0;
-    gap: 0;
-}
+        .clients-section {
+            display: flex;
+            width: 100%;
+            min-height: 50vh;
+            max-height: 90vh;
+            background: linear-gradient(135deg, var(--rich-brown) 0%, #2B2B2B 100%);
+            color: white;
+            padding: 60px 0;
+            gap: 0;
+        }
 
         .clients-left {
             width: 50%;
@@ -1366,13 +1565,23 @@
         }
 
         @keyframes carouselScrollUp {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
         }
 
         @keyframes carouselScrollDown {
-            0% { transform: translateY(-50%); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(-50%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
 
         .carousel-card {
@@ -1676,9 +1885,11 @@
             .clients-section {
                 display: none !important;
             }
+
             .mobile-sticky-wrapper {
                 display: block !important;
-                height: 400vh; /* Scroll runway */
+                height: 400vh;
+                /* Scroll runway */
             }
         }
 
@@ -1753,7 +1964,8 @@
 
         .explore-card {
             background: var(--sunny-cream);
-            border-radius: 0; /* Square cards */
+            border-radius: 0;
+            /* Square cards */
             padding: 30px 20px 20px 20px;
             display: flex;
             flex-direction: column;
@@ -1827,7 +2039,8 @@
         .explore-image-wrapper {
             position: relative;
             width: 100%;
-            height: 480px; /* Increased height for Reels */
+            height: 480px;
+            /* Increased height for Reels */
             border-radius: 12px;
             overflow: hidden;
             margin-top: auto;
@@ -1849,9 +2062,9 @@
             position: absolute;
             bottom: 15px;
             left: 15px;
-            background: rgba(252,196,25,0.3);
+            background: rgba(252, 196, 25, 0.3);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(252,196,25,0.5);
+            border: 1px solid rgba(252, 196, 25, 0.5);
             color: var(--rich-brown);
             padding: 8px 16px;
             border-radius: 20px;
@@ -1864,17 +2077,19 @@
         }
 
         .explore-read-more-btn:hover {
-            background: rgba(255,255,255,0.3);
-            border-color: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         @media (max-width: 1100px) {
             .explore-header-container {
                 flex-direction: column;
             }
+
             .explore-header-left h1 {
                 font-size: 3rem;
             }
+
             .explore-services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1884,9 +2099,11 @@
             .explore-section {
                 padding: 60px 5%;
             }
+
             .explore-header-left h1 {
                 font-size: 2rem;
             }
+
             .explore-services-grid {
                 grid-template-columns: 1fr;
             }
@@ -1908,10 +2125,12 @@
     <!-- Our Work Section -->
     <section class="our-work-section" id="our-services">
         <!-- Decorative props -->
-        <div class="decorative-prop" id="prop-work-1" data-rotation="0" data-speed="0" style="position: absolute;z-index: 1;top: -80px;right: -80px;transform: rotate(0deg);width: 320px;overflow: hidden;">
+        <div class="decorative-prop" id="prop-work-1" data-rotation="0" data-speed="0"
+            style="position: absolute;z-index: 1;top: -80px;right: -80px;transform: rotate(0deg);width: 320px;overflow: hidden;">
             <img src="image-Photoroom (3).png" alt="prop" style="width: 320px;">
         </div>
-        <div class="decorative-prop" id="prop-work-2" data-rotation="0" data-speed="0" style="position: absolute;z-index: 1;bottom: -70px;left: -20px;transform: rotate(0deg);width: 340px;overflow: hidden;">
+        <div class="decorative-prop" id="prop-work-2" data-rotation="0" data-speed="0"
+            style="position: absolute;z-index: 1;bottom: -70px;left: -20px;transform: rotate(0deg);width: 340px;overflow: hidden;">
             <img src="Gemini_Generated_Image_n28oi3n28oi3n28o-Photoroom.png" alt="prop" style="width: 340px;">
         </div>
 
@@ -1931,103 +2150,111 @@
         <div class="work-menu">
             <div class="work-header">
                 <h2 class="work-header-title">What We Do For Our Clients</h2>
-                <p class="work-header-desc">Every industry has different needs, and our work focuses on creating digital content and strategies that match each brand's identity.</p>
+                <p class="work-header-desc">Every industry has different needs, and our work focuses on creating digital
+                    content and strategies that match each brand's identity.</p>
             </div>
-            
+
             <ul class="work-service-list">
-                <li class="work-service-item active" 
-                    data-main-img="255A1123 (1).jpg"
-                    data-sec-img="DSC_0621.jpg">
+                <li class="work-service-item active" data-main-img="255A1123 (1).jpg" data-sec-img="DSC_0621.jpg">
                     <div class="work-service-header">
                         <span class="work-service-name">Restaurants</span>
                         <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </span>
                     </div>
-                    <span class="work-service-desc show">Social media content, food photography, campaign ideas, and promotional marketing</span>
+                    <span class="work-service-desc show">Social media content, food photography, campaign ideas, and
+                        promotional marketing</span>
                 </li>
-                <li class="work-service-item" 
-                    data-main-img="Gemini_Generated_Image_8bf8ro8bf8ro8bf8.png"
+                <li class="work-service-item" data-main-img="Gemini_Generated_Image_8bf8ro8bf8ro8bf8.png"
                     data-sec-img="ChatGPT Image May 7, 2026, 11_43_55 AM.png">
                     <div class="work-service-header">
                         <span class="work-service-name">Furniture & Interior Brands</span>
                         <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </span>
                     </div>
-                    <span class="work-service-desc">Creative product posts, photoshoots, and visual storytelling to showcase designs</span>
+                    <span class="work-service-desc">Creative product posts, photoshoots, and visual storytelling to
+                        showcase designs</span>
                 </li>
-                <li class="work-service-item" 
-                    data-main-img="portfolio_data/images/work_school_main.png"
+                <li class="work-service-item" data-main-img="portfolio_data/images/work_school_main.png"
                     data-sec-img="portfolio_data/images/work_school_sec.png">
                     <div class="work-service-header">
                         <span class="work-service-name">Schools & Educational Institutes</span>
                         <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </span>
                     </div>
-                    <span class="work-service-desc">Informative posts, event coverage, and digital presence building</span>
+                    <span class="work-service-desc">Informative posts, event coverage, and digital presence
+                        building</span>
                 </li>
-                <li class="work-service-item" 
-                    data-main-img="portfolio_data/images/work_salon_main.png"
+                <li class="work-service-item" data-main-img="portfolio_data/images/work_salon_main.png"
                     data-sec-img="portfolio_data/images/work_salon_sec.png">
                     <div class="work-service-header">
                         <span class="work-service-name">Salons & Beauty Businesses</span>
                         <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </span>
                     </div>
                     <span class="work-service-desc">Beauty-focused content, service promotions, and brand visuals</span>
                 </li>
-                <li class="work-service-item" 
-                    data-main-img="portfolio_data/images/work_retail_main.png"
+                <li class="work-service-item" data-main-img="portfolio_data/images/work_retail_main.png"
                     data-sec-img="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=600">
                     <div class="work-service-header">
                         <span class="work-service-name">Gift & Retail Stores</span>
                         <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </span>
                     </div>
-                    <span class="work-service-desc">Creative product presentation, festive campaigns, and engaging posts</span>
+                    <span class="work-service-desc">Creative product presentation, festive campaigns, and engaging
+                        posts</span>
                 </li>
-                <li class="work-service-item" 
+                <li class="work-service-item"
                     data-main-img="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000"
                     data-sec-img="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=600">
                     <div class="work-service-header">
                         <span class="work-service-name">Hospitals & Healthcare</span>
                         <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </span>
                     </div>
-                    <span class="work-service-desc">Professional digital presence, informative content, and brand visibility</span>
+                    <span class="work-service-desc">Professional digital presence, informative content, and brand
+                        visibility</span>
                 </li>
-                <li class="work-service-item" 
+                <li class="work-service-item"
                     data-main-img="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000"
                     data-sec-img="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600">
                     <div class="work-service-header">
                         <span class="work-service-name">Real Estate</span>
                         <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </span>
                     </div>
-                    <span class="work-service-desc">Property promotions, creative marketing ideas, and digital campaigns</span>
+                    <span class="work-service-desc">Property promotions, creative marketing ideas, and digital
+                        campaigns</span>
                 </li>
             </ul>
-            
+
             <button class="work-explore-btn" onclick="window.location.href='/about'">Know more about us</button>
         </div>
     </section>
@@ -2081,7 +2308,7 @@
             overflow: hidden;
             position: relative;
             z-index: 1;
-            box-shadow: 20px 20px 60px rgba(252,196,25,0.1);
+            box-shadow: 20px 20px 60px rgba(252, 196, 25, 0.1);
         }
 
         .secondary-img-wrapper {
@@ -2093,7 +2320,7 @@
             z-index: 2;
             overflow: hidden;
             border: 10px solid var(--warm-beige);
-            box-shadow: 10px 10px 30px rgba(252,196,25,0.1);
+            box-shadow: 10px 10px 30px rgba(252, 196, 25, 0.1);
         }
 
         .work-swap-image {
@@ -2207,7 +2434,7 @@
 
         .work-service-item:hover {
             padding-left: 15px;
-            background-color: rgba(252,196,25,0.05);
+            background-color: rgba(252, 196, 25, 0.05);
         }
 
         .work-service-item:hover .work-service-desc {
@@ -2246,8 +2473,10 @@
         @media (max-width: 1024px) {
             .our-work-section {
                 flex-direction: column;
-                padding: 40px 20px 120px 20px !important; /* Extra bottom padding for prop */
+                padding: 40px 20px 120px 20px !important;
+                /* Extra bottom padding for prop */
             }
+
             #prop-work-2 {
                 bottom: -40px !important;
                 left: 50% !important;
@@ -2255,34 +2484,42 @@
                 width: 260px !important;
                 top: auto !important;
             }
+
             #prop-work-2 img {
                 width: 260px !important;
             }
+
             #prop-work-1 {
                 width: 180px !important;
                 top: -40px !important;
                 right: -30px !important;
             }
+
             #prop-work-1 img {
                 width: 180px !important;
             }
+
             .work-title {
                 writing-mode: horizontal-tb;
                 transform: none;
                 font-size: 60px;
                 margin-bottom: 40px;
             }
+
             .work-images {
                 min-height: 400px;
                 margin-bottom: 40px;
             }
+
             .work-menu {
                 padding-left: 0;
             }
+
             .secondary-img-wrapper {
                 width: 180px;
                 height: 250px;
             }
+
             .work-explore-btn {
                 align-self: center;
             }
@@ -2300,7 +2537,6 @@
             padding: 120px 5% 150px 5%;
             position: relative;
             overflow: hidden;
-            margin-top: 40px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -2385,7 +2621,7 @@
             transform: translate(-50%, -50%);
             width: 280px;
             height: 280px;
-            background-color: #FFFFFF;
+            background-color: #FAF8E2;
             border-radius: 50%;
             z-index: 100;
             display: flex;
@@ -2596,6 +2832,7 @@
             .decorative-prop {
                 width: 80px !important;
             }
+
             #prop-explore-1 {
                 display: none !important;
             }
@@ -2629,17 +2866,17 @@
             color: white;
         }
 
-            .footer-bottom {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 30px;
-                margin-top: 60px;
-            }
+        .footer-bottom {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+            margin-top: 60px;
+        }
 
-            .local-time {
-                text-align: center;
-            }
+        .local-time {
+            text-align: center;
+        }
         }
     </style>
 
@@ -2647,12 +2884,12 @@
         // Our Work section image swap and accordion
         const featuredWorkImg = document.getElementById('featured-work-image');
         const secondaryWorkImg = document.getElementById('secondary-work-image');
-        
+
         const workServiceItems = document.querySelectorAll('.work-service-item');
 
         function smoothWorkSwap(imgElement, newSrc) {
             imgElement.style.opacity = '0';
-            
+
             setTimeout(() => {
                 imgElement.src = newSrc;
                 imgElement.style.opacity = '1';
@@ -2682,7 +2919,7 @@
                 // Swap images
                 const newMainSrc = item.getAttribute('data-main-img');
                 const newSecSrc = item.getAttribute('data-sec-img');
-                
+
                 smoothWorkSwap(featuredWorkImg, newMainSrc);
                 smoothWorkSwap(secondaryWorkImg, newSecSrc);
             });
@@ -2691,7 +2928,7 @@
             item.addEventListener('mouseenter', () => {
                 const newMainSrc = item.getAttribute('data-main-img');
                 const newSecSrc = item.getAttribute('data-sec-img');
-                
+
                 smoothWorkSwap(featuredWorkImg, newMainSrc);
                 smoothWorkSwap(secondaryWorkImg, newSecSrc);
             });
@@ -2701,15 +2938,18 @@
     <!-- Explore Our Creative Section -->
     <section class="explore-section" id="explore-creative-work">
         <!-- Decorative prop -->
-    <div class="decorative-prop" id="prop-explore-1" data-rotation="0" data-speed="0" style="position: absolute;z-index: 1;bottom: -20px;right: -40px;transform: rotate(0deg);width: 300px;overflow: hidden;">
-        <img src="image-Photoroom-0.png" alt="prop" style="width: 300px;">
-    </div>        <div class="explore-header-container">
+        <div class="decorative-prop" id="prop-explore-1" data-rotation="0" data-speed="0"
+            style="position: absolute;z-index: 1;bottom: -20px;right: -40px;transform: rotate(0deg);width: 300px;overflow: hidden;">
+            <img src="image-Photoroom-0.png" alt="prop" style="width: 300px;">
+        </div>
+        <div class="explore-header-container">
             <div class="explore-header-left">
                 <h1>Explore Our<br>Creative Work</h1>
                 <p>You can explore our creative work through different categories.</p>
             </div>
             <div class="explore-header-right">
-                <p>RAM Digital Media showcases a diverse portfolio of creative solutions designed to help brands stand out and engage their audiences effectively through multiple mediums.</p>
+                <p>RAM Digital Media showcases a diverse portfolio of creative solutions designed to help brands stand
+                    out and engage their audiences effectively through multiple mediums.</p>
                 <a href="/index#contact-us" class="explore-book-btn">Start Your Journey</a>
             </div>
         </div>
@@ -2725,7 +2965,8 @@
                 <h3>Social Media<br>Content</h3>
                 <p class="explore-description">Plan your home</p>
                 <div class="explore-image-wrapper">
-                    <iframe src="https://www.instagram.com/reel/C6x-wPUI84j/embed/" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://www.instagram.com/reel/C6x-wPUI84j/embed/" frameborder="0"
+                        scrolling="no"></iframe>
                 </div>
             </div>
 
@@ -2739,7 +2980,8 @@
                 <h3>Professional<br>Photography</h3>
                 <p class="explore-description">Easy living</p>
                 <div class="explore-image-wrapper">
-                    <iframe src="https://www.instagram.com/reel/DRTnxpeCFUA/embed/" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://www.instagram.com/reel/DRTnxpeCFUA/embed/" frameborder="0"
+                        scrolling="no"></iframe>
                 </div>
             </div>
 
@@ -2753,7 +2995,8 @@
                 <h3>Videography<br>& Motion</h3>
                 <p class="explore-description">Sirimirii</p>
                 <div class="explore-image-wrapper">
-                    <iframe src="https://www.instagram.com/reel/DYUMlwdsSzD/embed/" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://www.instagram.com/reel/DYUMlwdsSzD/embed/" frameborder="0"
+                        scrolling="no"></iframe>
                 </div>
             </div>
 
@@ -2767,7 +3010,8 @@
                 <h3>Wedding<br>Content</h3>
                 <p class="explore-description">Komuanddarshu</p>
                 <div class="explore-image-wrapper">
-                    <iframe src="https://www.instagram.com/reel/C1or5JaBk6s/embed/" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://www.instagram.com/reel/C1or5JaBk6s/embed/" frameborder="0"
+                        scrolling="no"></iframe>
                 </div>
             </div>
         </div>
@@ -2797,8 +3041,10 @@
         <div class="footer-content">
             <div class="footer-header">
                 <div class="footer-header-left">
-                    <p class="footer-sub" style="font-family: var(--font-body);">Got a project? Need an unfair advantage?</p>
-                    <h1 class="footer-heading" onclick="window.location.href='/index#contact-us'" style="cursor: pointer;">
+                    <p class="footer-sub" style="font-family: var(--font-body);">Got a project? Need an unfair
+                        advantage?</p>
+                    <h1 class="footer-heading" onclick="window.location.href='/index#contact-us'"
+                        style="cursor: pointer;">
                         GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
                     </h1>
                 </div>
@@ -2814,13 +3060,20 @@
                 <div class="grid-column">
                     <h4>Navigation</h4>
                     <ul style="font-family: var(--font-body); font-size: 15px;">
-                        <li><a href="/index" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="/about" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="/index#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="/index#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
-                        <li><a href="/about#why-choose-us" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="/portfolio" style="color: inherit; text-decoration: none; cursor: pointer;">Portfolio</a></li>
-                        <li><a href="/index#contact-us" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
+                        <li><a href="/index" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a>
+                        </li>
+                        <li><a href="/about" style="color: inherit; text-decoration: none; cursor: pointer;">About</a>
+                        </li>
+                        <li><a href="/index#our-services"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="/index#how-we-work"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="/about#why-choose-us"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="/portfolio"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Portfolio</a></li>
+                        <li><a href="/index#contact-us"
+                                style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
                     </ul>
                 </div>
                 <div class="grid-column">
@@ -2869,12 +3122,12 @@
                 prop.style.position = 'absolute';
                 prop.style.zIndex = '1';
                 prop.style.width = config.width;
-                
+
                 if (config.top) prop.style.top = config.top;
                 if (config.bottom) prop.style.bottom = config.bottom;
                 if (config.left) prop.style.left = config.left;
                 if (config.right) prop.style.right = config.right;
-                
+
                 prop.dataset.rotation = 0;
                 prop.dataset.speed = config.speed;
                 prop.style.transform = 'rotate(0deg)';
@@ -2898,7 +3151,7 @@
                 const footer = document.querySelector('.footer');
                 const footerRect = footer.getBoundingClientRect();
                 const isFooterInView = footerRect.top < window.innerHeight && footerRect.bottom > 0;
-                
+
                 if (isFooterInView) {
                     let rotation = parseFloat(propFooter2.dataset.rotation) || -167.93;
                     rotation += scrollDelta * 0.05;
@@ -2912,40 +3165,41 @@
     </script>
 
 
-<style>
-/* --- Custom JS Cursor Styles --- */
-@media (pointer: fine) {
-    * {
-        cursor: none !important;
-    }
-}
+    <style>
+        /* --- Custom JS Cursor Styles --- */
+        @media (pointer: fine) {
+            * {
+                cursor: none !important;
+            }
+        }
 
-@media (max-width: 768px) {
-    * {
-        cursor: auto !important;
-    }
-    #custom-sunflower-cursor {
-        display: none !important;
-    }
-}
+        @media (max-width: 768px) {
+            * {
+                cursor: auto !important;
+            }
 
-#custom-sunflower-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 72px;
-    height: 72px;
-    background-image: url("image-Photoroom-2.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 999999;
-    transform: translate(-50%, -50%);
-    will-change: transform, left, top;
-    transition: opacity 0.2s;
-}
-</style>
+            #custom-sunflower-cursor {
+                display: none !important;
+            }
+        }
+
+        #custom-sunflower-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 72px;
+            height: 72px;
+            background-image: url("image-Photoroom-2.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            will-change: transform, left, top;
+            transition: opacity 0.2s;
+        }
+    </style>
     <script>
         // --- Lenis Smooth Scroll Initialization ---
         const lenis = new Lenis({
@@ -2969,57 +3223,57 @@
 
         // --- Custom JS Cursor Logic ---
         document.addEventListener("DOMContentLoaded", () => {
-        // Disable custom cursor on Android
-        if (/Android/i.test(navigator.userAgent)) return;
+            // Disable custom cursor on Android
+            if (/Android/i.test(navigator.userAgent)) return;
 
-        // Create the cursor element
-        const cursor = document.createElement("div");
-        cursor.id = "custom-sunflower-cursor";
-        document.body.appendChild(cursor);
+            // Create the cursor element
+            const cursor = document.createElement("div");
+            cursor.id = "custom-sunflower-cursor";
+            document.body.appendChild(cursor);
 
-        let currentAngle = 0;
-        let lastX = -1;
-        let lastY = -1;
-        
-        // Use requestAnimationFrame for smooth performance
-        let mouseX = -100;
-        let mouseY = -100;
+            let currentAngle = 0;
+            let lastX = -1;
+            let lastY = -1;
 
-        document.addEventListener("mousemove", (e) => {
-            if (lastX === -1) {
+            // Use requestAnimationFrame for smooth performance
+            let mouseX = -100;
+            let mouseY = -100;
+
+            document.addEventListener("mousemove", (e) => {
+                if (lastX === -1) {
+                    lastX = e.clientX;
+                    lastY = e.clientY;
+                }
+
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                // Determine direction of rotation based on X movement
+                const direction = dx > 0 ? 1 : (dx < 0 ? -1 : 1);
+
+                // Rotate based on movement distance
+                currentAngle += distance * 1.5 * direction;
+
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                cursor.style.left = mouseX + "px";
+                cursor.style.top = mouseY + "px";
+                cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+
                 lastX = e.clientX;
                 lastY = e.clientY;
-            }
-            
-            const dx = e.clientX - lastX;
-            const dy = e.clientY - lastY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            // Determine direction of rotation based on X movement
-            const direction = dx > 0 ? 1 : (dx < 0 ? -1 : 1);
-            
-            // Rotate based on movement distance
-            currentAngle += distance * 1.5 * direction;
-            
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            cursor.style.left = mouseX + "px";
-            cursor.style.top = mouseY + "px";
-            cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
-            
-            lastX = e.clientX;
-            lastY = e.clientY;
-        });
+            });
 
-        document.addEventListener("mouseleave", () => {
-            cursor.style.opacity = "0";
+            document.addEventListener("mouseleave", () => {
+                cursor.style.opacity = "0";
+            });
+            document.addEventListener("mouseenter", () => {
+                cursor.style.opacity = "1";
+            });
         });
-        document.addEventListener("mouseenter", () => {
-            cursor.style.opacity = "1";
-        });
-    });
-</script>
+    </script>
 </body>
 
 </html>
