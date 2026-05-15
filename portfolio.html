@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <style>
         :root {
             --bg-color: #FAF8E2;
@@ -838,15 +839,19 @@
             <div class="scroll-content" id="scrollContent">
                 
                 <div class="intro-slide">
-                    <h1>Professional Experience<br>IT Company<br><em style="font-size: 0.6em; font-weight: 400;">UI Designer & Social Media Manager (3.5 Years)</em></h1>
+                    <h1 style="font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 0.9;">
+                        Professional Experience<br>
+                        IT Company<br>
+                        <span style="font-family: var(--font-body); font-size: 24px; font-weight: 400; font-style: normal; letter-spacing: 0.5px; display: block; margin-top: 15px; text-transform: none; line-height: 1.2;">UI Designer & Social Media Manager (3.5 Years)</span>
+                    </h1>
                 </div>
 
                 <div class="museum-card">
                     <div class="card-header">
                         <h2>Experience Overview</h2>
                         <div class="card-info">
-                            <strong>UI Designer & Social Media Manager</strong><br>
-                            <em>3.5 Years</em><br><br>
+                            <strong style="font-size: 0.9em;">UI Designer & Social Media Manager</strong><br>
+                            <span style="font-size: 0.85em; font-style: normal;">3.5 Years</span><br><br>
                             Before starting RAM Digital Media, valuable experience was gained while working in an IT company where the focus was on digital creativity, brand communication, and social media growth. This experience helped build strong practical knowledge in design, content creation, and digital strategy.
                         </div>
                     </div>
@@ -1715,10 +1720,10 @@
 
         <div class="work-images">
             <div class="main-img-wrapper">
-                <img id="featured-work-image" class="work-swap-image" src="portfolio_data/images/work_rest_main.png" alt="Service Showcase">
+                <img id="featured-work-image" class="work-swap-image" src="255A1123 (1).jpg" alt="Service Showcase">
             </div>
             <div class="secondary-img-wrapper">
-                <img id="secondary-work-image" class="work-swap-image" src="portfolio_data/images/work_rest_sec.png" alt="Professional Portrait">
+                <img id="secondary-work-image" class="work-swap-image" src="DSC_0621.jpg" alt="Professional Portrait">
             </div>
         </div>
 
@@ -1730,8 +1735,8 @@
             
             <ul class="work-service-list">
                 <li class="work-service-item active" 
-                    data-main-img="portfolio_data/images/work_rest_main.png"
-                    data-sec-img="portfolio_data/images/work_rest_sec.png">
+                    data-main-img="255A1123 (1).jpg"
+                    data-sec-img="DSC_0621.jpg">
                     <div class="work-service-header">
                         <span class="work-service-name">Restaurants</span>
                         <span class="work-arrow-icon">
@@ -1743,8 +1748,8 @@
                     <span class="work-service-desc show">Social media content, food photography, campaign ideas, and promotional marketing</span>
                 </li>
                 <li class="work-service-item" 
-                    data-main-img="portfolio_data/images/work_furn_main.png"
-                    data-sec-img="portfolio_data/images/work_furn_sec.png">
+                    data-main-img="Gemini_Generated_Image_8bf8ro8bf8ro8bf8.png"
+                    data-sec-img="ChatGPT Image May 7, 2026, 11_43_55 AM.png">
                     <div class="work-service-header">
                         <span class="work-service-name">Furniture & Interior Brands</span>
                         <span class="work-arrow-icon">
@@ -1822,7 +1827,7 @@
                 </li>
             </ul>
             
-            <button class="work-explore-btn">Explore Our Industries</button>
+            <button class="work-explore-btn" onclick="window.location.href='about-us-hero.html'">Know more about us</button>
         </div>
     </section>
 
@@ -2152,9 +2157,11 @@
         }
 
         .grid-column h4 {
-            font-size: 11px;
+            font-family: var(--font-display);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
             margin-bottom: 25px;
             color: var(--color-rich-brown);
             background: var(--color-pale-yellow);
@@ -2191,10 +2198,10 @@
 
         .grid-column ul li,
         .grid-column ul li a {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 2px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--color-rich-brown);
@@ -2461,61 +2468,61 @@
             </div>
             <div class="explore-header-right">
                 <p>RAM Digital Media showcases a diverse portfolio of creative solutions designed to help brands stand out and engage their audiences effectively through multiple mediums.</p>
-                <a href="#" class="explore-book-btn">View Full Portfolio</a>
+                <a href="index.html#contact-us" class="explore-book-btn">Start Your Journey</a>
             </div>
         </div>
 
         <div class="explore-services-grid">
-            <div class="explore-card explore-card-mint">
+            <div class="explore-card explore-card-mint" onclick="window.open('https://www.instagram.com/planyourhome.in?igsh=cDk1dGo4OTlwcWd6', '_blank')" style="cursor: pointer;">
                 <div class="explore-tags">
                     <span class="explore-tag">Digital</span>
                     <span class="explore-tag">Strategy</span>
                 </div>
                 <div class="explore-card-icon"></div>
                 <h3>Social Media<br>Content</h3>
-                <p class="explore-description">See how we design engaging posts and creative social media strategies.</p>
+                <p class="explore-description">Plan your home</p>
                 <div class="explore-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800" alt="Social Media Content">
                     <div class="explore-read-more-btn">Explore <span>→</span></div>
                 </div>
             </div>
 
-            <div class="explore-card">
+            <div class="explore-card" onclick="window.open('https://www.instagram.com/easy_living_official_?igsh=MWtmNWF0N2tjcjUxNg==', '_blank')" style="cursor: pointer;">
                 <div class="explore-tags">
                     <span class="explore-tag">Visual</span>
                     <span class="explore-tag">Premium</span>
                 </div>
                 <div class="explore-card-icon"></div>
                 <h3>Professional<br>Photography</h3>
-                <p class="explore-description">Capturing products, spaces, and brand identity through professional photography.</p>
+                <p class="explore-description">Easy living</p>
                 <div class="explore-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?q=80&w=800" alt="Photography">
                     <div class="explore-read-more-btn">Explore <span>→</span></div>
                 </div>
             </div>
 
-            <div class="explore-card">
+            <div class="explore-card" onclick="window.open('https://www.instagram.com/sirimiriirestaurant?igsh=eThjNDlvaGxmMTZp', '_blank')" style="cursor: pointer;">
                 <div class="explore-tags">
                     <span class="explore-tag">Video</span>
                     <span class="explore-tag">Motion</span>
                 </div>
                 <div class="explore-card-icon"></div>
                 <h3>Videography<br>& Motion</h3>
-                <p class="explore-description">Creative video content designed to attract attention and tell brand stories.</p>
+                <p class="explore-description">Sirimirii</p>
                 <div class="explore-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=800" alt="Videography">
                     <div class="explore-read-more-btn">Explore <span>→</span></div>
                 </div>
             </div>
 
-            <div class="explore-card">
+            <div class="explore-card" onclick="window.open('https://www.instagram.com/komuaurdarshu?igsh=M2NrMjI1eDl3NTd6', '_blank')" style="cursor: pointer;">
                 <div class="explore-tags">
                     <span class="explore-tag">Events</span>
                     <span class="explore-tag">Moments</span>
                 </div>
                 <div class="explore-card-icon"></div>
                 <h3>Wedding<br>Content</h3>
-                <p class="explore-description">Capturing special moments and emotions in a modern digital storytelling format.</p>
+                <p class="explore-description">Komuanddarshu</p>
                 <div class="explore-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800" alt="Wedding Content">
                     <div class="explore-read-more-btn">Explore <span>→</span></div>
@@ -2538,13 +2545,13 @@
         <div class="footer-content">
             <div class="footer-header">
                 <div class="footer-header-left">
-                    <p class="footer-sub">Got a project? Need an unfair advantage?</p>
-                    <h1 class="footer-heading">
+                    <p class="footer-sub" style="font-family: var(--font-body);">Got a project? Need an unfair advantage?</p>
+                    <h1 class="footer-heading" onclick="window.location.href='index.html#contact-us'" style="cursor: pointer;">
                         GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
                     </h1>
                 </div>
                 <div class="footer-header-right">
-                    <div class="brand">
+                    <div class="brand" onclick="window.location.href='index.html'" style="cursor: pointer;">
                         <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
                     </div>
                 </div>
@@ -2552,44 +2559,25 @@
 
             <div class="footer-grid">
                 <div class="grid-column">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="about-us-hero.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="index.html#our-services"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How
-                                We Work</a></li>
-                        <li><a href="whyChooseUs.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
-                        </li>
+                    <h4 style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">Navigation</h4>
+                    <ul style="font-family: var(--font-body); font-size: 15px;">
+                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="about-us-hero.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="index.html#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="about-us-hero.html#why-choose-us" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="portfolio.html" style="color: inherit; text-decoration: none; cursor: pointer;">Portfolio</a></li>
+                        <li><a href="index.html#contact-us" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
                     </ul>
                 </div>
                 <div class="grid-column">
-                    <h4>Socials</h4>
-                    <ul>
+                    <h4 style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">Socials</h4>
+                    <ul style="font-family: var(--font-body); font-size: 15px;">
                         <li>YouTube</li>
                         <li>Instagram</li>
                         <li>Facebook</li>
                     </ul>
                 </div>
-                <div class="grid-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li>Portfolio</li>
-                        <li>Case Studies</li>
-                        <li>Blog</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="fab-container">
-            <div class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
             </div>
         </div>
     </footer>
@@ -2705,9 +2693,29 @@
     transition: opacity 0.2s;
 }
 </style>
-<script>
-    // --- Custom JS Cursor Logic ---
-    document.addEventListener("DOMContentLoaded", () => {
+    <script>
+        // --- Lenis Smooth Scroll Initialization ---
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+
+        // --- Custom JS Cursor Logic ---
+        document.addEventListener("DOMContentLoaded", () => {
         // Disable custom cursor on Android
         if (/Android/i.test(navigator.userAgent)) return;
 

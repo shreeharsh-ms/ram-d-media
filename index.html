@@ -525,23 +525,26 @@
         }
 
         .hero-content h1 {
-            font-size: var(--font-size-h1);
-            line-height: var(--line-height-tight);
-            margin-bottom: var(--spacing-2xl);
+            font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
             font-weight: bold;
-            letter-spacing: var(--letter-spacing-tight);
+            letter-spacing: -1px;
             color: white;
             font-family: var(--font-display);
         }
 
         .hero-subheading {
-            font-size: clamp(14px, 2vw, 18px);
-            line-height: 1.6;
-            margin-bottom: var(--spacing-2xl);
+            font-size: clamp(12px, 1.4vw, 15px);
+            line-height: 1.5;
+            margin-bottom: var(--spacing-xl);
             color: white;
-            /* font-weight: bold; */
             font-family: var(--font-body);
-            max-width: 600px;
+            max-width: 500px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .hero-buttons {
@@ -554,14 +557,14 @@
             background: var(--color-primary-yellow);
             color: var(--color-dark-charcoal);
             border: none;
-            padding: var(--spacing-lg) var(--spacing-2xl);
-            font-size: clamp(12px, 1vw, 14px);
+            padding: 12px 24px;
+            font-size: clamp(10px, 0.85vw, 12px);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: var(--letter-spacing-wide);
             display: flex;
             align-items: center;
-            gap: var(--spacing-md);
+            gap: 10px;
             cursor: pointer;
             transition: var(--transition);
             font-family: var(--font-body);
@@ -1087,16 +1090,16 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            overflow: hidden;
+            overflow: visible;
             background: linear-gradient(135deg, #FAF8E2 0%, #F5F3D5 100%);
         }
 
         .manifesto-container {
             position: relative;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
-            overflow: hidden;
+            overflow: visible;
         }
 
         /* The Image Section */
@@ -1106,7 +1109,7 @@
             top: 0;
             width: 55%;
             height: 100%;
-            background-image: url('Gemini_Generated_Image_9rrwc79rrwc79rrw.png');
+            background-image: url('sam shoting in sunflower garden.png');
             background-size: cover;
             background-position: center;
             -webkit-mask-image: linear-gradient(to right,
@@ -1125,11 +1128,11 @@
             position: relative;
             z-index: 10;
             width: 45%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-left: 5%;
+            padding: 80px 5%;
             background: #FAF8E2;
         }
 
@@ -1671,7 +1674,7 @@
         }
 
         .services-image-preview:hover img#previewImage {
-            filter: blur(8px) brightness(0.5);
+            filter: brightness(0.6);
         }
 
         .preview-text-overlay {
@@ -1690,7 +1693,7 @@
             transition: opacity 0.5s ease;
             pointer-events: none;
             text-align: left;
-            background: rgba(250, 248, 226, 0.9);
+            background: rgba(0, 0, 0, 0.45);
         }
 
         .services-image-preview:hover .preview-text-overlay {
@@ -1699,24 +1702,22 @@
 
         .preview-text-overlay h4 {
             font-family: var(--font-display);
-            color: var(--color-rich-brown);
-            margin-bottom: 20px;
-            font-size: 24px;
+            color: white;
+            margin-bottom: 15px;
+            font-size: 22px;
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 1px;
             width: 100%;
-            text-shadow: none;
         }
 
         .preview-text-overlay p {
             font-family: var(--font-body);
-            color: var(--color-rich-brown);
-            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 15px;
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.5;
             width: 100%;
-            text-shadow: none;
         }
 
         .service-prop {
@@ -2114,10 +2115,10 @@
         /* Header Section */
         .how-we-work-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            flex-direction: column;
+            align-items: flex-start;
             margin-bottom: 60px;
-            gap: 20px;
+            gap: 15px;
         }
 
         .how-we-work-header-left .sub-label {
@@ -2140,12 +2141,15 @@
             color: var(--color-rich-brown);
         }
 
-        .how-we-work-header-right p {
+        .how-we-work-header-left p {
             color: var(--color-rich-brown);
             font-family: var(--font-body);
             font-weight: 500;
-            font-size: clamp(16px, 1.5vw, 18px);
+            font-size: clamp(14px, 1.4vw, 17px);
             line-height: var(--line-height-body);
+            max-width: none;
+            margin-top: 5px;
+            white-space: nowrap;
         }
 
         /* Step Grid Section */
@@ -2190,11 +2194,12 @@
 
         .how-we-work-number {
             position: absolute;
+            top: 50%;
             left: 20px;
-            bottom: -20px;
+            transform: translateY(-50%);
             font-size: 12rem;
             font-weight: 700;
-            opacity: 0.25;
+            opacity: 0.45;
             z-index: 2;
             line-height: 1;
             user-select: none;
@@ -2206,6 +2211,7 @@
             z-index: 3;
             max-width: 250px;
             margin-left: 140px;
+            text-align: left;
         }
 
         .how-we-work-content h3 {
@@ -2309,6 +2315,11 @@
 
             .how-we-work-header h1 {
                 font-size: 2rem;
+            }
+
+            .how-we-work-header-left p {
+                white-space: normal;
+                font-size: 14px;
             }
 
             .how-we-work-card {
@@ -2621,7 +2632,7 @@
         .contact-top-content {
             display: flex;
             flex-direction: row;
-            align-items: flex-start;
+            align-items: stretch; /* Change from flex-start to stretch */
             gap: 50px;
             width: 100%;
         }
@@ -2673,11 +2684,12 @@
 
         .contact-tagline {
             font-family: var(--font-body);
-            font-size: clamp(16px, 2vw, 24px);
-            max-width: 700px;
-            margin-bottom: var(--spacing-2xl);
-            line-height: 1.5;
+            font-size: clamp(14px, 1.2vw, 18px);
+            max-width: 600px;
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
             color: var(--color-rich-brown);
+            opacity: 0.9;
         }
 
         /* Contact Card */
@@ -2693,19 +2705,51 @@
             text-align: center;
         }
 
+        .contact-form-section {
+            flex: 1;
+            display: flex;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .contact-form-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .contact-bottom-form-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            padding-bottom: 60px;
+        }
+
+        .centered-form-card {
+            width: 100%;
+        }
+
+        #contactFormHeading {
+            font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif !important;
+            font-weight: 700 !important;
+            font-size: clamp(28px, 3vw, 36px) !important;
+            margin-bottom: var(--spacing-2xl) !important;
+            color: var(--color-rich-brown) !important;
+            letter-spacing: -0.5px !important;
+            display: block !important;
+        }
+
         .contact-card h2 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: clamp(20px, 2.5vw, 28px);
-            margin-bottom: var(--spacing-2xl);
-            color: var(--color-rich-brown);
+            font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif !important;
         }
 
         .contact-form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 80px; /* Maximum gap for extreme separation */
+            margin-bottom: 80px; /* Maximum bottom margin */
         }
 
         .contact-form-group {
@@ -2726,27 +2770,43 @@
         .contact-form-group input,
         .contact-form-group textarea {
             width: 100%;
-            background-color: var(--color-light-cream);
-            border: 2px solid var(--color-rich-brown);
-            border-radius: 12px;
-            padding: 12px 14px;
+            background-color: transparent; /* Transparent background */
+            border: none;
+            border-bottom: 2px solid var(--color-rich-brown); /* Bold underline */
+            border-radius: 0;
+            padding: 15px 0;
             font-family: var(--font-body);
             font-size: clamp(14px, 1vw, 16px);
             color: var(--color-rich-brown);
             outline: none;
-            transition: border-color 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form-group input::placeholder,
+        .contact-form-group textarea::placeholder {
+            color: rgba(95, 60, 40, 0.6);
+            font-weight: 500;
         }
 
         .contact-form-group input:focus,
         .contact-form-group textarea:focus {
-            border-color: var(--color-rich-brown);
-            box-shadow: 0 0 0 4px rgba(95, 60, 40, 0.1);
+            border-bottom-color: var(--color-primary-yellow);
+            box-shadow: none;
         }
 
         .contact-form-group textarea {
             height: 120px;
             resize: none;
             grid-column: 1 / -1;
+            border: 2px solid var(--color-rich-brown); /* Full border for message */
+            border-radius: 12px;
+            padding: 15px;
+            background-color: var(--color-light-cream);
+        }
+
+        .contact-form-group textarea:focus {
+            border: 2px solid var(--color-primary-yellow);
+            background-color: white;
         }
 
         .contact-submit-area {
@@ -3023,14 +3083,7 @@
             min-width: 150px;
         }
 
-        .grid-column h4 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            color: var(--color-rich-brown);
-            opacity: 0.8;
-        }
+
 
         .brand img {
             height: 350px;
@@ -3056,15 +3109,17 @@
 
 
         .grid-column h4 {
-            font-size: 11px;
+            font-family: var(--font-display);
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 25px;
             color: var(--color-rich-brown);
             background: var(--color-pale-yellow);
             padding: 8px 12px;
             border-radius: 4px;
             display: inline-block;
+            font-weight: 700;
         }
 
         .grid-column ul {
@@ -3073,10 +3128,10 @@
 
         .grid-column ul li,
         .grid-column ul li a {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 2px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--color-rich-brown);
@@ -3199,9 +3254,12 @@
 
         /* Responsive Footer */
         @media (max-width: 768px) {
-            #prop-footer-1, #prop-footer-2 {
+
+            #prop-footer-1,
+            #prop-footer-2 {
                 display: none !important;
             }
+
             .footer {
                 padding: 60px 8% 40px;
                 background-image: url('28390e68-2146-4732-826b-f44d09598f2a.jpeg');
@@ -3302,6 +3360,14 @@
                 height: 18px;
             }
         }
+        /* Force Heading Font for Contact Form */
+        h2#contactFormHeading {
+            font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif !important;
+            font-weight: 700 !important;
+            font-size: clamp(28px, 3vw, 36px) !important;
+            color: var(--color-rich-brown) !important;
+            letter-spacing: -0.5px !important;
+        }
     </style>
 
 </head>
@@ -3357,25 +3423,29 @@
     <!-- Hero Carousel Section -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url('Gemini_Generated_Image_kkd9wtkkd9wtkkd9.png');">
+            <div class="swiper-slide" style="background-image: url('ChatGPT Image May 7, 2026, 11_53_00 AM.png');">
                 <div class="hero-content">
                     <h1>Your Brand Has a Story.<br>Let's Make the World Notice It.</h1>
-                    <p class="hero-subheading">Fresh ideas, creative storytelling, and smart digital strategies designed
-                        for modern brands that want to stand out, grow, and connect with the right audience.</p>
+                    <p class="hero-subheading">Fresh ideas and creative storytelling designed for modern brands to stand
+                        out and grow.</p>
                     <div class="hero-buttons">
-                        <button class="view-btn">Start Your Digital Journey <div class="dot"></div></button>
-                        <button class="view-btn">Explore Our Services <div class="dot"></div></button>
+                        <button class="view-btn" onclick="lenis.scrollTo('#contact-us')">Start Your Digital Journey <div
+                                class="dot"></div></button>
+                        <button class="view-btn" onclick="lenis.scrollTo('#our-services')">Explore Our Services <div
+                                class="dot"></div></button>
                     </div>
                 </div>
             </div>
             <div class="swiper-slide" style="background-image: url('banner.png');">
                 <div class="hero-content">
                     <h1>Your Brand Has a Story.<br>Let's Make the World Notice It.</h1>
-                    <p class="hero-subheading">Fresh ideas, creative storytelling, and smart digital strategies designed
-                        for modern brands that want to stand out, grow, and connect with the right audience.</p>
+                    <p class="hero-subheading">Fresh ideas and creative storytelling designed for modern brands to stand
+                        out and grow.</p>
                     <div class="hero-buttons">
-                        <button class="view-btn">Start Your Digital Journey <div class="dot"></div></button>
-                        <button class="view-btn">Explore Our Services <div class="dot"></div></button>
+                        <button class="view-btn" onclick="lenis.scrollTo('#contact-us')">Start Your Digital Journey <div
+                                class="dot"></div></button>
+                        <button class="view-btn" onclick="lenis.scrollTo('#our-services')">Explore Our Services <div
+                                class="dot"></div></button>
                     </div>
                 </div>
             </div>
@@ -3405,7 +3475,7 @@
                         At RAM Digital Media, we focus on helping brands build meaningful digital presence through
                         creative
                         storytelling, thoughtful strategies, and ideas that truly connect with people. In today's
-                        fast-moving digital world, brands need more than just visibility — they need identity,
+                        fast-moving digital world, brands need more than just visibility, they need identity,
                         creativity,
                         and the ability to stand out.<br><br>
                         We believe every brand has a story worth sharing, and with the right creativity and digital
@@ -3437,7 +3507,7 @@
                     What started as a vision of combining modern thinking into the digital space has now grown into a
                     platform where <span>creativity, strategy, and legacy</span> come together.
                     <br><br>
-                    We believe great marketing is not about noise — it's about meaningful connections, strong ideas, and
+                    We believe great marketing is not about noise: it's about meaningful connections, strong ideas, and
                     authentic storytelling.
                     <br><br>
                     Every brand has the potential to grow, evolve, and reach people who truly connect with it. With the
@@ -3447,7 +3517,7 @@
                     and confidence. We take the time to understand your unique story and goals, translating them into
                     powerful digital experiences that make a lasting impact.
                     <br><br>
-                    Because when ideas meet passion and strategy, brands don't just exist — they grow, inspire, and
+                    Because when ideas meet passion and strategy, brands don't just exist; they grow, inspire, and
                     leave a lasting impression.
                 </p>
             </div>
@@ -3455,8 +3525,7 @@
             <div class="manifesto-scroll-hint">Scroll Down ↓</div>
 
             <!-- Decorative Sunflowers -->
-            <img id="manifesto-sunflower-top-right" class="manifesto-sunflower-corner"
-                src="Gemini_Generated_Image_nvors3nvors3nvor-Photoroom.png" alt="Sunflower">
+
             <img id="manifesto-sunflower-bottom-right" class="manifesto-sunflower-corner"
                 src="Gemini_Generated_Image_74b7y874b7y874b7-Photoroom.png" alt="Sunflower">
         </div>
@@ -3484,8 +3553,7 @@
             </div>
 
             <div class="services-image-preview" id="servicesImagePreview">
-                <img src="service_prop_sunflower_butterfly_1777907794965.png" alt="prop"
-                    class="service-prop service-prop-1">
+
                 <div class="image-container">
                     <img src="social_media_mgmt_1777907673000.png" id="previewImage" alt="Service Preview">
                     <div class="preview-text-overlay">
@@ -3508,8 +3576,6 @@
                 <div class="how-we-work-header-left">
                     <span class="sub-label"><span>OUR</span> PROCESS</span>
                     <h1>How We Work</h1>
-                </div>
-                <div class="how-we-work-header-right">
                     <p>A strategic approach to growing your brand with creativity and precision.</p>
                 </div>
             </div>
@@ -3519,7 +3585,7 @@
                     <div class="how-we-work-card-bg"
                         style="background-image: url('work_step_understand_1777907980007.png');">
                     </div>
-                    <div class="how-we-work-number">01</div>
+                    <div class="how-we-work-number">1</div>
                     <div class="how-we-work-content">
                         <h3>Understand</h3>
                         <p>We start by understanding your brand, goals, and audience.</p>
@@ -3530,7 +3596,7 @@
                     <div class="how-we-work-card-bg"
                         style="background-image: url('work_step_create_1777907997576.png');">
                     </div>
-                    <div class="how-we-work-number">02</div>
+                    <div class="how-we-work-number">2</div>
                     <div class="how-we-work-content">
                         <h3>Create</h3>
                         <p>We develop fresh ideas and strategies tailored specifically for your brand.</p>
@@ -3541,7 +3607,7 @@
                     <div class="how-we-work-card-bg"
                         style="background-image: url('work_step_execute_1777908014790.png');">
                     </div>
-                    <div class="how-we-work-number">03</div>
+                    <div class="how-we-work-number">3</div>
                     <div class="how-we-work-content">
                         <h3>Execute</h3>
                         <p>From content to campaigns, we bring ideas to life.</p>
@@ -3551,7 +3617,7 @@
                 <div class="how-we-work-card">
                     <div class="how-we-work-card-bg" style="background-image: url('work_step_grow_1777908030972.png');">
                     </div>
-                    <div class="how-we-work-number">04</div>
+                    <div class="how-we-work-number">4</div>
                     <div class="how-we-work-content">
                         <h3>Grow</h3>
                         <p>We analyze results and continuously refine strategies to help your brand grow.</p>
@@ -3564,7 +3630,7 @@
                     <h4>Ready to get started?</h4>
                     <p>Let's begin your brand's growth journey today.</p>
                 </div>
-                <button class="how-we-work-btn">Start Your Journey</button>
+                <button class="how-we-work-btn" onclick="lenis.scrollTo('#contact-us')">Start Your Journey</button>
             </div>
         </div>
     </section>
@@ -3574,7 +3640,7 @@
         <div class="certified-container">
             <div class="certified-header">
                 <div class="certified-header-left">
-                    <span class="sub-title">/ CREATIVE MOMENTS</span>
+                    <span class="sub-title">CREATIVE MOMENTS</span>
                     <h1>Creativity in Real Time</h1>
                 </div>
                 <div class="certified-header-right">
@@ -3589,23 +3655,35 @@
             <style>
                 .instagram-grid {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                    gap: 20px;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 15px;
                     padding: 20px;
                 }
 
                 .reel-container {
                     position: relative;
                     width: 100%;
-                    max-width: 400px;
-                    height: 460px;
-                    /* Taller height to show more video, but still cuts likes */
+                    height: 420px;
                     overflow: hidden;
                     border: none;
-                    /* Removed all borders */
                     border-radius: 0;
-                    /* Sharp edges for that Palantir/BlackRock minimalist look */
                     background: #000;
+                }
+
+                @media (max-width: 1024px) {
+                    .instagram-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                @media (max-width: 600px) {
+                    .instagram-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .reel-container {
+                        height: 480px;
+                    }
                 }
 
                 .reel-container iframe {
@@ -3671,36 +3749,37 @@
                 </div>
 
                 <div class="contact-form-section">
-                    <div class="contact-card">
-                        <h2 id="contactFormHeading">Get In Touch</h2>
-                        <form id="contactForm">
-                            <div class="contact-form-grid">
-                                <div class="contact-form-group">
-                                    <label>Your Name</label>
-                                    <input type="text" placeholder="" required>
-                                </div>
-                                <div class="contact-form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" placeholder="" required>
-                                </div>
+                    <img src="PHOTO-2026-05-07-14-28-31.jpg" alt="Contact Brand Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+
+            <div class="contact-bottom-form-section">
+                <div class="contact-card centered-form-card">
+                    <h2 id="contactFormHeading">Get In Touch</h2>
+                    <form id="contactForm">
+                        <div class="contact-form-grid">
+                            <div class="contact-form-group">
+                                <input type="text" placeholder="Enter Your Name" required>
                             </div>
                             <div class="contact-form-group">
-                                <label id="contactMessageLabel">Message</label>
-                                <textarea required></textarea>
+                                <input type="email" placeholder="Enter Your Email Address" required>
                             </div>
+                        </div>
+                        <div class="contact-form-group">
+                            <textarea placeholder="Enter Your Message" required></textarea>
+                        </div>
 
-                            <div class="contact-submit-area">
-                                <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">Get In
-                                    Touch</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="contact-submit-area">
+                            <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">Get In
+                                Touch</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
         </div>
 
-        <div class="contact-sparkle">✦</div>
+
     </section>
 
     <!-- Footer Section -->
@@ -3721,12 +3800,12 @@
             <div class="footer-header">
                 <div class="footer-header-left">
                     <p class="footer-sub">Got a project? Need an unfair advantage?</p>
-                    <h1 class="footer-heading">
+                    <h1 class="footer-heading" onclick="lenis.scrollTo('#contact-us')" style="cursor: pointer;">
                         GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
                     </h1>
                 </div>
                 <div class="footer-header-right">
-                    <div class="brand">
+                    <div class="brand" onclick="lenis.scrollTo(0)" style="cursor: pointer;">
                         <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
                     </div>
                 </div>
@@ -3734,83 +3813,30 @@
 
             <div class="footer-grid">
                 <div class="grid-column">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
-                        <li><a href="about-us-hero.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
-                        <li><a href="#our-services"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How
-                                We Work</a></li>
-                        <li><a href="whyChooseUs.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
-                        </li>
+                    <h4 style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">Navigation</h4>
+                    <ul style="font-family: var(--font-body); font-size: 15px;">
+                        <li><a href="index.html" style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                        <li><a href="about-us-hero.html" style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                        <li><a href="index.html#our-services" style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
+                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How We Work</a></li>
+                        <li><a href="about-us-hero.html#why-choose-us" style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
+                        <li><a href="portfolio.html" style="color: inherit; text-decoration: none; cursor: pointer;">Portfolio</a></li>
+                        <li><a href="index.html#contact-us" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a></li>
                     </ul>
                 </div>
                 <div class="grid-column">
-                    <h4>Socials</h4>
-                    <ul>
+                    <h4 style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">Socials</h4>
+                    <ul style="font-family: var(--font-body); font-size: 15px;">
                         <li>YouTube</li>
                         <li>Instagram</li>
                         <li>Facebook</li>
                     </ul>
                 </div>
-                <div class="grid-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li>Portfolio</li>
-                        <li>Case Studies</li>
-                        <li>Blog</li>
-                    </ul>
-                </div>
             </div>
         </div>
 
-        <div class="fab-container">
-            <div class="fab" onclick="lenis.scrollTo(0)">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 15l-6-6-6 6"></path>
-                </svg>
-            </div>
-        </div>
+
     </footer>
-
-    <!-- Floating Popup Form -->
-    <div class="floating-popup" id="floatingPopup">
-        <img src="Gemini_Generated_Image_uatnsjuatnsjuatn-Photoroom.png" alt="Sunflower"
-            class="popup-flowers popup-flower-top">
-        <img src="Gemini_Generated_Image_wxxhc2wxxhc2wxxh-Photoroom.png" alt="Sunflower"
-            class="popup-flowers popup-flower-bottom">
-
-        <button class="close-popup-btn" id="closePopupBtn">✕</button>
-
-        <div class="popup-content">
-            <div class="popup-header">
-                <h2>Get A Free SEO Audit</h2>
-                <p>Analyze Your Website Performance.<br>Boost Traffic & Rankings.</p>
-            </div>
-
-            <form class="popup-form" id="popupForm">
-                <input type="email" placeholder="Business Email" required>
-
-                <div class="form-row">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
-                </div>
-
-                <input type="tel" placeholder="Mobile Number" required>
-                <input type="text" placeholder="Company Name" required>
-                <input type="url" placeholder="Website URL" required>
-
-                <button type="submit" class="popup-submit-btn">Submit</button>
-            </form>
-
-            <p class="popup-footer">* We respect your privacy. No spam. 100% Secure.</p>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -4662,6 +4688,7 @@
             * {
                 cursor: auto !important;
             }
+
             #custom-sunflower-cursor {
                 display: none !important;
             }
@@ -4671,6 +4698,7 @@
             * {
                 cursor: auto !important;
             }
+
             #custom-sunflower-cursor {
                 display: none !important;
             }

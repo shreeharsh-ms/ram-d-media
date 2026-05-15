@@ -6,18 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | RAM Digital Media</title>
     <link rel="icon" type="image/jpeg" href="PHOTO-2026-05-06-12-43-27.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&family=Oswald:wght@700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #FAF8E2;
             --text-dark: #5F3C28;
-            
+
             /* Font Families */
             --font-display: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
             --font-body: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
@@ -25,18 +22,27 @@
             --font-oswald: 'Oswald', 'Arial', sans-serif;
 
             /* Sunflower Color Theme - Matching index.html */
-            --color-primary-yellow: #FCC419;      /* Sunflower Yellow */
-            --color-golden-yellow: #FCC419;       /* Sunflower Yellow */
-            --color-pale-yellow: #FAF8E2;         /* Soft Lemon Yellow Background */
-            --color-burnt-orange: #FCC419;        /* CHANGED FROM GREEN TO YELLOW */
-            --color-rich-brown: #5F3C28;          /* Deep Brown - Headings */
-            --color-warm-beige: #FAF8E2;          /* Soft Lemon Beige */
-            --color-sunny-cream: #FAF8E2;         /* Soft Lemon Cream */
-            --color-white: #FFFFFF;               /* White */
-            
+            --color-primary-yellow: #FCC419;
+            /* Sunflower Yellow */
+            --color-golden-yellow: #FCC419;
+            /* Sunflower Yellow */
+            --color-pale-yellow: #FAF8E2;
+            /* Soft Lemon Yellow Background */
+            --color-burnt-orange: #FCC419;
+            /* CHANGED FROM GREEN TO YELLOW */
+            --color-rich-brown: #5F3C28;
+            /* Deep Brown - Headings */
+            --color-warm-beige: #FAF8E2;
+            /* Soft Lemon Beige */
+            --color-sunny-cream: #FAF8E2;
+            /* Soft Lemon Cream */
+            --color-white: #FFFFFF;
+            /* White */
+
             /* Legacy variables for compatibility */
             --sunflower-yellow: #FCC419;
-            --burnt-orange: #FCC419;              /* CHANGED FROM GREEN TO YELLOW */
+            --burnt-orange: #FCC419;
+            /* CHANGED FROM GREEN TO YELLOW */
             --rich-brown: #5F3C28;
             --warm-beige: #FAF8E2;
             --sunny-cream: #FAF8E2;
@@ -487,7 +493,7 @@
                 cursor: pointer;
                 height: 65px !important;
             }
-            
+
             .hamburger svg {
                 stroke: var(--color-rich-brown) !important;
                 width: 32px;
@@ -505,12 +511,14 @@
             min-height: 40vh;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Aligned to left */
+            align-items: flex-start;
+            /* Aligned to left */
             justify-content: center;
             padding: 180px 8% 50px 8%;
             background: var(--white);
             position: relative;
-            text-align: left; /* Aligned to left */
+            text-align: left;
+            /* Aligned to left */
         }
 
         .hero-content h4 {
@@ -523,7 +531,8 @@
 
         .hero-content h1 {
             font-family: var(--font-display);
-            font-size: clamp(4rem, 10vw, 8rem); /* Massive heading */
+            font-size: clamp(4rem, 10vw, 8rem);
+            /* Massive heading */
             line-height: 1;
             color: var(--rich-brown);
             font-weight: 700;
@@ -535,15 +544,55 @@
             width: 150px;
             height: 3px;
             background-color: var(--sunflower-yellow);
-            margin: 0 0 40px 0; /* Left margin 0 */
+            margin: 0 0 40px 0;
+            /* Left margin 0 */
         }
 
         /* --- Gallery Section --- */
         .gallery-section {
             width: 100%;
-            padding: 100px 8%;
-            background-color: transparent; /* Allow background props to show through */
+            padding: 60px 8% 100px 8%;
+            background-color: transparent;
+            /* Allow background props to show through */
             position: relative;
+        }
+
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            background: transparent;
+            border: 1px solid rgba(95, 60, 40, 0.15);
+            border-radius: 50px;
+            color: var(--rich-brown);
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            text-transform: capitalize;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--color-primary-yellow);
+            background: rgba(252, 196, 25, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--color-primary-yellow);
+            border-color: var(--color-primary-yellow);
+            color: var(--rich-brown);
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(252, 196, 25, 0.2);
         }
 
         .gallery-grid {
@@ -554,7 +603,8 @@
 
         .gallery-item {
             position: relative;
-            z-index: 2; /* Stay above background props */
+            z-index: 2;
+            /* Stay above background props */
             break-inside: avoid;
             margin-bottom: 40px;
             border-radius: 0;
@@ -593,7 +643,8 @@
             height: auto;
             display: block;
             object-fit: initial;
-            padding: 0; /* Removing padding to show full image edge-to-edge */
+            padding: 0;
+            /* Removing padding to show full image edge-to-edge */
             transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
@@ -603,7 +654,8 @@
             left: 0;
             width: 100%;
             padding: 40px 20px 20px 20px;
-            background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent */
+            background: rgba(0, 0, 0, 0.6);
+            /* Dark semi-transparent */
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             z-index: 2;
@@ -766,15 +818,40 @@
         }
 
         .grid-column h4 {
-            font-size: 11px;
+            font-family: var(--font-display);
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 25px;
             color: var(--color-rich-brown);
             background: var(--color-pale-yellow);
             padding: 8px 12px;
             border-radius: 4px;
             display: inline-block;
+            font-weight: 700;
+        }
+
+        .grid-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .grid-column ul li,
+        .grid-column ul li a {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--color-rich-brown);
+            display: block;
+            text-decoration: none;
+        }
+
+        .grid-column ul li:hover {
+            transform: scale(1.05) translateX(5px);
         }
 
         .brand img {
@@ -806,9 +883,7 @@
         .grid-column ul li,
         .grid-column ul li a {
             font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 2px;
+            font-size: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--color-rich-brown);
@@ -858,9 +933,18 @@
         }
 
         @media (max-width: 768px) {
-            #prop-footer-1, #prop-footer-2, #prop-mid-1, #prop-mid-2, #prop-hero-1, #prop-hero-2, #prop-vfx-1, #prop-photo-1 {
+
+            #prop-footer-1,
+            #prop-footer-2,
+            #prop-mid-1,
+            #prop-mid-2,
+            #prop-hero-1,
+            #prop-hero-2,
+            #prop-vfx-1,
+            #prop-photo-1 {
                 display: none !important;
             }
+
             .footer {
                 padding: 60px 8% 40px;
                 background-image: url('28390e68-2146-4732-826b-f44d09598f2a.jpeg');
@@ -985,9 +1069,9 @@
             color: white;
         }
 
-            .local-time {
-                text-align: center;
-            }
+        .local-time {
+            text-align: center;
+        }
         }
     </style>
 
@@ -1015,7 +1099,8 @@
                 <li><a href="index.html#contact-us" class="nav-link">Contact Us</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rich-brown)" stroke-width="2">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-rich-brown)"
+                    stroke-width="2">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -1040,28 +1125,30 @@
 
     <section class="gallery-section">
         <!-- Background Props for Gallery -->
-        <div class="decorative-prop" id="prop-hero-1" style="top: -200px; left: -5%; width: 400px; opacity: 1; z-index: 1;">
+        <div class="decorative-prop" id="prop-hero-1"
+            style="top: -200px; left: -5%; width: 400px; opacity: 1; z-index: 1;">
         </div>
-        <div class="decorative-prop" id="prop-hero-2" style="top: 400px; right: -8%; width: 500px; opacity: 1; z-index: 1;">
+        <div class="decorative-prop" id="prop-hero-2"
+            style="top: 400px; right: -8%; width: 500px; opacity: 1; z-index: 1;">
             <img src="image-Photoroom (6).png" alt="sunflower" style="width: 100%;">
         </div>
-        <div class="decorative-prop" id="prop-vfx-1" style="top: 1200px; right: 5%; width: 320px; opacity: 1; z-index: 1;">
-            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 60%; border-radius: 2px;">
+        <div class="decorative-prop" id="prop-vfx-1"
+            style="top: 1200px; right: 5%; width: 320px; opacity: 1; z-index: 1;">
+            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop"
+                style="width: 60%; border-radius: 2px;">
         </div>
-        <div class="decorative-prop" id="prop-photo-1" style="top: 1800px; left: 2%; width: 300px; opacity: 1; z-index: 1;">
+        <div class="decorative-prop" id="prop-photo-1"
+            style="top: 1800px; left: 2%; width: 300px; opacity: 1; z-index: 1;">
             <img src="image-Photoroom (1).png" alt="Sunflower" style="width: 100%;">
         </div>
-        <div class="decorative-prop" id="prop-mid-1" style="top: 2800px; left: -10%; width: 600px; opacity: 1; z-index: 1;">
+        <div class="decorative-prop" id="prop-mid-1"
+            style="top: 2800px; left: -10%; width: 600px; opacity: 1; z-index: 1;">
             <img src="image-Photoroom (5).png" alt="sunflower" style="width: 100%;">
         </div>
-        <div class="decorative-prop" id="prop-mid-2" style="top: 4500px; right: -5%; width: 450px; opacity: 1; z-index: 1;">
-            <img src="image-Photoroom-3.png" alt="sunflower" style="width: 100%;">
-        </div>
-        <div class="decorative-prop" id="prop-low-1" style="top: 6000px; left: -2%; width: 350px; opacity: 1; z-index: 1;">
-            <img src="Gemini_Generated_Image_74b7y874b7y874b7-Photoroom.png" alt="sunflower" style="width: 100%;">
-        </div>
-        <div class="decorative-prop" id="prop-vfx-2" style="top: 8000px; left: 10%; width: 280px; opacity: 1; z-index: 1;">
-            <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop" style="width: 60%; border-radius: 2px;">
+
+
+        <div class="filter-bar" id="filter-bar">
+            <!-- Filter buttons will be added here -->
         </div>
 
         <div class="gallery-grid" id="gallery-grid">
@@ -1081,13 +1168,15 @@
         <div class="footer-content">
             <div class="footer-header">
                 <div class="footer-header-left">
-                    <p class="footer-sub">Got a project? Need an unfair advantage?</p>
-                    <h1 class="footer-heading">
+                    <p class="footer-sub" style="font-family: var(--font-body);">Got a project? Need an unfair
+                        advantage?</p>
+                    <h1 class="footer-heading" onclick="window.location.href='index.html#contact-us'"
+                        style="cursor: pointer;">
                         GET IN T<img src="image-Photoroom-2.png" alt="O" class="dot-circle">UCH
                     </h1>
                 </div>
                 <div class="footer-header-right">
-                    <div class="brand">
+                    <div class="brand" onclick="window.location.href='index.html'" style="cursor: pointer;">
                         <img src="image-Photoroom (2).png" alt="RAM Digital Media Logo">
                     </div>
                 </div>
@@ -1095,48 +1184,47 @@
 
             <div class="footer-grid">
                 <div class="grid-column">
-                    <h4>Navigation</h4>
-                    <ul>
+                    <h4
+                        style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">
+                        Navigation</h4>
+                    <ul style="font-family: var(--font-body); font-size: 15px; list-style: none;">
                         <li><a href="index.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Home</a></li>
+                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Home</a>
+                        </li>
                         <li><a href="about-us-hero.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">About</a></li>
+                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">About</a>
+                        </li>
                         <li><a href="index.html#our-services"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Services</a></li>
-                        <li><a href="index.html#how-we-work" style="color: inherit; text-decoration: none; cursor: pointer;">How
+                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Services</a>
+                        </li>
+                        <li><a href="index.html#how-we-work"
+                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">How
                                 We Work</a></li>
-                        <li><a href="whyChooseUs.html"
-                                style="color: inherit; text-decoration: none; cursor: pointer;">Why Us</a></li>
-                        <li><a href="book.html" style="color: inherit; text-decoration: none; cursor: pointer;">Book</a>
+                        <li><a href="about-us-hero.html#why-choose-us"
+                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Why
+                                Us</a></li>
+                        <li><a href="portfolio.html"
+                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Portfolio</a>
+                        </li>
+                        <li><a href="index.html#contact-us"
+                                style="color: inherit; text-decoration: none; cursor: pointer; font-family: var(--font-body);">Book</a>
                         </li>
                     </ul>
                 </div>
                 <div class="grid-column">
-                    <h4>Socials</h4>
-                    <ul>
-                        <li>YouTube</li>
-                        <li>Instagram</li>
-                        <li>Facebook</li>
-                    </ul>
-                </div>
-                <div class="grid-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li>Portfolio</li>
-                        <li>Case Studies</li>
-                        <li>Blog</li>
+                    <h4
+                        style="font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; font-weight: 700;">
+                        Socials</h4>
+                    <ul style="font-family: var(--font-body); font-size: 15px; list-style: none;">
+                        <li style="font-family: var(--font-body);">YouTube</li>
+                        <li style="font-family: var(--font-body);">Instagram</li>
+                        <li style="font-family: var(--font-body);">Facebook</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="fab-container">
-            <div class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 15l-6-6-6 6" />
-                </svg>
-            </div>
-        </div>
+
     </footer>
     <script>
 
@@ -1167,58 +1255,171 @@
         }
 
         // --- DYNAMIC DATA LOADING ---
-        async function loadPortfolioData() {
+        // --- EMBEDDED PORTFOLIO DATA (Fixes CORS when opening locally) ---
+        const PORTFOLIO_DATA = {
+            "items": [
+                {
+                    "title": "Showflick: Cinematic Streaming Experience",
+                    "category": "App Designing",
+                    "local_path": "portfolio_data/images/003_.jpg",
+                    "redirect_url": "https://www.figma.com/file/cF4O8MVovxu78zZ5fadb8X/Showflick?type=design&mode=design&t=yKcnOLjr4mAvjrub-1"
+                },
+                {
+                    "title": "JBL: Sonic Resonance Social Identity",
+                    "category": "Website Designing",
+                    "local_path": "portfolio_data/images/012_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Pulse: High-Impact Retail Narrative",
+                    "category": "Banner Design",
+                    "local_path": "portfolio_data/images/013_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Elegance: Premium Professional Identity",
+                    "category": "Visiting Card Designing",
+                    "local_path": "portfolio_data/images/014_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Aura: Minimalist Botanical Branding",
+                    "category": "Branding",
+                    "local_path": "portfolio_data/images/015_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Eternal: Luxury Bridal Editorial",
+                    "category": "Magazine Designing",
+                    "local_path": "portfolio_data/images/016_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Roast & Relish: Artisanal Coffee Branding",
+                    "category": "Logo Designing",
+                    "local_path": "portfolio_data/images/018_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Brew: Sustainable Vessel Identity",
+                    "category": "Branding",
+                    "local_path": "portfolio_data/images/019_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Vogue: Minimalist Apparel Tag System",
+                    "category": "Tag Branding",
+                    "local_path": "portfolio_data/images/020_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Essence: Ethereal Fragrance Vessel",
+                    "category": "Bottle Designing",
+                    "local_path": "portfolio_data/images/022_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "HydroFlow: Ergonomic Lifestyle Hydration",
+                    "category": "Sipper Trending",
+                    "local_path": "portfolio_data/images/023_.jpg",
+                    "redirect_url": "#"
+                },
+                {
+                    "title": "Her Story: Empowering Digital Chronicles",
+                    "category": "App Designing",
+                    "local_path": "portfolio_data/images/024_.jpg",
+                    "redirect_url": "https://www.figma.com/file/0JverPdroZmskwL5cNO6si/Samruddhi-2?type=design&mode=design&t=yKcnOLjr4mAvjrub-1"
+                }
+            ]
+        };
+
+        let portfolioItems = [];
+        let activeCategory = 'all';
+
+        function loadPortfolioData() {
             const grid = document.getElementById('gallery-grid');
-            if (!grid) return;
+            const filterBar = document.getElementById('filter-bar');
+            if (!grid || !filterBar) return;
 
             try {
-                const response = await fetch('portfolio_data/portfolio_data.json');
-                const data = await response.json();
-                
-                data.items.forEach((item, index) => {
-                    const itemIndex = (index + 1).toString().padStart(2, '0');
-                    
-                    // Fallback title from image URL if empty
-                    let title = item.title;
-                    if (!title) {
-                        const filename = item.image_url.split('/').pop().split('?')[0];
-                        title = decodeURIComponent(filename).replace(/\.[^/.]+$/, "").replace(/%20/g, " ").replace(/copy|PSD|mockup/gi, "").trim();
-                        // Capitalize words
-                        title = title.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-                        if (!title) title = `Project ${itemIndex}`;
-                    }
+                // Use embedded data instead of fetch to avoid CORS errors on file://
+                portfolioItems = PORTFOLIO_DATA.items;
 
-                    const hasFigmaLink = item.redirect_url && item.redirect_url.toLowerCase().includes('figma.com');
-                    const linkHtml = hasFigmaLink 
-                        ? `<p>View full project on <a href="${item.redirect_url}" target="_blank" style="color: white; text-decoration: underline;">Figma</a></p>`
-                        : '';
+                // Create Categories
+                const categories = ['all', ...new Set(portfolioItems.map(item => item.category))];
 
-                    const galleryItem = document.createElement('div');
-                    galleryItem.className = `gallery-item`;
-                    galleryItem.innerHTML = `
-                        <span class="item-index">${itemIndex}</span>
-                        <div class="gallery-img-wrapper">
-                            <img src="${item.local_path}" alt="${title}" loading="lazy">
-                        </div>
-                        <div class="gallery-overlay">
-                            <span class="gallery-tag">${item.category || 'Creative Project'}</span>
-                            <div class="gallery-info">
-                                <h3>${title}</h3>
-                                ${linkHtml}
-                            </div>
-                        </div>
-                    `;
-                    
-                    grid.appendChild(galleryItem);
+                filterBar.innerHTML = '';
+                categories.forEach(cat => {
+                    const btn = document.createElement('button');
+                    btn.className = `filter-btn ${cat === 'all' ? 'active' : ''}`;
+                    btn.textContent = cat;
+                    btn.onclick = () => filterGallery(cat, btn);
+                    filterBar.appendChild(btn);
                 });
 
-                // Trigger animations after items are added
-                observeGalleryItems();
+                renderGallery(portfolioItems);
 
             } catch (error) {
                 console.error('Error loading portfolio data:', error);
-                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px;">Failed to load portfolio items. Please check back later.</p>';
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px;">Failed to load portfolio items.</p>';
             }
+        }
+
+        function filterGallery(category, clickedBtn) {
+            const grid = document.getElementById('gallery-grid');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update active state
+            buttons.forEach(btn => btn.classList.remove('active'));
+            clickedBtn.classList.add('active');
+
+            // Filter items
+            const filtered = category === 'all'
+                ? portfolioItems
+                : portfolioItems.filter(item => item.category === category);
+
+            // Animate out
+            const currentItems = document.querySelectorAll('.gallery-item');
+            currentItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+            });
+
+            setTimeout(() => {
+                renderGallery(filtered);
+            }, 400);
+        }
+
+        function renderGallery(items) {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+
+            items.forEach((item, index) => {
+                const itemIndex = (index + 1).toString().padStart(2, '0');
+
+                const galleryItem = document.createElement('div');
+                galleryItem.className = `gallery-item`;
+                galleryItem.innerHTML = `
+                    <span class="item-index">${itemIndex}</span>
+                    <div class="gallery-img-wrapper">
+                        <img src="${item.local_path}" alt="${item.title}" loading="lazy">
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">${item.category || 'Creative Project'}</span>
+                        <div class="gallery-info">
+                            <h3>${item.title}</h3>
+                            ${item.redirect_url && item.redirect_url.includes('figma.com')
+                        ? `<p>View on <a href="${item.redirect_url}" target="_blank" style="color: white; text-decoration: underline;">Figma</a></p>`
+                        : ''}
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(galleryItem);
+            });
+
+            // Re-observe for animation
+            observeGalleryItems();
         }
 
         // Initialize on load
@@ -1299,6 +1500,7 @@
             * {
                 cursor: auto !important;
             }
+
             #custom-sunflower-cursor {
                 display: none !important;
             }
