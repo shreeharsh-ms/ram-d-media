@@ -814,7 +814,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Centered for brand logo + founder text */
             gap: 15px;
             text-align: center;
         }
@@ -843,7 +842,6 @@
 
         .brand img {
             height: 160px;
-            /* Big logo */
             width: auto;
             object-fit: contain;
             display: block;
@@ -870,8 +868,11 @@
             width: 180px;
             height: auto;
             margin-top: 100px;
-            /* Push it down so only half shows in the footer */
             object-fit: contain;
+        }
+
+        .local-time {
+            display: none;
         }
 
         @media (max-width: 992px) {
@@ -977,7 +978,6 @@
                 right: 5%;
                 bottom: 15%;
                 flex-direction: row;
-                /* Row on mobile for better space usage */
                 gap: 15px;
             }
 
@@ -990,6 +990,28 @@
 
         .grid-column ul li:hover {
             transform: scale(1.1) translateX(8px);
+        }
+
+        .footer-bottom {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0;
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: row !important;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+                width: 100%;
+            }
+
+            .brand img {
+                height: 60px;
+            }
         }
 
         .fab-container {

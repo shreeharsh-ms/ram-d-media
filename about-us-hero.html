@@ -771,7 +771,6 @@
         }
 
         .footer-sub {
-            font-family: var(--font-body);
             font-size: 14px;
             font-weight: 700;
             margin-bottom: 10px;
@@ -796,7 +795,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Centered for brand logo + founder text */
             gap: 15px;
             text-align: center;
         }
@@ -823,56 +821,11 @@
             min-width: 150px;
         }
 
-        .grid-column h4 {
-            font-family: var(--font-display);
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 25px;
-            color: var(--color-rich-brown);
-            background: transparent;
-            padding: 0;
-            display: inline-block;
-            font-weight: 800;
-        }
-
         .brand img {
             height: 160px;
-            /* Big logo */
             width: auto;
             object-fit: contain;
             display: block;
-        }
-
-        .local-time {
-            display: none;
-        }
-
-        .dot-circle {
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            margin: 0;
-            vertical-align: middle;
-            object-fit: contain;
-            background-color: transparent;
-        }
-
-        .grid-column ul {
-            list-style: none;
-        }
-
-        .grid-column ul li,
-        .grid-column ul li a {
-            font-family: var(--font-body);
-            font-size: 15px;
-            font-weight: 400;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--color-rich-brown);
-            display: block;
-            text-decoration: none;
         }
 
         /* Footer Semicircle Bump */
@@ -896,8 +849,51 @@
             width: 180px;
             height: auto;
             margin-top: 100px;
-            /* Push it down so only half shows in the footer */
             object-fit: contain;
+        }
+
+        .local-time {
+            display: none;
+        }
+
+        .dot-circle {
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
+        }
+
+        .grid-column h4 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            color: var(--color-rich-brown);
+            background: transparent;
+            padding: 0;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .grid-column ul {
+            list-style: none;
+        }
+
+        .grid-column ul li,
+        .grid-column ul li a {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--color-rich-brown);
+            display: block;
+            text-decoration: none;
         }
 
         /* Footer Social Icons Corner */
@@ -951,7 +947,6 @@
                 right: 5%;
                 bottom: 15%;
                 flex-direction: row;
-                /* Row on mobile for better space usage */
                 gap: 15px;
             }
 
@@ -960,11 +955,6 @@
                 height: 42px;
                 font-size: 18px;
             }
-
-            .footer {
-                padding: 60px 8% 40px;
-                background-image: url('Gemini_Generated_Image_6vq106vq106vq106 AND.png');
-                background-size: 100% auto;
                 background-position: top center;
                 background-repeat: no-repeat;
                 max-height: none !important;
@@ -1021,14 +1011,9 @@
                 display: none !important;
             }
 
-            /* Hiding About Us props for mobile as requested */
-            #prop-partner-2, #prop-about-1, #prop-about-2, #prop-story-2, #prop-why-1 {
-                display: none !important;
-            }
-
             .footer {
                 padding: 60px 8% 40px;
-                background-image: url('28390e68-2146-4732-826b-f44d09598f2a.jpeg');
+                background-image: url('Gemini_Generated_Image_6vq106vq106vq106 AND.png');
                 background-size: 100% auto;
                 background-position: top center;
                 background-repeat: no-repeat;
@@ -1038,6 +1023,12 @@
                 flex-direction: column;
                 justify-content: space-between;
             }
+
+            /* Hiding About Us props for mobile as requested */
+            #prop-partner-2, #prop-about-1, #prop-about-2, #prop-story-2, #prop-why-1 {
+                display: none !important;
+            }
+
 
             .footer-header {
                 flex-direction: column-reverse;
