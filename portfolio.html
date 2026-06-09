@@ -584,7 +584,7 @@
             display: grid;
             grid-template-columns: 1.2fr 1fr;
             align-items: center;
-            padding: 0 8%;
+            padding: 0 5%;
             gap: 40px;
             padding-top: 150px;
             background: var(--white);
@@ -846,6 +846,27 @@
         </section>
     </main>
 
+    <!-- Meet Samruddhi Section -->
+    <section class="meet-founder-section" style="width: 100%; background-color: var(--white); padding: 100px 5%;">
+        <div class="meet-founder-content" style="width: 100%;">
+            <p style="color: var(--color-rich-brown); font-size: 1.25rem; line-height: 1.8; font-weight: bold; margin-bottom: 10px;">The creative mind behind RAM Digital Media.</p>
+            <h2 style="font-family: var(--font-display); color: var(--color-rich-brown); font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; margin-bottom: 30px; font-weight: 700;">Hi, I'm Samruddhi Meher</h2>
+            
+            <p style="font-size: 1.25rem; line-height: 1.8; color: rgba(95, 60, 40, 0.8); margin-bottom: 20px;">
+                With over 3.5 years of experience in social media management, design, and digital marketing, my journey began in the IT industry, where I worked as a UI Designer and Social Media Manager. Over the years, I developed a passion for helping brands build a meaningful digital presence through creativity, strategy, and storytelling.
+            </p>
+            <p style="font-size: 1.25rem; line-height: 1.8; color: rgba(95, 60, 40, 0.8); margin-bottom: 20px;">
+                After gaining valuable industry experience, I spent 1.5 years working as a freelancer, collaborating with businesses across different industries and helping them strengthen their digital presence through creative content and marketing solutions.
+            </p>
+            <p style="font-size: 1.25rem; line-height: 1.8; color: rgba(95, 60, 40, 0.8); margin-bottom: 20px;">
+                As my experience grew, so did my vision. That's when I decided to take the next step and create RAM Digital Media, a space where creativity, fresh ideas, and strategic thinking come together to help brands connect, grow, and stand out in the digital world.
+            </p>
+            <p style="font-size: 1.25rem; line-height: 1.8; color: var(--color-rich-brown); font-weight: bold; margin-bottom: 0;">
+                Today, through RAM Digital Media, I continue that journey by combining experience with a new-generation approach to create meaningful digital experiences for modern brands.
+            </p>
+        </div>
+    </section>
+
     <script>
         // Navbar Scroll Effect
         const header = document.querySelector('header');
@@ -899,210 +920,931 @@
                     el.style.transform = 'translateY(0)';
                 }, 100);
             });
-        });
-
-        // Oval Mask Scroll Zoom Effect
-        window.addEventListener('scroll', () => {
-            const scrollY = window.pageYOffset;
-            const ovalMask = document.querySelector('.oval-mask');
-            if (ovalMask) {
-                // Starts at scale 1 and grows up to 1.3
-                const scale = 1 + Math.min(scrollY * 0.0008, 0.3);
-                ovalMask.style.transform = `scale(${scale})`;
-            }
+        // Oval Mask Scroll Zoom Effect - Removed to keep image static
         });
     </script>
 
 
-    <div class="horizontal-scroll-wrapper" id="scrollWrapper">
-        <div class="sticky-container">
-            <!-- Decorative prop -->
-            <div class="decorative-prop" id="prop-scroll-1" data-rotation="0" data-speed="0.15"
-                style="position: absolute; z-index: 1; bottom: 10px; left: 10px; transform: rotate(0deg); width: 20px;">
-                <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop"
-                    style="width: 60%; border-radius: 2px;">
+
+    <!-- Our Work Section -->
+    <section class="our-work-section" id="our-services">
+        <!-- Decorative props -->
+        <div class="decorative-prop" id="prop-work-1" data-rotation="0" data-speed="0"
+            style="position: absolute;z-index: 1;top: -80px;right: -80px;transform: rotate(0deg);width: 320px;overflow: hidden;">
+            <img src="image-Photoroom (3).png" alt="prop" style="width: 320px;">
+        </div>
+        <div class="decorative-prop" id="prop-work-2" data-rotation="0" data-speed="0"
+            style="position: absolute;z-index: 1;bottom: -70px;right: -20px;transform: rotate(0deg);width: 340px;overflow: hidden;">
+            <img src="Gemini_Generated_Image_n28oi3n28oi3n28o-Photoroom.png" alt="prop" style="width: 340px;">
+        </div>
+
+        <div class="work-sidebar">
+            <h1 class="work-title">Work</h1>
+        </div>
+
+        <div class="work-menu">
+            <div class="work-header">
+                <h2 class="work-header-title">What We Do For Our Clients</h2>
+                <p class="work-header-desc">Every industry has different needs, and our work focuses on creating digital
+                    content and strategies that match each brand's identity.</p>
             </div>
 
-            <div class="scroll-content" id="scrollContent">
+            <ul class="work-service-list">
+                <li class="work-service-item active" data-main-img="255A1123 (1).jpg" data-sec-img="DSC_0621.jpg">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Restaurants</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc show">Social media content, food photography, campaign ideas, and
+                        promotional marketing</span>
+                </li>
+                <li class="work-service-item" data-main-img="Gemini_Generated_Image_8bf8ro8bf8ro8bf8.png"
+                    data-sec-img="ChatGPT Image May 7, 2026, 11_43_55 AM.png">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Furniture & Interior Brands</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Creative product posts, photoshoots, and visual storytelling to
+                        showcase designs</span>
+                </li>
+                <li class="work-service-item" data-main-img="portfolio_data/images/work_school_main.png"
+                    data-sec-img="portfolio_data/images/work_school_sec.png">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Schools & Educational Institutes</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Informative posts, event coverage, and digital presence
+                        building</span>
+                </li>
+                <li class="work-service-item" data-main-img="portfolio_data/images/work_salon_main.png"
+                    data-sec-img="portfolio_data/images/work_salon_sec.png">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Salons & Beauty Businesses</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Beauty-focused content, service promotions, and brand visuals</span>
+                </li>
+                <li class="work-service-item" data-main-img="portfolio_data/images/work_retail_main.png"
+                    data-sec-img="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Gift & Retail Stores</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Creative product presentation, festive campaigns, and engaging
+                        posts</span>
+                </li>
+                <li class="work-service-item"
+                    data-main-img="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Hospitals & Healthcare</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Professional digital presence, informative content, and brand
+                        visibility</span>
+                </li>
+                <li class="work-service-item"
+                    data-main-img="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000"
+                    data-sec-img="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600">
+                    <div class="work-service-header">
+                        <span class="work-service-name">Real Estate</span>
+                        <span class="work-arrow-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <span class="work-service-desc">Property promotions, creative marketing ideas, and digital
+                        campaigns</span>
+                </li>
+            </ul>
 
-                <div class="intro-slide">
-                    <h1 style="font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 0.9;">
-                        Professional Experience<br>
-                        IT Company<br>
-                        <span
-                            style="font-family: var(--font-body); font-size: 24px; font-weight: 400; font-style: normal; letter-spacing: 0.5px; display: block; margin-top: 15px; text-transform: none; line-height: 1.2;">UI
-                            Designer & Social Media Manager (3.5 Years)</span>
-                    </h1>
-                </div>
+            <button class="work-explore-btn" onclick="window.location.href='/about'">Know more about us</button>
+        </div>
 
-                <div class="museum-card">
-                    <div class="card-header">
-                        <h2>Experience Overview</h2>
-                        <div class="card-info">
-                            <strong style="font-size: 0.9em;">UI Designer & Social Media Manager</strong><br>
-                            <span style="font-size: 0.85em; font-style: normal;">3.5 Years</span><br><br>
-                            Before starting RAM Digital Media, valuable experience was gained while working in an IT
-                            company where the focus was on digital creativity, brand communication, and social media
-                            growth. This experience helped build strong practical knowledge in design, content creation,
-                            and digital strategy.
-                        </div>
-                    </div>
-                    <div class="image-box img-1">
-                        <span class="arrow-icon">➤</span>
-                    </div>
-                </div>
-
-                <div class="museum-card">
-                    <div class="card-header">
-                        <h2>Social Media Content</h2>
-                        <div class="card-info">
-                            <strong>Managing and Planning</strong><br>
-                            Managing and planning social media content across multiple platforms to ensure consistent
-                            brand messaging and audience engagement.
-                        </div>
-                    </div>
-                    <div class="image-box img-2">
-                        <span class="arrow-icon">➤</span>
-                    </div>
-                </div>
-
-                <div class="museum-card">
-                    <div class="card-header">
-                        <h2>Creative Design</h2>
-                        <div class="card-info">
-                            <strong>Visual Graphics & Posts</strong><br>
-                            Designing creative social media posts and visual graphics that align with brand identity and
-                            effectively communicate key messages to target audiences.
-                        </div>
-                    </div>
-                    <div class="image-box img-3">
-                        <span class="arrow-icon">➤</span>
-                    </div>
-                </div>
-
-                <div class="museum-card">
-                    <div class="card-header">
-                        <h2>UI/UX Concepts</h2>
-                        <div class="card-info">
-                            <strong>Website Design</strong><br>
-                            Developing UI concepts for websites and user experiences that enhance usability and create
-                            compelling digital interactions.
-                        </div>
-                    </div>
-                    <div class="image-box img-4">
-                        <span class="arrow-icon">➤</span>
-                    </div>
-                </div>
-
-                <div class="museum-card">
-                    <div class="card-header">
-                        <h2>Website Development</h2>
-                        <div class="card-info">
-                            <strong>Layout & Design Support</strong><br>
-                            Supporting website designing and layout improvements to optimize performance and enhance
-                            overall user experience.
-                        </div>
-                    </div>
-                    <div class="image-box img-5">
-                        <span class="arrow-icon">➤</span>
-                    </div>
-                </div>
-
-                <div class="museum-card">
-                    <div class="card-header">
-                        <h2>Content Creation</h2>
-                        <div class="card-info">
-                            <strong>Digital Content</strong><br>
-                            Creating engaging digital content for different platforms including videos and graphics that
-                            drive audience engagement.
-                        </div>
-                    </div>
-                    <div class="image-box img-6">
-                        <span class="arrow-icon">➤</span>
-                    </div>
-                </div>
-
-                <div class="museum-card">
-                    <div class="card-header">
-                        <h2>Brand Promotions</h2>
-                        <div class="card-info">
-                            <strong>Creative Planning</strong><br>
-                            Planning creative ideas for brand promotions that drive awareness and engagement across all
-                            marketing channels.
-                        </div>
-                    </div>
-                    <div class="image-box img-7">
-                        <span class="arrow-icon">➤</span>
-                    </div>
-                </div>
-
-                <div class="museum-card">
-                    <div class="card-header">
-                        <h2>Analytics & Reporting</h2>
-                        <div class="card-info">
-                            <strong>Performance Metrics</strong><br>
-                            Preparing monthly performance reports and analytics to track campaign success and
-                            coordinating design, marketing, and social media tasks.
-                        </div>
-                    </div>
-                    <div class="image-box img-8">
-                        <span class="arrow-icon">➤</span>
-                    </div>
-                </div>
-
+        <div class="work-images">
+            <div class="main-img-wrapper">
+                <img id="featured-work-image" class="work-swap-image" src="255A1123 (1).jpg" alt="Service Showcase">
+            </div>
+            <div class="secondary-img-wrapper">
+                <img id="secondary-work-image" class="work-swap-image" src="DSC_0621.jpg" alt="Professional Portrait">
             </div>
         </div>
-    </div>
+    </section>
 
-
-    <script>
-        const scrollWrapper = document.getElementById('scrollWrapper');
-        const scrollContent = document.getElementById('scrollContent');
-        let targetTranslate = 0;
-        let currentTranslate = 0;
-
-        window.addEventListener('scroll', () => {
-            // Get position of the wrapper relative to viewport
-            const wrapperRect = scrollWrapper.getBoundingClientRect();
-            const wrapperTop = wrapperRect.top;
-            const wrapperHeight = wrapperRect.height;
-            const viewportHeight = window.innerHeight;
-
-            // Calculate progress: 0 when wrapper starts entering, 1 when wrapper finishes
-            let progress = -wrapperTop / (wrapperHeight - viewportHeight);
-
-            // Clamp progress between 0 and 1
-            progress = Math.max(0, Math.min(1, progress));
-
-            // Calculate max horizontal travel
-            const maxScroll = scrollContent.scrollWidth - window.innerWidth;
-
-            // Set target translate value
-            targetTranslate = -progress * maxScroll;
-        });
-
-        // Smooth animation loop with easing
-        function animateScroll() {
-            // Disable transform on mobile/tablet
-            if (window.innerWidth <= 900) {
-                scrollContent.style.transform = 'none';
-                requestAnimationFrame(animateScroll);
-                return;
-            }
-
-            // Smooth easing function - ease-out-cubic for very smooth motion
-            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-            const diff = targetTranslate - currentTranslate;
-            const smoothness = 0.12; // Lower value = smoother (range: 0.01 to 0.3)
-
-            currentTranslate += diff * smoothness;
-            scrollContent.style.transform = `translateX(${currentTranslate}px)`;
-
-            requestAnimationFrame(animateScroll);
+    <style>
+        /* --- Our Work Section Styles --- */
+        .our-work-section {
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--warm-beige);
+            color: var(--rich-brown);
+            padding: 80px 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        animateScroll();
+        #prop-work-2 {
+            left: auto !important;
+            right: -20px !important;
+        }
+
+        .work-sidebar {
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            order: 3;
+        }
+
+        .work-title {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(80px, 12vw, 160px);
+            text-transform: uppercase;
+            line-height: 0.8;
+            letter-spacing: -2px;
+            user-select: none;
+            color: var(--rich-brown);
+        }
+
+        .work-images {
+            flex: 1;
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            order: 2;
+        }
+
+        .main-img-wrapper {
+            width: 75%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: 20px 20px 60px rgba(252, 196, 25, 0.1);
+        }
+
+        .secondary-img-wrapper {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            height: 380px;
+            z-index: 2;
+            overflow: hidden;
+            border: 10px solid var(--warm-beige);
+            box-shadow: 10px 10px 30px rgba(252, 196, 25, 0.1);
+        }
+
+        .work-swap-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.4s ease-in-out;
+            opacity: 1;
+        }
+
+        .work-menu {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
+            order: 1;
+        }
+
+        .work-header {
+            margin-bottom: 40px;
+        }
+
+        .work-header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #5F3C28;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .work-header-desc {
+            color: var(--rich-brown);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        .work-service-list {
+            list-style: none;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .work-service-item {
+            border-top: 1px solid var(--rich-brown);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            gap: 0;
+        }
+
+        .work-service-item:last-child {
+            border-bottom: 1px solid var(--rich-brown);
+        }
+
+        .work-service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 15px;
+        }
+
+        .work-service-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+            color: var(--rich-brown);
+            flex: 1;
+        }
+
+        .work-service-desc {
+            font-size: 0.85rem;
+            color: var(--rich-brown);
+            opacity: 0;
+            line-height: 1.5;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            display: block;
+            margin-top: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .work-service-desc.show {
+            opacity: 0.8;
+            margin-top: 12px;
+            max-height: 100px;
+        }
+
+        .work-arrow-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            color: var(--burnt-orange);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .work-service-item.active .work-arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        .work-service-item:hover {
+            padding-left: 15px;
+            background-color: rgba(252, 196, 25, 0.05);
+        }
+
+        .work-service-item:hover .work-service-desc {
+            opacity: 1;
+            color: var(--burnt-orange);
+        }
+
+        .work-service-item:hover .work-arrow-icon {
+            color: var(--sunflower-yellow);
+        }
+
+        .work-explore-btn {
+            align-self: flex-end;
+            padding: 18px 45px;
+            border: 1.5px solid var(--rich-brown);
+            background: transparent;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            color: var(--rich-brown);
+            border-radius: 30px;
+        }
+
+        .work-explore-btn:hover {
+            background-color: var(--sunflower-yellow);
+            color: var(--rich-brown);
+            border-color: var(--sunflower-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(252, 196, 25, 0.2);
+        }
+
+        @media (max-width: 1024px) {
+            .our-work-section {
+                flex-direction: column;
+                padding: 40px 20px 120px 20px !important;
+                /* Extra bottom padding for prop */
+            }
+
+            #prop-work-2 {
+                bottom: -40px !important;
+                right: -20px !important;
+                left: auto !important;
+                transform: none !important;
+                width: 260px !important;
+                top: auto !important;
+            }
+
+            #prop-work-2 img {
+                width: 260px !important;
+            }
+
+            #prop-work-1 {
+                width: 180px !important;
+                top: -40px !important;
+                right: -30px !important;
+            }
+
+            #prop-work-1 img {
+                width: 180px !important;
+            }
+
+            .work-sidebar {
+                order: 1;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .work-menu {
+                order: 2;
+            }
+
+            .work-images {
+                order: 3;
+            }
+
+            .work-title {
+                writing-mode: horizontal-tb;
+                transform: none;
+                font-size: 60px;
+                margin-bottom: 40px;
+            }
+
+            .work-images {
+                min-height: 400px;
+                margin-bottom: 40px;
+            }
+
+            .work-menu {
+                padding-left: 0;
+            }
+
+            .secondary-img-wrapper {
+                width: 180px;
+                height: 250px;
+            }
+
+            .work-explore-btn {
+                align-self: center;
+            }
+        }
+
+        /* --- Footer Styles --- */
+        .footer {
+            width: 100%;
+            background: url('FOOTER_DESKTOP.png');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            color: var(--color-rich-brown);
+            text-shadow: 0 1px 2px rgba(250, 248, 226, 0.5);
+            padding: 120px 5% 150px 5%;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .footer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .footer-header-left {
+            flex: 1;
+        }
+
+        .footer-sub {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--color-rich-brown);
+        }
+
+        .footer-heading {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.1em;
+            color: var(--color-rich-brown);
+            margin: 0;
+        }
+
+        .footer-header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .founder-text {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--color-rich-brown);
+            margin: 0;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(95, 60, 40, 0.1);
+        }
+
+        .grid-column {
+            min-width: 150px;
+        }
+
+        .brand img {
+            height: 160px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Footer Semicircle Bump */
+        .footer-bump {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            background-color: #FAF8E2;
+            border-radius: 50%;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-bump img {
+            width: 180px;
+            height: auto;
+            margin-top: 100px;
+            object-fit: contain;
+        }
+
+        .local-time {
+            display: none;
+        }
+
+        .dot-circle {
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0;
+            vertical-align: middle;
+            object-fit: contain;
+            background-color: transparent;
+        }
+
+        .grid-column h4 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            color: var(--color-rich-brown);
+            background: transparent;
+            padding: 0;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .grid-column ul {
+            list-style: none;
+        }
+
+        .grid-column ul li,
+        .grid-column ul li a {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--color-rich-brown);
+            display: block;
+            text-decoration: none;
+        }
+
+        /* Footer Social Icons Corner */
+        .footer-social-corner {
+            position: absolute;
+            right: 5%;
+            bottom: 25%;
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        .social-icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            text-decoration: none;
+            font-size: 32px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .social-icon-box:hover {
+            transform: scale(1.2) rotate(15deg);
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .grid-column ul li:hover {
+            transform: scale(1.1) translateX(8px);
+        }
+
+        .footer-bottom {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0;
+        }
+
+        @media (max-width: 992px) {
+            .footer-bump {
+                display: none !important;
+            }
+
+            .founder-text {
+                font-size: 12px;
+                text-align: left;
+            }
+
+            .footer-header-right {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .footer-social-corner {
+                right: 5%;
+                bottom: 15%;
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .social-icon-box {
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: row !important;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+                width: 100%;
+            }
+
+            .brand img {
+                height: 60px;
+            }
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 60px 8% 40px;
+                background-image: url('FOOTER_AND.png');
+                background-size: 100% auto;
+                background-position: top center;
+                background-repeat: no-repeat;
+                max-height: none !important;
+                min-height: 90vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .footer-header {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                text-align: left;
+                gap: 20px;
+            }
+
+            .footer-header-right {
+                align-items: flex-start;
+                text-align: left;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .footer-header-left {
+                width: 100%;
+            }
+
+            .footer-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 20px;
+                align-items: flex-start;
+                text-align: left;
+                margin-top: 30px;
+                justify-content: space-between;
+            }
+
+            .grid-column {
+                min-width: 120px;
+                flex: 1;
+            }
+
+            .grid-column h4 {
+                font-size: 16px;
+                padding: 0;
+                margin-bottom: 15px;
+            }
+
+            .grid-column ul li,
+            .grid-column ul li a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .decorative-prop {
+                width: 80px !important;
+            }
+
+            #prop-explore-1 {
+                display: none !important;
+            }
+        }
+
+        .fab-container {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fab-container .fab {
+            width: 45px;
+            height: 45px;
+            background: var(--color-primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--color-rich-brown);
+            border: 2px solid var(--color-burnt-orange);
+        }
+
+        .fab-container .fab:hover {
+            background: var(--color-burnt-orange);
+            color: white;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .local-time {
+            text-align: center;
+        }
+        }
+    </style>
+
+    <script>
+        // Our Work section image swap and accordion
+        const featuredWorkImg = document.getElementById('featured-work-image');
+        const secondaryWorkImg = document.getElementById('secondary-work-image');
+
+        const workServiceItems = document.querySelectorAll('.work-service-item');
+
+        function smoothWorkSwap(imgElement, newSrc) {
+            imgElement.style.opacity = '0';
+
+            setTimeout(() => {
+                imgElement.src = newSrc;
+                imgElement.style.opacity = '1';
+            }, 200);
+        }
+
+        workServiceItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Close all other items
+                workServiceItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const desc = otherItem.querySelector('.work-service-desc');
+                        if (desc) {
+                            desc.classList.remove('show');
+                        }
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+                const desc = item.querySelector('.work-service-desc');
+                if (desc) {
+                    desc.classList.toggle('show');
+                }
+
+                // Swap images
+                const newMainSrc = item.getAttribute('data-main-img');
+                const newSecSrc = item.getAttribute('data-sec-img');
+
+                smoothWorkSwap(featuredWorkImg, newMainSrc);
+                smoothWorkSwap(secondaryWorkImg, newSecSrc);
+            });
+
+            // Hover effect for image swap
+            item.addEventListener('mouseenter', () => {
+                const newMainSrc = item.getAttribute('data-main-img');
+                const newSecSrc = item.getAttribute('data-sec-img');
+
+                smoothWorkSwap(featuredWorkImg, newMainSrc);
+                smoothWorkSwap(secondaryWorkImg, newSecSrc);
+            });
+        });
     </script>
+
+    <!-- Explore Our Creative Section -->
+    <section class="explore-section" id="explore-creative-work">
+        <!-- Decorative prop -->
+        <div class="decorative-prop" id="prop-explore-1" data-rotation="0" data-speed="0"
+            style="position: absolute;z-index: 1;bottom: -20px;right: -40px;transform: rotate(0deg);width: 300px;overflow: hidden;">
+            <img src="image-Photoroom-0.png" alt="prop" style="width: 300px;">
+        </div>
+        <div class="explore-header-container">
+            <div class="explore-header-left">
+                <h1>Explore Our<br>Creative Work</h1>
+                <p>You can explore our creative work through different categories.</p>
+            </div>
+            <div class="explore-header-right">
+                <p>RAM Digital Media showcases a diverse portfolio of creative solutions designed to help brands stand
+                    out and engage their audiences effectively through multiple mediums.</p>
+                <a href="/index#contact-us" class="explore-book-btn">Start Your Journey</a>
+            </div>
+        </div>
+
+        <div class="explore-services-grid">
+            <!-- Social Media Content -->
+            <div class="explore-card explore-card-mint">
+                <div class="explore-tags">
+                    <span class="explore-tag">Digital</span>
+                    <span class="explore-tag">Strategy</span>
+                </div>
+                <div class="explore-card-icon"></div>
+                <h3>Social Media<br>Content</h3>
+                <p class="explore-description">Plan your home</p>
+                <div class="explore-image-wrapper">
+                    <iframe src="https://www.instagram.com/reel/C6x-wPUI84j/embed/" frameborder="0"
+                        scrolling="no"></iframe>
+                </div>
+            </div>
+
+            <!-- Professional Photography -->
+            <div class="explore-card">
+                <div class="explore-tags">
+                    <span class="explore-tag">Visual</span>
+                    <span class="explore-tag">Premium</span>
+                </div>
+                <div class="explore-card-icon"></div>
+                <h3>Professional<br>Photography</h3>
+                <p class="explore-description">Easy living</p>
+                <div class="explore-image-wrapper">
+                    <iframe src="https://www.instagram.com/reel/DRTnxpeCFUA/embed/" frameborder="0"
+                        scrolling="no"></iframe>
+                </div>
+            </div>
+
+            <!-- Videography & Motion -->
+            <div class="explore-card">
+                <div class="explore-tags">
+                    <span class="explore-tag">Video</span>
+                    <span class="explore-tag">Motion</span>
+                </div>
+                <div class="explore-card-icon"></div>
+                <h3>Videography<br>& Motion</h3>
+                <p class="explore-description">Sirimirii</p>
+                <div class="explore-image-wrapper">
+                    <iframe src="https://www.instagram.com/reel/DYUMlwdsSzD/embed/" frameborder="0"
+                        scrolling="no"></iframe>
+                </div>
+            </div>
+
+            <!-- Wedding Content -->
+            <div class="explore-card">
+                <div class="explore-tags">
+                    <span class="explore-tag">Events</span>
+                    <span class="explore-tag">Moments</span>
+                </div>
+                <div class="explore-card-icon"></div>
+                <h3>Wedding<br>Content</h3>
+                <p class="explore-description">Komuanddarshu</p>
+                <div class="explore-image-wrapper">
+                    <iframe src="https://www.instagram.com/reel/C1or5JaBk6s/embed/" frameborder="0"
+                        scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+        <script async src="https://www.instagram.com/embed.js"></script>
+
+    </section>
 
     <!-- Desktop Clients Section -->
     <section class="clients-section">
@@ -1123,183 +1865,103 @@
 
         <div class="clients-carousel">
             <div class="carousel-col carousel-up" id="clientsCol1">
-                <!-- Set 1 -->
                 <div class="carousel-card"
-                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
-                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="carousel-card-content">
-                        <h3>Sirimirii</h3>
-                        <p>Social Media & Strategy</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/sirimiriirestaurant?igsh=eThjNDlvaGxmMTZp', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Sakarya</h3>
-                        <p>SEO & Content</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/planyourhome.in?igsh=cDk1dGo4OTlwcWd6', '_blank')"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Creative Partner</h3>
-                        <p>Digital Solutions</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/easy_living_official_?igsh=MWtmNWF0N2tjcjUxNg==', '_blank')"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Easy Living</h3>
-                        <p>Photography</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/shree_electricals1974?igsh=MW84dmhjd3ExdnI4bQ==', '_blank')"
+                    style="background-image: url('PHOTO-2026-05-07-13-53-20-Photoroom.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Plan Your Home</h3>
-                        <p>Interior Strategy</p>
-                    </div>
+                    
+                    style="background-image: url('ensure_to_insure.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Digital Growth</h3>
-                        <p>Marketing</p>
-                    </div>
-                </div>
-                <!-- Set 2 (for seamless loop) -->
-                <div class="carousel-card"
-                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
-                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="carousel-card-content">
-                        <h3>Sirimirii</h3>
-                        <p>Social Media & Strategy</p>
-                    </div>
+                    
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Sakarya</h3>
-                        <p>SEO & Content</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/sirimiriirestaurant?igsh=eThjNDlvaGxmMTZp', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Creative Partner</h3>
-                        <p>Digital Solutions</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/planyourhome.in?igsh=cDk1dGo4OTlwcWd6', '_blank')"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Easy Living</h3>
-                        <p>Photography</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/easy_living_official_?igsh=MWtmNWF0N2tjcjUxNg==', '_blank')"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Plan Your Home</h3>
-                        <p>Interior Strategy</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/shree_electricals1974?igsh=MW84dmhjd3ExdnI4bQ==', '_blank')"
+                    style="background-image: url('PHOTO-2026-05-07-13-53-20-Photoroom.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Digital Growth</h3>
-                        <p>Marketing</p>
-                    </div>
+                    
+                    style="background-image: url('ensure_to_insure.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
+                </div>
+                <div class="carousel-card"
+                    
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
             </div>
             <div class="carousel-col carousel-down" id="clientsCol2">
-                <!-- Set 1 (Reverse/Staggered Order) -->
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Digital Growth</h3>
-                        <p>Marketing</p>
-                    </div>
+                    
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Plan Your Home</h3>
-                        <p>Interior Strategy</p>
-                    </div>
+                    
+                    style="background-image: url('ensure_to_insure.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Easy Living</h3>
-                        <p>Photography</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/shree_electricals1974?igsh=MW84dmhjd3ExdnI4bQ==', '_blank')"
+                    style="background-image: url('PHOTO-2026-05-07-13-53-20-Photoroom.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Creative Partner</h3>
-                        <p>Digital Solutions</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/easy_living_official_?igsh=MWtmNWF0N2tjcjUxNg==', '_blank')"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Sakarya</h3>
-                        <p>SEO & Content</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/planyourhome.in?igsh=cDk1dGo4OTlwcWd6', '_blank')"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
-                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="carousel-card-content">
-                        <h3>Sirimirii</h3>
-                        <p>Social Media & Strategy</p>
-                    </div>
-                </div>
-                <!-- Set 2 -->
-                <div class="carousel-card"
-                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Digital Growth</h3>
-                        <p>Marketing</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/sirimiriirestaurant?igsh=eThjNDlvaGxmMTZp', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Plan Your Home</h3>
-                        <p>Interior Strategy</p>
-                    </div>
+                    
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Easy Living</h3>
-                        <p>Photography</p>
-                    </div>
+                    
+                    style="background-image: url('ensure_to_insure.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Creative Partner</h3>
-                        <p>Digital Solutions</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/shree_electricals1974?igsh=MW84dmhjd3ExdnI4bQ==', '_blank')"
+                    style="background-image: url('PHOTO-2026-05-07-13-53-20-Photoroom.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="carousel-card-content">
-                        <h3>Sakarya</h3>
-                        <p>SEO & Content</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/easy_living_official_?igsh=MWtmNWF0N2tjcjUxNg==', '_blank')"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
                 <div class="carousel-card"
-                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
-                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="carousel-card-content">
-                        <h3>Sirimirii</h3>
-                        <p>Social Media & Strategy</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/planyourhome.in?igsh=cDk1dGo4OTlwcWd6', '_blank')"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
+                </div>
+                <div class="carousel-card"
+                    onclick="window.open('https://www.instagram.com/sirimiriirestaurant?igsh=eThjNDlvaGxmMTZp', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
             </div>
         </div>
@@ -1327,126 +1989,59 @@
             </div>
 
             <div class="mobile-carousel-container" id="mobileCarousel">
-                <!-- Sirimirii -->
                 <div class="mobile-client-card"
-                    onclick="window.open('https://www.instagram.com/reel/DYUMlwdsSzD/', '_blank')"
-                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white; cursor: pointer;">
-                    <div class="mobile-card-content">
-                        <span class="mobile-card-badge">Premium</span>
-                        <h3>Sirimirii</h3>
-                        <p>Social Media & Brand Strategy</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/sirimiriirestaurant?igsh=eThjNDlvaGxmMTZp', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
-
-                <!-- Easy Living -->
                 <div class="mobile-client-card"
-                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="mobile-card-content">
-                        <span class="mobile-card-badge">Standard</span>
-                        <h3>Easy Living</h3>
-                        <p>Photography & Digital Branding</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/planyourhome.in?igsh=cDk1dGo4OTlwcWd6', '_blank')"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
-
-                <!-- Sakarya Creations -->
                 <div class="mobile-client-card"
-                    style="background-image: url('LOGOS/sakarya.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="mobile-card-content">
-                        <span class="mobile-card-badge">Standard</span>
-                        <h3>Sakarya Creations</h3>
-                        <p>SEO & Content Strategy</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/easy_living_official_?igsh=MWtmNWF0N2tjcjUxNg==', '_blank')"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
-
-                <!-- Plan Your Home -->
                 <div class="mobile-client-card"
-                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="mobile-card-content">
-                        <span class="mobile-card-badge">Premium</span>
-                        <h3>Plan Your Home</h3>
-                        <p>Interior & Digital Strategy</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/shree_electricals1974?igsh=MW84dmhjd3ExdnI4bQ==', '_blank')"
+                    style="background-image: url('PHOTO-2026-05-07-13-53-20-Photoroom.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
                 </div>
-
-                <!-- Digital Growth -->
                 <div class="mobile-client-card"
-                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="mobile-card-content">
-                        <span class="mobile-card-badge">Standard</span>
-                        <h3>Digital Growth</h3>
-                        <p>Marketing & Strategy</p>
-                    </div>
+                    
+                    style="background-image: url('ensure_to_insure.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
-
-                <!-- Creative Partner -->
                 <div class="mobile-client-card"
-                    style="background-image: url('LOGOS/PHOTO-2026-05-07-13-53-20.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: white;">
-                    <div class="mobile-card-content">
-                        <span class="mobile-card-badge">Professional</span>
-                        <h3>Creative Partner</h3>
-                        <p>Digital Solutions</p>
-                    </div>
+                    
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
-
-                <!-- Brand Client -->
                 <div class="mobile-client-card"
-                    style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800')">
-                    <div class="mobile-card-content">
-                        <span class="mobile-card-badge">Premium</span>
-                        <h3>Brand Client</h3>
-                        <p>Video & Content Creation</p>
-                    </div>
+                    onclick="window.open('https://www.instagram.com/sirimiriirestaurant?igsh=eThjNDlvaGxmMTZp', '_blank')"
+                    style="background-image: url('LOGOS/sirimirii logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
+                </div>
+                <div class="mobile-client-card"
+                    onclick="window.open('https://www.instagram.com/planyourhome.in?igsh=cDk1dGo4OTlwcWd6', '_blank')"
+                    style="background-image: url('LOGOS/plan your home.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
+                </div>
+                <div class="mobile-client-card"
+                    onclick="window.open('https://www.instagram.com/easy_living_official_?igsh=MWtmNWF0N2tjcjUxNg==', '_blank')"
+                    style="background-image: url('LOGOS/El logo.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
+                </div>
+                <div class="mobile-client-card"
+                    onclick="window.open('https://www.instagram.com/shree_electricals1974?igsh=MW84dmhjd3ExdnI4bQ==', '_blank')"
+                    style="background-image: url('PHOTO-2026-05-07-13-53-20-Photoroom.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; cursor: pointer;">
+                </div>
+                <div class="mobile-client-card"
+                    
+                    style="background-image: url('ensure_to_insure.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
+                </div>
+                <div class="mobile-client-card"
+                    
+                    style="background-image: url('LOGOS/images.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; ">
                 </div>
             </div>
         </section>
     </div>
 
-    <script>
-        // Mobile Sticky Horizontal Scroll Logic
-        let isScrolling = false;
-
-        function updateCarousel() {
-            if (window.innerWidth > 900) {
-                isScrolling = false;
-                return;
-            }
-
-            const wrapper = document.getElementById('mobileStickyWrapper');
-            const carousel = document.getElementById('mobileCarousel');
-            if (!wrapper || !carousel) {
-                isScrolling = false;
-                return;
-            }
-
-            const wrapperRect = wrapper.getBoundingClientRect();
-            const wrapperTop = wrapperRect.top;
-            const wrapperHeight = wrapperRect.height;
-            const viewportHeight = window.innerHeight;
-
-            // Calculate progress (0 to 1)
-            let progress = -wrapperTop / (wrapperHeight - viewportHeight);
-            progress = Math.max(0, Math.min(1, progress));
-
-            // Max horizontal travel
-            const maxScroll = carousel.scrollWidth - window.innerWidth + (window.innerWidth * 0.16);
-
-            carousel.style.transform = `translateX(${-progress * maxScroll}px) translateZ(0)`;
-
-            isScrolling = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!isScrolling) {
-                window.requestAnimationFrame(updateCarousel);
-                isScrolling = true;
-            }
-        }, { passive: true });
-
-        // Also update on resize to ensure maxScroll is correct
-        window.addEventListener('resize', () => {
-            window.requestAnimationFrame(updateCarousel);
-        });
-    </script>
+    <!-- Mobile Sticky JS Removed for pure CSS Marquee -->
 
     </section>
 
@@ -1469,7 +2064,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 60px 8% 60px 10%;
+            padding: 60px 8% 60px 5%;
             z-index: 10;
         }
 
@@ -1546,7 +2141,7 @@
             gap: 20px;
             padding: 20px;
             overflow: hidden;
-            background: rgba(252, 196, 25, 0.1);
+            background: transparent;
         }
 
         .carousel-col {
@@ -1554,14 +2149,15 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            height: max-content;
         }
 
         .carousel-up {
-            animation: carouselScrollUp 12s linear infinite;
+            animation: carouselScrollUp 30s linear infinite;
         }
 
         .carousel-down {
-            animation: carouselScrollDown 12s linear infinite;
+            animation: carouselScrollDown 30s linear infinite;
         }
 
         @keyframes carouselScrollUp {
@@ -1585,49 +2181,30 @@
         }
 
         .carousel-card {
-            background: linear-gradient(135deg, var(--sunny-cream) 0%, rgba(255, 250, 205, 0.8) 100%);
-            min-height: 340px;
-            border-radius: 18px;
+            background: transparent;
+            height: 200px;
             width: 100%;
-            padding: 22px 20px;
-            color: var(--rich-brown);
+            padding: 10px;
             flex-shrink: 0;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             border: none;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 12px 32px rgba(252, 196, 25, 0.15), 0 0 0 1px rgba(252, 196, 25, 0.1);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(8px);
+            box-shadow: none;
         }
 
         .carousel-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--burnt-orange), var(--sunflower-yellow), var(--burnt-orange));
-            background-size: 200% 100%;
+            display: none;
         }
 
         .carousel-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 100% 0%, rgba(255, 140, 0, 0.05), transparent 50%);
-            pointer-events: none;
+            display: none;
         }
 
         .carousel-card:hover {
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 18px 42px rgba(252, 196, 25, 0.22), 0 0 0 1px rgba(252, 196, 25, 0.2);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: none;
         }
 
         .carousel-card-content {
@@ -1822,31 +2399,33 @@
             margin-bottom: 30px;
         }
 
+        @keyframes mobileCarouselScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         .mobile-carousel-container {
             display: flex;
             padding: 0 8%;
             gap: 25px;
-            will-change: transform;
-            /* Removed transition: transform 0.1s ease-out; - This causes shaking on scroll */
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            width: max-content;
+            animation: mobileCarouselScroll 30s linear infinite;
         }
 
         .mobile-client-card {
-            min-width: 75vw;
-            height: 380px;
-            border-radius: 20px;
-            background-size: cover;
+            min-width: 60vw;
+            height: 200px;
+            padding: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
+            background-color: transparent;
             position: relative;
             flex-shrink: 0;
             overflow: hidden;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            box-shadow: 0 15px 35px rgba(95, 60, 40, 0.15);
+            box-shadow: none;
+            border: none;
         }
 
         .mobile-card-content {
@@ -1888,8 +2467,6 @@
 
             .mobile-sticky-wrapper {
                 display: block !important;
-                height: 400vh;
-                /* Scroll runway */
             }
         }
 
@@ -2122,902 +2699,195 @@
         // setupClientsCarousel('clientsCol2');
     </script>
 
-    <!-- Our Work Section -->
-    <section class="our-work-section" id="our-services">
-        <!-- Decorative props -->
-        <div class="decorative-prop" id="prop-work-1" data-rotation="0" data-speed="0"
-            style="position: absolute;z-index: 1;top: -80px;right: -80px;transform: rotate(0deg);width: 320px;overflow: hidden;">
-            <img src="image-Photoroom (3).png" alt="prop" style="width: 320px;">
-        </div>
-        <div class="decorative-prop" id="prop-work-2" data-rotation="0" data-speed="0"
-            style="position: absolute;z-index: 1;bottom: -70px;left: -20px;transform: rotate(0deg);width: 340px;overflow: hidden;">
-            <img src="Gemini_Generated_Image_n28oi3n28oi3n28o-Photoroom.png" alt="prop" style="width: 340px;">
-        </div>
-
-        <div class="work-sidebar">
-            <h1 class="work-title">Work</h1>
-        </div>
-
-        <div class="work-images">
-            <div class="main-img-wrapper">
-                <img id="featured-work-image" class="work-swap-image" src="255A1123 (1).jpg" alt="Service Showcase">
-            </div>
-            <div class="secondary-img-wrapper">
-                <img id="secondary-work-image" class="work-swap-image" src="DSC_0621.jpg" alt="Professional Portrait">
-            </div>
-        </div>
-
-        <div class="work-menu">
-            <div class="work-header">
-                <h2 class="work-header-title">What We Do For Our Clients</h2>
-                <p class="work-header-desc">Every industry has different needs, and our work focuses on creating digital
-                    content and strategies that match each brand's identity.</p>
+    <div class="horizontal-scroll-wrapper" id="scrollWrapper">
+        <div class="sticky-container">
+            <!-- Decorative prop -->
+            <div class="decorative-prop" id="prop-scroll-1" data-rotation="0" data-speed="0.15"
+                style="position: absolute; z-index: 1; bottom: 10px; left: 10px; transform: rotate(0deg); width: 20px;">
+                <img src="Gemini_Generated_Image_vfxcssvfxcssvfxc (1).png" alt="prop"
+                    style="width: 60%; border-radius: 2px;">
             </div>
 
-            <ul class="work-service-list">
-                <li class="work-service-item active" data-main-img="255A1123 (1).jpg" data-sec-img="DSC_0621.jpg">
-                    <div class="work-service-header">
-                        <span class="work-service-name">Restaurants</span>
-                        <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                    <span class="work-service-desc show">Social media content, food photography, campaign ideas, and
-                        promotional marketing</span>
-                </li>
-                <li class="work-service-item" data-main-img="Gemini_Generated_Image_8bf8ro8bf8ro8bf8.png"
-                    data-sec-img="ChatGPT Image May 7, 2026, 11_43_55 AM.png">
-                    <div class="work-service-header">
-                        <span class="work-service-name">Furniture & Interior Brands</span>
-                        <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                    <span class="work-service-desc">Creative product posts, photoshoots, and visual storytelling to
-                        showcase designs</span>
-                </li>
-                <li class="work-service-item" data-main-img="portfolio_data/images/work_school_main.png"
-                    data-sec-img="portfolio_data/images/work_school_sec.png">
-                    <div class="work-service-header">
-                        <span class="work-service-name">Schools & Educational Institutes</span>
-                        <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                    <span class="work-service-desc">Informative posts, event coverage, and digital presence
-                        building</span>
-                </li>
-                <li class="work-service-item" data-main-img="portfolio_data/images/work_salon_main.png"
-                    data-sec-img="portfolio_data/images/work_salon_sec.png">
-                    <div class="work-service-header">
-                        <span class="work-service-name">Salons & Beauty Businesses</span>
-                        <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                    <span class="work-service-desc">Beauty-focused content, service promotions, and brand visuals</span>
-                </li>
-                <li class="work-service-item" data-main-img="portfolio_data/images/work_retail_main.png"
-                    data-sec-img="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=600">
-                    <div class="work-service-header">
-                        <span class="work-service-name">Gift & Retail Stores</span>
-                        <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                    <span class="work-service-desc">Creative product presentation, festive campaigns, and engaging
-                        posts</span>
-                </li>
-                <li class="work-service-item"
-                    data-main-img="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=600">
-                    <div class="work-service-header">
-                        <span class="work-service-name">Hospitals & Healthcare</span>
-                        <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                    <span class="work-service-desc">Professional digital presence, informative content, and brand
-                        visibility</span>
-                </li>
-                <li class="work-service-item"
-                    data-main-img="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000"
-                    data-sec-img="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600">
-                    <div class="work-service-header">
-                        <span class="work-service-name">Real Estate</span>
-                        <span class="work-arrow-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </div>
-                    <span class="work-service-desc">Property promotions, creative marketing ideas, and digital
-                        campaigns</span>
-                </li>
-            </ul>
+            <div class="scroll-content" id="scrollContent">
 
-            <button class="work-explore-btn" onclick="window.location.href='/about'">Know more about us</button>
+                <div class="intro-slide">
+                    <h1 style="font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 0.9;">
+                        Professional Experience<br>
+                        IT Company<br>
+                        <span
+                            style="font-family: var(--font-body); font-size: 24px; font-weight: 400; font-style: normal; letter-spacing: 0.5px; display: block; margin-top: 15px; text-transform: none; line-height: 1.2;">UI
+                            Designer & Social Media Manager (3.5 Years)</span>
+                    </h1>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Experience Overview</h2>
+                        <div class="card-info">
+                            <strong style="font-size: 0.9em;">UI Designer & Social Media Manager</strong><br>
+                            <span style="font-size: 0.85em; font-style: normal;">3.5 Years</span><br><br>
+                            Before starting RAM Digital Media, valuable experience was gained while working in an IT
+                            company where the focus was on digital creativity, brand communication, and social media
+                            growth. This experience helped build strong practical knowledge in design, content creation,
+                            and digital strategy.
+                        </div>
+                    </div>
+                    <div class="image-box img-1">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Social Media Content</h2>
+                        <div class="card-info">
+                            <strong>Managing and Planning</strong><br>
+                            Managing and planning social media content across multiple platforms to ensure consistent
+                            brand messaging and audience engagement.
+                        </div>
+                    </div>
+                    <div class="image-box img-2">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Creative Design</h2>
+                        <div class="card-info">
+                            <strong>Visual Graphics & Posts</strong><br>
+                            Designing creative social media posts and visual graphics that align with brand identity and
+                            effectively communicate key messages to target audiences.
+                        </div>
+                    </div>
+                    <div class="image-box img-3">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>UI/UX Concepts</h2>
+                        <div class="card-info">
+                            <strong>Website Design</strong><br>
+                            Developing UI concepts for websites and user experiences that enhance usability and create
+                            compelling digital interactions.
+                        </div>
+                    </div>
+                    <div class="image-box img-4">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Website Development</h2>
+                        <div class="card-info">
+                            <strong>Layout & Design Support</strong><br>
+                            Supporting website designing and layout improvements to optimize performance and enhance
+                            overall user experience.
+                        </div>
+                    </div>
+                    <div class="image-box img-5">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Content Creation</h2>
+                        <div class="card-info">
+                            <strong>Digital Content</strong><br>
+                            Creating engaging digital content for different platforms including videos and graphics that
+                            drive audience engagement.
+                        </div>
+                    </div>
+                    <div class="image-box img-6">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Brand Promotions</h2>
+                        <div class="card-info">
+                            <strong>Creative Planning</strong><br>
+                            Planning creative ideas for brand promotions that drive awareness and engagement across all
+                            marketing channels.
+                        </div>
+                    </div>
+                    <div class="image-box img-7">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+                <div class="museum-card">
+                    <div class="card-header">
+                        <h2>Analytics & Reporting</h2>
+                        <div class="card-info">
+                            <strong>Performance Metrics</strong><br>
+                            Preparing monthly performance reports and analytics to track campaign success and
+                            coordinating design, marketing, and social media tasks.
+                        </div>
+                    </div>
+                    <div class="image-box img-8">
+                        <span class="arrow-icon">➤</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </section>
+    </div>
 
-    <style>
-        /* --- Our Work Section Styles --- */
-        .our-work-section {
-            width: 100%;
-            min-height: 100vh;
-            background-color: var(--warm-beige);
-            color: var(--rich-brown);
-            padding: 80px 40px;
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .work-sidebar {
-            width: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .work-title {
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(80px, 12vw, 160px);
-            text-transform: uppercase;
-            line-height: 0.8;
-            letter-spacing: -2px;
-            user-select: none;
-            color: var(--rich-brown);
-        }
-
-        .work-images {
-            flex: 1;
-            position: relative;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .main-img-wrapper {
-            width: 75%;
-            height: 500px;
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-            box-shadow: 20px 20px 60px rgba(252, 196, 25, 0.1);
-        }
-
-        .secondary-img-wrapper {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-
-            height: 380px;
-            z-index: 2;
-            overflow: hidden;
-            border: 10px solid var(--warm-beige);
-            box-shadow: 10px 10px 30px rgba(252, 196, 25, 0.1);
-        }
-
-        .work-swap-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.4s ease-in-out;
-            opacity: 1;
-        }
-
-        .work-menu {
-            flex: 1.2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 50px;
-        }
-
-        .work-header {
-            margin-bottom: 40px;
-        }
-
-        .work-header-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #5F3C28;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .work-header-desc {
-            color: var(--rich-brown);
-            font-size: 1rem;
-            line-height: 1.6;
-            max-width: 400px;
-        }
-
-        .work-service-list {
-            list-style: none;
-            width: 100%;
-            margin-bottom: 40px;
-        }
-
-        .work-service-item {
-            border-top: 1px solid var(--rich-brown);
-            padding: 20px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            gap: 0;
-        }
-
-        .work-service-item:last-child {
-            border-bottom: 1px solid var(--rich-brown);
-        }
-
-        .work-service-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            gap: 15px;
-        }
-
-        .work-service-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.3s ease;
-            color: var(--rich-brown);
-            flex: 1;
-        }
-
-        .work-service-desc {
-            font-size: 0.85rem;
-            color: var(--rich-brown);
-            opacity: 0;
-            line-height: 1.5;
-            max-width: 300px;
-            transition: all 0.3s ease;
-            display: block;
-            margin-top: 0;
-            max-height: 0;
-            overflow: hidden;
-        }
-
-        .work-service-desc.show {
-            opacity: 0.8;
-            margin-top: 12px;
-            max-height: 100px;
-        }
-
-        .work-arrow-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            color: var(--burnt-orange);
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .work-service-item.active .work-arrow-icon {
-            transform: rotate(180deg);
-        }
-
-        .work-service-item:hover {
-            padding-left: 15px;
-            background-color: rgba(252, 196, 25, 0.05);
-        }
-
-        .work-service-item:hover .work-service-desc {
-            opacity: 1;
-            color: var(--burnt-orange);
-        }
-
-        .work-service-item:hover .work-arrow-icon {
-            color: var(--sunflower-yellow);
-        }
-
-        .work-explore-btn {
-            align-self: flex-end;
-            padding: 18px 45px;
-            border: 1.5px solid var(--rich-brown);
-            background: transparent;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            color: var(--rich-brown);
-            border-radius: 30px;
-        }
-
-        .work-explore-btn:hover {
-            background-color: var(--sunflower-yellow);
-            color: var(--rich-brown);
-            border-color: var(--sunflower-yellow);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(252, 196, 25, 0.2);
-        }
-
-        @media (max-width: 1024px) {
-            .our-work-section {
-                flex-direction: column;
-                padding: 40px 20px 120px 20px !important;
-                /* Extra bottom padding for prop */
-            }
-
-            #prop-work-2 {
-                bottom: -40px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                width: 260px !important;
-                top: auto !important;
-            }
-
-            #prop-work-2 img {
-                width: 260px !important;
-            }
-
-            #prop-work-1 {
-                width: 180px !important;
-                top: -40px !important;
-                right: -30px !important;
-            }
-
-            #prop-work-1 img {
-                width: 180px !important;
-            }
-
-            .work-title {
-                writing-mode: horizontal-tb;
-                transform: none;
-                font-size: 60px;
-                margin-bottom: 40px;
-            }
-
-            .work-images {
-                min-height: 400px;
-                margin-bottom: 40px;
-            }
-
-            .work-menu {
-                padding-left: 0;
-            }
-
-            .secondary-img-wrapper {
-                width: 180px;
-                height: 250px;
-            }
-
-            .work-explore-btn {
-                align-self: center;
-            }
-        }
-
-        /* --- Footer Styles --- */
-        .footer {
-            width: 100%;
-            background: url('Gemini_Generated_Image_6vq106vq106vq106 (1).png');
-            background-size: cover;
-            background-position: center bottom;
-            background-repeat: no-repeat;
-            color: var(--color-rich-brown);
-            text-shadow: 0 1px 2px rgba(250, 248, 226, 0.5);
-            padding: 120px 5% 150px 5%;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .footer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 40px;
-            gap: 20px;
-        }
-
-        .footer-header-left {
-            flex: 1;
-        }
-
-        .footer-sub {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--color-rich-brown);
-        }
-
-        .footer-heading {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 4.5rem);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            gap: 0.1em;
-            color: var(--color-rich-brown);
-            margin: 0;
-        }
-
-        .footer-header-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            text-align: center;
-        }
-
-        .founder-text {
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--color-rich-brown);
-            margin: 0;
-            letter-spacing: 0.5px;
-            opacity: 0.9;
-        }
-
-        .footer-grid {
-            display: flex;
-            justify-content: flex-start;
-            gap: 20px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(95, 60, 40, 0.1);
-        }
-
-        .grid-column {
-            min-width: 150px;
-        }
-
-        .brand img {
-            height: 160px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        /* Footer Semicircle Bump */
-        .footer-bump {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 280px;
-            height: 280px;
-            background-color: #FAF8E2;
-            border-radius: 50%;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .footer-bump img {
-            width: 180px;
-            height: auto;
-            margin-top: 100px;
-            object-fit: contain;
-        }
-
-        .local-time {
-            display: none;
-        }
-
-        .dot-circle {
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            margin: 0;
-            vertical-align: middle;
-            object-fit: contain;
-            background-color: transparent;
-        }
-
-        .grid-column h4 {
-            font-family: var(--font-display);
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 25px;
-            color: var(--color-rich-brown);
-            background: transparent;
-            padding: 0;
-            display: inline-block;
-            font-weight: 800;
-        }
-
-        .grid-column ul {
-            list-style: none;
-        }
-
-        .grid-column ul li,
-        .grid-column ul li a {
-            font-family: var(--font-body);
-            font-size: 15px;
-            font-weight: 400;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--color-rich-brown);
-            display: block;
-            text-decoration: none;
-        }
-
-        /* Footer Social Icons Corner */
-        .footer-social-corner {
-            position: absolute;
-            right: 5%;
-            bottom: 25%;
-            display: flex;
-            flex-direction: row;
-            gap: 25px;
-            z-index: 10;
-        }
-
-        .social-icon-box {
-            width: 70px;
-            height: 70px;
-            background-color: #FFFFFF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-rich-brown);
-            text-decoration: none;
-            font-size: 32px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .social-icon-box:hover {
-            transform: scale(1.2) rotate(15deg);
-            background-color: var(--color-primary-yellow);
-            color: #FFFFFF;
-        }
-
-        .grid-column ul li:hover {
-            transform: scale(1.1) translateX(8px);
-        }
-
-        .footer-bottom {
-            margin-top: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding: 0;
-        }
-
-        @media (max-width: 992px) {
-            .footer-bump {
-                display: none !important;
-            }
-
-            .founder-text {
-                font-size: 12px;
-                text-align: left;
-            }
-
-            .footer-header-right {
-                align-items: flex-start;
-                text-align: left;
-            }
-
-            .footer-social-corner {
-                right: 5%;
-                bottom: 15%;
-                flex-direction: row;
-                gap: 15px;
-            }
-
-            .social-icon-box {
-                width: 42px;
-                height: 42px;
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .footer-bottom {
-                flex-direction: row !important;
-                justify-content: space-between;
-                align-items: center;
-                text-align: left;
-                width: 100%;
-            }
-
-            .brand img {
-                height: 60px;
-            }
-        }
-
-        /* Responsive Footer */
-        @media (max-width: 768px) {
-            .footer {
-                padding: 60px 8% 40px;
-                background-image: url('Gemini_Generated_Image_6vq106vq106vq106 AND.png');
-                background-size: 100% auto;
-                background-position: top center;
-                background-repeat: no-repeat;
-                max-height: none !important;
-                min-height: 90vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            .footer-header {
-                flex-direction: column-reverse;
-                align-items: flex-start;
-                text-align: left;
-                gap: 20px;
-            }
-
-            .footer-header-right {
-                align-items: flex-start;
-                text-align: left;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .footer-header-left {
-                width: 100%;
-            }
-
-            .footer-grid {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 20px;
-                align-items: flex-start;
-                text-align: left;
-                margin-top: 30px;
-                justify-content: space-between;
-            }
-
-            .grid-column {
-                min-width: 120px;
-                flex: 1;
-            }
-
-            .grid-column h4 {
-                font-size: 16px;
-                padding: 0;
-                margin-bottom: 15px;
-            }
-
-            .grid-column ul li,
-            .grid-column ul li a {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .decorative-prop {
-                width: 80px !important;
-            }
-
-            #prop-explore-1 {
-                display: none !important;
-            }
-        }
-
-        .fab-container {
-            position: absolute;
-            bottom: 40px;
-            right: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .fab {
-            width: 45px;
-            height: 45px;
-            background: var(--color-primary-yellow);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.3s;
-            color: var(--color-rich-brown);
-            border: 2px solid var(--color-burnt-orange);
-        }
-
-        .fab:hover {
-            background: var(--color-burnt-orange);
-            color: white;
-        }
-
-        .footer-bottom {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .local-time {
-            text-align: center;
-        }
-        }
-    </style>
 
     <script>
-        // Our Work section image swap and accordion
-        const featuredWorkImg = document.getElementById('featured-work-image');
-        const secondaryWorkImg = document.getElementById('secondary-work-image');
+        const scrollWrapper = document.getElementById('scrollWrapper');
+        const scrollContent = document.getElementById('scrollContent');
+        let targetTranslate = 0;
+        let currentTranslate = 0;
 
-        const workServiceItems = document.querySelectorAll('.work-service-item');
+        window.addEventListener('scroll', () => {
+            // Get position of the wrapper relative to viewport
+            const wrapperRect = scrollWrapper.getBoundingClientRect();
+            const wrapperTop = wrapperRect.top;
+            const wrapperHeight = wrapperRect.height;
+            const viewportHeight = window.innerHeight;
 
-        function smoothWorkSwap(imgElement, newSrc) {
-            imgElement.style.opacity = '0';
+            // Calculate progress: 0 when wrapper starts entering, 1 when wrapper finishes
+            let progress = -wrapperTop / (wrapperHeight - viewportHeight);
 
-            setTimeout(() => {
-                imgElement.src = newSrc;
-                imgElement.style.opacity = '1';
-            }, 200);
+            // Clamp progress between 0 and 1
+            progress = Math.max(0, Math.min(1, progress));
+
+            // Calculate max horizontal travel
+            const maxScroll = scrollContent.scrollWidth - window.innerWidth;
+
+            // Set target translate value
+            targetTranslate = -progress * maxScroll;
+        });
+
+        // Smooth animation loop with easing
+        function animateScroll() {
+            // Disable transform on mobile/tablet
+            if (window.innerWidth <= 900) {
+                scrollContent.style.transform = 'none';
+                requestAnimationFrame(animateScroll);
+                return;
+            }
+
+            // Smooth easing function - ease-out-cubic for very smooth motion
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+            const diff = targetTranslate - currentTranslate;
+            const smoothness = 0.12; // Lower value = smoother (range: 0.01 to 0.3)
+
+            currentTranslate += diff * smoothness;
+            scrollContent.style.transform = `translateX(${currentTranslate}px)`;
+
+            requestAnimationFrame(animateScroll);
         }
 
-        workServiceItems.forEach(item => {
-            item.addEventListener('click', () => {
-                // Close all other items
-                workServiceItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                        const desc = otherItem.querySelector('.work-service-desc');
-                        if (desc) {
-                            desc.classList.remove('show');
-                        }
-                    }
-                });
-
-                // Toggle current item
-                item.classList.toggle('active');
-                const desc = item.querySelector('.work-service-desc');
-                if (desc) {
-                    desc.classList.toggle('show');
-                }
-
-                // Swap images
-                const newMainSrc = item.getAttribute('data-main-img');
-                const newSecSrc = item.getAttribute('data-sec-img');
-
-                smoothWorkSwap(featuredWorkImg, newMainSrc);
-                smoothWorkSwap(secondaryWorkImg, newSecSrc);
-            });
-
-            // Hover effect for image swap
-            item.addEventListener('mouseenter', () => {
-                const newMainSrc = item.getAttribute('data-main-img');
-                const newSecSrc = item.getAttribute('data-sec-img');
-
-                smoothWorkSwap(featuredWorkImg, newMainSrc);
-                smoothWorkSwap(secondaryWorkImg, newSecSrc);
-            });
-        });
+        animateScroll();
     </script>
-
-    <!-- Explore Our Creative Section -->
-    <section class="explore-section" id="explore-creative-work">
-        <!-- Decorative prop -->
-        <div class="decorative-prop" id="prop-explore-1" data-rotation="0" data-speed="0"
-            style="position: absolute;z-index: 1;bottom: -20px;right: -40px;transform: rotate(0deg);width: 300px;overflow: hidden;">
-            <img src="image-Photoroom-0.png" alt="prop" style="width: 300px;">
-        </div>
-        <div class="explore-header-container">
-            <div class="explore-header-left">
-                <h1>Explore Our<br>Creative Work</h1>
-                <p>You can explore our creative work through different categories.</p>
-            </div>
-            <div class="explore-header-right">
-                <p>RAM Digital Media showcases a diverse portfolio of creative solutions designed to help brands stand
-                    out and engage their audiences effectively through multiple mediums.</p>
-                <a href="/index#contact-us" class="explore-book-btn">Start Your Journey</a>
-            </div>
-        </div>
-
-        <div class="explore-services-grid">
-            <!-- Social Media Content -->
-            <div class="explore-card explore-card-mint">
-                <div class="explore-tags">
-                    <span class="explore-tag">Digital</span>
-                    <span class="explore-tag">Strategy</span>
-                </div>
-                <div class="explore-card-icon"></div>
-                <h3>Social Media<br>Content</h3>
-                <p class="explore-description">Plan your home</p>
-                <div class="explore-image-wrapper">
-                    <iframe src="https://www.instagram.com/reel/C6x-wPUI84j/embed/" frameborder="0"
-                        scrolling="no"></iframe>
-                </div>
-            </div>
-
-            <!-- Professional Photography -->
-            <div class="explore-card">
-                <div class="explore-tags">
-                    <span class="explore-tag">Visual</span>
-                    <span class="explore-tag">Premium</span>
-                </div>
-                <div class="explore-card-icon"></div>
-                <h3>Professional<br>Photography</h3>
-                <p class="explore-description">Easy living</p>
-                <div class="explore-image-wrapper">
-                    <iframe src="https://www.instagram.com/reel/DRTnxpeCFUA/embed/" frameborder="0"
-                        scrolling="no"></iframe>
-                </div>
-            </div>
-
-            <!-- Videography & Motion -->
-            <div class="explore-card">
-                <div class="explore-tags">
-                    <span class="explore-tag">Video</span>
-                    <span class="explore-tag">Motion</span>
-                </div>
-                <div class="explore-card-icon"></div>
-                <h3>Videography<br>& Motion</h3>
-                <p class="explore-description">Sirimirii</p>
-                <div class="explore-image-wrapper">
-                    <iframe src="https://www.instagram.com/reel/DYUMlwdsSzD/embed/" frameborder="0"
-                        scrolling="no"></iframe>
-                </div>
-            </div>
-
-            <!-- Wedding Content -->
-            <div class="explore-card">
-                <div class="explore-tags">
-                    <span class="explore-tag">Events</span>
-                    <span class="explore-tag">Moments</span>
-                </div>
-                <div class="explore-card-icon"></div>
-                <h3>Wedding<br>Content</h3>
-                <p class="explore-description">Komuanddarshu</p>
-                <div class="explore-image-wrapper">
-                    <iframe src="https://www.instagram.com/reel/C1or5JaBk6s/embed/" frameborder="0"
-                        scrolling="no"></iframe>
-                </div>
-            </div>
-        </div>
-        <script async src="https://www.instagram.com/embed.js"></script>
-
-    </section>
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -3111,7 +2981,7 @@
             'prop-hero-2': { bottom: '-100px', right: '-100px', width: '300px', speed: 0.18 },
             'prop-scroll-1': { bottom: '0px', left: '-12px', width: '300px', speed: 0.15 },
             'prop-work-1': { top: '-80px', right: '-80px', width: '320px', speed: 0 },
-            'prop-work-2': { bottom: '-70px', left: '-20px', width: '340px', speed: 0 },
+            'prop-work-2': { bottom: '-70px', right: '-20px', width: '340px', speed: 0 },
             'prop-explore-1': { bottom: '-20px', right: '-40px', width: '300px', speed: 0 }
         };
 

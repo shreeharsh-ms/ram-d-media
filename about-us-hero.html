@@ -742,7 +742,7 @@
         /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background: url('Gemini_Generated_Image_6vq106vq106vq106 (1).png');
+            background: url('FOOTER_DESKTOP.png');
             background-size: cover;
             background-position: center bottom;
             background-repeat: no-repeat;
@@ -915,7 +915,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-rich-brown);
+            color: #000000;
             text-decoration: none;
             font-size: 32px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -924,8 +924,8 @@
 
         .social-icon-box:hover {
             transform: scale(1.2) rotate(15deg);
-            background-color: var(--color-primary-yellow);
-            color: #FFFFFF;
+            background-color: #FFFFFF;
+            color: #000000;
         }
 
         @media (max-width: 992px) {
@@ -978,7 +978,7 @@
             gap: 15px;
         }
 
-        .fab {
+        .fab-container .fab {
             width: 45px;
             height: 45px;
             background: var(--color-primary-yellow);
@@ -992,8 +992,8 @@
             border: 2px solid var(--color-rich-brown);
         }
 
-        .fab:hover {
-            background: var(--color-burnt-orange);
+        .fab-container .fab:hover {
+            background: var(--color-rich-brown);
             color: white;
         }
 
@@ -1013,7 +1013,7 @@
 
             .footer {
                 padding: 60px 8% 40px;
-                background-image: url('Gemini_Generated_Image_6vq106vq106vq106 AND.png');
+                background-image: url('FOOTER_AND.png');
                 background-size: 100% auto;
                 background-position: top center;
                 background-repeat: no-repeat;
@@ -1107,7 +1107,7 @@
                 right: 20px;
             }
 
-            .fab {
+            .fab-container .fab {
                 width: 40px;
                 height: 40px;
             }
@@ -1341,17 +1341,17 @@
 
         <div class="image-grid">
             <div class="card reveal" style="transition-delay: 0.1s;">
-                <img src="about us 2.png"
-                    alt="About Us 2">
-            </div>
-
-            <div class="card reveal" style="transition-delay: 0.2s;">
-                <img src="about us 1.png"
+                <img src="1stP.png"
                     alt="About Us 1">
             </div>
 
+            <div class="card reveal" style="transition-delay: 0.2s;">
+                <img src="2ndP.png"
+                    alt="About Us 2">
+            </div>
+
             <div class="card reveal" style="transition-delay: 0.3s;">
-                <img src="PHOTO-2026-05-07-12-51-11.jpg"
+                <img src="3rdP.png"
                     alt="About Us 3">
             </div>
         </div>
@@ -1910,7 +1910,31 @@
         });
     });
 </script>
+
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+<script>
+    // ===== EXTREMELY SMOOTH SCROLL (LENIS) =====
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+    });
+
+    // Integrate Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time)=>{
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+</script>
 </body>
-
-
 </html>

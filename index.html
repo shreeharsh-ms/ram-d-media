@@ -1120,7 +1120,7 @@
             top: 0;
             width: 60%;
             height: 100%;
-            background-image: url('sam shoting in sunflower garden.png');
+            background-image: url('MANIFESTO.png');
             background-size: cover;
             background-position: center;
             -webkit-mask-image: linear-gradient(to right,
@@ -2214,11 +2214,11 @@
             transform: translateY(-50%);
             font-size: 12rem;
             font-weight: 700;
-            opacity: 0.45;
+            opacity: 1;
             z-index: 2;
             line-height: 1;
             user-select: none;
-            color: #ffea69;
+            color: var(--color-primary-yellow);
         }
 
         .how-we-work-content {
@@ -3036,7 +3036,7 @@
         /* --- Footer Styles --- */
         .footer {
             width: 100%;
-            background: url('Gemini_Generated_Image_6vq106vq106vq106 (1).png');
+            background: url('FOOTER_DESKTOP.png');
             background-size: cover;
             background-position: center bottom;
             background-repeat: no-repeat;
@@ -3223,7 +3223,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-rich-brown);
+            color: #000000;
             text-decoration: none;
             font-size: 32px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -3232,8 +3232,8 @@
 
         .social-icon-box:hover {
             transform: scale(1.2) rotate(15deg);
-            background-color: var(--color-primary-yellow);
-            color: #FFFFFF;
+            background-color: #FFFFFF;
+            color: #000000;
         }
 
         @media (max-width: 992px) {
@@ -3360,7 +3360,7 @@
             gap: 15px;
         }
 
-        .fab {
+        .fab-container .fab {
             width: 45px;
             height: 45px;
             background: var(--color-primary-yellow);
@@ -3374,7 +3374,7 @@
             border: 2px solid var(--color-burnt-orange);
         }
 
-        .fab:hover {
+        .fab-container .fab:hover {
             background: var(--color-burnt-orange);
             color: white;
         }
@@ -3389,7 +3389,7 @@
 
             .footer {
                 padding: 60px 8% 40px;
-                background-image: url('Gemini_Generated_Image_6vq106vq106vq106 AND.png');
+                background-image: url('FOOTER_AND.png');
                 background-size: 100% auto;
                 background-position: top center;
                 background-repeat: no-repeat;
@@ -3617,7 +3617,7 @@
             </div>
 
             <div class="story-image-col">
-                <img src="image-Photoroom (1).png" alt="Sunflower" class="story-inline-image" id="sunflower-asset">
+                <img src="about_us_home_page.png" alt="Sunflower" class="story-inline-image" id="sunflower-asset">
             </div>
         </div>
 
@@ -3687,7 +3687,7 @@
             <div class="services-image-preview" id="servicesImagePreview">
 
                 <div class="image-container">
-                    <img src="social_media_mgmt_1777907673000.png" id="previewImage" alt="Service Preview">
+                    <img src="SOCIALMEDIAIMAF.png" id="previewImage" alt="Service Preview">
                     <div class="preview-text-overlay">
                         <h4 id="tooltipHeading">Why Social Media Management matters</h4>
                         <p id="tooltipText">Social media is where people discover brands, explore products, and build
@@ -3880,9 +3880,9 @@
 
                 </div>
 
-                <div class="contact-form-section">
-                    <img src="PHOTO-2026-05-07-14-28-31.jpg" alt="Contact Brand Image"
-                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-lg);">
+                <div class="contact-form-section contact-image-container" style="flex: 0.8; align-self: center; display: flex; justify-content: center; align-items: center; padding: 20px;">
+                    <img src="TELEPHONE.jpg" alt="Contact Brand Image"
+                        style="max-width: 100%; max-height: 550px; object-fit: contain; border-radius: 20px; box-shadow: var(--shadow-lg);">
                 </div>
             </div>
 
@@ -4556,40 +4556,7 @@
         const manifestoSunflowerBottomRight = document.getElementById('manifesto-sunflower-bottom-right');
         const manifestoContent = document.querySelector('.manifesto-content p');
 
-        // Split text into words and wrap them in spans for reveal animation
-        if (manifestoContent) {
-            const originalText = manifestoContent.innerHTML;
-            const words = originalText.split(/(<br><br>)/);
-            let wrappedHTML = '';
-
-            words.forEach(word => {
-                if (word === '<br><br>') {
-                    wrappedHTML += word;
-                } else {
-                    const wordArray = word.split(' ');
-                    wordArray.forEach(w => {
-                        wrappedHTML += `<span class="manifesto-word" style="opacity: 0;">${w} </span>`;
-                    });
-                }
-            });
-
-            manifestoContent.innerHTML = wrappedHTML;
-            const manifestoWordSpans = document.querySelectorAll('.manifesto-word');
-
-            // Animate text reveal on scroll
-            gsap.to(manifestoWordSpans, {
-                opacity: 1,
-                duration: 0.3,
-                stagger: 0.05,
-                scrollTrigger: {
-                    trigger: '.manifesto-content p',
-                    start: 'top 80%',
-                    end: 'bottom 50%',
-                    scrub: 0.5,
-                    markers: false
-                }
-            });
-        }
+        // Manifesto text is kept fully visible from the start
 
         // Smooth sunflower animations using GSAP
         window.addEventListener('scroll', () => {
@@ -4687,7 +4654,7 @@
         const serviceData = [
             {
                 title: "Social Media Management",
-                image: "social_media_mgmt_1777907673000.png",
+                image: "SOCIALMEDIAIMAF.png",
                 description: "Social media is one of the most powerful ways for brands to communicate with their audience today. Through thoughtful content, creative visuals, and consistent engagement, social media helps brands build identity and stay connected with their community.\n\nAt RAM Digital Media, we manage your social media presence with a clear strategy, creative storytelling, and content that reflects the true personality of your brand.",
                 why: "Social media is where people discover brands, explore products, and build connections. But creating a strong presence requires more than just posting content. With the right mix of creativity, consistency, and strategy, social media becomes a powerful platform for building relationships with your audience and strengthening your brand identity."
             },
@@ -4699,31 +4666,31 @@
             },
             {
                 title: "Digital Marketing Strategy",
-                image: "marketing_strategy_1777907706366.png",
+                image: "DIGITALADS.png",
                 description: "A strong digital presence starts with the right strategy. Digital marketing strategy involves understanding your brand, audience, and goals to create a clear plan for online growth.\n\nAt RAM Digital Media, we develop customized strategies that help brands move forward with clarity and purpose in the digital space.",
                 why: "Behind every successful digital brand is a clear strategy. A strong strategy ensures every campaign, post, and marketing effort moves your brand in the right direction. Strategic planning helps brands grow with purpose instead of simply reacting to trends."
             },
             {
                 title: "Paid Advertising",
-                image: "paid_ads_1777907727018.png",
+                image: "ADS.png",
                 description: "Paid advertising allows brands to promote their products and services directly to their target audience across digital platforms. It is a powerful way to increase brand visibility and reach potential customers more quickly.\n\nWith thoughtful planning and creative campaigns, paid ads can help brands achieve measurable results and stronger audience engagement.",
                 why: "Paid advertising allows brands to reach their target audience faster and more effectively. With the right targeting and creative campaigns, ads can increase visibility, attract potential customers, and support overall business growth."
             },
             {
                 title: "Wedding Content Creation",
-                image: "wedding_content_1777907743808.png",
+                image: "WEEDING.png",
                 description: "Wedding content creation focuses on capturing the real emotions and candid moments of a wedding day in a natural and modern style. It is designed to document the celebration in a way that feels personal, authentic, and easy to share.\n\nThese moments are captured in a digital-friendly format so couples can quickly relive and share their memories.",
                 why: "While photographers and videographers beautifully capture the main moments of a wedding, wedding content creators focus on capturing the real emotions happening throughout the celebration. From candid laughter to behind-the-scenes excitement, these moments tell the true story of the day and allow couples to relive their memories instantly."
             },
             {
                 title: "Photo & Videography",
-                image: "photo_video_1777907763009.png",
+                image: "PHOTOGRAPHY.png",
                 description: "Visual storytelling plays a key role in how brands communicate today. High-quality photos and videos help showcase products, services, and experiences in a visually engaging way.\n\nProfessional visuals help brands create stronger impressions and maintain a consistent visual identity across digital platforms.",
                 why: "Visuals are often the first impression people have of a brand. High-quality photos and videos help communicate your brand story, showcase products, and capture attention in a powerful way, making your brand more memorable across digital platforms."
             },
             {
                 title: "Website Designing",
-                image: "web_design_1777907780054.png",
+                image: "WEBDESIGN.png",
                 description: "We create modern, user-friendly websites that help businesses build a strong online presence. Our focus is on clean design, easy navigation, and websites that represent your brand professionally while making it simple for customers to learn about your services.",
                 why: "A website acts as your brand’s digital home. It helps customers discover your business, understand your services, and trust your brand. A well-designed website improves credibility, supports marketing efforts, and allows your business to be accessible anytime, anywhere."
             }
