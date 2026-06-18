@@ -3505,7 +3505,7 @@
     <!-- Video Splash Screen -->
     <div class="video-splash" id="videoSplash">
         <video autoplay muted playsinline>
-            <source src="f_e_e_d_d_a_f_b_mp_.mp4" type="video/mp4">
+            <source src="portfolio_data/images/IMG_5223.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -3603,7 +3603,7 @@
                         fresh
                         thinking into the digital space has now grown into a platform where <span>creativity, strategy,
                             and
-                            passion come together</span> to help brands grow.<br><br>
+                            passion come together</span>&nbsp;to help brands grow.<br><br>
                         At RAM Digital Media, we focus on helping brands build meaningful digital presence through
                         creative
                         storytelling, thoughtful strategies, and ideas that truly connect with people. In today's
@@ -4072,13 +4072,17 @@
         // Session-based check: Only play once per session
         const hasPlayedThisSession = sessionStorage.getItem('splashPlayed');
 
-        // Detect if mobile (Android/iOS)
-        const isMobile = window.innerWidth <= 992;
+        // Detect if mobile (Android/iOS) or tablet (iPad)
+        const isMobile = window.innerWidth <= 767;
+        const isTablet = window.innerWidth > 767 && window.innerWidth <= 1024;
 
         if (videoSplash && splashVideo && splashSource && !hasPlayedThisSession) {
-            // Set different video for mobile/Android
+            // Set different video for mobile/tablet
             if (isMobile) {
-                splashSource.src = 'JNE_W_B_V_VTSGTS_B_G_videomp_.mp4';
+                splashSource.src = 'portfolio_data/images/IMG_5224.mp4';
+                splashVideo.load();
+            } else if (isTablet) {
+                splashSource.src = 'portfolio_data/images/IMG_5225.mp4';
                 splashVideo.load();
             }
 

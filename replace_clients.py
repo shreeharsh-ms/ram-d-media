@@ -17,12 +17,12 @@ clients = [
     {
         "id": "Easy living",
         "url": "https://www.instagram.com/easy_living_official_?igsh=MWtmNWF0N2tjcjUxNg==",
-        "img": "LOGOS/El logo.png"
+        "img": "portfolio_data/images/EL Logo.png"
     },
     {
         "id": "Shree electricals",
         "url": "https://www.instagram.com/shree_electricals1974?igsh=MW84dmhjd3ExdnI4bQ==",
-        "img": "PHOTO-2026-05-07-13-53-20-Photoroom.png"
+        "img": "portfolio_data/images/shree elctrcal white.png"
     },
     {
         "id": "ensure_to_insure",
@@ -34,6 +34,12 @@ clients = [
         "id": "Rekha beauty parlour",
         "url": None,
         "img": "LOGOS/images.jpg"
+    },
+    {
+        "id": "Sakarya",
+        "url": None,
+        "img": "portfolio_data/images/sakarya logo white.png",
+        "bg_size": "contain"
     }
 ]
 
